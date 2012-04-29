@@ -1,0 +1,243 @@
+   1               		.file	"lis35.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	LIS35_GetPosition
+  18               	LIS35_GetPosition:
+  19               	.LFB10:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 CF92      		push r12
+  23 0002 DF92      		push r13
+  24 0004 EF92      		push r14
+  25 0006 FF92      		push r15
+  26 0008 0F93      		push r16
+  27 000a 1F93      		push r17
+  28               	/* prologue: function */
+  29               	/* frame size = 0 */
+  30 000c 8C01      		movw r16,r24
+  31 000e 7B01      		movw r14,r22
+  32 0010 6A01      		movw r12,r20
+  33               	.LM2:
+  34 0012 0E94 0000 		call i2c_start
+  35               	.LVL1:
+  36               	.LM3:
+  37 0016 89E3      		ldi r24,lo8(57)
+  38 0018 0E94 0000 		call i2c_send
+  39               	.LM4:
+  40 001c 89EE      		ldi r24,lo8(-23)
+  41 001e 0E94 0000 		call i2c_send
+  42               	.LM5:
+  43 0022 81E0      		ldi r24,lo8(1)
+  44 0024 0E94 0000 		call i2c_get
+  45 0028 F801      		movw r30,r16
+  46 002a 8083      		st Z,r24
+  47               	.LM6:
+  48 002c 81E0      		ldi r24,lo8(1)
+  49 002e 0E94 0000 		call i2c_get
+  50               	.LM7:
+  51 0032 81E0      		ldi r24,lo8(1)
+  52 0034 0E94 0000 		call i2c_get
+  53 0038 F701      		movw r30,r14
+  54 003a 8083      		st Z,r24
+  55               	.LM8:
+  56 003c 81E0      		ldi r24,lo8(1)
+  57 003e 0E94 0000 		call i2c_get
+  58               	.LM9:
+  59 0042 81E0      		ldi r24,lo8(1)
+  60 0044 0E94 0000 		call i2c_get
+  61 0048 F601      		movw r30,r12
+  62 004a 8083      		st Z,r24
+  63               	.LM10:
+  64 004c 0E94 0000 		call i2c_stop
+  65               	/* epilogue start */
+  66               	.LM11:
+  67 0050 1F91      		pop r17
+  68 0052 0F91      		pop r16
+  69               	.LVL2:
+  70 0054 FF90      		pop r15
+  71 0056 EF90      		pop r14
+  72               	.LVL3:
+  73 0058 DF90      		pop r13
+  74 005a CF90      		pop r12
+  75               	.LVL4:
+  76 005c 0895      		ret
+  77               	.LFE10:
+  79               	.global	LIS35_WriteRegister
+  81               	LIS35_WriteRegister:
+  82               	.LFB9:
+  83               	.LM12:
+  84               	.LVL5:
+  85 005e 0F93      		push r16
+  86 0060 1F93      		push r17
+  87               	/* prologue: function */
+  88               	/* frame size = 0 */
+  89 0062 182F      		mov r17,r24
+  90 0064 062F      		mov r16,r22
+  91               	.LM13:
+  92 0066 0E94 0000 		call i2c_start
+  93               	.LVL6:
+  94               	.LM14:
+  95 006a 88E3      		ldi r24,lo8(56)
+  96 006c 0E94 0000 		call i2c_send
+  97               	.LM15:
+  98 0070 812F      		mov r24,r17
+  99 0072 0E94 0000 		call i2c_send
+ 100               	.LM16:
+ 101 0076 802F      		mov r24,r16
+ 102 0078 0E94 0000 		call i2c_send
+ 103               	.LM17:
+ 104 007c 0E94 0000 		call i2c_stop
+ 105               	/* epilogue start */
+ 106               	.LM18:
+ 107 0080 1F91      		pop r17
+ 108               	.LVL7:
+ 109 0082 0F91      		pop r16
+ 110               	.LVL8:
+ 111 0084 0895      		ret
+ 112               	.LFE9:
+ 114               	.global	LIS35_ReadRegister
+ 116               	LIS35_ReadRegister:
+ 117               	.LFB8:
+ 118               	.LM19:
+ 119               	.LVL9:
+ 120 0086 FF92      		push r15
+ 121 0088 0F93      		push r16
+ 122 008a 1F93      		push r17
+ 123               	/* prologue: function */
+ 124               	/* frame size = 0 */
+ 125 008c F82E      		mov r15,r24
+ 126 008e 8B01      		movw r16,r22
+ 127               	.LM20:
+ 128 0090 0E94 0000 		call i2c_start
+ 129               	.LVL10:
+ 130               	.LM21:
+ 131 0094 89E3      		ldi r24,lo8(57)
+ 132 0096 0E94 0000 		call i2c_send
+ 133               	.LM22:
+ 134 009a 8F2D      		mov r24,r15
+ 135 009c 8068      		ori r24,lo8(-128)
+ 136 009e 0E94 0000 		call i2c_send
+ 137               	.LM23:
+ 138 00a2 81E0      		ldi r24,lo8(1)
+ 139 00a4 0E94 0000 		call i2c_get
+ 140 00a8 F801      		movw r30,r16
+ 141 00aa 8083      		st Z,r24
+ 142               	.LM24:
+ 143 00ac 0E94 0000 		call i2c_stop
+ 144               	/* epilogue start */
+ 145               	.LM25:
+ 146 00b0 1F91      		pop r17
+ 147 00b2 0F91      		pop r16
+ 148               	.LVL11:
+ 149 00b4 FF90      		pop r15
+ 150               	.LVL12:
+ 151 00b6 0895      		ret
+ 152               	.LFE8:
+ 154               	.global	LIS35_RebootMemory
+ 156               	LIS35_RebootMemory:
+ 157               	.LFB6:
+ 158               	.LM26:
+ 159               	/* prologue: function */
+ 160               	/* frame size = 0 */
+ 161               	.LM27:
+ 162 00b8 88E3      		ldi r24,lo8(56)
+ 163 00ba 0E94 0000 		call i2c_send
+ 164               	.LM28:
+ 165 00be 81E2      		ldi r24,lo8(33)
+ 166 00c0 0E94 0000 		call i2c_send
+ 167               	.LM29:
+ 168 00c4 80E4      		ldi r24,lo8(64)
+ 169 00c6 0E94 0000 		call i2c_send
+ 170               	.LM30:
+ 171 00ca 0E94 0000 		call i2c_stop
+ 172               	/* epilogue start */
+ 173               	.LM31:
+ 174 00ce 0895      		ret
+ 175               	.LFE6:
+ 177               	.global	InitializeLIS35
+ 179               	InitializeLIS35:
+ 180               	.LFB7:
+ 181               	.LM32:
+ 182 00d0 DF93      		push r29
+ 183 00d2 CF93      		push r28
+ 184 00d4 0F92      		push __tmp_reg__
+ 185 00d6 CDB7      		in r28,__SP_L__
+ 186 00d8 DEB7      		in r29,__SP_H__
+ 187               	/* prologue: function */
+ 188               	/* frame size = 1 */
+ 189               	.LM33:
+ 190 00da 0E94 0000 		call i2c_start
+ 191               	.LM34:
+ 192 00de 0E94 0000 		call LIS35_RebootMemory
+ 193               	.LM35:
+ 194 00e2 80E2      		ldi r24,lo8(32)
+ 195 00e4 67E4      		ldi r22,lo8(71)
+ 196 00e6 0E94 0000 		call LIS35_WriteRegister
+ 197               	.LM36:
+ 198 00ea 80E2      		ldi r24,lo8(32)
+ 199 00ec BE01      		movw r22,r28
+ 200 00ee 6F5F      		subi r22,lo8(-(1))
+ 201 00f0 7F4F      		sbci r23,hi8(-(1))
+ 202 00f2 0E94 0000 		call LIS35_ReadRegister
+ 203               	.LM37:
+ 204 00f6 88E3      		ldi r24,lo8(56)
+ 205 00f8 61E0      		ldi r22,lo8(1)
+ 206 00fa 0E94 0000 		call LIS35_WriteRegister
+ 207               	.LM38:
+ 208 00fe 8BE3      		ldi r24,lo8(59)
+ 209 0100 67E7      		ldi r22,lo8(119)
+ 210 0102 0E94 0000 		call LIS35_WriteRegister
+ 211               	.LM39:
+ 212 0106 8CE3      		ldi r24,lo8(60)
+ 213 0108 67E0      		ldi r22,lo8(7)
+ 214 010a 0E94 0000 		call LIS35_WriteRegister
+ 215               	.LM40:
+ 216 010e 8DE3      		ldi r24,lo8(61)
+ 217 0110 6FEF      		ldi r22,lo8(-1)
+ 218 0112 0E94 0000 		call LIS35_WriteRegister
+ 219               	.LM41:
+ 220 0116 82E2      		ldi r24,lo8(34)
+ 221 0118 67E8      		ldi r22,lo8(-121)
+ 222 011a 0E94 0000 		call LIS35_WriteRegister
+ 223 011e 90E0      		ldi r25,lo8(0)
+ 224 0120 8981      		ldd r24,Y+1
+ 225               	.LVL13:
+ 226 0122 8734      		cpi r24,lo8(71)
+ 227 0124 01F0      		breq .L10
+ 228               	.LVL14:
+ 229 0126 91E0      		ldi r25,lo8(1)
+ 230               	.L10:
+ 231               	.LM42:
+ 232 0128 892F      		mov r24,r25
+ 233               	.LVL15:
+ 234               	/* epilogue start */
+ 235 012a 0F90      		pop __tmp_reg__
+ 236 012c CF91      		pop r28
+ 237 012e DF91      		pop r29
+ 238 0130 0895      		ret
+ 239               	.LFE7:
+ 297               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lis35.c
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:18     .text:00000000 LIS35_GetPosition
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:81     .text:0000005e LIS35_WriteRegister
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:116    .text:00000086 LIS35_ReadRegister
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:156    .text:000000b8 LIS35_RebootMemory
+C:\Users\O\AppData\Local\Temp/cc26ipgV.s:179    .text:000000d0 InitializeLIS35
+
+UNDEFINED SYMBOLS
+i2c_start
+i2c_send
+i2c_get
+i2c_stop

@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Program Files\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\labels.tmp" -fI -W+ie -C V2 -o "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\ds18b20.hex" -d "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\DS18B20.obj" -e "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\ds18b20.eep" -m "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\ds18b20.map" "L:\Programowanie\AVR_Programming\projekty\AVT3500\DS18B20\DS18B20.asm"

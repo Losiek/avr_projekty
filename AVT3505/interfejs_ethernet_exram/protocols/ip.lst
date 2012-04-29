@@ -1,0 +1,291 @@
+   1               		.file	"ip.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	IpCheck
+  18               	IpCheck:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8091 0000 		lds r24,EthFrame+23
+  25 0004 8130      		cpi r24,lo8(1)
+  26 0006 01F4      		brne .L2
+  27 0008 83E0      		ldi r24,lo8(3)
+  28 000a 0895      		ret
+  29               	.L2:
+  30               	.LM3:
+  31 000c 8630      		cpi r24,lo8(6)
+  32 000e 01F0      		breq .L4
+  33 0010 80E0      		ldi r24,lo8(0)
+  34 0012 0895      		ret
+  35               	.L4:
+  36 0014 84E0      		ldi r24,lo8(4)
+  37               	.LM4:
+  38 0016 0895      		ret
+  39               	.LFE2:
+  41               	.global	IpCheckSumCalc
+  43               	IpCheckSumCalc:
+  44               	.LFB3:
+  45               	.LM5:
+  46 0018 EF92      		push r14
+  47 001a FF92      		push r15
+  48 001c 0F93      		push r16
+  49 001e 1F93      		push r17
+  50               	/* prologue: function */
+  51               	/* frame size = 0 */
+  52               	.LM6:
+  53 0020 80E0      		ldi r24,lo8(EthFrame+24)
+  54 0022 90E0      		ldi r25,hi8(EthFrame+24)
+  55 0024 FC01      		movw r30,r24
+  56 0026 1192      		st Z+,__zero_reg__
+  57               	.LM7:
+  58 0028 1082      		st Z,__zero_reg__
+  59 002a FC01      		movw r30,r24
+  60 002c 3A97      		sbiw r30,10
+  61 002e EE24      		clr r14
+  62 0030 FF24      		clr r15
+  63 0032 8701      		movw r16,r14
+  64               	.LVL0:
+  65               	.LM8:
+  66 0034 40E0      		ldi r20,lo8(EthFrame+34)
+  67 0036 50E0      		ldi r21,hi8(EthFrame+34)
+  68               	.L7:
+  69               	.LM9:
+  70 0038 3081      		ld r19,Z
+  71 003a 20E0      		ldi r18,lo8(0)
+  72 003c 8181      		ldd r24,Z+1
+  73 003e B901      		movw r22,r18
+  74 0040 680F      		add r22,r24
+  75 0042 711D      		adc r23,__zero_reg__
+  76 0044 CB01      		movw r24,r22
+  77 0046 A0E0      		ldi r26,lo8(0)
+  78 0048 B0E0      		ldi r27,hi8(0)
+  79 004a E80E      		add r14,r24
+  80 004c F91E      		adc r15,r25
+  81 004e 0A1F      		adc r16,r26
+  82 0050 1B1F      		adc r17,r27
+  83 0052 3296      		adiw r30,2
+  84               	.LM10:
+  85 0054 E417      		cp r30,r20
+  86 0056 F507      		cpc r31,r21
+  87 0058 01F4      		brne .L7
+  88               	.LM11:
+  89 005a 9801      		movw r18,r16
+  90 005c 4427      		clr r20
+  91 005e 5527      		clr r21
+  92 0060 2115      		cp r18,__zero_reg__
+  93 0062 3105      		cpc r19,__zero_reg__
+  94 0064 4105      		cpc r20,__zero_reg__
+  95 0066 5105      		cpc r21,__zero_reg__
+  96 0068 01F0      		breq .L8
+  97               	.L11:
+  98               	.LM12:
+  99 006a D801      		movw r26,r16
+ 100 006c C701      		movw r24,r14
+ 101 006e A070      		andi r26,hlo8(65535)
+ 102 0070 B070      		andi r27,hhi8(65535)
+ 103 0072 7C01      		movw r14,r24
+ 104 0074 8D01      		movw r16,r26
+ 105 0076 E20E      		add r14,r18
+ 106 0078 F31E      		adc r15,r19
+ 107 007a 041F      		adc r16,r20
+ 108 007c 151F      		adc r17,r21
+ 109               	.LM13:
+ 110 007e 9801      		movw r18,r16
+ 111 0080 4427      		clr r20
+ 112 0082 5527      		clr r21
+ 113 0084 2115      		cp r18,__zero_reg__
+ 114 0086 3105      		cpc r19,__zero_reg__
+ 115 0088 4105      		cpc r20,__zero_reg__
+ 116 008a 5105      		cpc r21,__zero_reg__
+ 117 008c 01F4      		brne .L11
+ 118               	.L8:
+ 119 008e A801      		movw r20,r16
+ 120 0090 9701      		movw r18,r14
+ 121 0092 2095      		com r18
+ 122 0094 3095      		com r19
+ 123 0096 4095      		com r20
+ 124 0098 5095      		com r21
+ 125               	.LM14:
+ 126 009a 822F      		mov r24,r18
+ 127 009c 932F      		mov r25,r19
+ 128               	/* epilogue start */
+ 129 009e 1F91      		pop r17
+ 130 00a0 0F91      		pop r16
+ 131 00a2 FF90      		pop r15
+ 132 00a4 EF90      		pop r14
+ 133               	.LVL1:
+ 134 00a6 0895      		ret
+ 135               	.LFE3:
+ 137               	.global	MakeIpHeader
+ 139               	MakeIpHeader:
+ 140               	.LFB4:
+ 141               	.LM15:
+ 142               	.LVL2:
+ 143 00a8 8F92      		push r8
+ 144 00aa 9F92      		push r9
+ 145 00ac AF92      		push r10
+ 146 00ae CF92      		push r12
+ 147 00b0 EF92      		push r14
+ 148 00b2 FF92      		push r15
+ 149 00b4 0F93      		push r16
+ 150 00b6 1F93      		push r17
+ 151 00b8 CF93      		push r28
+ 152 00ba DF93      		push r29
+ 153               	/* prologue: function */
+ 154               	/* frame size = 0 */
+ 155 00bc F82E      		mov r15,r24
+ 156 00be 4B01      		movw r8,r22
+ 157               	.LM16:
+ 158 00c0 E0E0      		ldi r30,lo8(ArpReplyMac)
+ 159 00c2 F0E0      		ldi r31,hi8(ArpReplyMac)
+ 160 00c4 8081      		ld r24,Z
+ 161               	.LVL3:
+ 162 00c6 6181      		ldd r22,Z+1
+ 163               	.LVL4:
+ 164 00c8 4281      		ldd r20,Z+2
+ 165 00ca 2381      		ldd r18,Z+3
+ 166 00cc 0481      		ldd r16,Z+4
+ 167 00ce E580      		ldd r14,Z+5
+ 168 00d0 CC24      		clr r12
+ 169 00d2 6894      		set
+ 170 00d4 C3F8      		bld r12,3
+ 171 00d6 AA24      		clr r10
+ 172 00d8 0E94 0000 		call MakeEthHeader
+ 173               	.LM17:
+ 174 00dc 00E0      		ldi r16,lo8(EthFrame+14)
+ 175 00de 10E0      		ldi r17,hi8(EthFrame+14)
+ 176 00e0 F801      		movw r30,r16
+ 177 00e2 85E4      		ldi r24,lo8(69)
+ 178 00e4 8193      		st Z+,r24
+ 179               	.LM18:
+ 180 00e6 1082      		st Z,__zero_reg__
+ 181               	.LM19:
+ 182 00e8 9401      		movw r18,r8
+ 183 00ea 2C5E      		subi r18,lo8(-(20))
+ 184 00ec 3F4F      		sbci r19,hi8(-(20))
+ 185 00ee 88E0      		ldi r24,lo8(8)
+ 186 00f0 90E0      		ldi r25,hi8(8)
+ 187 00f2 00C0      		rjmp 2f
+ 188 00f4 9595      	1:	asr r25
+ 189 00f6 8795      		ror r24
+ 190 00f8 2A95      	2:	dec r18
+ 191 00fa 02F4      		brpl 1b
+ 192 00fc E801      		movw r28,r16
+ 193 00fe 8A83      		std Y+2,r24
+ 194               	.LM20:
+ 195 0100 E4E1      		ldi r30,lo8(20)
+ 196 0102 8E0E      		add r8,r30
+ 197               	.LVL5:
+ 198 0104 8B82      		std Y+3,r8
+ 199               	.LM21:
+ 200 0106 8AEA      		ldi r24,lo8(-86)
+ 201 0108 8C83      		std Y+4,r24
+ 202               	.LM22:
+ 203 010a 1D82      		std Y+5,__zero_reg__
+ 204               	.LM23:
+ 205 010c 80E4      		ldi r24,lo8(64)
+ 206 010e 8E83      		std Y+6,r24
+ 207               	.LM24:
+ 208 0110 1F82      		std Y+7,__zero_reg__
+ 209               	.LM25:
+ 210 0112 8887      		std Y+8,r24
+ 211               	.LM26:
+ 212 0114 F986      		std Y+9,r15
+ 213               	.LM27:
+ 214 0116 A0E0      		ldi r26,lo8(ServIp)
+ 215 0118 B0E0      		ldi r27,hi8(ServIp)
+ 216 011a FD01      		movw r30,r26
+ 217 011c 8191      		ld r24,Z+
+ 218 011e 8C87      		std Y+12,r24
+ 219               	.LM28:
+ 220 0120 8081      		ld r24,Z
+ 221 0122 8D87      		std Y+13,r24
+ 222               	.LM29:
+ 223 0124 1296      		adiw r26,2
+ 224 0126 8C91      		ld r24,X
+ 225 0128 1297      		sbiw r26,2
+ 226 012a 8E87      		std Y+14,r24
+ 227               	.LM30:
+ 228 012c 1396      		adiw r26,3
+ 229 012e 8C91      		ld r24,X
+ 230 0130 8F87      		std Y+15,r24
+ 231               	.LM31:
+ 232 0132 A0E0      		ldi r26,lo8(ArpReplyIp)
+ 233 0134 B0E0      		ldi r27,hi8(ArpReplyIp)
+ 234 0136 FD01      		movw r30,r26
+ 235 0138 8191      		ld r24,Z+
+ 236 013a 888B      		std Y+16,r24
+ 237               	.LM32:
+ 238 013c 8081      		ld r24,Z
+ 239 013e 898B      		std Y+17,r24
+ 240               	.LM33:
+ 241 0140 1296      		adiw r26,2
+ 242 0142 8C91      		ld r24,X
+ 243 0144 1297      		sbiw r26,2
+ 244 0146 8A8B      		std Y+18,r24
+ 245               	.LM34:
+ 246 0148 1396      		adiw r26,3
+ 247 014a 8C91      		ld r24,X
+ 248 014c 8B8B      		std Y+19,r24
+ 249               	.LM35:
+ 250 014e 0E94 0000 		call IpCheckSumCalc
+ 251               	.LM36:
+ 252 0152 9A87      		std Y+10,r25
+ 253               	.LM37:
+ 254 0154 8B87      		std Y+11,r24
+ 255               	/* epilogue start */
+ 256               	.LM38:
+ 257 0156 DF91      		pop r29
+ 258 0158 CF91      		pop r28
+ 259 015a 1F91      		pop r17
+ 260 015c 0F91      		pop r16
+ 261 015e FF90      		pop r15
+ 262               	.LVL6:
+ 263 0160 EF90      		pop r14
+ 264 0162 CF90      		pop r12
+ 265 0164 AF90      		pop r10
+ 266 0166 9F90      		pop r9
+ 267 0168 8F90      		pop r8
+ 268 016a 0895      		ret
+ 269               	.LFE4:
+ 271               		.comm dma,1,1
+ 272               		.comm nextPacketPtr,2,1
+ 273               		.comm currentPacketPtr,2,1
+ 274               		.comm currentRetreiveAddress,2,1
+ 275               		.comm ArpReply,1,1
+ 276               		.comm ArpCount,1,1
+ 277               		.comm pingTimeout,1,1
+ 318               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 ip.c
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:18     .text:00000000 IpCheck
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:43     .text:00000018 IpCheckSumCalc
+C:\Users\O\AppData\Local\Temp/ccGWqPd6.s:139    .text:000000a8 MakeIpHeader
+                            *COM*:00000001 dma
+                            *COM*:00000002 nextPacketPtr
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+                            *COM*:00000001 ArpReply
+                            *COM*:00000001 ArpCount
+                            *COM*:00000001 pingTimeout
+
+UNDEFINED SYMBOLS
+EthFrame
+ArpReplyMac
+MakeEthHeader
+ServIp
+ArpReplyIp
+__do_clear_bss

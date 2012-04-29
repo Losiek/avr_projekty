@@ -1,0 +1,147 @@
+
+projekt.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000082  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000360  00000000  00000000  000000d8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000071  00000000  00000000  00000438  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000020  00000000  00000000  000004a9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 0000001b  00000000  00000000  000004c9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000113  00000000  00000000  000004e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000000ab  00000000  00000000  000005f7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000011d  00000000  00000000  000006a2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000020  00000000  00000000  000007c0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000000e0  00000000  00000000  000007e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000018  00000000  00000000  000008c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0a c0       	rjmp	.+20     	; 0x16 <__ctors_end>
+   2:	23 c0       	rjmp	.+70     	; 0x4a <__bad_interrupt>
+   4:	22 c0       	rjmp	.+68     	; 0x4a <__bad_interrupt>
+   6:	21 c0       	rjmp	.+66     	; 0x4a <__bad_interrupt>
+   8:	20 c0       	rjmp	.+64     	; 0x4a <__bad_interrupt>
+   a:	1f c0       	rjmp	.+62     	; 0x4a <__bad_interrupt>
+   c:	1e c0       	rjmp	.+60     	; 0x4a <__bad_interrupt>
+   e:	1d c0       	rjmp	.+58     	; 0x4a <__bad_interrupt>
+  10:	1c c0       	rjmp	.+56     	; 0x4a <__bad_interrupt>
+  12:	1b c0       	rjmp	.+54     	; 0x4a <__bad_interrupt>
+  14:	1a c0       	rjmp	.+52     	; 0x4a <__bad_interrupt>
+
+00000016 <__ctors_end>:
+  16:	11 24       	eor	r1, r1
+  18:	1f be       	out	0x3f, r1	; 63
+  1a:	cf ed       	ldi	r28, 0xDF	; 223
+  1c:	cd bf       	out	0x3d, r28	; 61
+
+0000001e <__do_copy_data>:
+  1e:	10 e0       	ldi	r17, 0x00	; 0
+  20:	a0 e6       	ldi	r26, 0x60	; 96
+  22:	b0 e0       	ldi	r27, 0x00	; 0
+  24:	e2 e8       	ldi	r30, 0x82	; 130
+  26:	f0 e0       	ldi	r31, 0x00	; 0
+  28:	03 c0       	rjmp	.+6      	; 0x30 <.do_copy_data_start>
+
+0000002a <.do_copy_data_loop>:
+  2a:	c8 95       	lpm
+  2c:	31 96       	adiw	r30, 0x01	; 1
+  2e:	0d 92       	st	X+, r0
+
+00000030 <.do_copy_data_start>:
+  30:	a0 36       	cpi	r26, 0x60	; 96
+  32:	b1 07       	cpc	r27, r17
+  34:	d1 f7       	brne	.-12     	; 0x2a <.do_copy_data_loop>
+
+00000036 <__do_clear_bss>:
+  36:	10 e0       	ldi	r17, 0x00	; 0
+  38:	a0 e6       	ldi	r26, 0x60	; 96
+  3a:	b0 e0       	ldi	r27, 0x00	; 0
+  3c:	01 c0       	rjmp	.+2      	; 0x40 <.do_clear_bss_start>
+
+0000003e <.do_clear_bss_loop>:
+  3e:	1d 92       	st	X+, r1
+
+00000040 <.do_clear_bss_start>:
+  40:	a0 36       	cpi	r26, 0x60	; 96
+  42:	b1 07       	cpc	r27, r17
+  44:	e1 f7       	brne	.-8      	; 0x3e <.do_clear_bss_loop>
+  46:	02 d0       	rcall	.+4      	; 0x4c <main>
+  48:	1b c0       	rjmp	.+54     	; 0x80 <_exit>
+
+0000004a <__bad_interrupt>:
+  4a:	da cf       	rjmp	.-76     	; 0x0 <__vectors>
+
+0000004c <main>:
+#include <util/delay.h>
+#include <harddef.h>
+
+int main()
+{
+  4c:	9f ef       	ldi	r25, 0xFF	; 255
+  4e:	97 bb       	out	0x17, r25	; 23
+	///////////////////////////////////////////////////////////////////
+	//Inicacja wyœwietlaczy
+	LEDDDR = 0xff;
+	COMDDR = 1<<COM1|1<<COM2|1<<COM3|1<<COM4;
+  50:	88 e7       	ldi	r24, 0x78	; 120
+  52:	81 bb       	out	0x11, r24	; 17
+	//////////////////////////////////////////////////////////////////
+	//Inicjacja PWM
+	PORTB = (1<<4);
+  54:	80 e1       	ldi	r24, 0x10	; 16
+  56:	88 bb       	out	0x18, r24	; 24
+    TCCR1A = (1 << COM1A1); // zeruj gdy równe OCR1B
+  58:	80 e8       	ldi	r24, 0x80	; 128
+  5a:	8f bd       	out	0x2f, r24	; 47
+    TCCR1A |= (1 << PWM10); // PWM phase correct 8 bitowy
+  5c:	8f b5       	in	r24, 0x2f	; 47
+  5e:	81 60       	ori	r24, 0x01	; 1
+  60:	8f bd       	out	0x2f, r24	; 47
+    TCCR1B = (1 << CS10); // preskaler 1 
+  62:	81 e0       	ldi	r24, 0x01	; 1
+  64:	8e bd       	out	0x2e, r24	; 46
+	//Koniec inicjacji
+	//////////////////////////////////////////////////////////////////
+	PORTD = 0xff;
+  66:	92 bb       	out	0x12, r25	; 18
+	//COMPORT = ~(1<<COM1);
+	//LEDPORT = ~(1<<LED_A|1<<LED_B|1<<LED_C|1<<LED_D|1<<LED_E|1<<LED_F|1<<LED_G);
+	OCR1AL = 0;
+  68:	1a bc       	out	0x2a, r1	; 42
+	OCR1AH = 0;
+  6a:	1b bc       	out	0x2b, r1	; 43
+  6c:	e0 e0       	ldi	r30, 0x00	; 0
+  6e:	f0 e0       	ldi	r31, 0x00	; 0
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  70:	8e 2f       	mov	r24, r30
+  72:	9f 2f       	mov	r25, r31
+  74:	01 97       	sbiw	r24, 0x01	; 1
+  76:	f1 f7       	brne	.-4      	; 0x74 <main+0x28>
+	
+	for(;;)
+	{
+		_delay_ms(100);
+		--OCR1AL;
+  78:	8a b5       	in	r24, 0x2a	; 42
+  7a:	81 50       	subi	r24, 0x01	; 1
+  7c:	8a bd       	out	0x2a, r24	; 42
+  7e:	f8 cf       	rjmp	.-16     	; 0x70 <main+0x24>
+
+00000080 <_exit>:
+  80:	ff cf       	rjmp	.-2      	; 0x80 <_exit>

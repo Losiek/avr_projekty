@@ -1,0 +1,1 @@
+termometr.o: ../termometr.c

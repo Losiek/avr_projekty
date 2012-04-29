@@ -1,0 +1,111 @@
+   1               		.file	"system.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	system_run
+  20               	system_run:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8CE3      		ldi r24,lo8(60)
+  27 0002 81BB      		out 49-0x20,r24
+  28               	.LM3:
+  29 0004 8FEC      		ldi r24,lo8(-49)
+  30 0006 82BB      		out 50-0x20,r24
+  31               	.LM4:
+  32 0008 85E0      		ldi r24,lo8(5)
+  33 000a 87B9      		out 39-0x20,r24
+  34               	.LM5:
+  35 000c 0E94 0000 		call lcd_Init
+  36               	.LM6:
+  37 0010 84E0      		ldi r24,lo8(4)
+  38 0012 0E94 0000 		call lcd_SetStatus
+  39               	.LM7:
+  40 0016 8FE0      		ldi r24,lo8(15)
+  41 0018 87BD      		out 71-0x20,r24
+  42               	.LM8:
+  43 001a 8EE4      		ldi r24,lo8(78)
+  44 001c 82BD      		out 66-0x20,r24
+  45               	.LM9:
+  46 001e 80E1      		ldi r24,lo8(16)
+  47 0020 89BF      		out 89-0x20,r24
+  48               	.LM10:
+  49               	/* #APP */
+  50 0022 7894      		sei
+  51               	.LM11:
+  52               	/* #NOAPP */
+  53 0024 0E94 0000 		call lcd_GetFile
+  54 0028 BC01      		movw r22,r24
+  55 002a 80E0      		ldi r24,lo8(__c.1709)
+  56 002c 90E0      		ldi r25,hi8(__c.1709)
+  57 002e 0E94 0000 		call fputs_P
+  58               	.LM12:
+  59 0032 0E94 0000 		call lcd_GetFile
+  60 0036 8C01      		movw r16,r24
+  61 0038 80E0      		ldi r24,lo8(0)
+  62 003a 0E94 0000 		call langsys_GetLangName
+  63 003e B801      		movw r22,r16
+  64 0040 0E94 0000 		call fputs_P
+  65               	.LM13:
+  66 0044 80E1      		ldi r24,lo8(16)
+  67 0046 0E94 0000 		call lcd_GoToAdr
+  68               	.LM14:
+  69 004a 0E94 0000 		call lcd_GetFile
+  70 004e BC01      		movw r22,r24
+  71 0050 80E0      		ldi r24,lo8(__c.1711)
+  72 0052 90E0      		ldi r25,hi8(__c.1711)
+  73 0054 0E94 0000 		call fputs_P
+  74               	.LM15:
+  75 0058 0E94 0000 		call lcd_GetFile
+  76 005c 8C01      		movw r16,r24
+  77 005e 81E0      		ldi r24,lo8(1)
+  78 0060 0E94 0000 		call langsys_GetLangName
+  79 0064 B801      		movw r22,r16
+  80 0066 0E94 0000 		call fputs_P
+  81               	.LM16:
+  82 006a 0E94 0000 		call lcd_Update
+  83               	.LM17:
+  84 006e 0E94 0000 		call app_run
+  85               	/* epilogue: frame size=0 */
+  86               	/* epilogue: noreturn */
+  87               	/* epilogue end (size=0) */
+  88               	/* function system_run size 58 (58) */
+  89               	.LFE3:
+  91               		.section	.progmem.data,"a",@progbits
+  94               	__c.1711:
+  95 0000 5332 202D 		.string	"S2 - "
+  95      2000 
+  98               	__c.1709:
+  99 0006 5331 202D 		.string	"S1 - "
+  99      2000 
+ 124               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 system.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:20     .text:00000000 system_run
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:98     .progmem.data:00000006 __c.1709
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccHLUNh5.s:94     .progmem.data:00000000 __c.1711
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_Init
+lcd_SetStatus
+lcd_GetFile
+fputs_P
+langsys_GetLangName
+lcd_GoToAdr
+lcd_Update
+app_run

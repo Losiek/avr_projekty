@@ -1,0 +1,523 @@
+Archive member included because of file (symbol)
+
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+                              main.o (__fixunssfsi)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+                              main.o (__floatsisf)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+                              main.o (__ltsf2)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o) (__fp_merge)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o) (__fp_split2)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o) (__fp_zero)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+                              main.o (__mulsf3)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o) (__mulsf3x)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o) (__fp_nan)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+                              main.o (__udivmodqi4)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o (exit)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+
+Discarded input sections
+
+ .stabstr       0x00000000        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+LOAD main.o
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libc.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x32c
+ *(.vectors)
+ .vectors       0x00000000       0x26 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000026                . = ALIGN (0x2)
+                0x00000026                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000026        0x0 linker stubs
+ *(.trampolines*)
+                0x00000026                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000026                __ctors_start = .
+ *(.ctors)
+                0x00000026                __ctors_end = .
+                0x00000026                __dtors_start = .
+ *(.dtors)
+                0x00000026                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000026        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+                0x00000026                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000026        0x8 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000002e       0x18 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+                0x0000002e                __do_copy_data
+ .init4         0x00000046       0x10 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+                0x00000046                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000056        0x4 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+ *(.init9)
+ *(.text)
+ .text          0x0000005a        0x2 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+                0x0000005a                __vector_1
+                0x0000005a                __vector_12
+                0x0000005a                __bad_interrupt
+                0x0000005a                __vector_6
+                0x0000005a                __vector_3
+                0x0000005a                __vector_11
+                0x0000005a                __vector_13
+                0x0000005a                __vector_17
+                0x0000005a                __vector_7
+                0x0000005a                __vector_5
+                0x0000005a                __vector_4
+                0x0000005a                __vector_9
+                0x0000005a                __vector_2
+                0x0000005a                __vector_15
+                0x0000005a                __vector_8
+                0x0000005a                __vector_14
+                0x0000005a                __vector_10
+                0x0000005a                __vector_16
+                0x0000005a                __vector_18
+ .text          0x0000005c       0xec main.o
+                0x0000005c                serwo
+                0x00000100                main
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+ .text          0x00000148        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+                0x00000148                . = ALIGN (0x2)
+ *(.text.*)
+ .text.fplib    0x00000148       0x36 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+                0x00000148                __fixsfsi
+                0x0000016e                __fp_lneg
+                0x00000148                __fixunssfsi
+ .text.fplib    0x0000017e       0x18 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+                0x00000182                __floatsisf
+                0x0000017e                __floatunssisf
+ .text.fplib    0x00000196       0x44 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+                0x00000196                __lesf2
+                0x00000196                __nesf2
+                0x0000019c                __gtsf2
+                0x00000196                __eqsf2
+                0x000001a2                __cmpsf2
+                0x00000196                __ltsf2
+                0x0000019c                __gesf2
+ .text.fplib    0x000001da       0x3a d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+                0x000001e4                __fp_merge
+ .text.fplib    0x00000214       0x52 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+                0x00000214                __fp_split3
+                0x0000021a                __fp_split2
+                0x0000022c                __fp_split1
+                0x00000248                __fp_split_a
+ .text.fplib    0x00000266        0xa d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+                0x00000266                __fp_zero
+                0x0000026c                __fp_zerox
+ .text.fplib    0x00000270        0x6 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+                0x00000270                __mulsf3
+ .text.fplib    0x00000276       0x96 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+                0x00000276                __mulsf3x
+ .text.fplib    0x0000030c        0x6 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+                0x0000030c                __fp_nanERANGE
+                0x0000030c                __fp_nan
+                0x0000030c                __fp_nanEDOM
+                0x0000030c                __fp_nanx
+ .text.libgcc   0x00000312       0x18 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+                0x00000312                __udivmodqi4
+ .text.libgcc   0x0000032a        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+ .text.libgcc   0x0000032a        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000032a        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+                0x0000032a                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000032a        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+                0x0000032a                exit
+                0x0000032a                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000032a        0x2 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000032c                _etext = .
+
+.data           0x00800060        0x0 load address 0x0000032c
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+ .data          0x00800060        0x0 main.o
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800060                . = ALIGN (0x2)
+                0x00800060                _edata = .
+                0x00800060                PROVIDE (__data_end, .)
+
+.bss            0x00800060        0x0
+                0x00800060                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+ .bss           0x00800060        0x0 main.o
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+ .bss           0x00800060        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+                0x00800060                PROVIDE (__bss_end, .)
+                0x0000032c                __data_load_start = LOADADDR (.data)
+                0x0000032c                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800060        0x0
+                0x00800060                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800060                PROVIDE (__noinit_end, .)
+                0x00800060                _end = .
+                0x00800060                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000      0x360
+ *(.stab)
+ .stab          0x00000000      0x360 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+
+.stabstr        0x00000000       0x71
+ *(.stabstr)
+ .stabstr       0x00000000       0x71 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+
+.debug_pubnames
+                0x00000000       0x25
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x25 main.o
+
+.debug_info     0x00000000      0x245
+ *(.debug_info)
+ .debug_info    0x00000000      0x245 main.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x109
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x109 main.o
+
+.debug_line     0x00000000      0x1af
+ *(.debug_line)
+ .debug_line    0x00000000      0x1af main.o
+
+.debug_frame    0x00000000       0x30
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 main.o
+
+.debug_str      0x00000000       0xf2
+ *(.debug_str)
+ .debug_str     0x00000000       0xf2 main.o
+                                0x126 (size before relaxing)
+
+.debug_loc      0x00000000       0xe6
+ *(.debug_loc)
+ .debug_loc     0x00000000       0xe6 main.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__bss_end                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+__bss_start                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+__cmpsf2                                          d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__data_end                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+__data_load_start                                 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+__data_start                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+__do_clear_bss                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_clear_bss.o)
+                                                  main.o
+__do_copy_data                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_copy_data.o)
+                                                  main.o
+__eqsf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__fixsfsi                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+__fixunssfsi                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+                                                  main.o
+__floatsisf                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+                                                  main.o
+__floatunssisf                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+__fp_lneg                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+__fp_merge                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(floatsisf.o)
+__fp_nan                                          d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+__fp_nanEDOM                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+__fp_nanERANGE                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+__fp_nanx                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_nan.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+__fp_split1                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+__fp_split2                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__fp_split3                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+__fp_split_a                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_split.o)
+__fp_zero                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_merge.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fixsfsi.o)
+__fp_zerox                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_zero.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+__gesf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__gtsf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+                                                  main.o
+__heap_end                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__init                                            d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__lesf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__ltsf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+                                                  main.o
+__mulsf3                                          d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+                                                  main.o
+__mulsf3x                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3x.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(mulsf3.o)
+__nesf2                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib\libm.a(fp_cmp.o)
+__stack                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__udivmodqi4                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_udivmodqi4.o)
+                                                  main.o
+__vector_1                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_10                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_11                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_12                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_13                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_14                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_15                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_16                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_17                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_18                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_2                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_3                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_4                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_5                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_6                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_7                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_8                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_9                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vector_default                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+__vectors                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+_exit                                             d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+exit                                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2\libgcc.a(_exit.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+main                                              main.o
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/crttn2313.o
+serwo                                             main.o

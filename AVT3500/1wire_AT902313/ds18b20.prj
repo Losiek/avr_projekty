@@ -1,0 +1,33 @@
+; ************************************************************
+; PROJECT: termometr 1wire DS18B20
+; AUTHOR: Aleksander £oœ
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "AT90S2313"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR-20100110"
+.GCCMAKE   "makefile"
+.TARGET    "ds18b20.hex"
+.SOURCE    "main.c" "1wire.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 4meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, PB0-PB7, PD0-PD5, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+.plot v(PB1)
+D1 VDD PB0  ; dioda pod³¹czona do portu PB0
+R1 VDD PB1 4700 ;
+
+;C1 PD4 VSS 10u;
+
+

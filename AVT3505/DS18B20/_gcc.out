@@ -1,0 +1,25 @@
+
+-------- begin --------
+avr-gcc (WinAVR 20100110) 4.3.3
+Copyright (C) 2008 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Compiling: main.c
+avr-gcc -c -mmcu=at90s2313 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=main.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wstrict-prototypes main.c -o main.o
+main.c: In function 'main':
+main.c:19: error: 'UBRRH' undeclared (first use in this function)
+main.c:19: error: (Each undeclared identifier is reported only once
+main.c:19: error: for each function it appears in.)
+main.c:19: error: 'F_CPU' undeclared (first use in this function)
+main.c:19: error: 'UBRRL' undeclared (first use in this function)
+main.c:20: error: 'UCSRB' undeclared (first use in this function)
+main.c:21: error: 'UCSRC' undeclared (first use in this function)
+main.c:21: error: 'UCSZ0' undeclared (first use in this function)
+main.c:26: warning: passing argument 1 of 'fdevopen' from incompatible pointer type
+main.c:26: warning: passing argument 2 of 'fdevopen' from incompatible pointer type
+main.c:29: warning: implicit declaration of function 'reset_1w'
+main.c:34: warning: implicit declaration of function 'read_1w'
+main.c:36: error: 'bufor1w' undeclared (first use in this function)
+make: *** [main.o] Error 1

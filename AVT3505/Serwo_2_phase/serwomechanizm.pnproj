@@ -1,0 +1,1 @@
+<Project name="serwomechanizm"><Folder name="Headers"><File path="harddef.h"></File></Folder><Folder name="Source"><File path="main.c"></File></Folder><File path="Makefile"></File></Project>

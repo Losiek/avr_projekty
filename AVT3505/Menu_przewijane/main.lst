@@ -1,0 +1,37 @@
+   1               		.file	"main.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 0E94 0000 		call system_run
+  27               	/* epilogue: frame size=0 */
+  28               	/* epilogue: noreturn */
+  29               	/* epilogue end (size=0) */
+  30               	/* function main size 2 (2) */
+  31               	.LFE2:
+  57               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccyQdplh.s:20     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+system_run

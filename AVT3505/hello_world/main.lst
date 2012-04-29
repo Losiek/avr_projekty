@@ -1,0 +1,95 @@
+   1               		.file	"main.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 10BC      		out 64-0x20,__zero_reg__
+  27 0002 87E6      		ldi r24,lo8(103)
+  28 0004 89B9      		out 41-0x20,r24
+  29               	.LM3:
+  30 0006 86E8      		ldi r24,lo8(-122)
+  31 0008 80BD      		out 64-0x20,r24
+  32               	.LM4:
+  33 000a 88E1      		ldi r24,lo8(24)
+  34 000c 8AB9      		out 42-0x20,r24
+  35               	.LM5:
+  36 000e 1BB8      		out 43-0x20,__zero_reg__
+  37               	.LM6:
+  38 0010 60E0      		ldi r22,lo8(gs(rs_get))
+  39 0012 70E0      		ldi r23,hi8(gs(rs_get))
+  40 0014 80E0      		ldi r24,lo8(gs(rs_put))
+  41 0016 90E0      		ldi r25,hi8(gs(rs_put))
+  42 0018 0E94 0000 		call fdevopen
+  43               	.LM7:
+  44 001c 8FEF      		ldi r24,lo8(255)
+  45 001e 90E0      		ldi r25,hi8(255)
+  46 0020 9F93      		push r25
+  47 0022 8F93      		push r24
+  48 0024 9F93      		push r25
+  49 0026 8F93      		push r24
+  50 0028 82ED      		ldi r24,lo8(1234)
+  51 002a 94E0      		ldi r25,hi8(1234)
+  52 002c 9F93      		push r25
+  53 002e 8F93      		push r24
+  54 0030 9F93      		push r25
+  55 0032 8F93      		push r24
+  56 0034 9F93      		push r25
+  57 0036 8F93      		push r24
+  58 0038 80E0      		ldi r24,lo8(__c.1552)
+  59 003a 90E0      		ldi r25,hi8(__c.1552)
+  60 003c 9F93      		push r25
+  61 003e 8F93      		push r24
+  62 0040 0E94 0000 		call printf_P
+  63 0044 8DB7      		in r24,__SP_L__
+  64 0046 9EB7      		in r25,__SP_H__
+  65 0048 0C96      		adiw r24,12
+  66 004a 0FB6      		in __tmp_reg__,__SREG__
+  67 004c F894      		cli
+  68 004e 9EBF      		out __SP_H__,r25
+  69 0050 0FBE      		out __SREG__,__tmp_reg__
+  70 0052 8DBF      		out __SP_L__,r24
+  71               	.LM8:
+  72 0054 80E0      		ldi r24,lo8(0)
+  73 0056 90E0      		ldi r25,hi8(0)
+  74               	/* epilogue: frame size=0 */
+  75 0058 0895      		ret
+  76               	/* epilogue end (size=1) */
+  77               	/* function main size 45 (44) */
+  78               	.LFE3:
+  80               		.section	.progmem.data,"a",@progbits
+  83               	__c.1552:
+  84 0000 6128 2525 		.string	"a(%%d)=%d\r\na(%%x)=%x\r\na(%%X)=%X\r\nb(%%#x)=%#x\r\nb(%%0)=%0\r\n"
+  84      6429 3D25 
+  84      640D 0A61 
+  84      2825 2578 
+  84      293D 2578 
+ 109               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQUpJFw.s:83     .progmem.data:00000000 __c.1552
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+rs_get
+rs_put
+fdevopen
+printf_P

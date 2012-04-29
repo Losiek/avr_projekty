@@ -1,0 +1,374 @@
+   1               		.file	"lis35.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	SPI_Init
+  18               	SPI_Init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87B3      		in r24,55-32
+  25 0002 806A      		ori r24,lo8(-96)
+  26 0004 87BB      		out 55-32,r24
+  27               	.LM3:
+  28 0006 BE98      		cbi 55-32,6
+  29               	.LM4:
+  30 0008 8FE7      		ldi r24,lo8(127)
+  31 000a 8DB9      		out 45-32,r24
+  32               	.LM5:
+  33 000c 81E0      		ldi r24,lo8(1)
+  34 000e 8EB9      		out 46-32,r24
+  35               	/* epilogue start */
+  36               	.LM6:
+  37 0010 0895      		ret
+  38               	.LFE6:
+  40               	.global	SPI_Transmit
+  42               	SPI_Transmit:
+  43               	.LFB7:
+  44               	.LM7:
+  45               	.LVL0:
+  46               	/* prologue: function */
+  47               	/* frame size = 0 */
+  48               	.LM8:
+  49 0012 8FB9      		out 47-32,r24
+  50               	.L4:
+  51               	.LM9:
+  52 0014 779B      		sbis 46-32,7
+  53 0016 00C0      		rjmp .L4
+  54               	/* epilogue start */
+  55               	.LM10:
+  56 0018 0895      		ret
+  57               	.LFE7:
+  59               	.global	SPI_Receive
+  61               	SPI_Receive:
+  62               	.LFB8:
+  63               	.LM11:
+  64               	/* prologue: function */
+  65               	/* frame size = 0 */
+  66               	.LM12:
+  67 001a 8FEF      		ldi r24,lo8(-1)
+  68 001c 8FB9      		out 47-32,r24
+  69               	.L8:
+  70               	.LM13:
+  71 001e 779B      		sbis 46-32,7
+  72 0020 00C0      		rjmp .L8
+  73               	.LM14:
+  74 0022 8FB1      		in r24,47-32
+  75               	/* epilogue start */
+  76               	.LM15:
+  77 0024 0895      		ret
+  78               	.LFE8:
+  80               	.global	LIS35_RebootMemory
+  82               	LIS35_RebootMemory:
+  83               	.LFB9:
+  84               	.LM16:
+  85               	/* prologue: function */
+  86               	/* frame size = 0 */
+  87               	.LM17:
+  88 0026 88B3      		in r24,56-32
+  89 0028 18BA      		out 56-32,__zero_reg__
+  90               	.LBB26:
+  91               	.LBB27:
+  92               	.LM18:
+  93 002a 81E2      		ldi r24,lo8(33)
+  94 002c 8FB9      		out 47-32,r24
+  95               	.L12:
+  96               	.LM19:
+  97 002e 779B      		sbis 46-32,7
+  98 0030 00C0      		rjmp .L12
+  99               	.LBE27:
+ 100               	.LBE26:
+ 101               	.LBB28:
+ 102               	.LBB29:
+ 103               	.LM20:
+ 104 0032 80E4      		ldi r24,lo8(64)
+ 105 0034 8FB9      		out 47-32,r24
+ 106               	.L13:
+ 107               	.LM21:
+ 108 0036 779B      		sbis 46-32,7
+ 109 0038 00C0      		rjmp .L13
+ 110               	.LBE29:
+ 111               	.LBE28:
+ 112               	.LM22:
+ 113 003a C49A      		sbi 56-32,4
+ 114               	/* epilogue start */
+ 115               	.LM23:
+ 116 003c 0895      		ret
+ 117               	.LFE9:
+ 119               	.global	LIS35_ReadRegister
+ 121               	LIS35_ReadRegister:
+ 122               	.LFB11:
+ 123               	.LM24:
+ 124               	.LVL1:
+ 125               	/* prologue: function */
+ 126               	/* frame size = 0 */
+ 127 003e FB01      		movw r30,r22
+ 128               	.LM25:
+ 129 0040 98B3      		in r25,56-32
+ 130 0042 18BA      		out 56-32,__zero_reg__
+ 131               	.LM26:
+ 132 0044 8068      		ori r24,lo8(-128)
+ 133               	.LVL2:
+ 134               	.LBB30:
+ 135               	.LBB31:
+ 136               	.LM27:
+ 137 0046 8FB9      		out 47-32,r24
+ 138               	.LVL3:
+ 139               	.L18:
+ 140               	.LM28:
+ 141 0048 779B      		sbis 46-32,7
+ 142 004a 00C0      		rjmp .L18
+ 143               	.LBE31:
+ 144               	.LBE30:
+ 145               	.LBB32:
+ 146               	.LBB33:
+ 147               	.LM29:
+ 148 004c 8FEF      		ldi r24,lo8(-1)
+ 149 004e 8FB9      		out 47-32,r24
+ 150               	.L19:
+ 151               	.LM30:
+ 152 0050 779B      		sbis 46-32,7
+ 153 0052 00C0      		rjmp .L19
+ 154               	.LM31:
+ 155 0054 8FB1      		in r24,47-32
+ 156               	.LBE33:
+ 157               	.LBE32:
+ 158               	.LM32:
+ 159 0056 8083      		st Z,r24
+ 160               	.LM33:
+ 161 0058 C49A      		sbi 56-32,4
+ 162               	/* epilogue start */
+ 163               	.LM34:
+ 164 005a 0895      		ret
+ 165               	.LFE11:
+ 167               	.global	LIS35_WriteRegister
+ 169               	LIS35_WriteRegister:
+ 170               	.LFB12:
+ 171               	.LM35:
+ 172               	.LVL4:
+ 173               	/* prologue: function */
+ 174               	/* frame size = 0 */
+ 175               	.LM36:
+ 176 005c 98B3      		in r25,56-32
+ 177 005e 18BA      		out 56-32,__zero_reg__
+ 178               	.LBB34:
+ 179               	.LBB35:
+ 180               	.LM37:
+ 181 0060 8FB9      		out 47-32,r24
+ 182               	.L24:
+ 183               	.LM38:
+ 184 0062 779B      		sbis 46-32,7
+ 185 0064 00C0      		rjmp .L24
+ 186               	.LBE35:
+ 187               	.LBE34:
+ 188               	.LBB36:
+ 189               	.LBB37:
+ 190               	.LM39:
+ 191 0066 6FB9      		out 47-32,r22
+ 192               	.L25:
+ 193               	.LM40:
+ 194 0068 779B      		sbis 46-32,7
+ 195 006a 00C0      		rjmp .L25
+ 196               	.LBE37:
+ 197               	.LBE36:
+ 198               	.LM41:
+ 199 006c C49A      		sbi 56-32,4
+ 200               	/* epilogue start */
+ 201               	.LM42:
+ 202 006e 0895      		ret
+ 203               	.LFE12:
+ 205               	.global	InitializeLIS35
+ 207               	InitializeLIS35:
+ 208               	.LFB10:
+ 209               	.LM43:
+ 210 0070 DF93      		push r29
+ 211 0072 CF93      		push r28
+ 212 0074 0F92      		push __tmp_reg__
+ 213 0076 CDB7      		in r28,__SP_L__
+ 214 0078 DEB7      		in r29,__SP_H__
+ 215               	/* prologue: function */
+ 216               	/* frame size = 1 */
+ 217               	.LM44:
+ 218 007a 0E94 0000 		call SPI_Init
+ 219               	.LM45:
+ 220 007e 0E94 0000 		call LIS35_RebootMemory
+ 221               	.LM46:
+ 222 0082 80E2      		ldi r24,lo8(32)
+ 223 0084 67E4      		ldi r22,lo8(71)
+ 224 0086 0E94 0000 		call LIS35_WriteRegister
+ 225               	.LM47:
+ 226 008a 80E2      		ldi r24,lo8(32)
+ 227 008c BE01      		movw r22,r28
+ 228 008e 6F5F      		subi r22,lo8(-(1))
+ 229 0090 7F4F      		sbci r23,hi8(-(1))
+ 230 0092 0E94 0000 		call LIS35_ReadRegister
+ 231               	.LM48:
+ 232 0096 88E3      		ldi r24,lo8(56)
+ 233 0098 61E0      		ldi r22,lo8(1)
+ 234 009a 0E94 0000 		call LIS35_WriteRegister
+ 235               	.LM49:
+ 236 009e 8BE3      		ldi r24,lo8(59)
+ 237 00a0 67E7      		ldi r22,lo8(119)
+ 238 00a2 0E94 0000 		call LIS35_WriteRegister
+ 239               	.LM50:
+ 240 00a6 8CE3      		ldi r24,lo8(60)
+ 241 00a8 67E0      		ldi r22,lo8(7)
+ 242 00aa 0E94 0000 		call LIS35_WriteRegister
+ 243               	.LM51:
+ 244 00ae 8DE3      		ldi r24,lo8(61)
+ 245 00b0 6FEF      		ldi r22,lo8(-1)
+ 246 00b2 0E94 0000 		call LIS35_WriteRegister
+ 247               	.LM52:
+ 248 00b6 82E2      		ldi r24,lo8(34)
+ 249 00b8 67E8      		ldi r22,lo8(-121)
+ 250 00ba 0E94 0000 		call LIS35_WriteRegister
+ 251 00be 90E0      		ldi r25,lo8(0)
+ 252 00c0 8981      		ldd r24,Y+1
+ 253               	.LVL5:
+ 254 00c2 8734      		cpi r24,lo8(71)
+ 255 00c4 01F0      		breq .L30
+ 256               	.LVL6:
+ 257 00c6 91E0      		ldi r25,lo8(1)
+ 258               	.L30:
+ 259               	.LM53:
+ 260 00c8 892F      		mov r24,r25
+ 261               	.LVL7:
+ 262               	/* epilogue start */
+ 263 00ca 0F90      		pop __tmp_reg__
+ 264 00cc CF91      		pop r28
+ 265 00ce DF91      		pop r29
+ 266 00d0 0895      		ret
+ 267               	.LFE10:
+ 269               	.global	LIS35_GetPosition
+ 271               	LIS35_GetPosition:
+ 272               	.LFB13:
+ 273               	.LM54:
+ 274               	.LVL8:
+ 275 00d2 CF93      		push r28
+ 276 00d4 DF93      		push r29
+ 277               	/* prologue: function */
+ 278               	/* frame size = 0 */
+ 279 00d6 FC01      		movw r30,r24
+ 280 00d8 DB01      		movw r26,r22
+ 281 00da EA01      		movw r28,r20
+ 282               	.LM55:
+ 283 00dc 88B3      		in r24,56-32
+ 284               	.LVL9:
+ 285 00de 18BA      		out 56-32,__zero_reg__
+ 286               	.LBB38:
+ 287               	.LBB39:
+ 288               	.LM56:
+ 289 00e0 89EE      		ldi r24,lo8(-23)
+ 290 00e2 8FB9      		out 47-32,r24
+ 291               	.LVL10:
+ 292               	.L33:
+ 293               	.LM57:
+ 294 00e4 779B      		sbis 46-32,7
+ 295 00e6 00C0      		rjmp .L33
+ 296               	.LBE39:
+ 297               	.LBE38:
+ 298               	.LBB40:
+ 299               	.LBB41:
+ 300               	.LM58:
+ 301 00e8 8FEF      		ldi r24,lo8(-1)
+ 302 00ea 8FB9      		out 47-32,r24
+ 303               	.L34:
+ 304               	.LM59:
+ 305 00ec 779B      		sbis 46-32,7
+ 306 00ee 00C0      		rjmp .L34
+ 307               	.LM60:
+ 308 00f0 8FB1      		in r24,47-32
+ 309               	.LBE41:
+ 310               	.LBE40:
+ 311               	.LM61:
+ 312 00f2 8083      		st Z,r24
+ 313               	.LBB42:
+ 314               	.LBB43:
+ 315               	.LM62:
+ 316 00f4 8FEF      		ldi r24,lo8(-1)
+ 317 00f6 8FB9      		out 47-32,r24
+ 318               	.L35:
+ 319               	.LM63:
+ 320 00f8 779B      		sbis 46-32,7
+ 321 00fa 00C0      		rjmp .L35
+ 322               	.LM64:
+ 323 00fc 8FB1      		in r24,47-32
+ 324               	.LBE43:
+ 325               	.LBE42:
+ 326               	.LBB44:
+ 327               	.LBB45:
+ 328               	.LM65:
+ 329 00fe 8FEF      		ldi r24,lo8(-1)
+ 330 0100 8FB9      		out 47-32,r24
+ 331               	.L36:
+ 332               	.LM66:
+ 333 0102 779B      		sbis 46-32,7
+ 334 0104 00C0      		rjmp .L36
+ 335               	.LM67:
+ 336 0106 8FB1      		in r24,47-32
+ 337               	.LBE45:
+ 338               	.LBE44:
+ 339               	.LM68:
+ 340 0108 8C93      		st X,r24
+ 341               	.LBB46:
+ 342               	.LBB47:
+ 343               	.LM69:
+ 344 010a 8FEF      		ldi r24,lo8(-1)
+ 345 010c 8FB9      		out 47-32,r24
+ 346               	.L37:
+ 347               	.LM70:
+ 348 010e 779B      		sbis 46-32,7
+ 349 0110 00C0      		rjmp .L37
+ 350               	.LM71:
+ 351 0112 8FB1      		in r24,47-32
+ 352               	.LBE47:
+ 353               	.LBE46:
+ 354               	.LBB48:
+ 355               	.LBB49:
+ 356               	.LM72:
+ 357 0114 8FEF      		ldi r24,lo8(-1)
+ 358 0116 8FB9      		out 47-32,r24
+ 359               	.L38:
+ 360               	.LM73:
+ 361 0118 779B      		sbis 46-32,7
+ 362 011a 00C0      		rjmp .L38
+ 363               	.LM74:
+ 364 011c 8FB1      		in r24,47-32
+ 365               	.LBE49:
+ 366               	.LBE48:
+ 367               	.LM75:
+ 368 011e 8883      		st Y,r24
+ 369               	.LM76:
+ 370 0120 C49A      		sbi 56-32,4
+ 371               	/* epilogue start */
+ 372               	.LM77:
+ 373 0122 DF91      		pop r29
+ 374 0124 CF91      		pop r28
+ 375               	.LVL11:
+ 376 0126 0895      		ret
+ 377               	.LFE13:
+ 459               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lis35.c
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:18     .text:00000000 SPI_Init
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:42     .text:00000012 SPI_Transmit
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:61     .text:0000001a SPI_Receive
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:82     .text:00000026 LIS35_RebootMemory
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:121    .text:0000003e LIS35_ReadRegister
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:169    .text:0000005c LIS35_WriteRegister
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:207    .text:00000070 InitializeLIS35
+C:\Users\O\AppData\Local\Temp/ccrtO9Qt.s:271    .text:000000d2 LIS35_GetPosition
+
+NO UNDEFINED SYMBOLS

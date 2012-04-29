@@ -1,0 +1,70 @@
+   1               		.file	"hello.c"
+   2               		.arch attiny2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB6:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8CE7      		ldi r24,lo8(124)
+  27 0002 81BB      		out 49-0x20,r24
+  28 0004 2CE7      		ldi r18,lo8(124)
+  29 0006 EFEF      		ldi r30,lo8(-1)
+  30 0008 FFEF      		ldi r31,hi8(-1)
+  31               	.L2:
+  32               	.LM3:
+  33 000a 22BB      		out 50-0x20,r18
+  34               	.LBB6:
+  35               	.LBB7:
+  36               	.LM4:
+  37 000c 8E2F      		mov r24,r30
+  38 000e 9F2F      		mov r25,r31
+  39               	.LVL0:
+  40               	/* #APP */
+  41 0010 0197      		1: sbiw r24,1
+  42 0012 01F4      		brne 1b
+  43               	/* #NOAPP */
+  44               	.LBE7:
+  45               	.LBE6:
+  46               	.LM5:
+  47 0014 12BA      		out 50-0x20,__zero_reg__
+  48               	.LBB8:
+  49               	.LBB9:
+  50               	.LM6:
+  51 0016 8E2F      		mov r24,r30
+  52 0018 9F2F      		mov r25,r31
+  53               	.LVL1:
+  54               	/* #APP */
+  55 001a 0197      		1: sbiw r24,1
+  56 001c 01F4      		brne 1b
+  57               	/* #NOAPP */
+  58 001e 00C0      		rjmp .L2
+  59               	.LBE9:
+  60               	.LBE8:
+  61               	/* epilogue: frame size=0 */
+  62               	/* epilogue: noreturn */
+  63               	/* epilogue end (size=0) */
+  64               	/* function main size 20 (20) */
+  65               	.LFE6:
+  91               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 hello.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccUgQSlc.s:20     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

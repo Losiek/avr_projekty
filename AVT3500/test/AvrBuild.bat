@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Program Files\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\labels.tmp" -fI -W+ie -C V2 -o "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\c.hex" -d "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\c.obj" -e "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\c.eep" -m "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\c.map" "J:\Programowanie\AVR_Programming\projekty\AVT3500\test\c.asm"

@@ -1,0 +1,110 @@
+   1               		.file	"icmp_protocol.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	EchoReply
+  18               	EchoReply:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8091 0000 		lds r24,EthFrame+34
+  25 0004 8830      		cpi r24,lo8(8)
+  26 0006 01F4      		brne .L5
+  27 0008 8091 0000 		lds r24,EthFrame+35
+  28 000c 8823      		tst r24
+  29 000e 01F4      		brne .L5
+  30               	.LBB2:
+  31               	.LM3:
+  32 0010 81E0      		ldi r24,lo8(1)
+  33 0012 62E1      		ldi r22,lo8(18)
+  34 0014 70E0      		ldi r23,hi8(18)
+  35 0016 0E94 0000 		call MakeIpHeader
+  36               	.LM4:
+  37 001a E0E0      		ldi r30,lo8(EthFrame+36)
+  38 001c F0E0      		ldi r31,hi8(EthFrame+36)
+  39 001e 88E0      		ldi r24,lo8(8)
+  40 0020 90E0      		ldi r25,hi8(8)
+  41 0022 0190      		ld r0,Z+
+  42 0024 00C0      		rjmp 2f
+  43 0026 880F      	1:	lsl r24
+  44 0028 991F      		rol r25
+  45 002a 0A94      	2:	dec r0
+  46 002c 02F4      		brpl 1b
+  47               	.LVL0:
+  48               	.LM5:
+  49 002e 2081      		ld r18,Z
+  50 0030 AC01      		movw r20,r24
+  51 0032 420F      		add r20,r18
+  52 0034 511D      		adc r21,__zero_reg__
+  53               	.LM6:
+  54 0036 81E0      		ldi r24,lo8(1)
+  55               	.LVL1:
+  56 0038 8093 0000 		sts EthFrame+35,r24
+  57               	.LM7:
+  58 003c 5523      		tst r21
+  59               	.LVL2:
+  60 003e 04F4      		brge .L3
+  61               	.LM8:
+  62 0040 CA01      		movw r24,r20
+  63 0042 8050      		subi r24,lo8(-(-32768))
+  64 0044 9048      		sbci r25,hi8(-(-32768))
+  65 0046 8160      		ori r24,lo8(1)
+  66               	.LVL3:
+  67 0048 00C0      		rjmp .L4
+  68               	.LVL4:
+  69               	.L3:
+  70               	.LM9:
+  71 004a CA01      		movw r24,r20
+  72 004c 8050      		subi r24,lo8(-(-32768))
+  73 004e 9048      		sbci r25,hi8(-(-32768))
+  74               	.LVL5:
+  75               	.L4:
+  76               	.LM10:
+  77 0050 E0E0      		ldi r30,lo8(EthFrame+36)
+  78 0052 F0E0      		ldi r31,hi8(EthFrame+36)
+  79 0054 9193      		st Z+,r25
+  80               	.LVL6:
+  81               	.LM11:
+  82 0056 8083      		st Z,r24
+  83               	.LM12:
+  84 0058 8EE2      		ldi r24,lo8(46)
+  85 005a 90E0      		ldi r25,hi8(46)
+  86               	.LVL7:
+  87 005c 9093 0000 		sts (PacketSize)+1,r25
+  88 0060 8093 0000 		sts PacketSize,r24
+  89               	.LM13:
+  90 0064 0E94 0000 		call RTLsend_packet
+  91               	.LVL8:
+  92               	.L5:
+  93 0068 0895      		ret
+  94               	.LBE2:
+  95               	.LFE2:
+  97               		.comm nextPacketPtr,2,1
+  98               		.comm currentPacketPtr,2,1
+  99               		.comm currentRetreiveAddress,2,1
+ 124               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 icmp_protocol.c
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccYmzn6H.s:18     .text:00000000 EchoReply
+                            *COM*:00000002 nextPacketPtr
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+
+UNDEFINED SYMBOLS
+EthFrame
+MakeIpHeader
+PacketSize
+RTLsend_packet
+__do_clear_bss

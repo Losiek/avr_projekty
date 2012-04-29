@@ -1,0 +1,98 @@
+   1               		.file	"main.c"
+   2               		.arch at90s2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 80E6      		ldi r24,lo8(96)
+  27 0002 82BB      		out 50-0x20,r24
+  28               	.LM3:
+  29 0004 80E2      		ldi r24,lo8(32)
+  30 0006 81BB      		out 49-0x20,r24
+  31               	.LM4:
+  32 0008 86EF      		ldi r24,lo8(-10)
+  33 000a 87BB      		out 55-0x20,r24
+  34               	.LM5:
+  35 000c 00D0      		rcall lcd_init
+  36               	.LM6:
+  37 000e 80E0      		ldi r24,lo8(__c.1572)
+  38 0010 90E0      		ldi r25,hi8(__c.1572)
+  39 0012 00D0      		rcall lcd_str_P
+  40               	.LM7:
+  41 0014 80EC      		ldi r24,lo8(-64)
+  42 0016 00D0      		rcall lcd_command
+  43               	.LM8:
+  44 0018 00D0      		rcall i2c_start
+  45               	.LM9:
+  46 001a 80E9      		ldi r24,lo8(-112)
+  47 001c 00D0      		rcall i2c_send
+  48               	.LM10:
+  49 001e 80E0      		ldi r24,lo8(0)
+  50 0020 00D0      		rcall i2c_send
+  51               	.L4:
+  52               	.LM11:
+  53 0022 00D0      		rcall i2c_stop
+  54               	.LM12:
+  55 0024 80EC      		ldi r24,lo8(-64)
+  56 0026 00D0      		rcall lcd_command
+  57               	.LM13:
+  58 0028 00D0      		rcall i2c_start
+  59               	.LM14:
+  60 002a 81E9      		ldi r24,lo8(-111)
+  61 002c 00D0      		rcall i2c_send
+  62               	.LM15:
+  63 002e 80E0      		ldi r24,lo8(0)
+  64 0030 00D0      		rcall i2c_get
+  65 0032 9927      		clr r25
+  66 0034 00D0      		rcall lcd_dec
+  67               	.LM16:
+  68 0036 80E0      		ldi r24,lo8(__c.1574)
+  69 0038 90E0      		ldi r25,hi8(__c.1574)
+  70 003a 00D0      		rcall lcd_str_P
+  71 003c 00C0      		rjmp .L4
+  72               	/* epilogue: frame size=0 */
+  73               	/* epilogue: noreturn */
+  74               	/* epilogue end (size=0) */
+  75               	/* function main size 31 (31) */
+  76               	.LFE3:
+  78               		.section	.progmem.data,"a",@progbits
+  81               	__c.1574:
+  82 0000 2020 00   		.string	"  "
+  85               	__c.1572:
+  86 0003 4461 6E65 		.string	"Dane z I0:"
+  86      207A 2049 
+  86      303A 00
+ 111               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:85     .progmem.data:00000003 __c.1572
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2QdC2B.s:81     .progmem.data:00000000 __c.1574
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_init
+lcd_str_P
+lcd_command
+i2c_start
+i2c_send
+i2c_stop
+i2c_get
+lcd_dec

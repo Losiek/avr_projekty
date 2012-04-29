@@ -1,0 +1,183 @@
+   1               		.file	"main.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.data
+  19               	.LC0:
+  20 0000 5465 726D 		.string	"Termometr DS18B20\r\n"
+  20      6F6D 6574 
+  20      7220 4453 
+  20      3138 4232 
+  20      300D 0A00 
+  21               	.LC1:
+  22 0014 5465 6D70 		.string	"Temperatura = %d\r\n"
+  22      6572 6174 
+  22      7572 6120 
+  22      3D20 2564 
+  22      0D0A 00
+  23               		.text
+  24               	.global	main
+  26               	main:
+  27               	.LFB7:
+  28               	.LM1:
+  29               	/* prologue: frame size=0 */
+  30 0000 EF92      		push r14
+  31 0002 FF92      		push r15
+  32 0004 0F93      		push r16
+  33 0006 1F93      		push r17
+  34               	/* prologue end (size=4) */
+  35               	.LM2:
+  36 0008 10BC      		out 64-0x20,__zero_reg__
+  37 000a 87E6      		ldi r24,lo8(103)
+  38 000c 89B9      		out 41-0x20,r24
+  39               	.LM3:
+  40 000e 86E8      		ldi r24,lo8(-122)
+  41 0010 80BD      		out 64-0x20,r24
+  42               	.LM4:
+  43 0012 88E1      		ldi r24,lo8(24)
+  44 0014 8AB9      		out 42-0x20,r24
+  45               	.LM5:
+  46 0016 1BB8      		out 43-0x20,__zero_reg__
+  47               	.LM6:
+  48 0018 60E0      		ldi r22,lo8(gs(rs_get))
+  49 001a 70E0      		ldi r23,hi8(gs(rs_get))
+  50 001c 80E0      		ldi r24,lo8(gs(rs_put))
+  51 001e 90E0      		ldi r25,hi8(gs(rs_put))
+  52 0020 0E94 0000 		call fdevopen
+  53               	.LM7:
+  54 0024 1F92      		push __zero_reg__
+  55 0026 1F92      		push __zero_reg__
+  56 0028 80E0      		ldi r24,lo8(.LC0)
+  57 002a 90E0      		ldi r25,hi8(.LC0)
+  58 002c 9F93      		push r25
+  59 002e 8F93      		push r24
+  60 0030 0E94 0000 		call printf
+  61 0034 0F90      		pop __tmp_reg__
+  62 0036 0F90      		pop __tmp_reg__
+  63 0038 0F90      		pop __tmp_reg__
+  64 003a 0F90      		pop __tmp_reg__
+  65               	.L2:
+  66               	.LBB9:
+  67               	.LM8:
+  68 003c 0E94 0000 		call reset_1w
+  69               	.LM9:
+  70 0040 8CEC      		ldi r24,lo8(204)
+  71 0042 90E0      		ldi r25,hi8(204)
+  72 0044 0E94 0000 		call send_1w
+  73               	.LM10:
+  74 0048 84E4      		ldi r24,lo8(68)
+  75 004a 90E0      		ldi r25,hi8(68)
+  76 004c 0E94 0000 		call send_1w
+  77               	.LBB10:
+  78               	.LBB11:
+  79               	.LBB12:
+  80               	.LBB13:
+  81               	.LM11:
+  82 0050 80E0      		ldi r24,lo8(0)
+  83 0052 90E0      		ldi r25,hi8(0)
+  84               	/* #APP */
+  85 0054 0197      		1: sbiw r24,1
+  86 0056 01F4      		brne 1b
+  87               	/* #NOAPP */
+  88               	.LBE13:
+  89               	.LBE12:
+  90               	.LBE11:
+  91               	.LBE10:
+  92               	.LM12:
+  93 0058 0E94 0000 		call reset_1w
+  94               	.LM13:
+  95 005c 8CEC      		ldi r24,lo8(204)
+  96 005e 90E0      		ldi r25,hi8(204)
+  97 0060 0E94 0000 		call send_1w
+  98               	.LM14:
+  99 0064 8EEB      		ldi r24,lo8(190)
+ 100 0066 90E0      		ldi r25,hi8(190)
+ 101 0068 0E94 0000 		call send_1w
+ 102               	.LM15:
+ 103 006c 0E94 0000 		call get_1w
+ 104 0070 7C01      		movw r14,r24
+ 105               	.LM16:
+ 106 0072 0E94 0000 		call get_1w
+ 107 0076 8C01      		movw r16,r24
+ 108               	.LM17:
+ 109 0078 0E94 0000 		call reset_1w
+ 110               	.LM18:
+ 111 007c 102F      		mov r17,r16
+ 112 007e 0027      		clr r16
+ 113               	.LM19:
+ 114 0080 FF24      		clr r15
+ 115 0082 0E29      		or r16,r14
+ 116 0084 1F29      		or r17,r15
+ 117 0086 B801      		movw r22,r16
+ 118 0088 8827      		clr r24
+ 119 008a 77FD      		sbrc r23,7
+ 120 008c 8095      		com r24
+ 121 008e 982F      		mov r25,r24
+ 122 0090 0E94 0000 		call __floatsisf
+ 123 0094 17FF      		sbrs r17,7
+ 124 0096 00C0      		rjmp .L3
+ 125 0098 20E0      		ldi r18,lo8(0x47800000)
+ 126 009a 30E0      		ldi r19,hi8(0x47800000)
+ 127 009c 40E8      		ldi r20,hlo8(0x47800000)
+ 128 009e 57E4      		ldi r21,hhi8(0x47800000)
+ 129 00a0 0E94 0000 		call __addsf3
+ 130               	.L3:
+ 131 00a4 20E0      		ldi r18,lo8(0x3d800000)
+ 132 00a6 30E0      		ldi r19,hi8(0x3d800000)
+ 133 00a8 40E8      		ldi r20,hlo8(0x3d800000)
+ 134 00aa 5DE3      		ldi r21,hhi8(0x3d800000)
+ 135 00ac 0E94 0000 		call __mulsf3
+ 136 00b0 9F93      		push r25
+ 137 00b2 8F93      		push r24
+ 138 00b4 7F93      		push r23
+ 139 00b6 6F93      		push r22
+ 140 00b8 80E0      		ldi r24,lo8(.LC1)
+ 141 00ba 90E0      		ldi r25,hi8(.LC1)
+ 142 00bc 9F93      		push r25
+ 143 00be 8F93      		push r24
+ 144 00c0 0E94 0000 		call printf
+ 145               	.LM20:
+ 146 00c4 8DB7      		in r24,__SP_L__
+ 147 00c6 9EB7      		in r25,__SP_H__
+ 148 00c8 0696      		adiw r24,6
+ 149 00ca 0FB6      		in __tmp_reg__,__SREG__
+ 150 00cc F894      		cli
+ 151 00ce 9EBF      		out __SP_H__,r25
+ 152 00d0 0FBE      		out __SREG__,__tmp_reg__
+ 153 00d2 8DBF      		out __SP_L__,r24
+ 154 00d4 00C0      		rjmp .L2
+ 155               	.LBE9:
+ 156               	/* epilogue: frame size=0 */
+ 157               	/* epilogue: noreturn */
+ 158               	/* epilogue end (size=0) */
+ 159               	/* function main size 109 (105) */
+ 160               	.LFE7:
+ 186               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccBAxJPj.s:26     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+rs_get
+rs_put
+fdevopen
+printf
+reset_1w
+send_1w
+get_1w
+__floatsisf
+__addsf3
+__mulsf3

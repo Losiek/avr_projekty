@@ -1,0 +1,514 @@
+Archive member included because of file (symbol)
+
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o (exit)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                              main.o (strlen_P)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(memset.o)
+                              lcd.o (memset)
+d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+                              main.o (fputs_P)
+
+Discarded input sections
+
+ .stabstr       0x00000000        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+LOAD main.o
+LOAD lcd.o
+LOAD local.o
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libm.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a
+LOAD d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x53a
+ *(.vectors)
+ .vectors       0x00000000       0x70 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000070       0xbb local.o
+                0x00000070                local_lcdspec
+                0x00000118                str_all
+                0x00000112                str_Hello
+                0x0000012c                . = ALIGN (0x2)
+ *fill*         0x0000012b        0x1 00
+                0x0000012c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000012c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000012c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000012c                __ctors_start = .
+ *(.ctors)
+                0x0000012c                __ctors_end = .
+                0x0000012c                __dtors_start = .
+ *(.dtors)
+                0x0000012c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000012c        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+                0x0000012c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000012c        0xc d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000138       0x16 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+                0x00000138                __do_copy_data
+ .init4         0x0000014e       0x10 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x0000014e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000015e        0x8 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+ *(.init9)
+ *(.text)
+ .text          0x00000166        0x4 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+                0x00000166                __vector_22
+                0x00000166                __vector_1
+                0x00000166                __vector_24
+                0x00000166                __vector_12
+                0x00000166                __bad_interrupt
+                0x00000166                __vector_6
+                0x00000166                __vector_3
+                0x00000166                __vector_23
+                0x00000166                __vector_25
+                0x00000166                __vector_11
+                0x00000166                __vector_13
+                0x00000166                __vector_17
+                0x00000166                __vector_19
+                0x00000166                __vector_7
+                0x00000166                __vector_27
+                0x00000166                __vector_5
+                0x00000166                __vector_4
+                0x00000166                __vector_9
+                0x00000166                __vector_2
+                0x00000166                __vector_21
+                0x00000166                __vector_15
+                0x00000166                __vector_8
+                0x00000166                __vector_26
+                0x00000166                __vector_14
+                0x00000166                __vector_10
+                0x00000166                __vector_16
+                0x00000166                __vector_18
+                0x00000166                __vector_20
+ .text          0x0000016a       0x78 main.o
+                0x0000017c                main
+                0x0000016a                delay_10ms8
+ .text          0x000001e2      0x2e0 lcd.o
+                0x00000236                lcd_SendInstr
+                0x00000340                lcd_UpdateText
+                0x0000028e                lcd_GoToAdr
+                0x0000021a                lcd_SendData
+                0x0000043c                lcd_Update
+                0x00000282                lcd_UpdateStatus
+                0x000001fe                lcd_WaitBF
+                0x0000045e                lcd_Cls
+                0x00000294                lcd_UpdateCurPos
+                0x000003b6                lcd_PrepareSpec
+                0x000001e2                lcd_GetBF
+                0x000002ea                lcd_UpdateCGRAM
+                0x00000474                lcd_Init
+                0x0000027c                lcd_SetStatus
+                0x000003b0                lcd_GetFile
+ .text          0x000004c2        0x0 local.o
+ .text          0x000004c2        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text          0x000004c2        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x000004c2        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ .text          0x000004c2       0x12 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                0x000004c2                strlen_P
+ .text          0x000004d4        0xe d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x000004d4                memset
+ .text          0x000004e2       0x56 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+                0x000004e2                fputs_P
+                0x00000538                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000538        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000538        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000538        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x00000538                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000538        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                0x00000538                exit
+                0x00000538                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000538        0x2 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000053a                _etext = .
+
+.data           0x00800100        0xe load address 0x0000053a
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+ .data          0x00800100        0x0 main.o
+ .data          0x00800100        0xe lcd.o
+ .data          0x0080010e        0x0 local.o
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080010e                . = ALIGN (0x2)
+                0x0080010e                _edata = .
+                0x0080010e                PROVIDE (__data_end, .)
+
+.bss            0x0080010e       0x2a
+                0x0080010e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080010e        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+ .bss           0x0080010e        0x0 main.o
+ .bss           0x0080010e       0x2a lcd.o
+ .bss           0x00800138        0x0 local.o
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x00800138        0x0 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+ *(.bss*)
+ *(COMMON)
+                0x00800138                PROVIDE (__bss_end, .)
+                0x0000053a                __data_load_start = LOADADDR (.data)
+                0x00000548                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800138        0x0
+                0x00800138                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800138                PROVIDE (__noinit_end, .)
+                0x00800138                _end = .
+                0x00800138                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000      0x378
+ *(.stab)
+ .stab          0x00000000      0x378 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+
+.stabstr        0x00000000       0x71
+ *(.stabstr)
+ .stabstr       0x00000000       0x71 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x40
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 lcd.o
+
+.debug_pubnames
+                0x00000000      0x17a
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x2b main.o
+ .debug_pubnames
+                0x0000002b      0x111 lcd.o
+ .debug_pubnames
+                0x0000013c       0x3e local.o
+
+.debug_info     0x00000000      0xc5e
+ *(.debug_info)
+ .debug_info    0x00000000      0x1db main.o
+ .debug_info    0x000001db      0x910 lcd.o
+ .debug_info    0x00000aeb      0x173 local.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x4a8
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x10a main.o
+ .debug_abbrev  0x0000010a      0x31f lcd.o
+ .debug_abbrev  0x00000429       0x7f local.o
+
+.debug_line     0x00000000      0x763
+ *(.debug_line)
+ .debug_line    0x00000000      0x1b7 main.o
+ .debug_line    0x000001b7      0x4ae lcd.o
+ .debug_line    0x00000665       0xfe local.o
+
+.debug_frame    0x00000000      0x160
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 main.o
+ .debug_frame   0x00000030      0x130 lcd.o
+
+.debug_str      0x00000000      0x369
+ *(.debug_str)
+ .debug_str     0x00000000      0x126 main.o
+                                0x17e (size before relaxing)
+ .debug_str     0x00000126      0x23b lcd.o
+                                0x348 (size before relaxing)
+ .debug_str     0x00000361        0x8 local.o
+                                0x160 (size before relaxing)
+
+.debug_loc      0x00000000      0x203
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x4c main.o
+ .debug_loc     0x0000004c      0x1b7 lcd.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(LCD_dynamic.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__bss_end                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+__data_start                                      d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+                                                  local.o
+                                                  lcd.o
+                                                  main.o
+__do_copy_data                                    d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+                                                  local.o
+                                                  lcd.o
+                                                  main.o
+__heap_end                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__init                                            d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__stack                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_1                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_10                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_11                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_12                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_13                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_14                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_15                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_16                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_17                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_18                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_19                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_2                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_20                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_21                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_22                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_23                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_24                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_25                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_26                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_27                                       d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_3                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_4                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_5                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_6                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_7                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_8                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_9                                        d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vector_default                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+__vectors                                         d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+_exit                                             d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+delay_10ms8                                       main.o
+exit                                              d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+fputs_P                                           d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(fputs_p.o)
+                                                  main.o
+lcd_Cls                                           lcd.o
+                                                  main.o
+lcd_GetBF                                         lcd.o
+lcd_GetFile                                       lcd.o
+                                                  main.o
+lcd_GoToAdr                                       lcd.o
+lcd_Init                                          lcd.o
+                                                  main.o
+lcd_PrepareSpec                                   lcd.o
+lcd_SendData                                      lcd.o
+lcd_SendInstr                                     lcd.o
+lcd_SetStatus                                     lcd.o
+                                                  main.o
+lcd_Update                                        lcd.o
+                                                  main.o
+lcd_UpdateCGRAM                                   lcd.o
+lcd_UpdateCurPos                                  lcd.o
+lcd_UpdateStatus                                  lcd.o
+lcd_UpdateText                                    lcd.o
+lcd_WaitBF                                        lcd.o
+local_lcdspec                                     local.o
+                                                  lcd.o
+main                                              main.o
+                                                  d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm162.o
+memset                                            d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(memset.o)
+                                                  lcd.o
+str_Hello                                         local.o
+                                                  main.o
+str_all                                           local.o
+                                                  main.o
+strlen_P                                          d:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                                                  main.o

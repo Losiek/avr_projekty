@@ -1,0 +1,378 @@
+   1               		.file	"langsys.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	langsys_GetNumOfLangs
+  20               	langsys_GetNumOfLangs:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 82E0      		ldi r24,lo8(2)
+  27 0002 90E0      		ldi r25,hi8(2)
+  28               	/* epilogue: frame size=0 */
+  29 0004 0895      		ret
+  30               	/* epilogue end (size=1) */
+  31               	/* function langsys_GetNumOfLangs size 3 (2) */
+  32               	.LFE3:
+  34               	.global	langsys_Select
+  36               	langsys_Select:
+  37               	.LFB4:
+  38               	.LM3:
+  39               	/* prologue: frame size=0 */
+  40               	/* prologue end (size=0) */
+  41               	.LVL0:
+  42               	.LM4:
+  43 0006 8093 0000 		sts langsys_sel,r24
+  44               	/* epilogue: frame size=0 */
+  45 000a 0895      		ret
+  46               	/* epilogue end (size=1) */
+  47               	/* function langsys_Select size 3 (2) */
+  48               	.LFE4:
+  50               	.global	langsys_GetSelected
+  52               	langsys_GetSelected:
+  53               	.LFB5:
+  54               	.LM5:
+  55               	/* prologue: frame size=0 */
+  56               	/* prologue end (size=0) */
+  57 000c 8091 0000 		lds r24,langsys_sel
+  58               	.LM6:
+  59 0010 9927      		clr r25
+  60               	/* epilogue: frame size=0 */
+  61 0012 0895      		ret
+  62               	/* epilogue end (size=1) */
+  63               	/* function langsys_GetSelected size 4 (3) */
+  64               	.LFE5:
+  66               	.global	langsys_GetLangName
+  68               	langsys_GetLangName:
+  69               	.LFB6:
+  70               	.LM7:
+  71               	/* prologue: frame size=0 */
+  72               	/* prologue end (size=0) */
+  73               	.LVL1:
+  74               	.LM8:
+  75 0014 8330      		cpi r24,lo8(3)
+  76 0016 00F0      		brlo .L8
+  77               	.LM9:
+  78 0018 80E0      		ldi r24,lo8(0)
+  79 001a 90E0      		ldi r25,hi8(0)
+  80               	.LVL2:
+  81 001c 0895      		ret
+  82               	.LVL3:
+  83               	.L8:
+  84               	.LBB2:
+  85               	.LM10:
+  86 001e E82F      		mov r30,r24
+  87 0020 FF27      		clr r31
+  88               	.LVL4:
+  89 0022 EE0F      		lsl r30
+  90 0024 FF1F      		rol r31
+  91 0026 EE0F      		lsl r30
+  92 0028 FF1F      		rol r31
+  93               	.LVL5:
+  94 002a E050      		subi r30,lo8(-(langsys_strTable))
+  95 002c F040      		sbci r31,hi8(-(langsys_strTable))
+  96               	.LBE2:
+  97               	/* #APP */
+  98 002e 8591      		lpm r24, Z+
+  99 0030 9491      		lpm r25, Z
+ 100               		
+ 101               	.LM11:
+ 102               	/* #NOAPP */
+ 103 0032 0895      		ret
+ 104               	/* epilogue: frame size=0 */
+ 105               	/* epilogue: noreturn */
+ 106               	/* epilogue end (size=0) */
+ 107               	/* function langsys_GetLangName size 20 (20) */
+ 108               	.LFE6:
+ 110               	.global	langsys_GetSpec
+ 112               	langsys_GetSpec:
+ 113               	.LFB7:
+ 114               	.LM12:
+ 115               	/* prologue: frame size=0 */
+ 116               	/* prologue end (size=0) */
+ 117               	.LBB3:
+ 118               	.LM13:
+ 119 0034 E091 0000 		lds r30,langsys_sel
+ 120 0038 FF27      		clr r31
+ 121               	.LVL6:
+ 122 003a EE0F      		lsl r30
+ 123 003c FF1F      		rol r31
+ 124 003e E050      		subi r30,lo8(-(langsys_lcdspec))
+ 125 0040 F040      		sbci r31,hi8(-(langsys_lcdspec))
+ 126               	.LBE3:
+ 127               	.LM14:
+ 128               	/* #APP */
+ 129 0042 8591      		lpm r24, Z+
+ 130 0044 9491      		lpm r25, Z
+ 131               		
+ 132               	/* #NOAPP */
+ 133               	/* epilogue: frame size=0 */
+ 134 0046 0895      		ret
+ 135               	/* epilogue end (size=1) */
+ 136               	/* function langsys_GetSpec size 14 (13) */
+ 137               	.LFE7:
+ 139               	.global	langsys_GetText
+ 141               	langsys_GetText:
+ 142               	.LFB8:
+ 143               	.LM15:
+ 144               	/* prologue: frame size=0 */
+ 145               	/* prologue end (size=0) */
+ 146               	.LVL7:
+ 147               	.LBB4:
+ 148               	.LM16:
+ 149 0048 E091 0000 		lds r30,langsys_sel
+ 150 004c FF27      		clr r31
+ 151               	.LVL8:
+ 152 004e EE0F      		lsl r30
+ 153 0050 FF1F      		rol r31
+ 154 0052 E80F      		add r30,r24
+ 155 0054 F11D      		adc r31,__zero_reg__
+ 156 0056 EE0F      		lsl r30
+ 157 0058 FF1F      		rol r31
+ 158 005a E050      		subi r30,lo8(-(langsys_strTable))
+ 159 005c F040      		sbci r31,hi8(-(langsys_strTable))
+ 160               	.LBE4:
+ 161               	.LM17:
+ 162               	/* #APP */
+ 163 005e 8591      		lpm r24, Z+
+ 164 0060 9491      		lpm r25, Z
+ 165               		
+ 166               	.LVL9:
+ 167               	/* #NOAPP */
+ 168               	/* epilogue: frame size=0 */
+ 169 0062 0895      		ret
+ 170               	/* epilogue end (size=1) */
+ 171               	/* function langsys_GetText size 18 (17) */
+ 172               	.LFE8:
+ 174               	.global	EN_strDisplay
+ 175               		.section	.progmem.data,"a",@progbits
+ 178               	EN_strDisplay:
+ 179 0000 456E 676C 		.string	"English"
+ 179      6973 6800 
+ 180               	.global	EN_strStart
+ 183               	EN_strStart:
+ 184 0008 5765 6C63 		.string	"Welcome in      English Version"
+ 184      6F6D 6520 
+ 184      696E 2020 
+ 184      2020 2020 
+ 184      456E 676C 
+ 185               	.global	PL_lcdspec
+ 188               	PL_lcdspec:
+ 189 0028 00        		.byte	0
+ 190 0029 00        		.byte	0
+ 191 002a 0E        		.byte	14
+ 192 002b 01        		.byte	1
+ 193 002c 0F        		.byte	15
+ 194 002d 11        		.byte	17
+ 195 002e 0F        		.byte	15
+ 196 002f 02        		.byte	2
+ 197 0030 61        		.byte	97
+ 198 0031 02        		.byte	2
+ 199 0032 04        		.byte	4
+ 200 0033 0E        		.byte	14
+ 201 0034 10        		.byte	16
+ 202 0035 10        		.byte	16
+ 203 0036 11        		.byte	17
+ 204 0037 0E        		.byte	14
+ 205 0038 00        		.byte	0
+ 206 0039 63        		.byte	99
+ 207 003a 00        		.byte	0
+ 208 003b 00        		.byte	0
+ 209 003c 0E        		.byte	14
+ 210 003d 11        		.byte	17
+ 211 003e 1F        		.byte	31
+ 212 003f 10        		.byte	16
+ 213 0040 0E        		.byte	14
+ 214 0041 02        		.byte	2
+ 215 0042 65        		.byte	101
+ 216 0043 0C        		.byte	12
+ 217 0044 04        		.byte	4
+ 218 0045 06        		.byte	6
+ 219 0046 04        		.byte	4
+ 220 0047 0C        		.byte	12
+ 221 0048 04        		.byte	4
+ 222 0049 0E        		.byte	14
+ 223 004a 00        		.byte	0
+ 224 004b 6C        		.byte	108
+ 225 004c 02        		.byte	2
+ 226 004d 04        		.byte	4
+ 227 004e 16        		.byte	22
+ 228 004f 19        		.byte	25
+ 229 0050 11        		.byte	17
+ 230 0051 11        		.byte	17
+ 231 0052 11        		.byte	17
+ 232 0053 00        		.byte	0
+ 233 0054 6E        		.byte	110
+ 234 0055 02        		.byte	2
+ 235 0056 04        		.byte	4
+ 236 0057 0E        		.byte	14
+ 237 0058 11        		.byte	17
+ 238 0059 11        		.byte	17
+ 239 005a 11        		.byte	17
+ 240 005b 0E        		.byte	14
+ 241 005c 00        		.byte	0
+ 242 005d 6F        		.byte	111
+ 243 005e 02        		.byte	2
+ 244 005f 04        		.byte	4
+ 245 0060 0E        		.byte	14
+ 246 0061 10        		.byte	16
+ 247 0062 0E        		.byte	14
+ 248 0063 01        		.byte	1
+ 249 0064 1E        		.byte	30
+ 250 0065 00        		.byte	0
+ 251 0066 73        		.byte	115
+ 252 0067 02        		.byte	2
+ 253 0068 04        		.byte	4
+ 254 0069 1F        		.byte	31
+ 255 006a 02        		.byte	2
+ 256 006b 04        		.byte	4
+ 257 006c 08        		.byte	8
+ 258 006d 1F        		.byte	31
+ 259 006e 00        		.byte	0
+ 260 006f 7A        		.byte	122
+ 261 0070 04        		.byte	4
+ 262 0071 00        		.byte	0
+ 263 0072 1F        		.byte	31
+ 264 0073 02        		.byte	2
+ 265 0074 04        		.byte	4
+ 266 0075 08        		.byte	8
+ 267 0076 1F        		.byte	31
+ 268 0077 00        		.byte	0
+ 269 0078 7A        		.byte	122
+ 270 0079 0E        		.byte	14
+ 271 007a 11        		.byte	17
+ 272 007b 11        		.byte	17
+ 273 007c 1F        		.byte	31
+ 274 007d 11        		.byte	17
+ 275 007e 11        		.byte	17
+ 276 007f 11        		.byte	17
+ 277 0080 02        		.byte	2
+ 278 0081 41        		.byte	65
+ 279 0082 02        		.byte	2
+ 280 0083 0E        		.byte	14
+ 281 0084 15        		.byte	21
+ 282 0085 10        		.byte	16
+ 283 0086 10        		.byte	16
+ 284 0087 10        		.byte	16
+ 285 0088 11        		.byte	17
+ 286 0089 0E        		.byte	14
+ 287 008a 43        		.byte	67
+ 288 008b 1F        		.byte	31
+ 289 008c 10        		.byte	16
+ 290 008d 10        		.byte	16
+ 291 008e 1E        		.byte	30
+ 292 008f 10        		.byte	16
+ 293 0090 10        		.byte	16
+ 294 0091 1F        		.byte	31
+ 295 0092 02        		.byte	2
+ 296 0093 45        		.byte	69
+ 297 0094 10        		.byte	16
+ 298 0095 10        		.byte	16
+ 299 0096 14        		.byte	20
+ 300 0097 18        		.byte	24
+ 301 0098 10        		.byte	16
+ 302 0099 10        		.byte	16
+ 303 009a 1F        		.byte	31
+ 304 009b 00        		.byte	0
+ 305 009c 4C        		.byte	76
+ 306 009d 02        		.byte	2
+ 307 009e 15        		.byte	21
+ 308 009f 11        		.byte	17
+ 309 00a0 19        		.byte	25
+ 310 00a1 15        		.byte	21
+ 311 00a2 13        		.byte	19
+ 312 00a3 11        		.byte	17
+ 313 00a4 11        		.byte	17
+ 314 00a5 4E        		.byte	78
+ 315 00a6 02        		.byte	2
+ 316 00a7 0E        		.byte	14
+ 317 00a8 15        		.byte	21
+ 318 00a9 11        		.byte	17
+ 319 00aa 11        		.byte	17
+ 320 00ab 11        		.byte	17
+ 321 00ac 11        		.byte	17
+ 322 00ad 0E        		.byte	14
+ 323 00ae 4F        		.byte	79
+ 324 00af 02        		.byte	2
+ 325 00b0 0F        		.byte	15
+ 326 00b1 14        		.byte	20
+ 327 00b2 10        		.byte	16
+ 328 00b3 0E        		.byte	14
+ 329 00b4 01        		.byte	1
+ 330 00b5 01        		.byte	1
+ 331 00b6 1E        		.byte	30
+ 332 00b7 53        		.byte	83
+ 333 00b8 02        		.byte	2
+ 334 00b9 1F        		.byte	31
+ 335 00ba 05        		.byte	5
+ 336 00bb 02        		.byte	2
+ 337 00bc 04        		.byte	4
+ 338 00bd 08        		.byte	8
+ 339 00be 10        		.byte	16
+ 340 00bf 1F        		.byte	31
+ 341 00c0 5A        		.byte	90
+ 342 00c1 04        		.byte	4
+ 343 00c2 1F        		.byte	31
+ 344 00c3 01        		.byte	1
+ 345 00c4 02        		.byte	2
+ 346 00c5 04        		.byte	4
+ 347 00c6 08        		.byte	8
+ 348 00c7 10        		.byte	16
+ 349 00c8 1F        		.byte	31
+ 350 00c9 5A        		.byte	90
+ 351               	.global	PL_strDisplay
+ 354               	PL_strDisplay:
+ 355 00ca 506F 6C73 		.string	"Polski"
+ 355      6B69 00
+ 356               	.global	PL_strStart
+ 359               	PL_strStart:
+ 360 00d1 5769 7461 		.string	"Witaj w wersji\n polskiej"
+ 360      6A20 7720 
+ 360      7765 7273 
+ 360      6A69 0A20 
+ 360      706F 6C73 
+ 361               	.global	langsys_lcdspec
+ 364               	langsys_lcdspec:
+ 365 00ea 0000      		.word	0
+ 366 00ec 0000      		.word	PL_lcdspec
+ 367               	.global	langsys_strTable
+ 370               	langsys_strTable:
+ 371 00ee 0000      		.word	EN_strDisplay
+ 372 00f0 0000      		.word	EN_strStart
+ 373 00f2 0000      		.word	PL_strDisplay
+ 374 00f4 0000      		.word	PL_strStart
+ 375               		.lcomm langsys_sel,1
+ 440               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 langsys.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:20     .text:00000000 langsys_GetNumOfLangs
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:36     .text:00000006 langsys_Select
+                             .bss:00000000 langsys_sel
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:52     .text:0000000c langsys_GetSelected
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:68     .text:00000014 langsys_GetLangName
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:370    .progmem.data:000000ee langsys_strTable
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:112    .text:00000034 langsys_GetSpec
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:364    .progmem.data:000000ea langsys_lcdspec
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:141    .text:00000048 langsys_GetText
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:178    .progmem.data:00000000 EN_strDisplay
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:183    .progmem.data:00000008 EN_strStart
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:188    .progmem.data:00000028 PL_lcdspec
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:354    .progmem.data:000000ca PL_strDisplay
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccQiGTbg.s:359    .progmem.data:000000d1 PL_strStart
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

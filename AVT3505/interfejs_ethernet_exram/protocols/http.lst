@@ -1,0 +1,155 @@
+   1               		.file	"http.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Http_Check
+  18               	Http_Check:
+  19               	.LFB7:
+  20               	.LM1:
+  21 0000 EF92      		push r14
+  22 0002 FF92      		push r15
+  23 0004 0F93      		push r16
+  24 0006 1F93      		push r17
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LM2:
+  28 0008 8091 0000 		lds r24,EthFrame+54
+  29 000c 8734      		cpi r24,lo8(71)
+  30 000e 01F4      		brne .L3
+  31 0010 8091 0000 		lds r24,EthFrame+55
+  32 0014 8534      		cpi r24,lo8(69)
+  33 0016 01F4      		brne .L3
+  34 0018 8091 0000 		lds r24,EthFrame+56
+  35 001c 8435      		cpi r24,lo8(84)
+  36 001e 01F4      		brne .L3
+  37 0020 8091 0000 		lds r24,Tcp_Status
+  38 0024 8330      		cpi r24,lo8(3)
+  39 0026 01F4      		brne .L3
+  40               	.LM3:
+  41 0028 80E9      		ldi r24,lo8(8080)
+  42 002a 9FE1      		ldi r25,hi8(8080)
+  43 002c 0E94 0000 		call Tcp_Send_Ack
+  44               	.LM4:
+  45 0030 0F2E      		mov __tmp_reg__,r31
+  46 0032 F0E0      		ldi r31,lo8(EthFrame+54)
+  47 0034 EF2E      		mov r14,r31
+  48 0036 F0E0      		ldi r31,hi8(EthFrame+54)
+  49 0038 FF2E      		mov r15,r31
+  50 003a F02D      		mov r31,__tmp_reg__
+  51 003c 00E0      		ldi r16,lo8(content)
+  52 003e 10E0      		ldi r17,hi8(content)
+  53 0040 C701      		movw r24,r14
+  54 0042 B801      		movw r22,r16
+  55 0044 0E94 0000 		call strcpy_P
+  56               	.LM5:
+  57 0048 C801      		movw r24,r16
+  58 004a 0E94 0000 		call strlen_P
+  59 004e BC01      		movw r22,r24
+  60 0050 80E9      		ldi r24,lo8(8080)
+  61 0052 9FE1      		ldi r25,hi8(8080)
+  62 0054 0E94 0000 		call Tcp_Send_Data
+  63               	.LM6:
+  64 0058 00E0      		ldi r16,lo8(index1)
+  65 005a 10E0      		ldi r17,hi8(index1)
+  66 005c C701      		movw r24,r14
+  67 005e B801      		movw r22,r16
+  68 0060 0E94 0000 		call strcpy_P
+  69               	.LM7:
+  70 0064 C801      		movw r24,r16
+  71 0066 0E94 0000 		call strlen_P
+  72 006a BC01      		movw r22,r24
+  73 006c 80E9      		ldi r24,lo8(8080)
+  74 006e 9FE1      		ldi r25,hi8(8080)
+  75 0070 0E94 0000 		call Tcp_Send_Data
+  76               	.LM8:
+  77 0074 80E9      		ldi r24,lo8(8080)
+  78 0076 9FE1      		ldi r25,hi8(8080)
+  79 0078 0E94 0000 		call Tcp_Fin_Http
+  80               	.L3:
+  81               	/* epilogue start */
+  82               	.LM9:
+  83 007c 1F91      		pop r17
+  84 007e 0F91      		pop r16
+  85 0080 FF90      		pop r15
+  86 0082 EF90      		pop r14
+  87 0084 0895      		ret
+  88               	.LFE7:
+  90               		.comm Tcp_Status,1,1
+  91               	.global	content
+  92               		.section	.progmem.data,"a",@progbits
+  95               	content:
+  96 0000 4854 5450 		.string	"HTTP/1.0 200 OK\r\n Content-type: text/html\r\t\n"
+  96      2F31 2E30 
+  96      2032 3030 
+  96      204F 4B0D 
+  96      0A20 436F 
+  97               	.global	index1
+ 100               	index1:
+ 101 002d 3C48 544D 		.ascii	"<HTML>\r\n<HEAD>\r\n<TITLE>Mikroserwer LAN</TITLE>\r\n<meta "
+ 101      4C3E 0D0A 
+ 101      3C48 4541 
+ 101      443E 0D0A 
+ 101      3C54 4954 
+ 102 0063 6874 7470 		.ascii	"http-equiv=\"content-type\" content=\"Text/Html; charset=win"
+ 102      2D65 7175 
+ 102      6976 3D22 
+ 102      636F 6E74 
+ 102      656E 742D 
+ 103 009c 646F 77   		.ascii	"dow"
+ 104 009f 732D 3132 		.string	"s-1250\">\r\n</HEAD>\r\n<BODY>\r\n<h1></br>Mikro</h1>\r\n</BODY>\r\n</HTML>"
+ 104      3530 223E 
+ 104      0D0A 3C2F 
+ 104      4845 4144 
+ 104      3E0D 0A3C 
+ 105               		.comm dma,1,1
+ 106               		.comm nextPacketPtr,2,1
+ 107               		.comm currentPacketPtr,2,1
+ 108               		.comm currentRetreiveAddress,2,1
+ 109               		.comm ArpReply,1,1
+ 110               		.comm ArpCount,1,1
+ 111               		.comm pingTimeout,1,1
+ 112               		.comm dest_port,2,1
+ 113               		.comm seq_number,4,1
+ 114               		.comm ack_number,4,1
+ 115               		.comm tcp_packet_count,2,1
+ 116               		.comm next_send_data,1,1
+ 117               		.comm next_ack,1,1
+ 142               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 http.c
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:18     .text:00000000 Http_Check
+                            *COM*:00000001 Tcp_Status
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:95     .progmem.data:00000000 content
+C:\Users\O\AppData\Local\Temp/ccfwqy4T.s:100    .progmem.data:0000002d index1
+                            *COM*:00000001 dma
+                            *COM*:00000002 nextPacketPtr
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+                            *COM*:00000001 ArpReply
+                            *COM*:00000001 ArpCount
+                            *COM*:00000001 pingTimeout
+                            *COM*:00000002 dest_port
+                            *COM*:00000004 seq_number
+                            *COM*:00000004 ack_number
+                            *COM*:00000002 tcp_packet_count
+                            *COM*:00000001 next_send_data
+                            *COM*:00000001 next_ack
+
+UNDEFINED SYMBOLS
+EthFrame
+Tcp_Send_Ack
+strcpy_P
+strlen_P
+Tcp_Send_Data
+Tcp_Fin_Http
+__do_clear_bss

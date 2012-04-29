@@ -1,0 +1,4943 @@
+
+ethernet.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000020  00800100  00002030  000020c4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00002030  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000018c  00800120  00800120  000020e4  2**0
+                  ALLOC
+  3 .debug_aranges 00000100  00000000  00000000  000020e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000006d8  00000000  00000000  000021e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000011c4  00000000  00000000  000028bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006c5  00000000  00000000  00003a80  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000019e9  00000000  00000000  00004145  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000260  00000000  00000000  00005b30  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000448  00000000  00000000  00005d90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000005e6  00000000  00000000  000061d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 9e 00 	jmp	0x13c	; 0x13c <__ctors_end>
+       4:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+       8:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+       c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      10:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      14:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      18:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      1c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      20:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      24:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      28:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      2c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      30:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      34:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      38:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      3c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      40:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      44:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      48:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      4c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      50:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      54:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      58:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      5c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      60:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      64:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      68:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+      6c:	0c 94 bb 00 	jmp	0x176	; 0x176 <__bad_interrupt>
+
+00000070 <content>:
+      70:	48 54 54 50 2f 31 2e 30 20 32 30 30 20 4f 4b 0d     HTTP/1.0 200 OK.
+      80:	0a 20 43 6f 6e 74 65 6e 74 2d 74 79 70 65 3a 20     . Content-type: 
+      90:	74 65 78 74 2f 68 74 6d 6c 0d 09 0a 00              text/html....
+
+0000009d <index1>:
+      9d:	3c 48 54 4d 4c 3e 0d 0a 3c 48 45 41 44 3e 0d 0a     <HTML>..<HEAD>..
+      ad:	3c 54 49 54 4c 45 3e 4d 69 6b 72 6f 73 65 72 77     <TITLE>Mikroserw
+      bd:	65 72 20 4c 41 4e 3c 2f 54 49 54 4c 45 3e 0d 0a     er LAN</TITLE>..
+      cd:	3c 6d 65 74 61 20 68 74 74 70 2d 65 71 75 69 76     <meta http-equiv
+      dd:	3d 22 63 6f 6e 74 65 6e 74 2d 74 79 70 65 22 20     ="content-type" 
+      ed:	63 6f 6e 74 65 6e 74 3d 22 54 65 78 74 2f 48 74     content="Text/Ht
+      fd:	6d 6c 3b 20 63 68 61 72 73 65 74 3d 77 69 6e 64     ml; charset=wind
+     10d:	6f 77 73 2d 31 32 35 30 22 3e 0d 0a 3c 2f 48 45     ows-1250">..</HE
+     11d:	41 44 3e 0d 0a 3c 42 4f 44 59 3e 0d 0a 3c 2f 42     AD>..<BODY>..</B
+     12d:	4f 44 59 3e 0d 0a 3c 2f 48 54 4d 4c 3e 00 00        ODY>..</HTML>..
+
+0000013c <__ctors_end>:
+     13c:	11 24       	eor	r1, r1
+     13e:	1f be       	out	0x3f, r1	; 63
+     140:	cf ef       	ldi	r28, 0xFF	; 255
+     142:	d4 e0       	ldi	r29, 0x04	; 4
+     144:	de bf       	out	0x3e, r29	; 62
+     146:	cd bf       	out	0x3d, r28	; 61
+
+00000148 <__do_copy_data>:
+     148:	11 e0       	ldi	r17, 0x01	; 1
+     14a:	a0 e0       	ldi	r26, 0x00	; 0
+     14c:	b1 e0       	ldi	r27, 0x01	; 1
+     14e:	e0 e3       	ldi	r30, 0x30	; 48
+     150:	f0 e2       	ldi	r31, 0x20	; 32
+     152:	02 c0       	rjmp	.+4      	; 0x158 <.do_copy_data_start>
+
+00000154 <.do_copy_data_loop>:
+     154:	05 90       	lpm	r0, Z+
+     156:	0d 92       	st	X+, r0
+
+00000158 <.do_copy_data_start>:
+     158:	a0 32       	cpi	r26, 0x20	; 32
+     15a:	b1 07       	cpc	r27, r17
+     15c:	d9 f7       	brne	.-10     	; 0x154 <.do_copy_data_loop>
+
+0000015e <__do_clear_bss>:
+     15e:	12 e0       	ldi	r17, 0x02	; 2
+     160:	a0 e2       	ldi	r26, 0x20	; 32
+     162:	b1 e0       	ldi	r27, 0x01	; 1
+     164:	01 c0       	rjmp	.+2      	; 0x168 <.do_clear_bss_start>
+
+00000166 <.do_clear_bss_loop>:
+     166:	1d 92       	st	X+, r1
+
+00000168 <.do_clear_bss_start>:
+     168:	ac 3a       	cpi	r26, 0xAC	; 172
+     16a:	b1 07       	cpc	r27, r17
+     16c:	e1 f7       	brne	.-8      	; 0x166 <.do_clear_bss_loop>
+     16e:	0e 94 bd 00 	call	0x17a	; 0x17a <main>
+     172:	0c 94 16 10 	jmp	0x202c	; 0x202c <_exit>
+
+00000176 <__bad_interrupt>:
+     176:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000017a <main>:
+int main(void) 
+{
+	
+	/////////////////////////////////////////////////////////
+	//Inicjacja portu szeregowego
+	RS_SET_BAUD(DEF_BAUD);
+     17a:	e0 e4       	ldi	r30, 0x40	; 64
+     17c:	f0 e0       	ldi	r31, 0x00	; 0
+     17e:	10 82       	st	Z, r1
+     180:	8f ec       	ldi	r24, 0xCF	; 207
+     182:	89 b9       	out	0x09, r24	; 9
+	UCSR0C = 1<<URSEL0 | 1<<UCSZ01 | 1<<UCSZ00;
+     184:	86 e8       	ldi	r24, 0x86	; 134
+     186:	80 83       	st	Z, r24
+	UCSR0B = 1<<RXEN0 | 1<<TXEN0;
+     188:	88 e1       	ldi	r24, 0x18	; 24
+     18a:	8a b9       	out	0x0a, r24	; 10
+	UCSR0A = 0;
+     18c:	1b b8       	out	0x0b, r1	; 11
+	//Koniec inicjacji
+	////////////////////////////////////////////////////////
+
+	//inicjacja funkcji domyœlnych strumieni
+	fdevopen(rs_put, rs_get);
+     18e:	83 e1       	ldi	r24, 0x13	; 19
+     190:	94 e0       	ldi	r25, 0x04	; 4
+     192:	6d e1       	ldi	r22, 0x1D	; 29
+     194:	74 e0       	ldi	r23, 0x04	; 4
+     196:	0e 94 3a 0e 	call	0x1c74	; 0x1c74 <fdevopen>
+	
+	//inicjacja portów
+
+	//wiadomoœæ powitalna
+	printf("Witaj RTL8019as\n");
+     19a:	80 e0       	ldi	r24, 0x00	; 0
+     19c:	91 e0       	ldi	r25, 0x01	; 1
+     19e:	0e 94 8d 0e 	call	0x1d1a	; 0x1d1a <puts>
+	printf("\r");								//zajmuje mniej pamiêci, serio
+     1a2:	8d e0       	ldi	r24, 0x0D	; 13
+     1a4:	90 e0       	ldi	r25, 0x00	; 0
+     1a6:	0e 94 86 0e 	call	0x1d0c	; 0x1d0c <putchar>
+	
+	RTLinit();
+     1aa:	0e 94 52 01 	call	0x2a4	; 0x2a4 <RTLinit>
+	seq_number=0x1000;
+     1ae:	80 e0       	ldi	r24, 0x00	; 0
+     1b0:	90 e1       	ldi	r25, 0x10	; 16
+     1b2:	a0 e0       	ldi	r26, 0x00	; 0
+     1b4:	b0 e0       	ldi	r27, 0x00	; 0
+     1b6:	80 93 23 01 	sts	0x0123, r24
+     1ba:	90 93 24 01 	sts	0x0124, r25
+     1be:	a0 93 25 01 	sts	0x0125, r26
+     1c2:	b0 93 26 01 	sts	0x0126, r27
+
+	for(;;) {
+
+	while((uint8_t)RTLreceive_packet()!=0x01) {}
+     1c6:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+     1ca:	81 30       	cpi	r24, 0x01	; 1
+     1cc:	e1 f7       	brne	.-8      	; 0x1c6 <main+0x4c>
+	
+	if(PacketCheck() == 1) {
+     1ce:	0e 94 c2 03 	call	0x784	; 0x784 <PacketCheck>
+     1d2:	81 30       	cpi	r24, 0x01	; 1
+     1d4:	19 f4       	brne	.+6      	; 0x1dc <main+0x62>
+		ArpCheck();
+     1d6:	0e 94 25 04 	call	0x84a	; 0x84a <ArpCheck>
+     1da:	13 c0       	rjmp	.+38     	; 0x202 <main+0x88>
+	} else if (PacketCheck() == 2) {
+     1dc:	0e 94 c2 03 	call	0x784	; 0x784 <PacketCheck>
+     1e0:	82 30       	cpi	r24, 0x02	; 2
+     1e2:	79 f4       	brne	.+30     	; 0x202 <main+0x88>
+		if(IpCheck() == 3) {
+     1e4:	0e 94 56 06 	call	0xcac	; 0xcac <IpCheck>
+     1e8:	83 30       	cpi	r24, 0x03	; 3
+     1ea:	19 f4       	brne	.+6      	; 0x1f2 <main+0x78>
+			EchoReply();
+     1ec:	0e 94 0c 07 	call	0xe18	; 0xe18 <EchoReply>
+     1f0:	08 c0       	rjmp	.+16     	; 0x202 <main+0x88>
+		} else if (IpCheck() == 4) {
+     1f2:	0e 94 56 06 	call	0xcac	; 0xcac <IpCheck>
+     1f6:	84 30       	cpi	r24, 0x04	; 4
+     1f8:	21 f4       	brne	.+8      	; 0x202 <main+0x88>
+			Tcp_Check(0x1F90);
+     1fa:	80 e9       	ldi	r24, 0x90	; 144
+     1fc:	9f e1       	ldi	r25, 0x1F	; 31
+     1fe:	0e 94 ed 0d 	call	0x1bda	; 0x1bda <Tcp_Check>
+		}	
+	}
+	Http_Check();
+     202:	0e 94 f8 0d 	call	0x1bf0	; 0x1bf0 <Http_Check>
+     206:	df cf       	rjmp	.-66     	; 0x1c6 <main+0x4c>
+
+00000208 <RTLsetup_ports>:
+#include "RTL8019as.h"
+
+//konfiguracja linii portów mikrokontrolera
+void RTLsetup_ports(void) {
+	
+	RTL_ADDRESS_DDR = 0xFF;
+     208:	8f ef       	ldi	r24, 0xFF	; 255
+     20a:	8a bb       	out	0x1a, r24	; 26
+	RTL_DATA_PORT = 0xFF;
+     20c:	85 bb       	out	0x15, r24	; 21
+	
+	RTL_CONTROL_DDR |= (1<<RTL_CONTROL_READPIN);
+     20e:	a1 e3       	ldi	r26, 0x31	; 49
+     210:	b0 e0       	ldi	r27, 0x00	; 0
+     212:	8c 91       	ld	r24, X
+     214:	80 68       	ori	r24, 0x80	; 128
+     216:	8c 93       	st	X, r24
+	RTL_CONTROL_DDR |= (1<<RTL_CONTROL_WRITEPIN);
+     218:	8c 91       	ld	r24, X
+     21a:	80 64       	ori	r24, 0x40	; 64
+     21c:	8c 93       	st	X, r24
+	RTL_CONTROL_PORT |= (1<<RTL_CONTROL_READPIN);
+     21e:	e2 e3       	ldi	r30, 0x32	; 50
+     220:	f0 e0       	ldi	r31, 0x00	; 0
+     222:	80 81       	ld	r24, Z
+     224:	80 68       	ori	r24, 0x80	; 128
+     226:	80 83       	st	Z, r24
+	RTL_CONTROL_PORT |= (1<<RTL_CONTROL_WRITEPIN);
+     228:	80 81       	ld	r24, Z
+     22a:	80 64       	ori	r24, 0x40	; 64
+     22c:	80 83       	st	Z, r24
+	
+	RTL_RESET_DDR |= (1<<RTL_RESET_PIN);
+     22e:	8c 91       	ld	r24, X
+     230:	80 62       	ori	r24, 0x20	; 32
+     232:	8c 93       	st	X, r24
+}
+     234:	08 95       	ret
+
+00000236 <RTLhw_reset>:
+//konic konfiguracji
+
+//Reset kontrolera sieci
+void RTLhw_reset(void) {
+	
+	RTL_RESET_PORT |= (1<<RTL_RESET_PIN);
+     236:	e2 e3       	ldi	r30, 0x32	; 50
+     238:	f0 e0       	ldi	r31, 0x00	; 0
+     23a:	80 81       	ld	r24, Z
+     23c:	80 62       	ori	r24, 0x20	; 32
+     23e:	80 83       	st	Z, r24
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+     240:	20 e4       	ldi	r18, 0x40	; 64
+     242:	3c e9       	ldi	r19, 0x9C	; 156
+     244:	c9 01       	movw	r24, r18
+     246:	01 97       	sbiw	r24, 0x01	; 1
+     248:	f1 f7       	brne	.-4      	; 0x246 <RTLhw_reset+0x10>
+	_delay_ms(10);
+	RTL_RESET_PORT &= ~(1<<RTL_RESET_PIN);
+     24a:	80 81       	ld	r24, Z
+     24c:	8f 7d       	andi	r24, 0xDF	; 223
+     24e:	80 83       	st	Z, r24
+     250:	c9 01       	movw	r24, r18
+     252:	01 97       	sbiw	r24, 0x01	; 1
+     254:	f1 f7       	brne	.-4      	; 0x252 <RTLhw_reset+0x1c>
+	_delay_ms(10); 
+}
+     256:	08 95       	ret
+
+00000258 <RTLwrite>:
+//koniec funkcji resetuj¹cej kontroler
+
+//Zapis bajtu do RTL8019as
+void RTLwrite (uint8_t address, uint8_t data) {
+	
+	RTL_ADDRESS_PORT = address;
+     258:	8b bb       	out	0x1b, r24	; 27
+	RTL_DATA_DDR = 0xFF;
+     25a:	24 e3       	ldi	r18, 0x34	; 52
+     25c:	30 e0       	ldi	r19, 0x00	; 0
+     25e:	9f ef       	ldi	r25, 0xFF	; 255
+     260:	f9 01       	movw	r30, r18
+     262:	90 83       	st	Z, r25
+	RTL_DATA_PORT = data;
+     264:	a5 e3       	ldi	r26, 0x35	; 53
+     266:	b0 e0       	ldi	r27, 0x00	; 0
+     268:	6c 93       	st	X, r22
+	
+	RTL_CLEAR_WRITE;
+     26a:	e2 e3       	ldi	r30, 0x32	; 50
+     26c:	f0 e0       	ldi	r31, 0x00	; 0
+     26e:	80 81       	ld	r24, Z
+     270:	8f 7b       	andi	r24, 0xBF	; 191
+     272:	80 83       	st	Z, r24
+	RTL_SET_WRITE;
+     274:	80 81       	ld	r24, Z
+     276:	80 64       	ori	r24, 0x40	; 64
+     278:	80 83       	st	Z, r24
+	
+	RTL_DATA_DDR = 0x00;
+     27a:	f9 01       	movw	r30, r18
+     27c:	10 82       	st	Z, r1
+	RTL_DATA_PORT = 0xFF;
+     27e:	9c 93       	st	X, r25
+
+}
+     280:	08 95       	ret
+
+00000282 <RTLread>:
+//Funkcja odczytuj¹ca jeden bajt z RTL8019as
+uint8_t RTLread(uint8_t address) {
+	
+	uint8_t byte;
+	
+	RTL_ADDRESS_PORT = address;
+     282:	8b bb       	out	0x1b, r24	; 27
+	asm volatile("nop\n\t"::);			//Gdy czêstoœæ 8MHz wystarczy jeden nop
+     284:	00 00       	nop
+	asm volatile("nop\n\t"::);
+     286:	00 00       	nop
+	
+	RTL_CLEAR_READ;
+     288:	e2 e3       	ldi	r30, 0x32	; 50
+     28a:	f0 e0       	ldi	r31, 0x00	; 0
+     28c:	80 81       	ld	r24, Z
+     28e:	8f 77       	andi	r24, 0x7F	; 127
+     290:	80 83       	st	Z, r24
+	asm volatile("nop\n\t"::);
+     292:	00 00       	nop
+	asm volatile("nop\n\t"::);
+     294:	00 00       	nop
+	
+	byte = RTL_DATA_PIN;
+     296:	83 b3       	in	r24, 0x13	; 19
+	
+	RTL_SET_READ;
+     298:	e2 e3       	ldi	r30, 0x32	; 50
+     29a:	f0 e0       	ldi	r31, 0x00	; 0
+     29c:	90 81       	ld	r25, Z
+     29e:	90 68       	ori	r25, 0x80	; 128
+     2a0:	90 83       	st	Z, r25
+	
+	return byte;
+
+}
+     2a2:	08 95       	ret
+
+000002a4 <RTLinit>:
+//koniec funkcji odczytuj¹cej
+
+//Inicjalizacja RTL8019as
+void RTLinit(void) {
+     2a4:	cf 92       	push	r12
+     2a6:	df 92       	push	r13
+     2a8:	ef 92       	push	r14
+     2aa:	ff 92       	push	r15
+     2ac:	0f 93       	push	r16
+     2ae:	1f 93       	push	r17
+
+	
+	RTLsetup_ports();
+     2b0:	0e 94 04 01 	call	0x208	; 0x208 <RTLsetup_ports>
+	RTLhw_reset();
+     2b4:	0e 94 1b 01 	call	0x236	; 0x236 <RTLhw_reset>
+	RTLwrite(RSTPORT,0);
+     2b8:	88 e1       	ldi	r24, 0x18	; 24
+     2ba:	60 e0       	ldi	r22, 0x00	; 0
+     2bc:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     2c0:	2c e2       	ldi	r18, 0x2C	; 44
+     2c2:	31 e0       	ldi	r19, 0x01	; 1
+     2c4:	40 e9       	ldi	r20, 0x90	; 144
+     2c6:	51 e0       	ldi	r21, 0x01	; 1
+     2c8:	ca 01       	movw	r24, r20
+     2ca:	01 97       	sbiw	r24, 0x01	; 1
+     2cc:	f1 f7       	brne	.-4      	; 0x2ca <RTLinit+0x26>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+     2ce:	21 50       	subi	r18, 0x01	; 1
+     2d0:	30 40       	sbci	r19, 0x00	; 0
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+     2d2:	d1 f7       	brne	.-12     	; 0x2c8 <RTLinit+0x24>
+	_delay_ms(30);
+	
+	RTLwrite(CR, 0x41);
+     2d4:	80 e0       	ldi	r24, 0x00	; 0
+     2d6:	61 e4       	ldi	r22, 0x41	; 65
+     2d8:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     2dc:	0f 2e       	mov	r0, r31
+     2de:	f0 e4       	ldi	r31, 0x40	; 64
+     2e0:	cf 2e       	mov	r12, r31
+     2e2:	ff e1       	ldi	r31, 0x1F	; 31
+     2e4:	df 2e       	mov	r13, r31
+     2e6:	f0 2d       	mov	r31, r0
+     2e8:	c6 01       	movw	r24, r12
+     2ea:	01 97       	sbiw	r24, 0x01	; 1
+     2ec:	f1 f7       	brne	.-4      	; 0x2ea <RTLinit+0x46>
+	_delay_ms(2);
+	
+	RTLwrite(CURR, RXSTART_INIT);
+     2ee:	87 e0       	ldi	r24, 0x07	; 7
+     2f0:	66 e4       	ldi	r22, 0x46	; 70
+     2f2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+0, MyMac[0]);	//Zapis adresu MAC
+     2f6:	0f 2e       	mov	r0, r31
+     2f8:	f0 e1       	ldi	r31, 0x10	; 16
+     2fa:	ef 2e       	mov	r14, r31
+     2fc:	f1 e0       	ldi	r31, 0x01	; 1
+     2fe:	ff 2e       	mov	r15, r31
+     300:	f0 2d       	mov	r31, r0
+     302:	81 e0       	ldi	r24, 0x01	; 1
+     304:	f7 01       	movw	r30, r14
+     306:	61 91       	ld	r22, Z+
+     308:	8f 01       	movw	r16, r30
+     30a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+1, MyMac[1]);
+     30e:	82 e0       	ldi	r24, 0x02	; 2
+     310:	f8 01       	movw	r30, r16
+     312:	60 81       	ld	r22, Z
+     314:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+2, MyMac[2]);
+     318:	83 e0       	ldi	r24, 0x03	; 3
+     31a:	f7 01       	movw	r30, r14
+     31c:	62 81       	ldd	r22, Z+2	; 0x02
+     31e:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+3, MyMac[3]);
+     322:	84 e0       	ldi	r24, 0x04	; 4
+     324:	f7 01       	movw	r30, r14
+     326:	63 81       	ldd	r22, Z+3	; 0x03
+     328:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+4, MyMac[4]);
+     32c:	85 e0       	ldi	r24, 0x05	; 5
+     32e:	f7 01       	movw	r30, r14
+     330:	64 81       	ldd	r22, Z+4	; 0x04
+     332:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PAR0+5, MyMac[5]);
+     336:	86 e0       	ldi	r24, 0x06	; 6
+     338:	f7 01       	movw	r30, r14
+     33a:	65 81       	ldd	r22, Z+5	; 0x05
+     33c:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(CR,0x21);
+     340:	80 e0       	ldi	r24, 0x00	; 0
+     342:	61 e2       	ldi	r22, 0x21	; 33
+     344:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     348:	c6 01       	movw	r24, r12
+     34a:	01 97       	sbiw	r24, 0x01	; 1
+     34c:	f1 f7       	brne	.-4      	; 0x34a <RTLinit+0xa6>
+	_delay_ms(2);
+	
+	RTLwrite(DCR, 0x58);
+     34e:	8e e0       	ldi	r24, 0x0E	; 14
+     350:	68 e5       	ldi	r22, 0x58	; 88
+     352:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(RCR, 0x04);
+     356:	8c e0       	ldi	r24, 0x0C	; 12
+     358:	64 e0       	ldi	r22, 0x04	; 4
+     35a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(TCR, 0x02);
+     35e:	8d e0       	ldi	r24, 0x0D	; 13
+     360:	62 e0       	ldi	r22, 0x02	; 2
+     362:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(RBCR0, 0x00);
+     366:	8a e0       	ldi	r24, 0x0A	; 10
+     368:	60 e0       	ldi	r22, 0x00	; 0
+     36a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RBCR1, 0x00);
+     36e:	8b e0       	ldi	r24, 0x0B	; 11
+     370:	60 e0       	ldi	r22, 0x00	; 0
+     372:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(TPSR, TXSTART_INIT);
+     376:	84 e0       	ldi	r24, 0x04	; 4
+     378:	60 e4       	ldi	r22, 0x40	; 64
+     37a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PSTART, RXSTART_INIT);
+     37e:	81 e0       	ldi	r24, 0x01	; 1
+     380:	66 e4       	ldi	r22, 0x46	; 70
+     382:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(BNRY, RXSTART_INIT);
+     386:	83 e0       	ldi	r24, 0x03	; 3
+     388:	66 e4       	ldi	r22, 0x46	; 70
+     38a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(PSTOP, RXSTOP_INIT);
+     38e:	82 e0       	ldi	r24, 0x02	; 2
+     390:	60 e6       	ldi	r22, 0x60	; 96
+     392:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(ISR, 0xFF);
+     396:	87 e0       	ldi	r24, 0x07	; 7
+     398:	6f ef       	ldi	r22, 0xFF	; 255
+     39a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(IMR, 0x11);
+     39e:	8f e0       	ldi	r24, 0x0F	; 15
+     3a0:	61 e1       	ldi	r22, 0x11	; 17
+     3a2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(TCR, 0x00);
+     3a6:	8d e0       	ldi	r24, 0x0D	; 13
+     3a8:	60 e0       	ldi	r22, 0x00	; 0
+     3aa:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(CR, 0x22);
+     3ae:	80 e0       	ldi	r24, 0x00	; 0
+     3b0:	62 e2       	ldi	r22, 0x22	; 34
+     3b2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+}
+     3b6:	1f 91       	pop	r17
+     3b8:	0f 91       	pop	r16
+     3ba:	ff 90       	pop	r15
+     3bc:	ef 90       	pop	r14
+     3be:	df 90       	pop	r13
+     3c0:	cf 90       	pop	r12
+     3c2:	08 95       	ret
+
+000003c4 <RTLsend_packet>:
+//koniec pe³nej inicjalizacji kontrolera
+
+//Wysy³anie pakietu do RTL8019as
+void RTLsend_packet(void) {
+     3c4:	1f 93       	push	r17
+     3c6:	cf 93       	push	r28
+     3c8:	df 93       	push	r29
+
+	uint8_t i;
+	
+	RTLwrite(CR, 0x22);
+     3ca:	80 e0       	ldi	r24, 0x00	; 0
+     3cc:	62 e2       	ldi	r22, 0x22	; 34
+     3ce:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	while(RTLread(CR) & 0x04) {}; //czekanie a¿ mo¿na wys³aæ
+     3d2:	80 e0       	ldi	r24, 0x00	; 0
+     3d4:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     3d8:	82 fd       	sbrc	r24, 2
+     3da:	fb cf       	rjmp	.-10     	; 0x3d2 <RTLsend_packet+0xe>
+	
+	RTLwrite(TPSR,TXSTART_INIT);
+     3dc:	84 e0       	ldi	r24, 0x04	; 4
+     3de:	60 e4       	ldi	r22, 0x40	; 64
+     3e0:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(RSAR0, 0x00);
+     3e4:	88 e0       	ldi	r24, 0x08	; 8
+     3e6:	60 e0       	ldi	r22, 0x00	; 0
+     3e8:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RSAR1, TXSTART_INIT);
+     3ec:	89 e0       	ldi	r24, 0x09	; 9
+     3ee:	60 e4       	ldi	r22, 0x40	; 64
+     3f0:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(ISR, (1<<ISR_PTX));
+     3f4:	87 e0       	ldi	r24, 0x07	; 7
+     3f6:	62 e0       	ldi	r22, 0x02	; 2
+     3f8:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(RBCR0, 0xEA);
+     3fc:	8a e0       	ldi	r24, 0x0A	; 10
+     3fe:	6a ee       	ldi	r22, 0xEA	; 234
+     400:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RBCR1, 0x05);
+     404:	8b e0       	ldi	r24, 0x0B	; 11
+     406:	65 e0       	ldi	r22, 0x05	; 5
+     408:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(CR, 0x12);
+     40c:	80 e0       	ldi	r24, 0x00	; 0
+     40e:	62 e1       	ldi	r22, 0x12	; 18
+     410:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	for(i=0; i<PacketSize; i++) {
+     414:	80 91 98 02 	lds	r24, 0x0298
+     418:	90 91 99 02 	lds	r25, 0x0299
+     41c:	89 2b       	or	r24, r25
+     41e:	c1 f0       	breq	.+48     	; 0x450 <RTLsend_packet+0x8c>
+     420:	10 e0       	ldi	r17, 0x00	; 0
+		
+		RTLwrite(RDMAPORT, EthFrame[i]);	//zapis ramki do kontrolera
+     422:	c2 e3       	ldi	r28, 0x32	; 50
+     424:	d1 e0       	ldi	r29, 0x01	; 1
+     426:	fe 01       	movw	r30, r28
+     428:	e1 0f       	add	r30, r17
+     42a:	f1 1d       	adc	r31, r1
+     42c:	80 e1       	ldi	r24, 0x10	; 16
+     42e:	60 81       	ld	r22, Z
+     430:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RBCR0, 0xEA);
+	RTLwrite(RBCR1, 0x05);
+	
+	RTLwrite(CR, 0x12);
+	
+	for(i=0; i<PacketSize; i++) {
+     434:	1f 5f       	subi	r17, 0xFF	; 255
+     436:	21 2f       	mov	r18, r17
+     438:	30 e0       	ldi	r19, 0x00	; 0
+     43a:	80 91 98 02 	lds	r24, 0x0298
+     43e:	90 91 99 02 	lds	r25, 0x0299
+     442:	28 17       	cp	r18, r24
+     444:	39 07       	cpc	r19, r25
+     446:	78 f3       	brcs	.-34     	; 0x426 <RTLsend_packet+0x62>
+		
+		RTLwrite(RDMAPORT, EthFrame[i]);	//zapis ramki do kontrolera
+	}
+	
+	while (PacketSize<60) {
+     448:	bc 01       	movw	r22, r24
+     44a:	8c 33       	cpi	r24, 0x3C	; 60
+     44c:	91 05       	cpc	r25, r1
+     44e:	90 f4       	brcc	.+36     	; 0x474 <RTLsend_packet+0xb0>
+		
+		RTLwrite(RDMAPORT, 0);	//Je¿eli ramka mnijsza ni¿ 60 bajtów to dope³nij zerami
+     450:	80 e1       	ldi	r24, 0x10	; 16
+     452:	60 e0       	ldi	r22, 0x00	; 0
+     454:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		PacketSize++;
+     458:	80 91 98 02 	lds	r24, 0x0298
+     45c:	90 91 99 02 	lds	r25, 0x0299
+     460:	bc 01       	movw	r22, r24
+     462:	6f 5f       	subi	r22, 0xFF	; 255
+     464:	7f 4f       	sbci	r23, 0xFF	; 255
+     466:	70 93 99 02 	sts	0x0299, r23
+     46a:	60 93 98 02 	sts	0x0298, r22
+	for(i=0; i<PacketSize; i++) {
+		
+		RTLwrite(RDMAPORT, EthFrame[i]);	//zapis ramki do kontrolera
+	}
+	
+	while (PacketSize<60) {
+     46e:	6c 33       	cpi	r22, 0x3C	; 60
+     470:	71 05       	cpc	r23, r1
+     472:	70 f3       	brcs	.-36     	; 0x450 <RTLsend_packet+0x8c>
+		
+		RTLwrite(RDMAPORT, 0);	//Je¿eli ramka mnijsza ni¿ 60 bajtów to dope³nij zerami
+		PacketSize++;
+	}
+	
+	RTLwrite(TBCR0, (uint8_t)(PacketSize));	//zapisz rozmiar ramiki
+     474:	85 e0       	ldi	r24, 0x05	; 5
+     476:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(TBCR1, (uint8_t)((PacketSize)>>8));
+     47a:	60 91 99 02 	lds	r22, 0x0299
+     47e:	86 e0       	ldi	r24, 0x06	; 6
+     480:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+
+	RTLwrite(CR, 0x24);	//wys³anie ramki przez sieæ
+     484:	80 e0       	ldi	r24, 0x00	; 0
+     486:	64 e2       	ldi	r22, 0x24	; 36
+     488:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(ISR, (1<<ISR_RDC));
+     48c:	87 e0       	ldi	r24, 0x07	; 7
+     48e:	60 e4       	ldi	r22, 0x40	; 64
+     490:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+}// koniec funkcju wysy³aj¹cej pakiet
+     494:	df 91       	pop	r29
+     496:	cf 91       	pop	r28
+     498:	1f 91       	pop	r17
+     49a:	08 95       	ret
+
+0000049c <RTLreceive_empty_check>:
+
+//Funkcja sprawdzaj¹ca czy w buforze kontrolera jest nowy pakiet
+uint8_t RTLreceive_empty_check(void) {
+     49c:	1f 93       	push	r17
+	
+	uint8_t curr;
+	
+	RTLwrite(CR, 0x68);
+     49e:	80 e0       	ldi	r24, 0x00	; 0
+     4a0:	68 e6       	ldi	r22, 0x68	; 104
+     4a2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	curr = RTLread(CURR);
+     4a6:	87 e0       	ldi	r24, 0x07	; 7
+     4a8:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     4ac:	18 2f       	mov	r17, r24
+	
+	RTLwrite(CR, 0x22);
+     4ae:	80 e0       	ldi	r24, 0x00	; 0
+     4b0:	62 e2       	ldi	r22, 0x22	; 34
+     4b2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	return (curr == RTLread(BNRY)); //Je¿eli wskaŸniki równe to znaczy ¿e nie odebrano pakietu
+     4b6:	83 e0       	ldi	r24, 0x03	; 3
+     4b8:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     4bc:	90 e0       	ldi	r25, 0x00	; 0
+     4be:	18 17       	cp	r17, r24
+     4c0:	09 f4       	brne	.+2      	; 0x4c4 <RTLreceive_empty_check+0x28>
+     4c2:	91 e0       	ldi	r25, 0x01	; 1
+}// koniec funkcji sprawdzaj¹cej bufor
+     4c4:	89 2f       	mov	r24, r25
+     4c6:	1f 91       	pop	r17
+     4c8:	08 95       	ret
+
+000004ca <RTLend_retreive>:
+
+//Funkcja koñcz¹ca odczyt ramki z kontrolera
+void RTLend_retreive(void) {
+     4ca:	1f 93       	push	r17
+	uint8_t i;
+	
+	RTLwrite(CR, 0x22);
+     4cc:	80 e0       	ldi	r24, 0x00	; 0
+     4ce:	62 e2       	ldi	r22, 0x22	; 34
+     4d0:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     4d4:	10 e0       	ldi	r17, 0x00	; 0
+	for(i=0; i <= 20; i++) {
+		if(RTLread(ISR) & 1<<6) {
+     4d6:	87 e0       	ldi	r24, 0x07	; 7
+     4d8:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     4dc:	86 fd       	sbrc	r24, 6
+     4de:	03 c0       	rjmp	.+6      	; 0x4e6 <RTLend_retreive+0x1c>
+//Funkcja koñcz¹ca odczyt ramki z kontrolera
+void RTLend_retreive(void) {
+	uint8_t i;
+	
+	RTLwrite(CR, 0x22);
+	for(i=0; i <= 20; i++) {
+     4e0:	1f 5f       	subi	r17, 0xFF	; 255
+     4e2:	15 31       	cpi	r17, 0x15	; 21
+     4e4:	c1 f7       	brne	.-16     	; 0x4d6 <RTLend_retreive+0xc>
+		if(RTLread(ISR) & 1<<6) {
+			break;
+		}
+	}
+	RTLwrite(ISR, 1<<6);
+     4e6:	87 e0       	ldi	r24, 0x07	; 7
+     4e8:	60 e4       	ldi	r22, 0x40	; 64
+     4ea:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		
+	RTLwrite(BNRY, nextPacketPtr);
+     4ee:	83 e0       	ldi	r24, 0x03	; 3
+     4f0:	60 91 2e 01 	lds	r22, 0x012E
+     4f4:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+}// koniec funkcji koncz¹cej odczyt
+     4f8:	1f 91       	pop	r17
+     4fa:	08 95       	ret
+
+000004fc <RTLreceive_packet>:
+
+//Funkcja odczytuj¹ca ramkê z kontrolera sieci
+uint8_t RTLreceive_packet(void) {
+     4fc:	ef 92       	push	r14
+     4fe:	ff 92       	push	r15
+     500:	0f 93       	push	r16
+     502:	1f 93       	push	r17
+     504:	cf 93       	push	r28
+     506:	df 93       	push	r29
+	
+	uint8_t i;
+	
+	if(RTLreceive_empty_check()) return 2;
+     508:	0e 94 4e 02 	call	0x49c	; 0x49c <RTLreceive_empty_check>
+     50c:	88 23       	and	r24, r24
+     50e:	11 f0       	breq	.+4      	; 0x514 <__stack+0x15>
+     510:	82 e0       	ldi	r24, 0x02	; 2
+     512:	31 c1       	rjmp	.+610    	; 0x776 <__stack+0x277>
+	
+	RTLwrite(CR, 0x22);
+     514:	80 e0       	ldi	r24, 0x00	; 0
+     516:	62 e2       	ldi	r22, 0x22	; 34
+     518:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	currentPacketPtr = RTLread(BNRY);
+     51c:	83 e0       	ldi	r24, 0x03	; 3
+     51e:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     522:	80 93 30 01 	sts	0x0130, r24
+     526:	10 92 31 01 	sts	0x0131, r1
+	currentRetreiveAddress = (currentPacketPtr<<8) + 4;
+     52a:	38 2f       	mov	r19, r24
+     52c:	20 e0       	ldi	r18, 0x00	; 0
+     52e:	2c 5f       	subi	r18, 0xFC	; 252
+     530:	3f 4f       	sbci	r19, 0xFF	; 255
+     532:	30 93 97 02 	sts	0x0297, r19
+     536:	20 93 96 02 	sts	0x0296, r18
+	
+	RTLwrite(ISR, (1<<ISR_PRX));
+     53a:	87 e0       	ldi	r24, 0x07	; 7
+     53c:	61 e0       	ldi	r22, 0x01	; 1
+     53e:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	if ((currentPacketPtr >= RXSTOP_INIT) || (currentPacketPtr < RXSTART_INIT)) {
+     542:	80 91 30 01 	lds	r24, 0x0130
+     546:	90 91 31 01 	lds	r25, 0x0131
+     54a:	86 54       	subi	r24, 0x46	; 70
+     54c:	90 40       	sbci	r25, 0x00	; 0
+     54e:	4a 97       	sbiw	r24, 0x1a	; 26
+     550:	90 f0       	brcs	.+36     	; 0x576 <__stack+0x77>
+		
+		RTLwrite(BNRY, RXSTART_INIT);
+     552:	83 e0       	ldi	r24, 0x03	; 3
+     554:	66 e4       	ldi	r22, 0x46	; 70
+     556:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		RTLwrite(CR, 0x62);
+     55a:	80 e0       	ldi	r24, 0x00	; 0
+     55c:	62 e6       	ldi	r22, 0x62	; 98
+     55e:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		RTLwrite(CURR, RXSTART_INIT);
+     562:	87 e0       	ldi	r24, 0x07	; 7
+     564:	66 e4       	ldi	r22, 0x46	; 70
+     566:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		RTLwrite(CR, 0x22);
+     56a:	80 e0       	ldi	r24, 0x00	; 0
+     56c:	62 e2       	ldi	r22, 0x22	; 34
+     56e:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     572:	83 e0       	ldi	r24, 0x03	; 3
+     574:	00 c1       	rjmp	.+512    	; 0x776 <__stack+0x277>
+		return 3;
+	}
+	
+	RTLwrite(RBCR0, 4+ETHERNET_HEADER_LENGTH);
+     576:	8a e0       	ldi	r24, 0x0A	; 10
+     578:	62 e1       	ldi	r22, 0x12	; 18
+     57a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RBCR1, 0);
+     57e:	8b e0       	ldi	r24, 0x0B	; 11
+     580:	60 e0       	ldi	r22, 0x00	; 0
+     582:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RSAR0, 0);
+     586:	88 e0       	ldi	r24, 0x08	; 8
+     588:	60 e0       	ldi	r22, 0x00	; 0
+     58a:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RSAR1, currentPacketPtr);
+     58e:	89 e0       	ldi	r24, 0x09	; 9
+     590:	60 91 30 01 	lds	r22, 0x0130
+     594:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+		RTLwrite(CR, 0x0A);
+     598:	80 e0       	ldi	r24, 0x00	; 0
+     59a:	6a e0       	ldi	r22, 0x0A	; 10
+     59c:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		
+		RTLread(RDMAPORT);
+     5a0:	80 e1       	ldi	r24, 0x10	; 16
+     5a2:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+		nextPacketPtr = RTLread(RDMAPORT);
+     5a6:	80 e1       	ldi	r24, 0x10	; 16
+     5a8:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     5ac:	90 e0       	ldi	r25, 0x00	; 0
+     5ae:	90 93 2f 01 	sts	0x012F, r25
+     5b2:	80 93 2e 01 	sts	0x012E, r24
+		
+		if((nextPacketPtr >= RXSTOP_INIT) || (nextPacketPtr < RXSTART_INIT)) return 4;
+     5b6:	86 54       	subi	r24, 0x46	; 70
+     5b8:	90 40       	sbci	r25, 0x00	; 0
+     5ba:	4a 97       	sbiw	r24, 0x1a	; 26
+     5bc:	10 f0       	brcs	.+4      	; 0x5c2 <__stack+0xc3>
+     5be:	84 e0       	ldi	r24, 0x04	; 4
+     5c0:	da c0       	rjmp	.+436    	; 0x776 <__stack+0x277>
+		
+		PacketSize = RTLread(RDMAPORT);
+     5c2:	80 e1       	ldi	r24, 0x10	; 16
+     5c4:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     5c8:	80 93 98 02 	sts	0x0298, r24
+     5cc:	10 92 99 02 	sts	0x0299, r1
+		PacketSize |= (uint8_t)RTLread(RDMAPORT);
+     5d0:	80 e1       	ldi	r24, 0x10	; 16
+     5d2:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     5d6:	90 e0       	ldi	r25, 0x00	; 0
+     5d8:	20 91 98 02 	lds	r18, 0x0298
+     5dc:	30 91 99 02 	lds	r19, 0x0299
+     5e0:	82 2b       	or	r24, r18
+     5e2:	93 2b       	or	r25, r19
+     5e4:	90 93 99 02 	sts	0x0299, r25
+     5e8:	80 93 98 02 	sts	0x0298, r24
+		
+		if(PacketSize > 4) {
+     5ec:	85 30       	cpi	r24, 0x05	; 5
+     5ee:	91 05       	cpc	r25, r1
+     5f0:	48 f0       	brcs	.+18     	; 0x604 <__stack+0x105>
+			PacketSize -= 4;
+     5f2:	04 97       	sbiw	r24, 0x04	; 4
+     5f4:	90 93 99 02 	sts	0x0299, r25
+     5f8:	80 93 98 02 	sts	0x0298, r24
+		} else {
+			RTLend_retreive();
+			return 5;
+		}
+		
+		if(PacketSize > 1514) {
+     5fc:	8b 5e       	subi	r24, 0xEB	; 235
+     5fe:	95 40       	sbci	r25, 0x05	; 5
+     600:	28 f4       	brcc	.+10     	; 0x60c <__stack+0x10d>
+     602:	08 c0       	rjmp	.+16     	; 0x614 <__stack+0x115>
+		PacketSize |= (uint8_t)RTLread(RDMAPORT);
+		
+		if(PacketSize > 4) {
+			PacketSize -= 4;
+		} else {
+			RTLend_retreive();
+     604:	0e 94 65 02 	call	0x4ca	; 0x4ca <RTLend_retreive>
+     608:	85 e0       	ldi	r24, 0x05	; 5
+     60a:	b5 c0       	rjmp	.+362    	; 0x776 <__stack+0x277>
+			return 5;
+		}
+		
+		if(PacketSize > 1514) {
+			RTLend_retreive();
+     60c:	0e 94 65 02 	call	0x4ca	; 0x4ca <RTLend_retreive>
+     610:	86 e0       	ldi	r24, 0x06	; 6
+     612:	b1 c0       	rjmp	.+354    	; 0x776 <__stack+0x277>
+			return 6;
+		}
+		
+		EthFrame[EthDestMac+0]=RTLread(RDMAPORT);
+     614:	80 e1       	ldi	r24, 0x10	; 16
+     616:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     61a:	0f 2e       	mov	r0, r31
+     61c:	f2 e3       	ldi	r31, 0x32	; 50
+     61e:	ef 2e       	mov	r14, r31
+     620:	f1 e0       	ldi	r31, 0x01	; 1
+     622:	ff 2e       	mov	r15, r31
+     624:	f0 2d       	mov	r31, r0
+     626:	f7 01       	movw	r30, r14
+     628:	81 93       	st	Z+, r24
+     62a:	8f 01       	movw	r16, r30
+		EthFrame[EthDestMac+1]=RTLread(RDMAPORT);
+     62c:	80 e1       	ldi	r24, 0x10	; 16
+     62e:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     632:	f8 01       	movw	r30, r16
+     634:	80 83       	st	Z, r24
+		EthFrame[EthDestMac+2]=RTLread(RDMAPORT);
+     636:	80 e1       	ldi	r24, 0x10	; 16
+     638:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     63c:	f7 01       	movw	r30, r14
+     63e:	82 83       	std	Z+2, r24	; 0x02
+		EthFrame[EthDestMac+3]=RTLread(RDMAPORT);
+     640:	80 e1       	ldi	r24, 0x10	; 16
+     642:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     646:	f7 01       	movw	r30, r14
+     648:	83 83       	std	Z+3, r24	; 0x03
+		EthFrame[EthDestMac+4]=RTLread(RDMAPORT);
+     64a:	80 e1       	ldi	r24, 0x10	; 16
+     64c:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     650:	f7 01       	movw	r30, r14
+     652:	84 83       	std	Z+4, r24	; 0x04
+		EthFrame[EthDestMac+5]=RTLread(RDMAPORT);
+     654:	80 e1       	ldi	r24, 0x10	; 16
+     656:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     65a:	f7 01       	movw	r30, r14
+     65c:	85 83       	std	Z+5, r24	; 0x05
+		
+		EthFrame[EthSourceMac+0]=RTLread(RDMAPORT);
+     65e:	80 e1       	ldi	r24, 0x10	; 16
+     660:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     664:	f7 01       	movw	r30, r14
+     666:	86 83       	std	Z+6, r24	; 0x06
+		EthFrame[EthSourceMac+1]=RTLread(RDMAPORT);
+     668:	80 e1       	ldi	r24, 0x10	; 16
+     66a:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     66e:	f7 01       	movw	r30, r14
+     670:	87 83       	std	Z+7, r24	; 0x07
+		EthFrame[EthSourceMac+2]=RTLread(RDMAPORT);
+     672:	80 e1       	ldi	r24, 0x10	; 16
+     674:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     678:	f7 01       	movw	r30, r14
+     67a:	80 87       	std	Z+8, r24	; 0x08
+		EthFrame[EthSourceMac+3]=RTLread(RDMAPORT);
+     67c:	80 e1       	ldi	r24, 0x10	; 16
+     67e:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     682:	f7 01       	movw	r30, r14
+     684:	81 87       	std	Z+9, r24	; 0x09
+		EthFrame[EthSourceMac+4]=RTLread(RDMAPORT);
+     686:	80 e1       	ldi	r24, 0x10	; 16
+     688:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     68c:	f7 01       	movw	r30, r14
+     68e:	82 87       	std	Z+10, r24	; 0x0a
+		EthFrame[EthSourceMac+5]=RTLread(RDMAPORT);
+     690:	80 e1       	ldi	r24, 0x10	; 16
+     692:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     696:	f7 01       	movw	r30, r14
+     698:	83 87       	std	Z+11, r24	; 0x0b
+		
+		EthFrame[EthTypeLen+0]=RTLread(RDMAPORT);
+     69a:	80 e1       	ldi	r24, 0x10	; 16
+     69c:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     6a0:	f7 01       	movw	r30, r14
+     6a2:	84 87       	std	Z+12, r24	; 0x0c
+		EthFrame[EthTypeLen+1]=RTLread(RDMAPORT);
+     6a4:	80 e1       	ldi	r24, 0x10	; 16
+     6a6:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     6aa:	f7 01       	movw	r30, r14
+     6ac:	85 87       	std	Z+13, r24	; 0x0d
+		
+		currentRetreiveAddress += 6+6+2;
+     6ae:	80 91 96 02 	lds	r24, 0x0296
+     6b2:	90 91 97 02 	lds	r25, 0x0297
+     6b6:	0e 96       	adiw	r24, 0x0e	; 14
+     6b8:	90 93 97 02 	sts	0x0297, r25
+     6bc:	80 93 96 02 	sts	0x0296, r24
+		
+	RTLwrite(CR, 0x22);
+     6c0:	80 e0       	ldi	r24, 0x00	; 0
+     6c2:	62 e2       	ldi	r22, 0x22	; 34
+     6c4:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+     6c8:	00 e0       	ldi	r16, 0x00	; 0
+	for(i=0; i <= 20; i++) 
+		if(RTLread(ISR) & 1<<6) 
+     6ca:	87 e0       	ldi	r24, 0x07	; 7
+     6cc:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     6d0:	86 fd       	sbrc	r24, 6
+     6d2:	03 c0       	rjmp	.+6      	; 0x6da <__stack+0x1db>
+		EthFrame[EthTypeLen+1]=RTLread(RDMAPORT);
+		
+		currentRetreiveAddress += 6+6+2;
+		
+	RTLwrite(CR, 0x22);
+	for(i=0; i <= 20; i++) 
+     6d4:	0f 5f       	subi	r16, 0xFF	; 255
+     6d6:	05 31       	cpi	r16, 0x15	; 21
+     6d8:	c1 f7       	brne	.-16     	; 0x6ca <__stack+0x1cb>
+		if(RTLread(ISR) & 1<<6) 
+			break;
+	RTLwrite(ISR, 1<<6);
+     6da:	87 e0       	ldi	r24, 0x07	; 7
+     6dc:	60 e4       	ldi	r22, 0x40	; 64
+     6de:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+		
+	RTLwrite(RBCR0, (uint8_t)PacketSize);
+     6e2:	8a e0       	ldi	r24, 0x0A	; 10
+     6e4:	60 91 98 02 	lds	r22, 0x0298
+     6e8:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RBCR1, (uint8_t)(PacketSize>>8));
+     6ec:	60 91 99 02 	lds	r22, 0x0299
+     6f0:	8b e0       	ldi	r24, 0x0B	; 11
+     6f2:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RSAR0, (uint8_t)currentRetreiveAddress);
+     6f6:	88 e0       	ldi	r24, 0x08	; 8
+     6f8:	60 91 96 02 	lds	r22, 0x0296
+     6fc:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	RTLwrite(RSAR1, (uint8_t)(currentRetreiveAddress>>8));
+     700:	60 91 97 02 	lds	r22, 0x0297
+     704:	89 e0       	ldi	r24, 0x09	; 9
+     706:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+	RTLwrite(CR, 0x0A);
+     70a:	80 e0       	ldi	r24, 0x00	; 0
+     70c:	6a e0       	ldi	r22, 0x0A	; 10
+     70e:	0e 94 2c 01 	call	0x258	; 0x258 <RTLwrite>
+	
+		for(i=0; i < PacketSize; i++) 
+     712:	20 91 98 02 	lds	r18, 0x0298
+     716:	30 91 99 02 	lds	r19, 0x0299
+     71a:	21 15       	cp	r18, r1
+     71c:	31 05       	cpc	r19, r1
+     71e:	a1 f0       	breq	.+40     	; 0x748 <__stack+0x249>
+     720:	00 e0       	ldi	r16, 0x00	; 0
+			EthFrame[14+i] = RTLread(RDMAPORT);
+     722:	c2 e3       	ldi	r28, 0x32	; 50
+     724:	d1 e0       	ldi	r29, 0x01	; 1
+     726:	80 e1       	ldi	r24, 0x10	; 16
+     728:	0e 94 41 01 	call	0x282	; 0x282 <RTLread>
+     72c:	fe 01       	movw	r30, r28
+     72e:	e0 0f       	add	r30, r16
+     730:	f1 1d       	adc	r31, r1
+     732:	86 87       	std	Z+14, r24	; 0x0e
+	RTLwrite(RSAR0, (uint8_t)currentRetreiveAddress);
+	RTLwrite(RSAR1, (uint8_t)(currentRetreiveAddress>>8));
+	
+	RTLwrite(CR, 0x0A);
+	
+		for(i=0; i < PacketSize; i++) 
+     734:	0f 5f       	subi	r16, 0xFF	; 255
+     736:	20 91 98 02 	lds	r18, 0x0298
+     73a:	30 91 99 02 	lds	r19, 0x0299
+     73e:	80 2f       	mov	r24, r16
+     740:	90 e0       	ldi	r25, 0x00	; 0
+     742:	82 17       	cp	r24, r18
+     744:	93 07       	cpc	r25, r19
+     746:	78 f3       	brcs	.-34     	; 0x726 <__stack+0x227>
+			EthFrame[14+i] = RTLread(RDMAPORT);
+			
+		currentRetreiveAddress += PacketSize;
+     748:	80 91 96 02 	lds	r24, 0x0296
+     74c:	90 91 97 02 	lds	r25, 0x0297
+     750:	82 0f       	add	r24, r18
+     752:	93 1f       	adc	r25, r19
+     754:	90 93 97 02 	sts	0x0297, r25
+     758:	80 93 96 02 	sts	0x0296, r24
+		if( currentRetreiveAddress >= 0x6000) 
+     75c:	f0 e6       	ldi	r31, 0x60	; 96
+     75e:	80 30       	cpi	r24, 0x00	; 0
+     760:	9f 07       	cpc	r25, r31
+     762:	30 f0       	brcs	.+12     	; 0x770 <__stack+0x271>
+			currentRetreiveAddress = currentRetreiveAddress - (0x6000-0x4600);	
+     764:	80 50       	subi	r24, 0x00	; 0
+     766:	9a 41       	sbci	r25, 0x1A	; 26
+     768:	90 93 97 02 	sts	0x0297, r25
+     76c:	80 93 96 02 	sts	0x0296, r24
+	
+	RTLend_retreive();		
+     770:	0e 94 65 02 	call	0x4ca	; 0x4ca <RTLend_retreive>
+     774:	81 e0       	ldi	r24, 0x01	; 1
+	return 1;
+}// koniec funkcji odczytuj¹cej ramkê
+     776:	df 91       	pop	r29
+     778:	cf 91       	pop	r28
+     77a:	1f 91       	pop	r17
+     77c:	0f 91       	pop	r16
+     77e:	ff 90       	pop	r15
+     780:	ef 90       	pop	r14
+     782:	08 95       	ret
+
+00000784 <PacketCheck>:
+
+//Funkcja sprawdzaj¹ca czy odebrana ramka to ARP
+uint8_t PacketCheck(void) {
+
+	if(EthFrame[EthTypeLen+0]==0x08 && EthFrame[EthTypeLen+1]==0x06) {
+     784:	80 91 3e 01 	lds	r24, 0x013E
+     788:	88 30       	cpi	r24, 0x08	; 8
+     78a:	51 f4       	brne	.+20     	; 0x7a0 <PacketCheck+0x1c>
+     78c:	80 91 3f 01 	lds	r24, 0x013F
+     790:	86 30       	cpi	r24, 0x06	; 6
+     792:	11 f4       	brne	.+4      	; 0x798 <PacketCheck+0x14>
+     794:	81 e0       	ldi	r24, 0x01	; 1
+     796:	08 95       	ret
+		return 1; //wiadomoœæ ARP
+	}
+	
+	if(EthFrame[EthTypeLen+0]==0x08 && EthFrame[EthTypeLen+1]==0x00) {
+     798:	88 23       	and	r24, r24
+     79a:	11 f4       	brne	.+4      	; 0x7a0 <PacketCheck+0x1c>
+     79c:	82 e0       	ldi	r24, 0x02	; 2
+     79e:	08 95       	ret
+     7a0:	80 e0       	ldi	r24, 0x00	; 0
+		return 2; //pakiet IP
+	}
+	
+	return 0;
+}// koniec funkcji sprawdzj¹cej odebran¹ ramkê
+     7a2:	08 95       	ret
+
+000007a4 <MakeEthHeader>:
+
+
+//Funkcja tworz¹c nag³ówek ramki Ethernet
+void MakeEthHeader(uint8_t dest0, uint8_t dest1, uint8_t dest2, uint8_t dest3, uint8_t dest4, uint8_t dest5, uint8_t type0, uint8_t type1)
+{
+     7a4:	af 92       	push	r10
+     7a6:	cf 92       	push	r12
+     7a8:	ef 92       	push	r14
+     7aa:	0f 93       	push	r16
+	PacketSize=0;
+	
+	EthFrame[EthDestMac+0]=dest0;
+     7ac:	a2 e3       	ldi	r26, 0x32	; 50
+     7ae:	b1 e0       	ldi	r27, 0x01	; 1
+     7b0:	fd 01       	movw	r30, r26
+     7b2:	81 93       	st	Z+, r24
+	EthFrame[EthDestMac+1]=dest1;
+     7b4:	60 83       	st	Z, r22
+	EthFrame[EthDestMac+2]=dest2;
+     7b6:	12 96       	adiw	r26, 0x02	; 2
+     7b8:	4c 93       	st	X, r20
+     7ba:	12 97       	sbiw	r26, 0x02	; 2
+	EthFrame[EthDestMac+3]=dest3;
+     7bc:	13 96       	adiw	r26, 0x03	; 3
+     7be:	2c 93       	st	X, r18
+     7c0:	13 97       	sbiw	r26, 0x03	; 3
+	EthFrame[EthDestMac+4]=dest4;
+     7c2:	14 96       	adiw	r26, 0x04	; 4
+     7c4:	0c 93       	st	X, r16
+     7c6:	14 97       	sbiw	r26, 0x04	; 4
+	EthFrame[EthDestMac+5]=dest5;
+     7c8:	15 96       	adiw	r26, 0x05	; 5
+     7ca:	ec 92       	st	X, r14
+     7cc:	15 97       	sbiw	r26, 0x05	; 5
+	
+	EthFrame[EthSourceMac+0]=MyMac[0];
+     7ce:	80 e1       	ldi	r24, 0x10	; 16
+     7d0:	91 e0       	ldi	r25, 0x01	; 1
+     7d2:	fc 01       	movw	r30, r24
+     7d4:	21 91       	ld	r18, Z+
+     7d6:	16 96       	adiw	r26, 0x06	; 6
+     7d8:	2c 93       	st	X, r18
+     7da:	16 97       	sbiw	r26, 0x06	; 6
+	EthFrame[EthSourceMac+1]=MyMac[1];
+     7dc:	20 81       	ld	r18, Z
+     7de:	17 96       	adiw	r26, 0x07	; 7
+     7e0:	2c 93       	st	X, r18
+     7e2:	17 97       	sbiw	r26, 0x07	; 7
+	EthFrame[EthSourceMac+2]=MyMac[2];
+     7e4:	fc 01       	movw	r30, r24
+     7e6:	22 81       	ldd	r18, Z+2	; 0x02
+     7e8:	18 96       	adiw	r26, 0x08	; 8
+     7ea:	2c 93       	st	X, r18
+     7ec:	18 97       	sbiw	r26, 0x08	; 8
+	EthFrame[EthSourceMac+3]=MyMac[3];
+     7ee:	23 81       	ldd	r18, Z+3	; 0x03
+     7f0:	19 96       	adiw	r26, 0x09	; 9
+     7f2:	2c 93       	st	X, r18
+     7f4:	19 97       	sbiw	r26, 0x09	; 9
+	EthFrame[EthSourceMac+4]=MyMac[4];
+     7f6:	24 81       	ldd	r18, Z+4	; 0x04
+     7f8:	1a 96       	adiw	r26, 0x0a	; 10
+     7fa:	2c 93       	st	X, r18
+     7fc:	1a 97       	sbiw	r26, 0x0a	; 10
+	EthFrame[EthSourceMac+5]=MyMac[5];
+     7fe:	85 81       	ldd	r24, Z+5	; 0x05
+     800:	1b 96       	adiw	r26, 0x0b	; 11
+     802:	8c 93       	st	X, r24
+     804:	1b 97       	sbiw	r26, 0x0b	; 11
+	
+	EthFrame[EthTypeLen+0]=type0;
+     806:	1c 96       	adiw	r26, 0x0c	; 12
+     808:	cc 92       	st	X, r12
+     80a:	1c 97       	sbiw	r26, 0x0c	; 12
+	EthFrame[EthTypeLen+1]=type1;
+     80c:	1d 96       	adiw	r26, 0x0d	; 13
+     80e:	ac 92       	st	X, r10
+	
+	PacketSize=PacketSize+14;
+     810:	8e e0       	ldi	r24, 0x0E	; 14
+     812:	90 e0       	ldi	r25, 0x00	; 0
+     814:	90 93 99 02 	sts	0x0299, r25
+     818:	80 93 98 02 	sts	0x0298, r24
+
+}//Koniec funkcji tworz¹cej nag³ówek
+     81c:	0f 91       	pop	r16
+     81e:	ef 90       	pop	r14
+     820:	cf 90       	pop	r12
+     822:	af 90       	pop	r10
+     824:	08 95       	ret
+
+00000826 <rs_put>:
+#include <avr/io.h>
+#include "rs.h"
+
+int rs_put(char znak)
+{
+     826:	98 2f       	mov	r25, r24
+	//Oczekiwanie a¿ bufor nadajnika jest pusty
+	while(!(1<<UDRE0 & UCSR0A)) {}
+     828:	eb e2       	ldi	r30, 0x2B	; 43
+     82a:	f0 e0       	ldi	r31, 0x00	; 0
+     82c:	80 81       	ld	r24, Z
+     82e:	85 ff       	sbrs	r24, 5
+     830:	fd cf       	rjmp	.-6      	; 0x82c <rs_put+0x6>
+	UDR0 = znak;
+     832:	9c b9       	out	0x0c, r25	; 12
+	return 0;
+}
+     834:	80 e0       	ldi	r24, 0x00	; 0
+     836:	90 e0       	ldi	r25, 0x00	; 0
+     838:	08 95       	ret
+
+0000083a <rs_get>:
+
+int rs_get(void)
+{
+	char znak;
+	//Oczekiwanie na pojawienie siê danej
+	while(!(1<<RXC0 & UCSR0A)) {}
+     83a:	eb e2       	ldi	r30, 0x2B	; 43
+     83c:	f0 e0       	ldi	r31, 0x00	; 0
+     83e:	80 81       	ld	r24, Z
+     840:	88 23       	and	r24, r24
+     842:	ec f7       	brge	.-6      	; 0x83e <rs_get+0x4>
+	znak = UDR0;
+     844:	8c b1       	in	r24, 0x0c	; 12
+	return znak;
+}
+     846:	90 e0       	ldi	r25, 0x00	; 0
+     848:	08 95       	ret
+
+0000084a <ArpCheck>:
+
+}//Koniec funkcji tworz¹cej zapytanie ARP
+
+//Funkcja obs³uguj¹ca wiadomoœæ ARP
+uint8_t ArpCheck(void)
+{
+     84a:	5f 92       	push	r5
+     84c:	6f 92       	push	r6
+     84e:	7f 92       	push	r7
+     850:	8f 92       	push	r8
+     852:	9f 92       	push	r9
+     854:	af 92       	push	r10
+     856:	bf 92       	push	r11
+     858:	cf 92       	push	r12
+     85a:	df 92       	push	r13
+     85c:	ef 92       	push	r14
+     85e:	ff 92       	push	r15
+     860:	0f 93       	push	r16
+     862:	1f 93       	push	r17
+     864:	cf 93       	push	r28
+     866:	df 93       	push	r29
+	/*//Przypisanie adresu IP do mikroserwera
+	ServIp[0]=EthFrame[ArpDestIp1]; ServIp[1]=EthFrame[ArpDestIp2];
+	ServIp[2]=EthFrame[ArpDestIp3]; ServIp[3]=EthFrame[ArpDestIp4];*/
+	
+	//Przypisanie adresu MAC
+	ArpReplyMac[0] = EthFrame[EthSourceMac+0];
+     868:	47 e2       	ldi	r20, 0x27	; 39
+     86a:	51 e0       	ldi	r21, 0x01	; 1
+     86c:	88 e3       	ldi	r24, 0x38	; 56
+     86e:	91 e0       	ldi	r25, 0x01	; 1
+     870:	dc 01       	movw	r26, r24
+     872:	2d 91       	ld	r18, X+
+     874:	fa 01       	movw	r30, r20
+     876:	21 93       	st	Z+, r18
+	ArpReplyMac[1] = EthFrame[EthSourceMac+1];
+     878:	2c 91       	ld	r18, X
+     87a:	20 83       	st	Z, r18
+	ArpReplyMac[2] = EthFrame[EthSourceMac+2];
+     87c:	ec 01       	movw	r28, r24
+     87e:	2a 81       	ldd	r18, Y+2	; 0x02
+     880:	fa 01       	movw	r30, r20
+     882:	22 83       	std	Z+2, r18	; 0x02
+	ArpReplyMac[3] = EthFrame[EthSourceMac+3];
+     884:	2b 81       	ldd	r18, Y+3	; 0x03
+     886:	23 83       	std	Z+3, r18	; 0x03
+	ArpReplyMac[4] = EthFrame[EthSourceMac+4];
+     888:	2c 81       	ldd	r18, Y+4	; 0x04
+     88a:	24 83       	std	Z+4, r18	; 0x04
+	ArpReplyMac[5] = EthFrame[EthSourceMac+5];
+     88c:	2d 81       	ldd	r18, Y+5	; 0x05
+     88e:	25 83       	std	Z+5, r18	; 0x05
+	
+	//Przypisanie adresy IP
+	ArpReplyIp[0] = EthFrame[ArpSourceIp1];
+     890:	aa e9       	ldi	r26, 0x9A	; 154
+     892:	b2 e0       	ldi	r27, 0x02	; 2
+     894:	2e 89       	ldd	r18, Y+22	; 0x16
+     896:	fd 01       	movw	r30, r26
+     898:	21 93       	st	Z+, r18
+	ArpReplyIp[1] = EthFrame[ArpSourceIp2];
+     89a:	2f 89       	ldd	r18, Y+23	; 0x17
+     89c:	20 83       	st	Z, r18
+	ArpReplyIp[2] = EthFrame[ArpSourceIp3];
+     89e:	28 8d       	ldd	r18, Y+24	; 0x18
+     8a0:	12 96       	adiw	r26, 0x02	; 2
+     8a2:	2c 93       	st	X, r18
+     8a4:	12 97       	sbiw	r26, 0x02	; 2
+	ArpReplyIp[3] = EthFrame[ArpSourceIp4];
+     8a6:	29 8d       	ldd	r18, Y+25	; 0x19
+     8a8:	13 96       	adiw	r26, 0x03	; 3
+     8aa:	2c 93       	st	X, r18
+		
+	if(EthFrame[ArpMediumType0]==0x00 && EthFrame[ArpMediumType1]==0x01
+     8ac:	88 85       	ldd	r24, Y+8	; 0x08
+     8ae:	88 23       	and	r24, r24
+     8b0:	09 f0       	breq	.+2      	; 0x8b4 <ArpCheck+0x6a>
+     8b2:	55 c1       	rjmp	.+682    	; 0xb5e <ArpCheck+0x314>
+     8b4:	80 91 41 01 	lds	r24, 0x0141
+     8b8:	81 30       	cpi	r24, 0x01	; 1
+     8ba:	09 f0       	breq	.+2      	; 0x8be <ArpCheck+0x74>
+     8bc:	50 c1       	rjmp	.+672    	; 0xb5e <ArpCheck+0x314>
+     8be:	80 91 42 01 	lds	r24, 0x0142
+     8c2:	88 30       	cpi	r24, 0x08	; 8
+     8c4:	09 f0       	breq	.+2      	; 0x8c8 <ArpCheck+0x7e>
+     8c6:	4b c1       	rjmp	.+662    	; 0xb5e <ArpCheck+0x314>
+     8c8:	80 91 43 01 	lds	r24, 0x0143
+     8cc:	88 23       	and	r24, r24
+     8ce:	09 f0       	breq	.+2      	; 0x8d2 <ArpCheck+0x88>
+     8d0:	e6 c0       	rjmp	.+460    	; 0xa9e <ArpCheck+0x254>
+     8d2:	80 91 44 01 	lds	r24, 0x0144
+     8d6:	86 30       	cpi	r24, 0x06	; 6
+     8d8:	09 f0       	breq	.+2      	; 0x8dc <ArpCheck+0x92>
+     8da:	e1 c0       	rjmp	.+450    	; 0xa9e <ArpCheck+0x254>
+     8dc:	80 91 45 01 	lds	r24, 0x0145
+     8e0:	84 30       	cpi	r24, 0x04	; 4
+     8e2:	09 f0       	breq	.+2      	; 0x8e6 <ArpCheck+0x9c>
+     8e4:	dc c0       	rjmp	.+440    	; 0xa9e <ArpCheck+0x254>
+     8e6:	80 91 46 01 	lds	r24, 0x0146
+     8ea:	88 23       	and	r24, r24
+     8ec:	09 f0       	breq	.+2      	; 0x8f0 <ArpCheck+0xa6>
+     8ee:	d7 c0       	rjmp	.+430    	; 0xa9e <ArpCheck+0x254>
+     8f0:	80 91 47 01 	lds	r24, 0x0147
+     8f4:	81 30       	cpi	r24, 0x01	; 1
+     8f6:	09 f0       	breq	.+2      	; 0x8fa <ArpCheck+0xb0>
+     8f8:	d2 c0       	rjmp	.+420    	; 0xa9e <ArpCheck+0x254>
+     8fa:	90 91 58 01 	lds	r25, 0x0158
+     8fe:	80 91 16 01 	lds	r24, 0x0116
+     902:	98 17       	cp	r25, r24
+     904:	09 f0       	breq	.+2      	; 0x908 <ArpCheck+0xbe>
+     906:	cb c0       	rjmp	.+406    	; 0xa9e <ArpCheck+0x254>
+     908:	90 91 59 01 	lds	r25, 0x0159
+     90c:	80 91 17 01 	lds	r24, 0x0117
+     910:	98 17       	cp	r25, r24
+     912:	09 f0       	breq	.+2      	; 0x916 <ArpCheck+0xcc>
+     914:	c4 c0       	rjmp	.+392    	; 0xa9e <ArpCheck+0x254>
+     916:	90 91 5a 01 	lds	r25, 0x015A
+     91a:	80 91 18 01 	lds	r24, 0x0118
+     91e:	98 17       	cp	r25, r24
+     920:	09 f0       	breq	.+2      	; 0x924 <ArpCheck+0xda>
+     922:	bd c0       	rjmp	.+378    	; 0xa9e <ArpCheck+0x254>
+     924:	90 91 5b 01 	lds	r25, 0x015B
+     928:	80 91 19 01 	lds	r24, 0x0119
+     92c:	98 17       	cp	r25, r24
+     92e:	09 f0       	breq	.+2      	; 0x932 <ArpCheck+0xe8>
+     930:	b6 c0       	rjmp	.+364    	; 0xa9e <ArpCheck+0x254>
+		&& EthFrame[ArpHardLen]==0x06 && EthFrame[ArpLogicLen]==0x04 
+		&& EthFrame[ArpOpType0]==0x00 && EthFrame[ArpOpType1]==0x01
+		&& EthFrame[ArpDestIp1]==ServIp[0] && EthFrame[ArpDestIp2]==ServIp[1]
+		&& EthFrame[ArpDestIp3]==ServIp[2] && EthFrame[ArpDestIp4]==ServIp[3])
+	{
+		EthFrame[EthDestMac+0]=EthFrame[EthSourceMac+0];
+     932:	a2 e3       	ldi	r26, 0x32	; 50
+     934:	b1 e0       	ldi	r27, 0x01	; 1
+     936:	9d 01       	movw	r18, r26
+     938:	2a 5f       	subi	r18, 0xFA	; 250
+     93a:	3f 4f       	sbci	r19, 0xFF	; 255
+     93c:	e9 01       	movw	r28, r18
+     93e:	a8 80       	ld	r10, Y
+     940:	fd 01       	movw	r30, r26
+     942:	a1 92       	st	Z+, r10
+		EthFrame[EthDestMac+1]=EthFrame[EthSourceMac+1];
+     944:	ad 01       	movw	r20, r26
+     946:	49 5f       	subi	r20, 0xF9	; 249
+     948:	5f 4f       	sbci	r21, 0xFF	; 255
+     94a:	ea 01       	movw	r28, r20
+     94c:	98 80       	ld	r9, Y
+     94e:	90 82       	st	Z, r9
+		EthFrame[EthDestMac+2]=EthFrame[EthSourceMac+2];
+     950:	bd 01       	movw	r22, r26
+     952:	68 5f       	subi	r22, 0xF8	; 248
+     954:	7f 4f       	sbci	r23, 0xFF	; 255
+     956:	fb 01       	movw	r30, r22
+     958:	80 80       	ld	r8, Z
+     95a:	12 96       	adiw	r26, 0x02	; 2
+     95c:	8c 92       	st	X, r8
+     95e:	12 97       	sbiw	r26, 0x02	; 2
+		EthFrame[EthDestMac+3]=EthFrame[EthSourceMac+3];
+     960:	8d 01       	movw	r16, r26
+     962:	07 5f       	subi	r16, 0xF7	; 247
+     964:	1f 4f       	sbci	r17, 0xFF	; 255
+     966:	e8 01       	movw	r28, r16
+     968:	78 80       	ld	r7, Y
+     96a:	13 96       	adiw	r26, 0x03	; 3
+     96c:	7c 92       	st	X, r7
+     96e:	13 97       	sbiw	r26, 0x03	; 3
+		EthFrame[EthDestMac+4]=EthFrame[EthSourceMac+4];
+     970:	0f 2e       	mov	r0, r31
+     972:	fa e0       	ldi	r31, 0x0A	; 10
+     974:	ef 2e       	mov	r14, r31
+     976:	ff 24       	eor	r15, r15
+     978:	f0 2d       	mov	r31, r0
+     97a:	ea 0e       	add	r14, r26
+     97c:	fb 1e       	adc	r15, r27
+     97e:	f7 01       	movw	r30, r14
+     980:	60 80       	ld	r6, Z
+     982:	14 96       	adiw	r26, 0x04	; 4
+     984:	6c 92       	st	X, r6
+     986:	14 97       	sbiw	r26, 0x04	; 4
+		EthFrame[EthDestMac+5]=EthFrame[EthSourceMac+5];
+     988:	0f 2e       	mov	r0, r31
+     98a:	fb e0       	ldi	r31, 0x0B	; 11
+     98c:	cf 2e       	mov	r12, r31
+     98e:	dd 24       	eor	r13, r13
+     990:	f0 2d       	mov	r31, r0
+     992:	ca 0e       	add	r12, r26
+     994:	db 1e       	adc	r13, r27
+     996:	e6 01       	movw	r28, r12
+     998:	58 80       	ld	r5, Y
+     99a:	15 96       	adiw	r26, 0x05	; 5
+     99c:	5c 92       	st	X, r5
+     99e:	15 97       	sbiw	r26, 0x05	; 5
+		
+		EthFrame[EthSourceMac+0]=MyMac[0];
+     9a0:	80 e1       	ldi	r24, 0x10	; 16
+     9a2:	91 e0       	ldi	r25, 0x01	; 1
+     9a4:	fc 01       	movw	r30, r24
+     9a6:	b1 90       	ld	r11, Z+
+     9a8:	e9 01       	movw	r28, r18
+     9aa:	b8 82       	st	Y, r11
+		EthFrame[EthSourceMac+1]=MyMac[1];
+     9ac:	20 81       	ld	r18, Z
+     9ae:	fa 01       	movw	r30, r20
+     9b0:	20 83       	st	Z, r18
+		EthFrame[EthSourceMac+2]=MyMac[2];
+     9b2:	ec 01       	movw	r28, r24
+     9b4:	3a 81       	ldd	r19, Y+2	; 0x02
+     9b6:	fb 01       	movw	r30, r22
+     9b8:	30 83       	st	Z, r19
+		EthFrame[EthSourceMac+3]=MyMac[3];
+     9ba:	4b 81       	ldd	r20, Y+3	; 0x03
+     9bc:	e8 01       	movw	r28, r16
+     9be:	48 83       	st	Y, r20
+		EthFrame[EthSourceMac+4]=MyMac[4];
+     9c0:	fc 01       	movw	r30, r24
+     9c2:	54 81       	ldd	r21, Z+4	; 0x04
+     9c4:	e7 01       	movw	r28, r14
+     9c6:	58 83       	st	Y, r21
+		EthFrame[EthSourceMac+5]=MyMac[5];
+     9c8:	95 81       	ldd	r25, Z+5	; 0x05
+     9ca:	f6 01       	movw	r30, r12
+     9cc:	90 83       	st	Z, r25
+		
+		EthFrame[ArpOpType0]=0x00;
+     9ce:	54 96       	adiw	r26, 0x14	; 20
+     9d0:	1c 92       	st	X, r1
+     9d2:	54 97       	sbiw	r26, 0x14	; 20
+		EthFrame[ArpOpType1]=0x02;
+     9d4:	82 e0       	ldi	r24, 0x02	; 2
+     9d6:	55 96       	adiw	r26, 0x15	; 21
+     9d8:	8c 93       	st	X, r24
+     9da:	55 97       	sbiw	r26, 0x15	; 21
+		
+		EthFrame[ArpSourceMac0]=MyMac[0];
+     9dc:	56 96       	adiw	r26, 0x16	; 22
+     9de:	bc 92       	st	X, r11
+     9e0:	56 97       	sbiw	r26, 0x16	; 22
+		EthFrame[ArpSourceMac1]=MyMac[1];
+     9e2:	57 96       	adiw	r26, 0x17	; 23
+     9e4:	2c 93       	st	X, r18
+     9e6:	57 97       	sbiw	r26, 0x17	; 23
+		EthFrame[ArpSourceMac2]=MyMac[2];
+     9e8:	58 96       	adiw	r26, 0x18	; 24
+     9ea:	3c 93       	st	X, r19
+     9ec:	58 97       	sbiw	r26, 0x18	; 24
+		EthFrame[ArpSourceMac3]=MyMac[3];
+     9ee:	59 96       	adiw	r26, 0x19	; 25
+     9f0:	4c 93       	st	X, r20
+     9f2:	59 97       	sbiw	r26, 0x19	; 25
+		EthFrame[ArpSourceMac4]=MyMac[4];
+     9f4:	5a 96       	adiw	r26, 0x1a	; 26
+     9f6:	5c 93       	st	X, r21
+     9f8:	5a 97       	sbiw	r26, 0x1a	; 26
+		EthFrame[ArpSourceMac5]=MyMac[5];
+     9fa:	5b 96       	adiw	r26, 0x1b	; 27
+     9fc:	9c 93       	st	X, r25
+     9fe:	5b 97       	sbiw	r26, 0x1b	; 27
+		
+		EthFrame[ArpDestIp1]=EthFrame[ArpSourceIp1];
+     a00:	ad 01       	movw	r20, r26
+     a02:	44 5e       	subi	r20, 0xE4	; 228
+     a04:	5f 4f       	sbci	r21, 0xFF	; 255
+     a06:	ea 01       	movw	r28, r20
+     a08:	88 81       	ld	r24, Y
+     a0a:	96 96       	adiw	r26, 0x26	; 38
+     a0c:	8c 93       	st	X, r24
+     a0e:	96 97       	sbiw	r26, 0x26	; 38
+		EthFrame[ArpDestIp2]=EthFrame[ArpSourceIp2];
+     a10:	bd 01       	movw	r22, r26
+     a12:	63 5e       	subi	r22, 0xE3	; 227
+     a14:	7f 4f       	sbci	r23, 0xFF	; 255
+     a16:	fb 01       	movw	r30, r22
+     a18:	80 81       	ld	r24, Z
+     a1a:	97 96       	adiw	r26, 0x27	; 39
+     a1c:	8c 93       	st	X, r24
+     a1e:	97 97       	sbiw	r26, 0x27	; 39
+		EthFrame[ArpDestIp3]=EthFrame[ArpSourceIp3];
+     a20:	8d 01       	movw	r16, r26
+     a22:	02 5e       	subi	r16, 0xE2	; 226
+     a24:	1f 4f       	sbci	r17, 0xFF	; 255
+     a26:	e8 01       	movw	r28, r16
+     a28:	88 81       	ld	r24, Y
+     a2a:	98 96       	adiw	r26, 0x28	; 40
+     a2c:	8c 93       	st	X, r24
+     a2e:	98 97       	sbiw	r26, 0x28	; 40
+		EthFrame[ArpDestIp4]=EthFrame[ArpSourceIp4];
+     a30:	0f 2e       	mov	r0, r31
+     a32:	ff e1       	ldi	r31, 0x1F	; 31
+     a34:	ef 2e       	mov	r14, r31
+     a36:	ff 24       	eor	r15, r15
+     a38:	f0 2d       	mov	r31, r0
+     a3a:	ea 0e       	add	r14, r26
+     a3c:	fb 1e       	adc	r15, r27
+     a3e:	f7 01       	movw	r30, r14
+     a40:	80 81       	ld	r24, Z
+     a42:	99 96       	adiw	r26, 0x29	; 41
+     a44:	8c 93       	st	X, r24
+     a46:	99 97       	sbiw	r26, 0x29	; 41
+		
+		EthFrame[ArpSourceIp1]=ServIp[0];
+     a48:	86 e1       	ldi	r24, 0x16	; 22
+     a4a:	91 e0       	ldi	r25, 0x01	; 1
+     a4c:	fc 01       	movw	r30, r24
+     a4e:	21 91       	ld	r18, Z+
+     a50:	ea 01       	movw	r28, r20
+     a52:	28 83       	st	Y, r18
+		EthFrame[ArpSourceIp2]=ServIp[1];
+     a54:	20 81       	ld	r18, Z
+     a56:	fb 01       	movw	r30, r22
+     a58:	20 83       	st	Z, r18
+		EthFrame[ArpSourceIp3]=ServIp[2];
+     a5a:	ec 01       	movw	r28, r24
+     a5c:	2a 81       	ldd	r18, Y+2	; 0x02
+     a5e:	f8 01       	movw	r30, r16
+     a60:	20 83       	st	Z, r18
+		EthFrame[ArpSourceIp4]=ServIp[3];
+     a62:	8b 81       	ldd	r24, Y+3	; 0x03
+     a64:	e7 01       	movw	r28, r14
+     a66:	88 83       	st	Y, r24
+		
+		EthFrame[ArpDestMac0]=EthFrame[EthDestMac+0];
+     a68:	90 96       	adiw	r26, 0x20	; 32
+     a6a:	ac 92       	st	X, r10
+     a6c:	90 97       	sbiw	r26, 0x20	; 32
+		EthFrame[ArpDestMac1]=EthFrame[EthDestMac+1];
+     a6e:	91 96       	adiw	r26, 0x21	; 33
+     a70:	9c 92       	st	X, r9
+     a72:	91 97       	sbiw	r26, 0x21	; 33
+		EthFrame[ArpDestMac2]=EthFrame[EthDestMac+2];
+     a74:	92 96       	adiw	r26, 0x22	; 34
+     a76:	8c 92       	st	X, r8
+     a78:	92 97       	sbiw	r26, 0x22	; 34
+		EthFrame[ArpDestMac3]=EthFrame[EthDestMac+3];
+     a7a:	93 96       	adiw	r26, 0x23	; 35
+     a7c:	7c 92       	st	X, r7
+     a7e:	93 97       	sbiw	r26, 0x23	; 35
+		EthFrame[ArpDestMac4]=EthFrame[EthDestMac+4];
+     a80:	94 96       	adiw	r26, 0x24	; 36
+     a82:	6c 92       	st	X, r6
+     a84:	94 97       	sbiw	r26, 0x24	; 36
+		EthFrame[ArpDestMac5]=EthFrame[EthDestMac+5];
+     a86:	95 96       	adiw	r26, 0x25	; 37
+     a88:	5c 92       	st	X, r5
+		
+		PacketSize=14+28;
+     a8a:	8a e2       	ldi	r24, 0x2A	; 42
+     a8c:	90 e0       	ldi	r25, 0x00	; 0
+     a8e:	90 93 99 02 	sts	0x0299, r25
+     a92:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+     a96:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+     a9a:	82 e0       	ldi	r24, 0x02	; 2
+     a9c:	61 c0       	rjmp	.+194    	; 0xb60 <ArpCheck+0x316>
+		return 2; //Poprawny ARP
+	}
+	
+	if(EthFrame[ArpMediumType0]==0x00 && EthFrame[ArpMediumType1]==0x01
+     a9e:	80 91 43 01 	lds	r24, 0x0143
+     aa2:	88 23       	and	r24, r24
+     aa4:	09 f0       	breq	.+2      	; 0xaa8 <ArpCheck+0x25e>
+     aa6:	5b c0       	rjmp	.+182    	; 0xb5e <ArpCheck+0x314>
+     aa8:	80 91 44 01 	lds	r24, 0x0144
+     aac:	86 30       	cpi	r24, 0x06	; 6
+     aae:	09 f0       	breq	.+2      	; 0xab2 <ArpCheck+0x268>
+     ab0:	56 c0       	rjmp	.+172    	; 0xb5e <ArpCheck+0x314>
+     ab2:	80 91 45 01 	lds	r24, 0x0145
+     ab6:	84 30       	cpi	r24, 0x04	; 4
+     ab8:	09 f0       	breq	.+2      	; 0xabc <ArpCheck+0x272>
+     aba:	51 c0       	rjmp	.+162    	; 0xb5e <ArpCheck+0x314>
+     abc:	80 91 46 01 	lds	r24, 0x0146
+     ac0:	88 23       	and	r24, r24
+     ac2:	09 f0       	breq	.+2      	; 0xac6 <ArpCheck+0x27c>
+     ac4:	4c c0       	rjmp	.+152    	; 0xb5e <ArpCheck+0x314>
+     ac6:	80 91 47 01 	lds	r24, 0x0147
+     aca:	82 30       	cpi	r24, 0x02	; 2
+     acc:	09 f0       	breq	.+2      	; 0xad0 <ArpCheck+0x286>
+     ace:	47 c0       	rjmp	.+142    	; 0xb5e <ArpCheck+0x314>
+     ad0:	90 91 58 01 	lds	r25, 0x0158
+     ad4:	80 91 16 01 	lds	r24, 0x0116
+     ad8:	98 17       	cp	r25, r24
+     ada:	09 f0       	breq	.+2      	; 0xade <ArpCheck+0x294>
+     adc:	40 c0       	rjmp	.+128    	; 0xb5e <ArpCheck+0x314>
+     ade:	90 91 59 01 	lds	r25, 0x0159
+     ae2:	80 91 17 01 	lds	r24, 0x0117
+     ae6:	98 17       	cp	r25, r24
+     ae8:	d1 f5       	brne	.+116    	; 0xb5e <ArpCheck+0x314>
+     aea:	90 91 5a 01 	lds	r25, 0x015A
+     aee:	80 91 18 01 	lds	r24, 0x0118
+     af2:	98 17       	cp	r25, r24
+     af4:	a1 f5       	brne	.+104    	; 0xb5e <ArpCheck+0x314>
+     af6:	90 91 5b 01 	lds	r25, 0x015B
+     afa:	80 91 19 01 	lds	r24, 0x0119
+     afe:	98 17       	cp	r25, r24
+     b00:	71 f5       	brne	.+92     	; 0xb5e <ArpCheck+0x314>
+		&& EthFrame[ArpHardLen]==0x06 && EthFrame[ArpLogicLen]==0x04 
+		&& EthFrame[ArpOpType0]==0x00 && EthFrame[ArpOpType1]==0x02
+		&& EthFrame[ArpDestIp1]==ServIp[0] && EthFrame[ArpDestIp2]==ServIp[1]
+		&& EthFrame[ArpDestIp3]==ServIp[2] && EthFrame[ArpDestIp4]==ServIp[3])
+	{
+		ArpReplyMac[0]=EthFrame[EthSourceMac+0];
+     b02:	47 e2       	ldi	r20, 0x27	; 39
+     b04:	51 e0       	ldi	r21, 0x01	; 1
+     b06:	88 e3       	ldi	r24, 0x38	; 56
+     b08:	91 e0       	ldi	r25, 0x01	; 1
+     b0a:	dc 01       	movw	r26, r24
+     b0c:	2d 91       	ld	r18, X+
+     b0e:	fa 01       	movw	r30, r20
+     b10:	21 93       	st	Z+, r18
+		ArpReplyMac[1]=EthFrame[EthSourceMac+1];
+     b12:	2c 91       	ld	r18, X
+     b14:	20 83       	st	Z, r18
+		ArpReplyMac[2]=EthFrame[EthSourceMac+2];
+     b16:	fc 01       	movw	r30, r24
+     b18:	22 81       	ldd	r18, Z+2	; 0x02
+     b1a:	ea 01       	movw	r28, r20
+     b1c:	2a 83       	std	Y+2, r18	; 0x02
+		ArpReplyMac[3]=EthFrame[EthSourceMac+3];
+     b1e:	23 81       	ldd	r18, Z+3	; 0x03
+     b20:	2b 83       	std	Y+3, r18	; 0x03
+		ArpReplyMac[4]=EthFrame[EthSourceMac+4];
+     b22:	24 81       	ldd	r18, Z+4	; 0x04
+     b24:	2c 83       	std	Y+4, r18	; 0x04
+		ArpReplyMac[5]=EthFrame[EthSourceMac+5];
+     b26:	25 81       	ldd	r18, Z+5	; 0x05
+     b28:	2d 83       	std	Y+5, r18	; 0x05
+		
+		ArpReplyIp[0]=EthFrame[ArpSourceIp1];
+     b2a:	aa e9       	ldi	r26, 0x9A	; 154
+     b2c:	b2 e0       	ldi	r27, 0x02	; 2
+     b2e:	26 89       	ldd	r18, Z+22	; 0x16
+     b30:	fd 01       	movw	r30, r26
+     b32:	21 93       	st	Z+, r18
+		ArpReplyIp[1]=EthFrame[ArpSourceIp2];
+     b34:	ec 01       	movw	r28, r24
+     b36:	2f 89       	ldd	r18, Y+23	; 0x17
+     b38:	20 83       	st	Z, r18
+		ArpReplyIp[2]=EthFrame[ArpSourceIp3];
+     b3a:	28 8d       	ldd	r18, Y+24	; 0x18
+     b3c:	12 96       	adiw	r26, 0x02	; 2
+     b3e:	2c 93       	st	X, r18
+     b40:	12 97       	sbiw	r26, 0x02	; 2
+		ArpReplyIp[3]=EthFrame[ArpSourceIp4];
+     b42:	89 8d       	ldd	r24, Y+25	; 0x19
+     b44:	13 96       	adiw	r26, 0x03	; 3
+     b46:	8c 93       	st	X, r24
+		
+		ArpReply=1;
+     b48:	81 e0       	ldi	r24, 0x01	; 1
+     b4a:	80 93 2d 01 	sts	0x012D, r24
+		ArpCount=60;
+     b4e:	8c e3       	ldi	r24, 0x3C	; 60
+     b50:	80 93 21 01 	sts	0x0121, r24
+		pingTimeout=100;
+     b54:	84 e6       	ldi	r24, 0x64	; 100
+     b56:	80 93 95 02 	sts	0x0295, r24
+     b5a:	81 e0       	ldi	r24, 0x01	; 1
+     b5c:	01 c0       	rjmp	.+2      	; 0xb60 <ArpCheck+0x316>
+     b5e:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	return 1; //Niepoprawny ARP
+}
+     b60:	df 91       	pop	r29
+     b62:	cf 91       	pop	r28
+     b64:	1f 91       	pop	r17
+     b66:	0f 91       	pop	r16
+     b68:	ff 90       	pop	r15
+     b6a:	ef 90       	pop	r14
+     b6c:	df 90       	pop	r13
+     b6e:	cf 90       	pop	r12
+     b70:	bf 90       	pop	r11
+     b72:	af 90       	pop	r10
+     b74:	9f 90       	pop	r9
+     b76:	8f 90       	pop	r8
+     b78:	7f 90       	pop	r7
+     b7a:	6f 90       	pop	r6
+     b7c:	5f 90       	pop	r5
+     b7e:	08 95       	ret
+
+00000b80 <MakeArpRequest>:
+#include "arp_protocol.h"
+#include "RTL8019as.h"
+
+//Funkcja tworz¹ca zapytanie ARP
+void MakeArpRequest(uint8_t destrIp1, uint8_t destrIp2, uint8_t destrIp3, uint8_t destrIp4)
+{
+     b80:	af 92       	push	r10
+     b82:	bf 92       	push	r11
+     b84:	cf 92       	push	r12
+     b86:	df 92       	push	r13
+     b88:	ef 92       	push	r14
+     b8a:	ff 92       	push	r15
+     b8c:	0f 93       	push	r16
+     b8e:	1f 93       	push	r17
+     b90:	18 2f       	mov	r17, r24
+     b92:	f6 2e       	mov	r15, r22
+     b94:	d4 2e       	mov	r13, r20
+     b96:	b2 2e       	mov	r11, r18
+	MakeEthHeader(0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x08, 0x06);
+     b98:	8f ef       	ldi	r24, 0xFF	; 255
+     b9a:	6f ef       	ldi	r22, 0xFF	; 255
+     b9c:	4f ef       	ldi	r20, 0xFF	; 255
+     b9e:	2f ef       	ldi	r18, 0xFF	; 255
+     ba0:	0f ef       	ldi	r16, 0xFF	; 255
+     ba2:	ee 24       	eor	r14, r14
+     ba4:	ea 94       	dec	r14
+     ba6:	cc 24       	eor	r12, r12
+     ba8:	68 94       	set
+     baa:	c3 f8       	bld	r12, 3
+     bac:	0f 2e       	mov	r0, r31
+     bae:	f6 e0       	ldi	r31, 0x06	; 6
+     bb0:	af 2e       	mov	r10, r31
+     bb2:	f0 2d       	mov	r31, r0
+     bb4:	0e 94 d2 03 	call	0x7a4	; 0x7a4 <MakeEthHeader>
+	
+	EthFrame[ArpMediumType0]=0x00;
+     bb8:	a0 e4       	ldi	r26, 0x40	; 64
+     bba:	b1 e0       	ldi	r27, 0x01	; 1
+     bbc:	fd 01       	movw	r30, r26
+     bbe:	11 92       	st	Z+, r1
+	EthFrame[ArpMediumType1]=0x01;
+     bc0:	91 e0       	ldi	r25, 0x01	; 1
+     bc2:	90 83       	st	Z, r25
+	
+	EthFrame[ArpProtocolType0]=0x08;
+     bc4:	88 e0       	ldi	r24, 0x08	; 8
+     bc6:	12 96       	adiw	r26, 0x02	; 2
+     bc8:	8c 93       	st	X, r24
+     bca:	12 97       	sbiw	r26, 0x02	; 2
+	EthFrame[ArpProtocolType1]=0x00;
+     bcc:	13 96       	adiw	r26, 0x03	; 3
+     bce:	1c 92       	st	X, r1
+     bd0:	13 97       	sbiw	r26, 0x03	; 3
+	
+	EthFrame[ArpHardLen]=0x06;
+     bd2:	86 e0       	ldi	r24, 0x06	; 6
+     bd4:	14 96       	adiw	r26, 0x04	; 4
+     bd6:	8c 93       	st	X, r24
+     bd8:	14 97       	sbiw	r26, 0x04	; 4
+	
+	EthFrame[ArpLogicLen]=0x04;
+     bda:	84 e0       	ldi	r24, 0x04	; 4
+     bdc:	15 96       	adiw	r26, 0x05	; 5
+     bde:	8c 93       	st	X, r24
+     be0:	15 97       	sbiw	r26, 0x05	; 5
+	
+	EthFrame[ArpOpType0]=0x00;
+     be2:	16 96       	adiw	r26, 0x06	; 6
+     be4:	1c 92       	st	X, r1
+     be6:	16 97       	sbiw	r26, 0x06	; 6
+	EthFrame[ArpOpType1]=0x01;
+     be8:	17 96       	adiw	r26, 0x07	; 7
+     bea:	9c 93       	st	X, r25
+     bec:	17 97       	sbiw	r26, 0x07	; 7
+	
+	EthFrame[ArpSourceMac0]=MyMac[0];
+     bee:	80 e1       	ldi	r24, 0x10	; 16
+     bf0:	91 e0       	ldi	r25, 0x01	; 1
+     bf2:	fc 01       	movw	r30, r24
+     bf4:	21 91       	ld	r18, Z+
+     bf6:	18 96       	adiw	r26, 0x08	; 8
+     bf8:	2c 93       	st	X, r18
+     bfa:	18 97       	sbiw	r26, 0x08	; 8
+	EthFrame[ArpSourceMac1]=MyMac[1];
+     bfc:	20 81       	ld	r18, Z
+     bfe:	19 96       	adiw	r26, 0x09	; 9
+     c00:	2c 93       	st	X, r18
+     c02:	19 97       	sbiw	r26, 0x09	; 9
+	EthFrame[ArpSourceMac2]=MyMac[2];
+     c04:	fc 01       	movw	r30, r24
+     c06:	22 81       	ldd	r18, Z+2	; 0x02
+     c08:	1a 96       	adiw	r26, 0x0a	; 10
+     c0a:	2c 93       	st	X, r18
+     c0c:	1a 97       	sbiw	r26, 0x0a	; 10
+	EthFrame[ArpSourceMac3]=MyMac[3];
+     c0e:	23 81       	ldd	r18, Z+3	; 0x03
+     c10:	1b 96       	adiw	r26, 0x0b	; 11
+     c12:	2c 93       	st	X, r18
+     c14:	1b 97       	sbiw	r26, 0x0b	; 11
+	EthFrame[ArpSourceMac4]=MyMac[4];
+     c16:	24 81       	ldd	r18, Z+4	; 0x04
+     c18:	1c 96       	adiw	r26, 0x0c	; 12
+     c1a:	2c 93       	st	X, r18
+     c1c:	1c 97       	sbiw	r26, 0x0c	; 12
+	EthFrame[ArpSourceMac5]=MyMac[5];
+     c1e:	85 81       	ldd	r24, Z+5	; 0x05
+     c20:	1d 96       	adiw	r26, 0x0d	; 13
+     c22:	8c 93       	st	X, r24
+     c24:	1d 97       	sbiw	r26, 0x0d	; 13
+	
+	EthFrame[ArpSourceIp1]=ServIp[0];
+     c26:	86 e1       	ldi	r24, 0x16	; 22
+     c28:	91 e0       	ldi	r25, 0x01	; 1
+     c2a:	fc 01       	movw	r30, r24
+     c2c:	21 91       	ld	r18, Z+
+     c2e:	1e 96       	adiw	r26, 0x0e	; 14
+     c30:	2c 93       	st	X, r18
+     c32:	1e 97       	sbiw	r26, 0x0e	; 14
+	EthFrame[ArpSourceIp2]=ServIp[1];
+     c34:	20 81       	ld	r18, Z
+     c36:	1f 96       	adiw	r26, 0x0f	; 15
+     c38:	2c 93       	st	X, r18
+     c3a:	1f 97       	sbiw	r26, 0x0f	; 15
+	EthFrame[ArpSourceIp3]=ServIp[2];
+     c3c:	fc 01       	movw	r30, r24
+     c3e:	22 81       	ldd	r18, Z+2	; 0x02
+     c40:	50 96       	adiw	r26, 0x10	; 16
+     c42:	2c 93       	st	X, r18
+     c44:	50 97       	sbiw	r26, 0x10	; 16
+	EthFrame[ArpSourceIp4]=ServIp[3];
+     c46:	83 81       	ldd	r24, Z+3	; 0x03
+     c48:	51 96       	adiw	r26, 0x11	; 17
+     c4a:	8c 93       	st	X, r24
+     c4c:	51 97       	sbiw	r26, 0x11	; 17
+	
+	EthFrame[ArpDestMac0]=0x00;
+     c4e:	52 96       	adiw	r26, 0x12	; 18
+     c50:	1c 92       	st	X, r1
+     c52:	52 97       	sbiw	r26, 0x12	; 18
+	EthFrame[ArpDestMac1]=0x00;
+     c54:	53 96       	adiw	r26, 0x13	; 19
+     c56:	1c 92       	st	X, r1
+     c58:	53 97       	sbiw	r26, 0x13	; 19
+	EthFrame[ArpDestMac2]=0x00;
+     c5a:	54 96       	adiw	r26, 0x14	; 20
+     c5c:	1c 92       	st	X, r1
+     c5e:	54 97       	sbiw	r26, 0x14	; 20
+	EthFrame[ArpDestMac3]=0x00;
+     c60:	55 96       	adiw	r26, 0x15	; 21
+     c62:	1c 92       	st	X, r1
+     c64:	55 97       	sbiw	r26, 0x15	; 21
+	EthFrame[ArpDestMac4]=0x00;
+     c66:	56 96       	adiw	r26, 0x16	; 22
+     c68:	1c 92       	st	X, r1
+     c6a:	56 97       	sbiw	r26, 0x16	; 22
+	EthFrame[ArpDestMac5]=0x00;
+     c6c:	57 96       	adiw	r26, 0x17	; 23
+     c6e:	1c 92       	st	X, r1
+     c70:	57 97       	sbiw	r26, 0x17	; 23
+	
+	EthFrame[ArpDestIp1]=destrIp1;
+     c72:	58 96       	adiw	r26, 0x18	; 24
+     c74:	1c 93       	st	X, r17
+     c76:	58 97       	sbiw	r26, 0x18	; 24
+	EthFrame[ArpDestIp2]=destrIp2;
+     c78:	59 96       	adiw	r26, 0x19	; 25
+     c7a:	fc 92       	st	X, r15
+     c7c:	59 97       	sbiw	r26, 0x19	; 25
+	EthFrame[ArpDestIp3]=destrIp3;
+     c7e:	5a 96       	adiw	r26, 0x1a	; 26
+     c80:	dc 92       	st	X, r13
+     c82:	5a 97       	sbiw	r26, 0x1a	; 26
+	EthFrame[ArpDestIp4]=destrIp4;
+     c84:	5b 96       	adiw	r26, 0x1b	; 27
+     c86:	bc 92       	st	X, r11
+	
+	PacketSize=PacketSize+28;
+     c88:	80 91 98 02 	lds	r24, 0x0298
+     c8c:	90 91 99 02 	lds	r25, 0x0299
+     c90:	4c 96       	adiw	r24, 0x1c	; 28
+     c92:	90 93 99 02 	sts	0x0299, r25
+     c96:	80 93 98 02 	sts	0x0298, r24
+
+}//Koniec funkcji tworz¹cej zapytanie ARP
+     c9a:	1f 91       	pop	r17
+     c9c:	0f 91       	pop	r16
+     c9e:	ff 90       	pop	r15
+     ca0:	ef 90       	pop	r14
+     ca2:	df 90       	pop	r13
+     ca4:	cf 90       	pop	r12
+     ca6:	bf 90       	pop	r11
+     ca8:	af 90       	pop	r10
+     caa:	08 95       	ret
+
+00000cac <IpCheck>:
+#include "RTL8019as.h"
+
+//Funkcja sprawdzaj¹ca datagram IP (ICMP czy TCP)
+uint8_t IpCheck(void)
+{
+	if(EthFrame[IpProtocol]==0x01) return 3; 	//Je¿eli ICMP
+     cac:	80 91 49 01 	lds	r24, 0x0149
+     cb0:	81 30       	cpi	r24, 0x01	; 1
+     cb2:	11 f4       	brne	.+4      	; 0xcb8 <IpCheck+0xc>
+     cb4:	83 e0       	ldi	r24, 0x03	; 3
+     cb6:	08 95       	ret
+	if(EthFrame[IpProtocol]==0x06) return 4; 	//Je¿eli TCP
+     cb8:	86 30       	cpi	r24, 0x06	; 6
+     cba:	11 f0       	breq	.+4      	; 0xcc0 <IpCheck+0x14>
+     cbc:	80 e0       	ldi	r24, 0x00	; 0
+     cbe:	08 95       	ret
+     cc0:	84 e0       	ldi	r24, 0x04	; 4
+	
+	return 0;
+}//koniec funkcji sprawdzaj¹cej 
+     cc2:	08 95       	ret
+
+00000cc4 <IpCheckSumCalc>:
+
+//Funkcja obliczj¹ca sumê kontroln¹
+uint16_t IpCheckSumCalc(void)
+{
+     cc4:	ef 92       	push	r14
+     cc6:	ff 92       	push	r15
+     cc8:	0f 93       	push	r16
+     cca:	1f 93       	push	r17
+	EthFrame[IpChecksum0]=0x00;
+     ccc:	8a e4       	ldi	r24, 0x4A	; 74
+     cce:	91 e0       	ldi	r25, 0x01	; 1
+     cd0:	fc 01       	movw	r30, r24
+     cd2:	11 92       	st	Z+, r1
+	EthFrame[IpChecksum1]=0x00;
+     cd4:	10 82       	st	Z, r1
+     cd6:	fc 01       	movw	r30, r24
+     cd8:	3a 97       	sbiw	r30, 0x0a	; 10
+     cda:	ee 24       	eor	r14, r14
+     cdc:	ff 24       	eor	r15, r15
+     cde:	87 01       	movw	r16, r14
+	
+	unsigned int a;
+	unsigned int i;
+	unsigned long sum=0;
+	
+	for(i=0; i<20; i=i+2)
+     ce0:	44 e5       	ldi	r20, 0x54	; 84
+     ce2:	51 e0       	ldi	r21, 0x01	; 1
+	{
+		a=((EthFrame[EthData+i]<<8)&0xFF00)+(EthFrame[EthData+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+     ce4:	30 81       	ld	r19, Z
+     ce6:	20 e0       	ldi	r18, 0x00	; 0
+     ce8:	81 81       	ldd	r24, Z+1	; 0x01
+     cea:	b9 01       	movw	r22, r18
+     cec:	68 0f       	add	r22, r24
+     cee:	71 1d       	adc	r23, r1
+     cf0:	cb 01       	movw	r24, r22
+     cf2:	a0 e0       	ldi	r26, 0x00	; 0
+     cf4:	b0 e0       	ldi	r27, 0x00	; 0
+     cf6:	e8 0e       	add	r14, r24
+     cf8:	f9 1e       	adc	r15, r25
+     cfa:	0a 1f       	adc	r16, r26
+     cfc:	1b 1f       	adc	r17, r27
+     cfe:	32 96       	adiw	r30, 0x02	; 2
+	
+	unsigned int a;
+	unsigned int i;
+	unsigned long sum=0;
+	
+	for(i=0; i<20; i=i+2)
+     d00:	e4 17       	cp	r30, r20
+     d02:	f5 07       	cpc	r31, r21
+     d04:	79 f7       	brne	.-34     	; 0xce4 <IpCheckSumCalc+0x20>
+	{
+		a=((EthFrame[EthData+i]<<8)&0xFF00)+(EthFrame[EthData+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	while(sum>>16)
+     d06:	98 01       	movw	r18, r16
+     d08:	44 27       	eor	r20, r20
+     d0a:	55 27       	eor	r21, r21
+     d0c:	21 15       	cp	r18, r1
+     d0e:	31 05       	cpc	r19, r1
+     d10:	41 05       	cpc	r20, r1
+     d12:	51 05       	cpc	r21, r1
+     d14:	91 f0       	breq	.+36     	; 0xd3a <IpCheckSumCalc+0x76>
+	{
+		sum=(sum&0xFFFF)+(sum>>16);
+     d16:	d8 01       	movw	r26, r16
+     d18:	c7 01       	movw	r24, r14
+     d1a:	a0 70       	andi	r26, 0x00	; 0
+     d1c:	b0 70       	andi	r27, 0x00	; 0
+     d1e:	7c 01       	movw	r14, r24
+     d20:	8d 01       	movw	r16, r26
+     d22:	e2 0e       	add	r14, r18
+     d24:	f3 1e       	adc	r15, r19
+     d26:	04 1f       	adc	r16, r20
+     d28:	15 1f       	adc	r17, r21
+	{
+		a=((EthFrame[EthData+i]<<8)&0xFF00)+(EthFrame[EthData+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	while(sum>>16)
+     d2a:	98 01       	movw	r18, r16
+     d2c:	44 27       	eor	r20, r20
+     d2e:	55 27       	eor	r21, r21
+     d30:	21 15       	cp	r18, r1
+     d32:	31 05       	cpc	r19, r1
+     d34:	41 05       	cpc	r20, r1
+     d36:	51 05       	cpc	r21, r1
+     d38:	71 f7       	brne	.-36     	; 0xd16 <IpCheckSumCalc+0x52>
+     d3a:	a8 01       	movw	r20, r16
+     d3c:	97 01       	movw	r18, r14
+     d3e:	20 95       	com	r18
+     d40:	30 95       	com	r19
+     d42:	40 95       	com	r20
+     d44:	50 95       	com	r21
+	
+	sum=~sum;
+	
+	return ((unsigned int)sum);
+
+}//Koniec funkcji obliczaj¹cej sumê kontroln¹ nag³ówka ramki IP
+     d46:	82 2f       	mov	r24, r18
+     d48:	93 2f       	mov	r25, r19
+     d4a:	1f 91       	pop	r17
+     d4c:	0f 91       	pop	r16
+     d4e:	ff 90       	pop	r15
+     d50:	ef 90       	pop	r14
+     d52:	08 95       	ret
+
+00000d54 <MakeIpHeader>:
+
+//Funkcja tworz¹ca nag³ówek datagramu IP
+void MakeIpHeader(uint8_t protocol, uint16_t data_lenght) //data_lenght d³ugoœæ danych, liczona w bajtach 
+{
+     d54:	8f 92       	push	r8
+     d56:	9f 92       	push	r9
+     d58:	af 92       	push	r10
+     d5a:	cf 92       	push	r12
+     d5c:	ef 92       	push	r14
+     d5e:	ff 92       	push	r15
+     d60:	0f 93       	push	r16
+     d62:	1f 93       	push	r17
+     d64:	cf 93       	push	r28
+     d66:	df 93       	push	r29
+     d68:	f8 2e       	mov	r15, r24
+     d6a:	4b 01       	movw	r8, r22
+	MakeEthHeader(ArpReplyMac[0], ArpReplyMac[1], ArpReplyMac[2], ArpReplyMac[3], ArpReplyMac[4], ArpReplyMac[5], 0x08, 0x00);
+     d6c:	e7 e2       	ldi	r30, 0x27	; 39
+     d6e:	f1 e0       	ldi	r31, 0x01	; 1
+     d70:	80 81       	ld	r24, Z
+     d72:	61 81       	ldd	r22, Z+1	; 0x01
+     d74:	42 81       	ldd	r20, Z+2	; 0x02
+     d76:	23 81       	ldd	r18, Z+3	; 0x03
+     d78:	04 81       	ldd	r16, Z+4	; 0x04
+     d7a:	e5 80       	ldd	r14, Z+5	; 0x05
+     d7c:	cc 24       	eor	r12, r12
+     d7e:	68 94       	set
+     d80:	c3 f8       	bld	r12, 3
+     d82:	aa 24       	eor	r10, r10
+     d84:	0e 94 d2 03 	call	0x7a4	; 0x7a4 <MakeEthHeader>
+	
+	EthFrame[IpVIHL] = 0x45;
+     d88:	00 e4       	ldi	r16, 0x40	; 64
+     d8a:	11 e0       	ldi	r17, 0x01	; 1
+     d8c:	f8 01       	movw	r30, r16
+     d8e:	85 e4       	ldi	r24, 0x45	; 69
+     d90:	81 93       	st	Z+, r24
+	EthFrame[IpTypeofService] = 0x00;
+     d92:	10 82       	st	Z, r1
+	EthFrame[IpTotalLength0] = (uint8_t)(8>>(data_lenght+20));
+     d94:	94 01       	movw	r18, r8
+     d96:	2c 5e       	subi	r18, 0xEC	; 236
+     d98:	3f 4f       	sbci	r19, 0xFF	; 255
+     d9a:	88 e0       	ldi	r24, 0x08	; 8
+     d9c:	90 e0       	ldi	r25, 0x00	; 0
+     d9e:	02 c0       	rjmp	.+4      	; 0xda4 <MakeIpHeader+0x50>
+     da0:	95 95       	asr	r25
+     da2:	87 95       	ror	r24
+     da4:	2a 95       	dec	r18
+     da6:	e2 f7       	brpl	.-8      	; 0xda0 <MakeIpHeader+0x4c>
+     da8:	e8 01       	movw	r28, r16
+     daa:	8a 83       	std	Y+2, r24	; 0x02
+	EthFrame[IpTotalLength1] = (uint8_t)(data_lenght+20);
+     dac:	e4 e1       	ldi	r30, 0x14	; 20
+     dae:	8e 0e       	add	r8, r30
+     db0:	8b 82       	std	Y+3, r8	; 0x03
+	EthFrame[IpIdenti0] = 0xaa;
+     db2:	8a ea       	ldi	r24, 0xAA	; 170
+     db4:	8c 83       	std	Y+4, r24	; 0x04
+	EthFrame[IpIdenti1] = 0x00;
+     db6:	1d 82       	std	Y+5, r1	; 0x05
+	EthFrame[IpFlaTotalOff0] = 0x40;
+     db8:	80 e4       	ldi	r24, 0x40	; 64
+     dba:	8e 83       	std	Y+6, r24	; 0x06
+	EthFrame[IpFlaTotalOff1] = 0x00;
+     dbc:	1f 82       	std	Y+7, r1	; 0x07
+	EthFrame[IpTimeToLive] = 0x40;
+     dbe:	88 87       	std	Y+8, r24	; 0x08
+	EthFrame[IpProtocol] = protocol;
+     dc0:	f9 86       	std	Y+9, r15	; 0x09
+	
+	EthFrame[IpSourceIp1] = ServIp[0];
+     dc2:	a6 e1       	ldi	r26, 0x16	; 22
+     dc4:	b1 e0       	ldi	r27, 0x01	; 1
+     dc6:	fd 01       	movw	r30, r26
+     dc8:	81 91       	ld	r24, Z+
+     dca:	8c 87       	std	Y+12, r24	; 0x0c
+	EthFrame[IpSourceIp2] = ServIp[1];
+     dcc:	80 81       	ld	r24, Z
+     dce:	8d 87       	std	Y+13, r24	; 0x0d
+	EthFrame[IpSourceIp3] = ServIp[2];
+     dd0:	12 96       	adiw	r26, 0x02	; 2
+     dd2:	8c 91       	ld	r24, X
+     dd4:	12 97       	sbiw	r26, 0x02	; 2
+     dd6:	8e 87       	std	Y+14, r24	; 0x0e
+	EthFrame[IpSourceIp4] = ServIp[3];
+     dd8:	13 96       	adiw	r26, 0x03	; 3
+     dda:	8c 91       	ld	r24, X
+     ddc:	8f 87       	std	Y+15, r24	; 0x0f
+	
+	EthFrame[IpDestIp1] = ArpReplyIp[0];
+     dde:	aa e9       	ldi	r26, 0x9A	; 154
+     de0:	b2 e0       	ldi	r27, 0x02	; 2
+     de2:	fd 01       	movw	r30, r26
+     de4:	81 91       	ld	r24, Z+
+     de6:	88 8b       	std	Y+16, r24	; 0x10
+	EthFrame[IpDestIp2] = ArpReplyIp[1];
+     de8:	80 81       	ld	r24, Z
+     dea:	89 8b       	std	Y+17, r24	; 0x11
+	EthFrame[IpDestIp3] = ArpReplyIp[2];
+     dec:	12 96       	adiw	r26, 0x02	; 2
+     dee:	8c 91       	ld	r24, X
+     df0:	12 97       	sbiw	r26, 0x02	; 2
+     df2:	8a 8b       	std	Y+18, r24	; 0x12
+	EthFrame[IpDestIp4] = ArpReplyIp[3];
+     df4:	13 96       	adiw	r26, 0x03	; 3
+     df6:	8c 91       	ld	r24, X
+     df8:	8b 8b       	std	Y+19, r24	; 0x13
+	
+	uint16_t CheckSum = IpCheckSumCalc();
+     dfa:	0e 94 62 06 	call	0xcc4	; 0xcc4 <IpCheckSumCalc>
+	EthFrame[IpChecksum0] = (uint8_t)((CheckSum)>>8);
+     dfe:	9a 87       	std	Y+10, r25	; 0x0a
+	EthFrame[IpChecksum1] = (uint8_t)(CheckSum);
+     e00:	8b 87       	std	Y+11, r24	; 0x0b
+	
+	//PacketSize += 20;
+
+}//Koniec funkcju tworz¹cej nag³owek IP
+     e02:	df 91       	pop	r29
+     e04:	cf 91       	pop	r28
+     e06:	1f 91       	pop	r17
+     e08:	0f 91       	pop	r16
+     e0a:	ff 90       	pop	r15
+     e0c:	ef 90       	pop	r14
+     e0e:	cf 90       	pop	r12
+     e10:	af 90       	pop	r10
+     e12:	9f 90       	pop	r9
+     e14:	8f 90       	pop	r8
+     e16:	08 95       	ret
+
+00000e18 <EchoReply>:
+#include "RTL8019as.h"
+
+//Funkcja odpowiadaj¹ca na ¿¹danie echa 
+void EchoReply(void)
+{
+	if(EthFrame[ImcpType]==0x08 && EthFrame[ImcpCode]==0x00) {
+     e18:	80 91 54 01 	lds	r24, 0x0154
+     e1c:	88 30       	cpi	r24, 0x08	; 8
+     e1e:	81 f5       	brne	.+96     	; 0xe80 <EchoReply+0x68>
+     e20:	80 91 55 01 	lds	r24, 0x0155
+     e24:	88 23       	and	r24, r24
+     e26:	61 f5       	brne	.+88     	; 0xe80 <EchoReply+0x68>
+		
+		MakeIpHeader(0x01,0x12);
+     e28:	81 e0       	ldi	r24, 0x01	; 1
+     e2a:	62 e1       	ldi	r22, 0x12	; 18
+     e2c:	70 e0       	ldi	r23, 0x00	; 0
+     e2e:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		uint16_t CheckSum = (8<<EthFrame[Imcpsum0]);
+     e32:	e6 e5       	ldi	r30, 0x56	; 86
+     e34:	f1 e0       	ldi	r31, 0x01	; 1
+     e36:	88 e0       	ldi	r24, 0x08	; 8
+     e38:	90 e0       	ldi	r25, 0x00	; 0
+     e3a:	01 90       	ld	r0, Z+
+     e3c:	02 c0       	rjmp	.+4      	; 0xe42 <EchoReply+0x2a>
+     e3e:	88 0f       	add	r24, r24
+     e40:	99 1f       	adc	r25, r25
+     e42:	0a 94       	dec	r0
+     e44:	e2 f7       	brpl	.-8      	; 0xe3e <EchoReply+0x26>
+		CheckSum+=EthFrame[Imcpsum1];
+     e46:	20 81       	ld	r18, Z
+     e48:	ac 01       	movw	r20, r24
+     e4a:	42 0f       	add	r20, r18
+     e4c:	51 1d       	adc	r21, r1
+		
+		EthFrame[ImcpCode]=0x01;
+     e4e:	81 e0       	ldi	r24, 0x01	; 1
+     e50:	80 93 55 01 	sts	0x0155, r24
+		
+		if(CheckSum > 0x7FFF) {
+     e54:	55 23       	and	r21, r21
+     e56:	2c f4       	brge	.+10     	; 0xe62 <EchoReply+0x4a>
+			CheckSum = (uint16_t)((CheckSum+0x8000)|0x01);
+     e58:	ca 01       	movw	r24, r20
+     e5a:	80 50       	subi	r24, 0x00	; 0
+     e5c:	90 48       	sbci	r25, 0x80	; 128
+     e5e:	81 60       	ori	r24, 0x01	; 1
+     e60:	03 c0       	rjmp	.+6      	; 0xe68 <EchoReply+0x50>
+		} else {
+			CheckSum = CheckSum+0x8000;
+     e62:	ca 01       	movw	r24, r20
+     e64:	80 50       	subi	r24, 0x00	; 0
+     e66:	90 48       	sbci	r25, 0x80	; 128
+		}
+		
+		EthFrame[Imcpsum0]=(uint8_t)((CheckSum)>>8);
+     e68:	e6 e5       	ldi	r30, 0x56	; 86
+     e6a:	f1 e0       	ldi	r31, 0x01	; 1
+     e6c:	91 93       	st	Z+, r25
+		EthFrame[Imcpsum1]=(uint8_t)(CheckSum);
+     e6e:	80 83       	st	Z, r24
+		
+		PacketSize = 14+20+12;
+     e70:	8e e2       	ldi	r24, 0x2E	; 46
+     e72:	90 e0       	ldi	r25, 0x00	; 0
+     e74:	90 93 99 02 	sts	0x0299, r25
+     e78:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+     e7c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+     e80:	08 95       	ret
+
+00000e82 <TcpCheckSumCalc>:
+#include "RTL8019as.h"
+
+
+//Funkcja obliczj¹ca sumê kontroln¹
+uint16_t TcpCheckSumCalc(uint16_t dane)
+{
+     e82:	ef 92       	push	r14
+     e84:	ff 92       	push	r15
+     e86:	0f 93       	push	r16
+     e88:	1f 93       	push	r17
+     e8a:	df 93       	push	r29
+     e8c:	cf 93       	push	r28
+     e8e:	cd b7       	in	r28, 0x3d	; 61
+     e90:	de b7       	in	r29, 0x3e	; 62
+     e92:	2c 97       	sbiw	r28, 0x0c	; 12
+     e94:	0f b6       	in	r0, 0x3f	; 63
+     e96:	f8 94       	cli
+     e98:	de bf       	out	0x3e, r29	; 62
+     e9a:	0f be       	out	0x3f, r0	; 63
+     e9c:	cd bf       	out	0x3d, r28	; 61
+		
+	EthFrame[TcpCheckSum0]=0x00;
+     e9e:	e4 e6       	ldi	r30, 0x64	; 100
+     ea0:	f1 e0       	ldi	r31, 0x01	; 1
+     ea2:	11 92       	st	Z+, r1
+	EthFrame[TcpCheckSum1]=0x00;
+     ea4:	10 82       	st	Z, r1
+	
+	//Sumowanie pseudo-nag³ówka Ip
+	uint8_t Data[12];
+	
+	Data[0] = ServIp[0];
+     ea6:	a6 e1       	ldi	r26, 0x16	; 22
+     ea8:	b1 e0       	ldi	r27, 0x01	; 1
+     eaa:	fd 01       	movw	r30, r26
+     eac:	21 91       	ld	r18, Z+
+     eae:	29 83       	std	Y+1, r18	; 0x01
+	Data[1] = ServIp[1];
+     eb0:	20 81       	ld	r18, Z
+     eb2:	2a 83       	std	Y+2, r18	; 0x02
+	Data[2] = ServIp[2];
+     eb4:	12 96       	adiw	r26, 0x02	; 2
+     eb6:	2c 91       	ld	r18, X
+     eb8:	12 97       	sbiw	r26, 0x02	; 2
+     eba:	2b 83       	std	Y+3, r18	; 0x03
+	Data[3] = ServIp[3];
+     ebc:	13 96       	adiw	r26, 0x03	; 3
+     ebe:	2c 91       	ld	r18, X
+     ec0:	2c 83       	std	Y+4, r18	; 0x04
+	
+	Data[4] = ArpReplyIp[0];
+     ec2:	aa e9       	ldi	r26, 0x9A	; 154
+     ec4:	b2 e0       	ldi	r27, 0x02	; 2
+     ec6:	fd 01       	movw	r30, r26
+     ec8:	21 91       	ld	r18, Z+
+     eca:	2d 83       	std	Y+5, r18	; 0x05
+	Data[5] = ArpReplyIp[1];
+     ecc:	20 81       	ld	r18, Z
+     ece:	2e 83       	std	Y+6, r18	; 0x06
+	Data[6] = ArpReplyIp[2];
+     ed0:	12 96       	adiw	r26, 0x02	; 2
+     ed2:	2c 91       	ld	r18, X
+     ed4:	12 97       	sbiw	r26, 0x02	; 2
+     ed6:	2f 83       	std	Y+7, r18	; 0x07
+	Data[7] = ArpReplyIp[3];
+     ed8:	13 96       	adiw	r26, 0x03	; 3
+     eda:	2c 91       	ld	r18, X
+     edc:	28 87       	std	Y+8, r18	; 0x08
+	
+	Data[8] = 0x00;
+     ede:	19 86       	std	Y+9, r1	; 0x09
+	Data[9] = 0x06;
+     ee0:	26 e0       	ldi	r18, 0x06	; 6
+     ee2:	2a 87       	std	Y+10, r18	; 0x0a
+	
+	Data[10] = (uint8_t)((20+dane)>>8);
+     ee4:	9c 01       	movw	r18, r24
+     ee6:	2c 5e       	subi	r18, 0xEC	; 236
+     ee8:	3f 4f       	sbci	r19, 0xFF	; 255
+     eea:	3b 87       	std	Y+11, r19	; 0x0b
+	Data[11] = (uint8_t)(20+dane);
+     eec:	8c 5e       	subi	r24, 0xEC	; 236
+     eee:	8c 87       	std	Y+12, r24	; 0x0c
+     ef0:	fe 01       	movw	r30, r28
+     ef2:	31 96       	adiw	r30, 0x01	; 1
+     ef4:	ee 24       	eor	r14, r14
+     ef6:	ff 24       	eor	r15, r15
+     ef8:	87 01       	movw	r16, r14
+	
+	unsigned int a;
+	unsigned int i;
+	unsigned long sum=0;
+	
+	for(i=0; i<12; i=i+2)
+     efa:	ae 01       	movw	r20, r28
+     efc:	43 5f       	subi	r20, 0xF3	; 243
+     efe:	5f 4f       	sbci	r21, 0xFF	; 255
+	{
+		a=((Data[i]<<8)&0xFF00)+(Data[i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+     f00:	30 81       	ld	r19, Z
+     f02:	20 e0       	ldi	r18, 0x00	; 0
+     f04:	81 81       	ldd	r24, Z+1	; 0x01
+     f06:	b9 01       	movw	r22, r18
+     f08:	68 0f       	add	r22, r24
+     f0a:	71 1d       	adc	r23, r1
+     f0c:	cb 01       	movw	r24, r22
+     f0e:	a0 e0       	ldi	r26, 0x00	; 0
+     f10:	b0 e0       	ldi	r27, 0x00	; 0
+     f12:	e8 0e       	add	r14, r24
+     f14:	f9 1e       	adc	r15, r25
+     f16:	0a 1f       	adc	r16, r26
+     f18:	1b 1f       	adc	r17, r27
+     f1a:	32 96       	adiw	r30, 0x02	; 2
+	
+	unsigned int a;
+	unsigned int i;
+	unsigned long sum=0;
+	
+	for(i=0; i<12; i=i+2)
+     f1c:	e4 17       	cp	r30, r20
+     f1e:	f5 07       	cpc	r31, r21
+     f20:	79 f7       	brne	.-34     	; 0xf00 <TcpCheckSumCalc+0x7e>
+     f22:	e4 e5       	ldi	r30, 0x54	; 84
+     f24:	f1 e0       	ldi	r31, 0x01	; 1
+	{
+		a=((Data[i]<<8)&0xFF00)+(Data[i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	for(i=0; i<20; i=i+2)
+     f26:	28 e6       	ldi	r18, 0x68	; 104
+     f28:	31 e0       	ldi	r19, 0x01	; 1
+	{
+		a=((EthFrame[EthData+20+i]<<8)&0xFF00)+(EthFrame[EthData+20+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+     f2a:	70 81       	ld	r23, Z
+     f2c:	60 e0       	ldi	r22, 0x00	; 0
+     f2e:	81 81       	ldd	r24, Z+1	; 0x01
+     f30:	ab 01       	movw	r20, r22
+     f32:	48 0f       	add	r20, r24
+     f34:	51 1d       	adc	r21, r1
+     f36:	ca 01       	movw	r24, r20
+     f38:	a0 e0       	ldi	r26, 0x00	; 0
+     f3a:	b0 e0       	ldi	r27, 0x00	; 0
+     f3c:	e8 0e       	add	r14, r24
+     f3e:	f9 1e       	adc	r15, r25
+     f40:	0a 1f       	adc	r16, r26
+     f42:	1b 1f       	adc	r17, r27
+     f44:	32 96       	adiw	r30, 0x02	; 2
+	{
+		a=((Data[i]<<8)&0xFF00)+(Data[i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	for(i=0; i<20; i=i+2)
+     f46:	e2 17       	cp	r30, r18
+     f48:	f3 07       	cpc	r31, r19
+     f4a:	79 f7       	brne	.-34     	; 0xf2a <TcpCheckSumCalc+0xa8>
+	{
+		a=((EthFrame[EthData+20+i]<<8)&0xFF00)+(EthFrame[EthData+20+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	while(sum>>16)
+     f4c:	98 01       	movw	r18, r16
+     f4e:	44 27       	eor	r20, r20
+     f50:	55 27       	eor	r21, r21
+     f52:	21 15       	cp	r18, r1
+     f54:	31 05       	cpc	r19, r1
+     f56:	41 05       	cpc	r20, r1
+     f58:	51 05       	cpc	r21, r1
+     f5a:	91 f0       	breq	.+36     	; 0xf80 <TcpCheckSumCalc+0xfe>
+	{
+		sum=(sum&0xFFFF)+(sum>>16);
+     f5c:	d8 01       	movw	r26, r16
+     f5e:	c7 01       	movw	r24, r14
+     f60:	a0 70       	andi	r26, 0x00	; 0
+     f62:	b0 70       	andi	r27, 0x00	; 0
+     f64:	7c 01       	movw	r14, r24
+     f66:	8d 01       	movw	r16, r26
+     f68:	e2 0e       	add	r14, r18
+     f6a:	f3 1e       	adc	r15, r19
+     f6c:	04 1f       	adc	r16, r20
+     f6e:	15 1f       	adc	r17, r21
+	{
+		a=((EthFrame[EthData+20+i]<<8)&0xFF00)+(EthFrame[EthData+20+i+1]&0xFF);
+		sum=sum+(unsigned long)a;
+	}
+	
+	while(sum>>16)
+     f70:	98 01       	movw	r18, r16
+     f72:	44 27       	eor	r20, r20
+     f74:	55 27       	eor	r21, r21
+     f76:	21 15       	cp	r18, r1
+     f78:	31 05       	cpc	r19, r1
+     f7a:	41 05       	cpc	r20, r1
+     f7c:	51 05       	cpc	r21, r1
+     f7e:	71 f7       	brne	.-36     	; 0xf5c <TcpCheckSumCalc+0xda>
+     f80:	a8 01       	movw	r20, r16
+     f82:	97 01       	movw	r18, r14
+     f84:	20 95       	com	r18
+     f86:	30 95       	com	r19
+     f88:	40 95       	com	r20
+     f8a:	50 95       	com	r21
+	}
+	
+	sum=~sum;
+	return ((unsigned int)sum);
+	
+}//Koniec funkcji obliczaj¹cej sumê kontroln¹
+     f8c:	82 2f       	mov	r24, r18
+     f8e:	93 2f       	mov	r25, r19
+     f90:	2c 96       	adiw	r28, 0x0c	; 12
+     f92:	0f b6       	in	r0, 0x3f	; 63
+     f94:	f8 94       	cli
+     f96:	de bf       	out	0x3e, r29	; 62
+     f98:	0f be       	out	0x3f, r0	; 63
+     f9a:	cd bf       	out	0x3d, r28	; 61
+     f9c:	cf 91       	pop	r28
+     f9e:	df 91       	pop	r29
+     fa0:	1f 91       	pop	r17
+     fa2:	0f 91       	pop	r16
+     fa4:	ff 90       	pop	r15
+     fa6:	ef 90       	pop	r14
+     fa8:	08 95       	ret
+
+00000faa <Tcp_Receive>:
+	}
+	}
+}
+
+//Funkcja sprawdzaj¹ca czy s¹ nowe dane TCP z konkretnego portu
+uint8_t Tcp_Receive(uint16_t port) {
+     faa:	28 2f       	mov	r18, r24
+
+	if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+     fac:	80 91 56 01 	lds	r24, 0x0156
+     fb0:	89 17       	cp	r24, r25
+     fb2:	51 f4       	brne	.+20     	; 0xfc8 <Tcp_Receive+0x1e>
+     fb4:	80 91 57 01 	lds	r24, 0x0157
+     fb8:	82 17       	cp	r24, r18
+     fba:	31 f4       	brne	.+12     	; 0xfc8 <Tcp_Receive+0x1e>
+     fbc:	80 91 61 01 	lds	r24, 0x0161
+     fc0:	88 31       	cpi	r24, 0x18	; 24
+     fc2:	11 f4       	brne	.+4      	; 0xfc8 <Tcp_Receive+0x1e>
+     fc4:	81 e0       	ldi	r24, 0x01	; 1
+     fc6:	08 95       	ret
+     fc8:	82 e0       	ldi	r24, 0x02	; 2
+		&& EthFrame[ControlBits] == (PSH+ACK) /*&& Tcp_Status == Established*/) {
+		return 1; //Odebrano nowe dane
+	}
+	return 2; //B³¹d odbierania danych
+}
+     fca:	08 95       	ret
+
+00000fcc <Tcp_Send_Data>:
+		RTLsend_packet();
+		return receive_data;
+}
+
+//Funkcja wysy³aj¹ca dane TCP na konkretny port
+void Tcp_Send_Data(uint16_t destport, uint16_t data_lenght) {	
+     fcc:	cf 92       	push	r12
+     fce:	df 92       	push	r13
+     fd0:	ef 92       	push	r14
+     fd2:	ff 92       	push	r15
+     fd4:	0f 93       	push	r16
+     fd6:	1f 93       	push	r17
+     fd8:	c8 2e       	mov	r12, r24
+     fda:	d9 2e       	mov	r13, r25
+     fdc:	7b 01       	movw	r14, r22
+	
+	MakeIpHeader(0x06,0x14+data_lenght);
+     fde:	6c 5e       	subi	r22, 0xEC	; 236
+     fe0:	7f 4f       	sbci	r23, 0xFF	; 255
+     fe2:	86 e0       	ldi	r24, 0x06	; 6
+     fe4:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+	
+	EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+     fe8:	90 91 9e 02 	lds	r25, 0x029E
+     fec:	80 91 9f 02 	lds	r24, 0x029F
+     ff0:	06 e5       	ldi	r16, 0x56	; 86
+     ff2:	11 e0       	ldi	r17, 0x01	; 1
+     ff4:	f8 01       	movw	r30, r16
+     ff6:	81 93       	st	Z+, r24
+	EthFrame[DestinPort1] = (uint8_t)(dest_port);
+     ff8:	90 83       	st	Z, r25
+	
+	EthFrame[SourcePort0] = (uint8_t)(destport>>8);
+     ffa:	d0 92 54 01 	sts	0x0154, r13
+	EthFrame[SourcePort1] = (uint8_t)(destport);
+     ffe:	c0 92 55 01 	sts	0x0155, r12
+	
+	EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    1002:	20 91 23 01 	lds	r18, 0x0123
+    1006:	30 91 24 01 	lds	r19, 0x0124
+    100a:	40 91 25 01 	lds	r20, 0x0125
+    100e:	50 91 26 01 	lds	r21, 0x0126
+    1012:	85 2f       	mov	r24, r21
+    1014:	99 27       	eor	r25, r25
+    1016:	aa 27       	eor	r26, r26
+    1018:	bb 27       	eor	r27, r27
+    101a:	f8 01       	movw	r30, r16
+    101c:	82 83       	std	Z+2, r24	; 0x02
+	EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    101e:	ca 01       	movw	r24, r20
+    1020:	aa 27       	eor	r26, r26
+    1022:	bb 27       	eor	r27, r27
+    1024:	83 83       	std	Z+3, r24	; 0x03
+	EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    1026:	bb 27       	eor	r27, r27
+    1028:	a5 2f       	mov	r26, r21
+    102a:	94 2f       	mov	r25, r20
+    102c:	83 2f       	mov	r24, r19
+    102e:	84 83       	std	Z+4, r24	; 0x04
+	EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1030:	25 83       	std	Z+5, r18	; 0x05
+	seq_number+=data_lenght;
+    1032:	c7 01       	movw	r24, r14
+    1034:	a0 e0       	ldi	r26, 0x00	; 0
+    1036:	b0 e0       	ldi	r27, 0x00	; 0
+    1038:	82 0f       	add	r24, r18
+    103a:	93 1f       	adc	r25, r19
+    103c:	a4 1f       	adc	r26, r20
+    103e:	b5 1f       	adc	r27, r21
+    1040:	80 93 23 01 	sts	0x0123, r24
+    1044:	90 93 24 01 	sts	0x0124, r25
+    1048:	a0 93 25 01 	sts	0x0125, r26
+    104c:	b0 93 26 01 	sts	0x0126, r27
+	
+	EthFrame[AckNumber0] = (uint8_t)(ack_number>>24); //Numer potwierdzenia ACK
+    1050:	20 91 90 02 	lds	r18, 0x0290
+    1054:	30 91 91 02 	lds	r19, 0x0291
+    1058:	40 91 92 02 	lds	r20, 0x0292
+    105c:	50 91 93 02 	lds	r21, 0x0293
+    1060:	85 2f       	mov	r24, r21
+    1062:	99 27       	eor	r25, r25
+    1064:	aa 27       	eor	r26, r26
+    1066:	bb 27       	eor	r27, r27
+    1068:	86 83       	std	Z+6, r24	; 0x06
+	EthFrame[AckNumber1] = (uint8_t)(ack_number>>16);
+    106a:	ca 01       	movw	r24, r20
+    106c:	aa 27       	eor	r26, r26
+    106e:	bb 27       	eor	r27, r27
+    1070:	87 83       	std	Z+7, r24	; 0x07
+	EthFrame[AckNumber2] = (uint8_t)(ack_number>>8);
+    1072:	bb 27       	eor	r27, r27
+    1074:	a5 2f       	mov	r26, r21
+    1076:	94 2f       	mov	r25, r20
+    1078:	83 2f       	mov	r24, r19
+    107a:	80 87       	std	Z+8, r24	; 0x08
+	EthFrame[AckNumber3] = (uint8_t)(ack_number);
+    107c:	21 87       	std	Z+9, r18	; 0x09
+	
+	EthFrame[DataOffset] = 0x50;
+    107e:	80 e5       	ldi	r24, 0x50	; 80
+    1080:	82 87       	std	Z+10, r24	; 0x0a
+	EthFrame[ControlBits] = (PSH|ACK);
+    1082:	88 e1       	ldi	r24, 0x18	; 24
+    1084:	83 87       	std	Z+11, r24	; 0x0b
+	EthFrame[WindowSize] = 0xff;
+    1086:	8f ef       	ldi	r24, 0xFF	; 255
+    1088:	85 87       	std	Z+13, r24	; 0x0d
+		
+	uint16_t CheckSum = TcpCheckSumCalc(data_lenght);
+    108a:	c7 01       	movw	r24, r14
+    108c:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+	EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    1090:	f8 01       	movw	r30, r16
+    1092:	96 87       	std	Z+14, r25	; 0x0e
+	EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1094:	87 87       	std	Z+15, r24	; 0x0f
+		
+	EthFrame[DataPointer0] = 0x00;
+    1096:	10 8a       	std	Z+16, r1	; 0x10
+	EthFrame[DataPointer1] = 0x00;
+    1098:	11 8a       	std	Z+17, r1	; 0x11
+		
+	//Wysy³anie do RTL8019as
+	PacketSize = 14+20+20+data_lenght;
+    109a:	86 e3       	ldi	r24, 0x36	; 54
+    109c:	90 e0       	ldi	r25, 0x00	; 0
+    109e:	e8 0e       	add	r14, r24
+    10a0:	f9 1e       	adc	r15, r25
+    10a2:	f0 92 99 02 	sts	0x0299, r15
+    10a6:	e0 92 98 02 	sts	0x0298, r14
+	RTLsend_packet();	
+    10aa:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+}
+    10ae:	1f 91       	pop	r17
+    10b0:	0f 91       	pop	r16
+    10b2:	ff 90       	pop	r15
+    10b4:	ef 90       	pop	r14
+    10b6:	df 90       	pop	r13
+    10b8:	cf 90       	pop	r12
+    10ba:	08 95       	ret
+
+000010bc <Tcp_Send_Ack>:
+	}
+	return 2; //B³¹d odbierania danych
+}
+
+//Funkcja wysy³aj¹ca potwierdzenie otrzymania danych TCP na konkretny destport
+uint16_t Tcp_Send_Ack(uint16_t destport) {
+    10bc:	ef 92       	push	r14
+    10be:	ff 92       	push	r15
+    10c0:	0f 93       	push	r16
+    10c2:	1f 93       	push	r17
+    10c4:	cf 93       	push	r28
+    10c6:	df 93       	push	r29
+    10c8:	e8 2e       	mov	r14, r24
+    10ca:	f9 2e       	mov	r15, r25
+
+		uint16_t receive_data = (EthFrame[IpTotalLength0]<<8); //iloœæ odebranych bajtów danych (20-nag³ówek IP, 20-nag³ówek TCP)
+    10cc:	02 e4       	ldi	r16, 0x42	; 66
+    10ce:	11 e0       	ldi	r17, 0x01	; 1
+    10d0:	f8 01       	movw	r30, r16
+    10d2:	91 91       	ld	r25, Z+
+    10d4:	80 e0       	ldi	r24, 0x00	; 0
+		receive_data += EthFrame[IpTotalLength1];
+    10d6:	e0 81       	ld	r30, Z
+    10d8:	f0 e0       	ldi	r31, 0x00	; 0
+    10da:	b8 97       	sbiw	r30, 0x28	; 40
+		receive_data -= (0x14+0x14);
+    10dc:	ef 01       	movw	r28, r30
+    10de:	c8 0f       	add	r28, r24
+    10e0:	d9 1f       	adc	r29, r25
+		
+		MakeIpHeader(0x06,0x14);
+    10e2:	86 e0       	ldi	r24, 0x06	; 6
+    10e4:	64 e1       	ldi	r22, 0x14	; 20
+    10e6:	70 e0       	ldi	r23, 0x00	; 0
+    10e8:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[DestinPort0] = EthFrame[SourcePort0];
+    10ec:	d8 01       	movw	r26, r16
+    10ee:	52 96       	adiw	r26, 0x12	; 18
+    10f0:	8c 91       	ld	r24, X
+    10f2:	f8 01       	movw	r30, r16
+    10f4:	84 8b       	std	Z+20, r24	; 0x14
+		EthFrame[DestinPort1] = EthFrame[SourcePort1];
+    10f6:	98 01       	movw	r18, r16
+    10f8:	2d 5e       	subi	r18, 0xED	; 237
+    10fa:	3f 4f       	sbci	r19, 0xFF	; 255
+    10fc:	f9 01       	movw	r30, r18
+    10fe:	80 81       	ld	r24, Z
+    1100:	f8 01       	movw	r30, r16
+    1102:	85 8b       	std	Z+21, r24	; 0x15
+		
+		EthFrame[SourcePort0] = (uint8_t)(destport>>8);
+    1104:	fc 92       	st	X, r15
+		EthFrame[SourcePort1] = (uint8_t)(destport);
+    1106:	f9 01       	movw	r30, r18
+    1108:	e0 82       	st	Z, r14
+		
+		ack_number+=receive_data;
+    110a:	ce 01       	movw	r24, r28
+    110c:	a0 e0       	ldi	r26, 0x00	; 0
+    110e:	b0 e0       	ldi	r27, 0x00	; 0
+    1110:	20 91 90 02 	lds	r18, 0x0290
+    1114:	30 91 91 02 	lds	r19, 0x0291
+    1118:	40 91 92 02 	lds	r20, 0x0292
+    111c:	50 91 93 02 	lds	r21, 0x0293
+    1120:	82 0f       	add	r24, r18
+    1122:	93 1f       	adc	r25, r19
+    1124:	a4 1f       	adc	r26, r20
+    1126:	b5 1f       	adc	r27, r21
+    1128:	80 93 90 02 	sts	0x0290, r24
+    112c:	90 93 91 02 	sts	0x0291, r25
+    1130:	a0 93 92 02 	sts	0x0292, r26
+    1134:	b0 93 93 02 	sts	0x0293, r27
+		
+		EthFrame[AckNumber0] = (uint8_t)(ack_number>>24);
+    1138:	2b 2f       	mov	r18, r27
+    113a:	33 27       	eor	r19, r19
+    113c:	44 27       	eor	r20, r20
+    113e:	55 27       	eor	r21, r21
+    1140:	f8 01       	movw	r30, r16
+    1142:	22 8f       	std	Z+26, r18	; 0x1a
+		EthFrame[AckNumber1] = (uint8_t)(ack_number>>16);
+    1144:	9d 01       	movw	r18, r26
+    1146:	44 27       	eor	r20, r20
+    1148:	55 27       	eor	r21, r21
+    114a:	23 8f       	std	Z+27, r18	; 0x1b
+		EthFrame[AckNumber2] = (uint8_t)(ack_number>>8);
+    114c:	29 2f       	mov	r18, r25
+    114e:	3a 2f       	mov	r19, r26
+    1150:	4b 2f       	mov	r20, r27
+    1152:	55 27       	eor	r21, r21
+    1154:	24 8f       	std	Z+28, r18	; 0x1c
+		EthFrame[AckNumber3] = (uint8_t)(ack_number);
+    1156:	85 8f       	std	Z+29, r24	; 0x1d
+		
+		EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    1158:	20 91 23 01 	lds	r18, 0x0123
+    115c:	30 91 24 01 	lds	r19, 0x0124
+    1160:	40 91 25 01 	lds	r20, 0x0125
+    1164:	50 91 26 01 	lds	r21, 0x0126
+    1168:	85 2f       	mov	r24, r21
+    116a:	99 27       	eor	r25, r25
+    116c:	aa 27       	eor	r26, r26
+    116e:	bb 27       	eor	r27, r27
+    1170:	86 8b       	std	Z+22, r24	; 0x16
+		EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    1172:	ca 01       	movw	r24, r20
+    1174:	aa 27       	eor	r26, r26
+    1176:	bb 27       	eor	r27, r27
+    1178:	87 8b       	std	Z+23, r24	; 0x17
+		EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    117a:	bb 27       	eor	r27, r27
+    117c:	a5 2f       	mov	r26, r21
+    117e:	94 2f       	mov	r25, r20
+    1180:	83 2f       	mov	r24, r19
+    1182:	80 8f       	std	Z+24, r24	; 0x18
+		EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1184:	21 8f       	std	Z+25, r18	; 0x19
+		
+		EthFrame[DataOffset] = 0x50;
+    1186:	80 e5       	ldi	r24, 0x50	; 80
+    1188:	86 8f       	std	Z+30, r24	; 0x1e
+		EthFrame[ControlBits] = ACK;
+    118a:	80 e1       	ldi	r24, 0x10	; 16
+    118c:	87 8f       	std	Z+31, r24	; 0x1f
+		EthFrame[WindowSize] = 0xff;
+    118e:	8f ef       	ldi	r24, 0xFF	; 255
+    1190:	81 a3       	std	Z+33, r24	; 0x21
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    1192:	80 e0       	ldi	r24, 0x00	; 0
+    1194:	90 e0       	ldi	r25, 0x00	; 0
+    1196:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    119a:	f8 01       	movw	r30, r16
+    119c:	92 a3       	std	Z+34, r25	; 0x22
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    119e:	83 a3       	std	Z+35, r24	; 0x23
+		
+		EthFrame[DataPointer0] = 0x00;
+    11a0:	14 a2       	std	Z+36, r1	; 0x24
+		EthFrame[DataPointer1] = 0x00;
+    11a2:	15 a2       	std	Z+37, r1	; 0x25
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    11a4:	86 e3       	ldi	r24, 0x36	; 54
+    11a6:	90 e0       	ldi	r25, 0x00	; 0
+    11a8:	90 93 99 02 	sts	0x0299, r25
+    11ac:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    11b0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		return receive_data;
+}
+    11b4:	8c 2f       	mov	r24, r28
+    11b6:	9d 2f       	mov	r25, r29
+    11b8:	df 91       	pop	r29
+    11ba:	cf 91       	pop	r28
+    11bc:	1f 91       	pop	r17
+    11be:	0f 91       	pop	r16
+    11c0:	ff 90       	pop	r15
+    11c2:	ef 90       	pop	r14
+    11c4:	08 95       	ret
+
+000011c6 <Tcp_Fin_Active>:
+		}
+	}
+}
+
+//Aktywne zakoñczenie wirtualnego po³¹czenia TCP
+void Tcp_Fin_Active(uint16_t port) {
+    11c6:	cf 92       	push	r12
+    11c8:	df 92       	push	r13
+    11ca:	ef 92       	push	r14
+    11cc:	ff 92       	push	r15
+    11ce:	0f 93       	push	r16
+    11d0:	1f 93       	push	r17
+    11d2:	cf 93       	push	r28
+    11d4:	df 93       	push	r29
+    11d6:	e8 2e       	mov	r14, r24
+    11d8:	09 2f       	mov	r16, r25
+
+	if(Tcp_Status == Established) {
+    11da:	80 91 20 01 	lds	r24, 0x0120
+    11de:	83 30       	cpi	r24, 0x03	; 3
+    11e0:	09 f0       	breq	.+2      	; 0x11e4 <Tcp_Fin_Active+0x1e>
+    11e2:	ca c1       	rjmp	.+916    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+	//Wysy³anie Fin
+	Tcp_Status = FinWait1;
+    11e4:	84 e0       	ldi	r24, 0x04	; 4
+    11e6:	80 93 20 01 	sts	0x0120, r24
+		
+	MakeIpHeader(0x06,0x14);
+    11ea:	86 e0       	ldi	r24, 0x06	; 6
+    11ec:	64 e1       	ldi	r22, 0x14	; 20
+    11ee:	70 e0       	ldi	r23, 0x00	; 0
+    11f0:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+			
+	EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    11f4:	d0 2e       	mov	r13, r16
+    11f6:	04 e5       	ldi	r16, 0x54	; 84
+    11f8:	11 e0       	ldi	r17, 0x01	; 1
+    11fa:	f8 01       	movw	r30, r16
+    11fc:	d1 92       	st	Z+, r13
+	EthFrame[SourcePort1] = (uint8_t)(port);
+    11fe:	ce 2c       	mov	r12, r14
+    1200:	e0 82       	st	Z, r14
+		
+	EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    1202:	80 91 9f 02 	lds	r24, 0x029F
+    1206:	f8 01       	movw	r30, r16
+    1208:	82 83       	std	Z+2, r24	; 0x02
+	EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    120a:	80 91 9e 02 	lds	r24, 0x029E
+    120e:	83 83       	std	Z+3, r24	; 0x03
+		
+	EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    1210:	80 91 23 01 	lds	r24, 0x0123
+    1214:	90 91 24 01 	lds	r25, 0x0124
+    1218:	a0 91 25 01 	lds	r26, 0x0125
+    121c:	b0 91 26 01 	lds	r27, 0x0126
+    1220:	2b 2f       	mov	r18, r27
+    1222:	33 27       	eor	r19, r19
+    1224:	44 27       	eor	r20, r20
+    1226:	55 27       	eor	r21, r21
+    1228:	24 83       	std	Z+4, r18	; 0x04
+	EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    122a:	9d 01       	movw	r18, r26
+    122c:	44 27       	eor	r20, r20
+    122e:	55 27       	eor	r21, r21
+    1230:	25 83       	std	Z+5, r18	; 0x05
+	EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    1232:	89 2f       	mov	r24, r25
+    1234:	9a 2f       	mov	r25, r26
+    1236:	ab 2f       	mov	r26, r27
+    1238:	bb 27       	eor	r27, r27
+    123a:	86 83       	std	Z+6, r24	; 0x06
+	EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    123c:	80 91 23 01 	lds	r24, 0x0123
+    1240:	87 83       	std	Z+7, r24	; 0x07
+		
+	EthFrame[DataOffset] = 0x50;
+    1242:	80 e5       	ldi	r24, 0x50	; 80
+    1244:	84 87       	std	Z+12, r24	; 0x0c
+	EthFrame[ControlBits] = FIN;
+    1246:	81 e0       	ldi	r24, 0x01	; 1
+    1248:	85 87       	std	Z+13, r24	; 0x0d
+	EthFrame[WindowSize] = 0xff;
+    124a:	8f ef       	ldi	r24, 0xFF	; 255
+    124c:	87 87       	std	Z+15, r24	; 0x0f
+		
+	uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    124e:	80 e0       	ldi	r24, 0x00	; 0
+    1250:	90 e0       	ldi	r25, 0x00	; 0
+    1252:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+	EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    1256:	f8 01       	movw	r30, r16
+    1258:	90 8b       	std	Z+16, r25	; 0x10
+	EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    125a:	81 8b       	std	Z+17, r24	; 0x11
+		
+	EthFrame[DataPointer0] = 0x00;
+    125c:	12 8a       	std	Z+18, r1	; 0x12
+	EthFrame[DataPointer1] = 0x00;
+    125e:	13 8a       	std	Z+19, r1	; 0x13
+		
+	//Wysy³anie do RTL8019as
+	PacketSize = 14+20+20;
+    1260:	86 e3       	ldi	r24, 0x36	; 54
+    1262:	90 e0       	ldi	r25, 0x00	; 0
+    1264:	90 93 99 02 	sts	0x0299, r25
+    1268:	80 93 98 02 	sts	0x0298, r24
+	RTLsend_packet();
+    126c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+	
+	
+	Tcp_Status = TimeWait;	
+    1270:	87 e0       	ldi	r24, 0x07	; 7
+    1272:	80 93 20 01 	sts	0x0120, r24
+	//Czekanie na segment TCP z potwierdzeniem
+	while(RTLreceive_packet()!=0x01) {}
+    1276:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+    127a:	81 30       	cpi	r24, 0x01	; 1
+    127c:	e1 f7       	brne	.-8      	; 0x1276 <Tcp_Fin_Active+0xb0>
+	
+	//Otrzymanie FIN i ACK	
+	if(EthFrame[DestinPort0] == (uint8_t)(dest_port>>8) && EthFrame[DestinPort1] == (uint8_t)(dest_port) 
+    127e:	20 91 9e 02 	lds	r18, 0x029E
+    1282:	90 91 9f 02 	lds	r25, 0x029F
+    1286:	80 91 56 01 	lds	r24, 0x0156
+    128a:	89 17       	cp	r24, r25
+    128c:	09 f0       	breq	.+2      	; 0x1290 <Tcp_Fin_Active+0xca>
+    128e:	74 c1       	rjmp	.+744    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    1290:	80 91 57 01 	lds	r24, 0x0157
+    1294:	82 17       	cp	r24, r18
+    1296:	09 f0       	breq	.+2      	; 0x129a <Tcp_Fin_Active+0xd4>
+    1298:	6c c1       	rjmp	.+728    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+    129a:	80 91 54 01 	lds	r24, 0x0154
+    129e:	d8 16       	cp	r13, r24
+    12a0:	09 f0       	breq	.+2      	; 0x12a4 <Tcp_Fin_Active+0xde>
+    12a2:	67 c1       	rjmp	.+718    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+    12a4:	80 91 55 01 	lds	r24, 0x0155
+    12a8:	c8 16       	cp	r12, r24
+    12aa:	09 f0       	breq	.+2      	; 0x12ae <Tcp_Fin_Active+0xe8>
+    12ac:	62 c1       	rjmp	.+708    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+    12ae:	80 91 61 01 	lds	r24, 0x0161
+    12b2:	81 31       	cpi	r24, 0x11	; 17
+    12b4:	09 f0       	breq	.+2      	; 0x12b8 <Tcp_Fin_Active+0xf2>
+    12b6:	5d c1       	rjmp	.+698    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+    12b8:	80 91 20 01 	lds	r24, 0x0120
+    12bc:	87 30       	cpi	r24, 0x07	; 7
+    12be:	09 f0       	breq	.+2      	; 0x12c2 <Tcp_Fin_Active+0xfc>
+    12c0:	58 c1       	rjmp	.+688    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+    12c2:	20 91 5f 01 	lds	r18, 0x015F
+    12c6:	30 e0       	ldi	r19, 0x00	; 0
+    12c8:	80 91 23 01 	lds	r24, 0x0123
+    12cc:	90 e0       	ldi	r25, 0x00	; 0
+    12ce:	01 96       	adiw	r24, 0x01	; 1
+    12d0:	28 17       	cp	r18, r24
+    12d2:	39 07       	cpc	r19, r25
+    12d4:	09 f0       	breq	.+2      	; 0x12d8 <Tcp_Fin_Active+0x112>
+    12d6:	4d c1       	rjmp	.+666    	; 0x1572 <Tcp_Fin_Active+0x3ac>
+		&& EthFrame[SourcePort0] == (uint8_t)(port>>8) && EthFrame[SourcePort1] == (uint8_t)(port)
+		&& EthFrame[ControlBits] == (FIN|ACK) && Tcp_Status == TimeWait
+		&& EthFrame[AckNumber3] == (uint8_t)(seq_number)+0x01) {
+		
+		//Przepisz ack_number
+		ack_number  = (uint32_t)EthFrame[SeqNumber0]<<24;			//Numer potwierdzenia ACK
+    12d8:	08 e5       	ldi	r16, 0x58	; 88
+    12da:	11 e0       	ldi	r17, 0x01	; 1
+    12dc:	f8 01       	movw	r30, r16
+    12de:	81 91       	ld	r24, Z+
+    12e0:	90 e0       	ldi	r25, 0x00	; 0
+    12e2:	a0 e0       	ldi	r26, 0x00	; 0
+    12e4:	b0 e0       	ldi	r27, 0x00	; 0
+    12e6:	b8 2f       	mov	r27, r24
+    12e8:	aa 27       	eor	r26, r26
+    12ea:	99 27       	eor	r25, r25
+    12ec:	88 27       	eor	r24, r24
+		ack_number += (uint32_t)EthFrame[SeqNumber1]<<16;
+    12ee:	20 81       	ld	r18, Z
+    12f0:	30 e0       	ldi	r19, 0x00	; 0
+    12f2:	40 e0       	ldi	r20, 0x00	; 0
+    12f4:	50 e0       	ldi	r21, 0x00	; 0
+    12f6:	a9 01       	movw	r20, r18
+    12f8:	33 27       	eor	r19, r19
+    12fa:	22 27       	eor	r18, r18
+    12fc:	28 0f       	add	r18, r24
+    12fe:	39 1f       	adc	r19, r25
+    1300:	4a 1f       	adc	r20, r26
+    1302:	5b 1f       	adc	r21, r27
+		ack_number += (uint32_t)EthFrame[SeqNumber2]<<8;	
+    1304:	f8 01       	movw	r30, r16
+    1306:	82 81       	ldd	r24, Z+2	; 0x02
+    1308:	90 e0       	ldi	r25, 0x00	; 0
+    130a:	a0 e0       	ldi	r26, 0x00	; 0
+    130c:	b0 e0       	ldi	r27, 0x00	; 0
+    130e:	ba 2f       	mov	r27, r26
+    1310:	a9 2f       	mov	r26, r25
+    1312:	98 2f       	mov	r25, r24
+    1314:	88 27       	eor	r24, r24
+    1316:	28 0f       	add	r18, r24
+    1318:	39 1f       	adc	r19, r25
+    131a:	4a 1f       	adc	r20, r26
+    131c:	5b 1f       	adc	r21, r27
+		ack_number += (uint32_t)EthFrame[SeqNumber3];
+    131e:	83 81       	ldd	r24, Z+3	; 0x03
+    1320:	28 0f       	add	r18, r24
+    1322:	31 1d       	adc	r19, r1
+    1324:	41 1d       	adc	r20, r1
+    1326:	51 1d       	adc	r21, r1
+		
+		//Wysy³anie potwierdzenia ACK
+		Tcp_Status = Closing;
+    1328:	86 e0       	ldi	r24, 0x06	; 6
+    132a:	80 93 20 01 	sts	0x0120, r24
+		ack_number+=0x01;
+    132e:	2f 5f       	subi	r18, 0xFF	; 255
+    1330:	3f 4f       	sbci	r19, 0xFF	; 255
+    1332:	4f 4f       	sbci	r20, 0xFF	; 255
+    1334:	5f 4f       	sbci	r21, 0xFF	; 255
+    1336:	20 93 90 02 	sts	0x0290, r18
+    133a:	30 93 91 02 	sts	0x0291, r19
+    133e:	40 93 92 02 	sts	0x0292, r20
+    1342:	50 93 93 02 	sts	0x0293, r21
+		
+		MakeIpHeader(0x06,0x14);
+    1346:	64 e1       	ldi	r22, 0x14	; 20
+    1348:	70 e0       	ldi	r23, 0x00	; 0
+    134a:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    134e:	d0 92 54 01 	sts	0x0154, r13
+		EthFrame[SourcePort1] = (uint8_t)(port);
+    1352:	c0 92 55 01 	sts	0x0155, r12
+		
+		EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    1356:	0f 2e       	mov	r0, r31
+    1358:	fe ef       	ldi	r31, 0xFE	; 254
+    135a:	ef 2e       	mov	r14, r31
+    135c:	ff ef       	ldi	r31, 0xFF	; 255
+    135e:	ff 2e       	mov	r15, r31
+    1360:	f0 2d       	mov	r31, r0
+    1362:	e0 0e       	add	r14, r16
+    1364:	f1 1e       	adc	r15, r17
+    1366:	80 91 9f 02 	lds	r24, 0x029F
+    136a:	f7 01       	movw	r30, r14
+    136c:	80 83       	st	Z, r24
+		EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    136e:	80 91 9e 02 	lds	r24, 0x029E
+    1372:	80 93 57 01 	sts	0x0157, r24
+		
+		EthFrame[AckNumber0] = (uint8_t)(ack_number>>24);
+    1376:	80 91 90 02 	lds	r24, 0x0290
+    137a:	90 91 91 02 	lds	r25, 0x0291
+    137e:	a0 91 92 02 	lds	r26, 0x0292
+    1382:	b0 91 93 02 	lds	r27, 0x0293
+    1386:	2b 2f       	mov	r18, r27
+    1388:	33 27       	eor	r19, r19
+    138a:	44 27       	eor	r20, r20
+    138c:	55 27       	eor	r21, r21
+    138e:	f8 01       	movw	r30, r16
+    1390:	24 83       	std	Z+4, r18	; 0x04
+		EthFrame[AckNumber1] = (uint8_t)(ack_number>>16);
+    1392:	9d 01       	movw	r18, r26
+    1394:	44 27       	eor	r20, r20
+    1396:	55 27       	eor	r21, r21
+    1398:	25 83       	std	Z+5, r18	; 0x05
+		EthFrame[AckNumber2] = (uint8_t)(ack_number>>8);
+    139a:	89 2f       	mov	r24, r25
+    139c:	9a 2f       	mov	r25, r26
+    139e:	ab 2f       	mov	r26, r27
+    13a0:	bb 27       	eor	r27, r27
+    13a2:	86 83       	std	Z+6, r24	; 0x06
+		EthFrame[AckNumber3] = (uint8_t)(ack_number);
+    13a4:	80 91 90 02 	lds	r24, 0x0290
+    13a8:	87 83       	std	Z+7, r24	; 0x07
+				
+		EthFrame[DataOffset] = 0x50;
+    13aa:	80 e5       	ldi	r24, 0x50	; 80
+    13ac:	80 87       	std	Z+8, r24	; 0x08
+		EthFrame[ControlBits] = ACK;
+    13ae:	80 e1       	ldi	r24, 0x10	; 16
+    13b0:	81 87       	std	Z+9, r24	; 0x09
+		//EthFrame[14] = 0x00;
+		EthFrame[WindowSize] = 0xff;
+    13b2:	8f ef       	ldi	r24, 0xFF	; 255
+    13b4:	83 87       	std	Z+11, r24	; 0x0b
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    13b6:	80 e0       	ldi	r24, 0x00	; 0
+    13b8:	90 e0       	ldi	r25, 0x00	; 0
+    13ba:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    13be:	f8 01       	movw	r30, r16
+    13c0:	94 87       	std	Z+12, r25	; 0x0c
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    13c2:	85 87       	std	Z+13, r24	; 0x0d
+		
+		EthFrame[DataPointer0] = 0x00;
+    13c4:	16 86       	std	Z+14, r1	; 0x0e
+		EthFrame[DataPointer1] = 0x00;
+    13c6:	17 86       	std	Z+15, r1	; 0x0f
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    13c8:	86 e3       	ldi	r24, 0x36	; 54
+    13ca:	90 e0       	ldi	r25, 0x00	; 0
+    13cc:	90 93 99 02 	sts	0x0299, r25
+    13d0:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    13d4:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		
+		//Zakoñczono po³¹czenie
+		Tcp_Status = Closed;
+    13d8:	10 92 20 01 	sts	0x0120, r1
+	}
+	
+	//Otrzymanie ACK
+	if(EthFrame[DestinPort0] == (uint8_t)(dest_port>>8) && EthFrame[DestinPort1] == (uint8_t)(dest_port) 
+    13dc:	20 91 9e 02 	lds	r18, 0x029E
+    13e0:	90 91 9f 02 	lds	r25, 0x029F
+    13e4:	f7 01       	movw	r30, r14
+    13e6:	80 81       	ld	r24, Z
+    13e8:	89 17       	cp	r24, r25
+    13ea:	09 f0       	breq	.+2      	; 0x13ee <Tcp_Fin_Active+0x228>
+    13ec:	c5 c0       	rjmp	.+394    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    13ee:	80 91 57 01 	lds	r24, 0x0157
+    13f2:	82 17       	cp	r24, r18
+    13f4:	09 f0       	breq	.+2      	; 0x13f8 <Tcp_Fin_Active+0x232>
+    13f6:	c0 c0       	rjmp	.+384    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    13f8:	80 91 54 01 	lds	r24, 0x0154
+    13fc:	d8 16       	cp	r13, r24
+    13fe:	09 f0       	breq	.+2      	; 0x1402 <Tcp_Fin_Active+0x23c>
+    1400:	bb c0       	rjmp	.+374    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    1402:	80 91 55 01 	lds	r24, 0x0155
+    1406:	c8 16       	cp	r12, r24
+    1408:	09 f0       	breq	.+2      	; 0x140c <Tcp_Fin_Active+0x246>
+    140a:	b6 c0       	rjmp	.+364    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    140c:	80 91 61 01 	lds	r24, 0x0161
+    1410:	80 31       	cpi	r24, 0x10	; 16
+    1412:	09 f0       	breq	.+2      	; 0x1416 <Tcp_Fin_Active+0x250>
+    1414:	b1 c0       	rjmp	.+354    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    1416:	80 91 20 01 	lds	r24, 0x0120
+    141a:	87 30       	cpi	r24, 0x07	; 7
+    141c:	09 f0       	breq	.+2      	; 0x1420 <Tcp_Fin_Active+0x25a>
+    141e:	ac c0       	rjmp	.+344    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+    1420:	20 91 5f 01 	lds	r18, 0x015F
+    1424:	30 e0       	ldi	r19, 0x00	; 0
+    1426:	80 91 23 01 	lds	r24, 0x0123
+    142a:	90 e0       	ldi	r25, 0x00	; 0
+    142c:	01 96       	adiw	r24, 0x01	; 1
+    142e:	28 17       	cp	r18, r24
+    1430:	39 07       	cpc	r19, r25
+    1432:	09 f0       	breq	.+2      	; 0x1436 <Tcp_Fin_Active+0x270>
+    1434:	a1 c0       	rjmp	.+322    	; 0x1578 <Tcp_Fin_Active+0x3b2>
+		&& EthFrame[SourcePort0] == (uint8_t)(port>>8) && EthFrame[SourcePort1] == (uint8_t)(port)
+		&& EthFrame[ControlBits] == ACK && Tcp_Status == TimeWait
+		&& EthFrame[AckNumber3] == (uint8_t)(seq_number)+0x01) {
+		
+		//Wysy³anie potwierdzenia ACK
+		Tcp_Status = FinWait2;
+    1436:	85 e0       	ldi	r24, 0x05	; 5
+    1438:	80 93 20 01 	sts	0x0120, r24
+		
+		while(EthFrame[ControlBits] == (FIN|ACK) && Tcp_Status == TimeWait
+    143c:	c1 e6       	ldi	r28, 0x61	; 97
+    143e:	d1 e0       	ldi	r29, 0x01	; 1
+    1440:	0f e5       	ldi	r16, 0x5F	; 95
+    1442:	11 e0       	ldi	r17, 0x01	; 1
+    1444:	0f 2e       	mov	r0, r31
+    1446:	f3 e2       	ldi	r31, 0x23	; 35
+    1448:	ef 2e       	mov	r14, r31
+    144a:	f1 e0       	ldi	r31, 0x01	; 1
+    144c:	ff 2e       	mov	r15, r31
+    144e:	f0 2d       	mov	r31, r0
+    1450:	04 c0       	rjmp	.+8      	; 0x145a <Tcp_Fin_Active+0x294>
+		&& EthFrame[AckNumber3] == (uint8_t)(seq_number)+0x01) 
+		{
+			//Czekanie na segment TCP z potwierdzeniem
+			while(RTLreceive_packet()!=0x01) {}
+    1452:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+    1456:	81 30       	cpi	r24, 0x01	; 1
+    1458:	e1 f7       	brne	.-8      	; 0x1452 <Tcp_Fin_Active+0x28c>
+		&& EthFrame[AckNumber3] == (uint8_t)(seq_number)+0x01) {
+		
+		//Wysy³anie potwierdzenia ACK
+		Tcp_Status = FinWait2;
+		
+		while(EthFrame[ControlBits] == (FIN|ACK) && Tcp_Status == TimeWait
+    145a:	88 81       	ld	r24, Y
+    145c:	81 31       	cpi	r24, 0x11	; 17
+    145e:	71 f4       	brne	.+28     	; 0x147c <Tcp_Fin_Active+0x2b6>
+    1460:	80 91 20 01 	lds	r24, 0x0120
+    1464:	87 30       	cpi	r24, 0x07	; 7
+    1466:	51 f4       	brne	.+20     	; 0x147c <Tcp_Fin_Active+0x2b6>
+    1468:	f8 01       	movw	r30, r16
+    146a:	20 81       	ld	r18, Z
+    146c:	30 e0       	ldi	r19, 0x00	; 0
+    146e:	f7 01       	movw	r30, r14
+    1470:	80 81       	ld	r24, Z
+    1472:	90 e0       	ldi	r25, 0x00	; 0
+    1474:	01 96       	adiw	r24, 0x01	; 1
+    1476:	28 17       	cp	r18, r24
+    1478:	39 07       	cpc	r19, r25
+    147a:	59 f3       	breq	.-42     	; 0x1452 <Tcp_Fin_Active+0x28c>
+			//Czekanie na segment TCP z potwierdzeniem
+			while(RTLreceive_packet()!=0x01) {}
+		}
+		
+		//Przepisz ack_number
+		ack_number  = (uint32_t)EthFrame[SeqNumber0]<<24;			//Numer potwierdzenia ACK
+    147c:	08 e5       	ldi	r16, 0x58	; 88
+    147e:	11 e0       	ldi	r17, 0x01	; 1
+    1480:	f8 01       	movw	r30, r16
+    1482:	81 91       	ld	r24, Z+
+    1484:	90 e0       	ldi	r25, 0x00	; 0
+    1486:	a0 e0       	ldi	r26, 0x00	; 0
+    1488:	b0 e0       	ldi	r27, 0x00	; 0
+    148a:	b8 2f       	mov	r27, r24
+    148c:	aa 27       	eor	r26, r26
+    148e:	99 27       	eor	r25, r25
+    1490:	88 27       	eor	r24, r24
+		ack_number += (uint32_t)EthFrame[SeqNumber1]<<16;
+    1492:	20 81       	ld	r18, Z
+    1494:	30 e0       	ldi	r19, 0x00	; 0
+    1496:	40 e0       	ldi	r20, 0x00	; 0
+    1498:	50 e0       	ldi	r21, 0x00	; 0
+    149a:	a9 01       	movw	r20, r18
+    149c:	33 27       	eor	r19, r19
+    149e:	22 27       	eor	r18, r18
+    14a0:	28 0f       	add	r18, r24
+    14a2:	39 1f       	adc	r19, r25
+    14a4:	4a 1f       	adc	r20, r26
+    14a6:	5b 1f       	adc	r21, r27
+		ack_number += (uint32_t)EthFrame[SeqNumber2]<<8;	
+    14a8:	f8 01       	movw	r30, r16
+    14aa:	82 81       	ldd	r24, Z+2	; 0x02
+    14ac:	90 e0       	ldi	r25, 0x00	; 0
+    14ae:	a0 e0       	ldi	r26, 0x00	; 0
+    14b0:	b0 e0       	ldi	r27, 0x00	; 0
+    14b2:	ba 2f       	mov	r27, r26
+    14b4:	a9 2f       	mov	r26, r25
+    14b6:	98 2f       	mov	r25, r24
+    14b8:	88 27       	eor	r24, r24
+    14ba:	28 0f       	add	r18, r24
+    14bc:	39 1f       	adc	r19, r25
+    14be:	4a 1f       	adc	r20, r26
+    14c0:	5b 1f       	adc	r21, r27
+		ack_number += (uint32_t)EthFrame[SeqNumber3];
+    14c2:	83 81       	ldd	r24, Z+3	; 0x03
+    14c4:	28 0f       	add	r18, r24
+    14c6:	31 1d       	adc	r19, r1
+    14c8:	41 1d       	adc	r20, r1
+    14ca:	51 1d       	adc	r21, r1
+		
+		//Wysy³anie potwierdzenia ACK
+		Tcp_Status = Closing;
+    14cc:	86 e0       	ldi	r24, 0x06	; 6
+    14ce:	80 93 20 01 	sts	0x0120, r24
+		ack_number+=0x01;
+    14d2:	2f 5f       	subi	r18, 0xFF	; 255
+    14d4:	3f 4f       	sbci	r19, 0xFF	; 255
+    14d6:	4f 4f       	sbci	r20, 0xFF	; 255
+    14d8:	5f 4f       	sbci	r21, 0xFF	; 255
+    14da:	20 93 90 02 	sts	0x0290, r18
+    14de:	30 93 91 02 	sts	0x0291, r19
+    14e2:	40 93 92 02 	sts	0x0292, r20
+    14e6:	50 93 93 02 	sts	0x0293, r21
+		
+		MakeIpHeader(0x06,0x14);
+    14ea:	64 e1       	ldi	r22, 0x14	; 20
+    14ec:	70 e0       	ldi	r23, 0x00	; 0
+    14ee:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    14f2:	d0 92 54 01 	sts	0x0154, r13
+		EthFrame[SourcePort1] = (uint8_t)(port);
+    14f6:	c0 92 55 01 	sts	0x0155, r12
+		
+		EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    14fa:	80 91 9f 02 	lds	r24, 0x029F
+    14fe:	80 93 56 01 	sts	0x0156, r24
+		EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    1502:	80 91 9e 02 	lds	r24, 0x029E
+    1506:	80 93 57 01 	sts	0x0157, r24
+		
+		EthFrame[AckNumber0] = (uint8_t)(ack_number>>24);
+    150a:	80 91 90 02 	lds	r24, 0x0290
+    150e:	90 91 91 02 	lds	r25, 0x0291
+    1512:	a0 91 92 02 	lds	r26, 0x0292
+    1516:	b0 91 93 02 	lds	r27, 0x0293
+    151a:	2b 2f       	mov	r18, r27
+    151c:	33 27       	eor	r19, r19
+    151e:	44 27       	eor	r20, r20
+    1520:	55 27       	eor	r21, r21
+    1522:	f8 01       	movw	r30, r16
+    1524:	24 83       	std	Z+4, r18	; 0x04
+		EthFrame[AckNumber1] = (uint8_t)(ack_number>>16);
+    1526:	9d 01       	movw	r18, r26
+    1528:	44 27       	eor	r20, r20
+    152a:	55 27       	eor	r21, r21
+    152c:	25 83       	std	Z+5, r18	; 0x05
+		EthFrame[AckNumber2] = (uint8_t)(ack_number>>8);
+    152e:	89 2f       	mov	r24, r25
+    1530:	9a 2f       	mov	r25, r26
+    1532:	ab 2f       	mov	r26, r27
+    1534:	bb 27       	eor	r27, r27
+    1536:	86 83       	std	Z+6, r24	; 0x06
+		EthFrame[AckNumber3] = (uint8_t)(ack_number);
+    1538:	80 91 90 02 	lds	r24, 0x0290
+    153c:	87 83       	std	Z+7, r24	; 0x07
+				
+		EthFrame[DataOffset] = 0x50;
+    153e:	80 e5       	ldi	r24, 0x50	; 80
+    1540:	80 87       	std	Z+8, r24	; 0x08
+		EthFrame[ControlBits] = ACK;
+    1542:	80 e1       	ldi	r24, 0x10	; 16
+    1544:	81 87       	std	Z+9, r24	; 0x09
+		//EthFrame[14] = 0x00;
+		EthFrame[WindowSize] = 0xff;
+    1546:	8f ef       	ldi	r24, 0xFF	; 255
+    1548:	83 87       	std	Z+11, r24	; 0x0b
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    154a:	80 e0       	ldi	r24, 0x00	; 0
+    154c:	90 e0       	ldi	r25, 0x00	; 0
+    154e:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    1552:	f8 01       	movw	r30, r16
+    1554:	94 87       	std	Z+12, r25	; 0x0c
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1556:	85 87       	std	Z+13, r24	; 0x0d
+		
+		EthFrame[DataPointer0] = 0x00;
+    1558:	16 86       	std	Z+14, r1	; 0x0e
+		EthFrame[DataPointer1] = 0x00;
+    155a:	17 86       	std	Z+15, r1	; 0x0f
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    155c:	86 e3       	ldi	r24, 0x36	; 54
+    155e:	90 e0       	ldi	r25, 0x00	; 0
+    1560:	90 93 99 02 	sts	0x0299, r25
+    1564:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    1568:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		
+		//Zakoñczono po³¹czenie
+		Tcp_Status = Closed;
+    156c:	10 92 20 01 	sts	0x0120, r1
+    1570:	03 c0       	rjmp	.+6      	; 0x1578 <Tcp_Fin_Active+0x3b2>
+		//Zakoñczono po³¹czenie
+		Tcp_Status = Closed;
+	}
+	
+	//Otrzymanie ACK
+	if(EthFrame[DestinPort0] == (uint8_t)(dest_port>>8) && EthFrame[DestinPort1] == (uint8_t)(dest_port) 
+    1572:	20 91 9e 02 	lds	r18, 0x029E
+    1576:	3b cf       	rjmp	.-394    	; 0x13ee <Tcp_Fin_Active+0x228>
+		
+		//Zakoñczono po³¹czenie
+		Tcp_Status = Closed;
+	}
+	}
+}
+    1578:	df 91       	pop	r29
+    157a:	cf 91       	pop	r28
+    157c:	1f 91       	pop	r17
+    157e:	0f 91       	pop	r16
+    1580:	ff 90       	pop	r15
+    1582:	ef 90       	pop	r14
+    1584:	df 90       	pop	r13
+    1586:	cf 90       	pop	r12
+    1588:	08 95       	ret
+
+0000158a <Tcp_Fin_Pasive>:
+		Tcp_Status = Established;
+	}	
+}
+
+//Pasywne zakoñczenie wirtualnego po³¹czenia TCP
+void Tcp_Fin_Pasive(uint16_t port) {
+    158a:	af 92       	push	r10
+    158c:	bf 92       	push	r11
+    158e:	cf 92       	push	r12
+    1590:	df 92       	push	r13
+    1592:	ef 92       	push	r14
+    1594:	ff 92       	push	r15
+    1596:	0f 93       	push	r16
+    1598:	1f 93       	push	r17
+    159a:	cf 93       	push	r28
+    159c:	df 93       	push	r29
+
+	if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+    159e:	b0 90 56 01 	lds	r11, 0x0156
+    15a2:	b9 16       	cp	r11, r25
+    15a4:	09 f0       	breq	.+2      	; 0x15a8 <Tcp_Fin_Pasive+0x1e>
+    15a6:	a2 c0       	rjmp	.+324    	; 0x16ec <Tcp_Fin_Pasive+0x162>
+    15a8:	a0 90 57 01 	lds	r10, 0x0157
+    15ac:	a8 16       	cp	r10, r24
+    15ae:	09 f0       	breq	.+2      	; 0x15b2 <Tcp_Fin_Pasive+0x28>
+    15b0:	9d c0       	rjmp	.+314    	; 0x16ec <Tcp_Fin_Pasive+0x162>
+    15b2:	80 91 61 01 	lds	r24, 0x0161
+    15b6:	81 31       	cpi	r24, 0x11	; 17
+    15b8:	09 f0       	breq	.+2      	; 0x15bc <Tcp_Fin_Pasive+0x32>
+    15ba:	98 c0       	rjmp	.+304    	; 0x16ec <Tcp_Fin_Pasive+0x162>
+		&& EthFrame[ControlBits] == (FIN|ACK)) {
+		Tcp_Status = CloseWait;
+    15bc:	88 e0       	ldi	r24, 0x08	; 8
+    15be:	80 93 20 01 	sts	0x0120, r24
+
+		MakeIpHeader(0x06,0x14);
+    15c2:	86 e0       	ldi	r24, 0x06	; 6
+    15c4:	64 e1       	ldi	r22, 0x14	; 20
+    15c6:	70 e0       	ldi	r23, 0x00	; 0
+    15c8:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    15cc:	04 e5       	ldi	r16, 0x54	; 84
+    15ce:	11 e0       	ldi	r17, 0x01	; 1
+    15d0:	f8 01       	movw	r30, r16
+    15d2:	b1 92       	st	Z+, r11
+		EthFrame[SourcePort1] = (uint8_t)(port);
+    15d4:	a0 82       	st	Z, r10
+		
+		EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    15d6:	90 91 9e 02 	lds	r25, 0x029E
+    15da:	80 91 9f 02 	lds	r24, 0x029F
+    15de:	d8 01       	movw	r26, r16
+    15e0:	12 96       	adiw	r26, 0x02	; 2
+    15e2:	8c 93       	st	X, r24
+    15e4:	12 97       	sbiw	r26, 0x02	; 2
+		EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    15e6:	13 96       	adiw	r26, 0x03	; 3
+    15e8:	9c 93       	st	X, r25
+    15ea:	13 97       	sbiw	r26, 0x03	; 3
+		
+		EthFrame[AckNumber0] = EthFrame[SeqNumber0];
+    15ec:	cc 24       	eor	r12, r12
+    15ee:	dd 24       	eor	r13, r13
+    15f0:	68 94       	set
+    15f2:	c2 f8       	bld	r12, 2
+    15f4:	c0 0e       	add	r12, r16
+    15f6:	d1 1e       	adc	r13, r17
+    15f8:	e6 01       	movw	r28, r12
+    15fa:	88 81       	ld	r24, Y
+    15fc:	18 96       	adiw	r26, 0x08	; 8
+    15fe:	8c 93       	st	X, r24
+    1600:	18 97       	sbiw	r26, 0x08	; 8
+		EthFrame[AckNumber1] = EthFrame[SeqNumber1];
+    1602:	0f 2e       	mov	r0, r31
+    1604:	f5 e0       	ldi	r31, 0x05	; 5
+    1606:	ef 2e       	mov	r14, r31
+    1608:	ff 24       	eor	r15, r15
+    160a:	f0 2d       	mov	r31, r0
+    160c:	e0 0e       	add	r14, r16
+    160e:	f1 1e       	adc	r15, r17
+    1610:	f7 01       	movw	r30, r14
+    1612:	80 81       	ld	r24, Z
+    1614:	19 96       	adiw	r26, 0x09	; 9
+    1616:	8c 93       	st	X, r24
+		EthFrame[AckNumber2] = EthFrame[SeqNumber2];
+    1618:	b8 01       	movw	r22, r16
+    161a:	6a 5f       	subi	r22, 0xFA	; 250
+    161c:	7f 4f       	sbci	r23, 0xFF	; 255
+    161e:	db 01       	movw	r26, r22
+    1620:	8c 91       	ld	r24, X
+    1622:	e8 01       	movw	r28, r16
+    1624:	8a 87       	std	Y+10, r24	; 0x0a
+		EthFrame[AckNumber3] = (EthFrame[SeqNumber3] + 1);
+    1626:	f8 01       	movw	r30, r16
+    1628:	37 96       	adiw	r30, 0x07	; 7
+    162a:	80 81       	ld	r24, Z
+    162c:	8f 5f       	subi	r24, 0xFF	; 255
+    162e:	d8 01       	movw	r26, r16
+    1630:	1b 96       	adiw	r26, 0x0b	; 11
+    1632:	8c 93       	st	X, r24
+		
+		EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    1634:	20 91 23 01 	lds	r18, 0x0123
+    1638:	30 91 24 01 	lds	r19, 0x0124
+    163c:	40 91 25 01 	lds	r20, 0x0125
+    1640:	50 91 26 01 	lds	r21, 0x0126
+    1644:	85 2f       	mov	r24, r21
+    1646:	99 27       	eor	r25, r25
+    1648:	aa 27       	eor	r26, r26
+    164a:	bb 27       	eor	r27, r27
+    164c:	e6 01       	movw	r28, r12
+    164e:	88 83       	st	Y, r24
+		EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    1650:	ca 01       	movw	r24, r20
+    1652:	aa 27       	eor	r26, r26
+    1654:	bb 27       	eor	r27, r27
+    1656:	e7 01       	movw	r28, r14
+    1658:	88 83       	st	Y, r24
+		EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    165a:	bb 27       	eor	r27, r27
+    165c:	a5 2f       	mov	r26, r21
+    165e:	94 2f       	mov	r25, r20
+    1660:	83 2f       	mov	r24, r19
+    1662:	eb 01       	movw	r28, r22
+    1664:	88 83       	st	Y, r24
+		EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1666:	20 83       	st	Z, r18
+		
+		EthFrame[DataOffset] = 0x50;
+    1668:	80 e5       	ldi	r24, 0x50	; 80
+    166a:	f8 01       	movw	r30, r16
+    166c:	84 87       	std	Z+12, r24	; 0x0c
+		EthFrame[ControlBits] = (FIN+ACK);
+    166e:	81 e1       	ldi	r24, 0x11	; 17
+    1670:	85 87       	std	Z+13, r24	; 0x0d
+		EthFrame[WindowSize] = 0xff;
+    1672:	8f ef       	ldi	r24, 0xFF	; 255
+    1674:	87 87       	std	Z+15, r24	; 0x0f
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    1676:	80 e0       	ldi	r24, 0x00	; 0
+    1678:	90 e0       	ldi	r25, 0x00	; 0
+    167a:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    167e:	d8 01       	movw	r26, r16
+    1680:	50 96       	adiw	r26, 0x10	; 16
+    1682:	9c 93       	st	X, r25
+    1684:	50 97       	sbiw	r26, 0x10	; 16
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1686:	51 96       	adiw	r26, 0x11	; 17
+    1688:	8c 93       	st	X, r24
+    168a:	51 97       	sbiw	r26, 0x11	; 17
+		
+		EthFrame[DataPointer0] = 0x00;
+    168c:	52 96       	adiw	r26, 0x12	; 18
+    168e:	1c 92       	st	X, r1
+    1690:	52 97       	sbiw	r26, 0x12	; 18
+		EthFrame[DataPointer1] = 0x00;
+    1692:	53 96       	adiw	r26, 0x13	; 19
+    1694:	1c 92       	st	X, r1
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    1696:	86 e3       	ldi	r24, 0x36	; 54
+    1698:	90 e0       	ldi	r25, 0x00	; 0
+    169a:	90 93 99 02 	sts	0x0299, r25
+    169e:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    16a2:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		
+		Tcp_Status = LastAck;
+    16a6:	89 e0       	ldi	r24, 0x09	; 9
+    16a8:	80 93 20 01 	sts	0x0120, r24
+		//Czekanie na segment TCP z potwierdzeniem
+		while(RTLreceive_packet()!=0x01) {}
+    16ac:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+    16b0:	81 30       	cpi	r24, 0x01	; 1
+    16b2:	e1 f7       	brne	.-8      	; 0x16ac <Tcp_Fin_Pasive+0x122>
+		
+		next_send_data=0;
+    16b4:	10 92 94 02 	sts	0x0294, r1
+		next_ack=0;
+    16b8:	10 92 22 01 	sts	0x0122, r1
+
+		if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+    16bc:	80 91 56 01 	lds	r24, 0x0156
+    16c0:	b8 16       	cp	r11, r24
+    16c2:	a1 f4       	brne	.+40     	; 0x16ec <Tcp_Fin_Pasive+0x162>
+    16c4:	80 91 57 01 	lds	r24, 0x0157
+    16c8:	a8 16       	cp	r10, r24
+    16ca:	81 f4       	brne	.+32     	; 0x16ec <Tcp_Fin_Pasive+0x162>
+    16cc:	80 91 61 01 	lds	r24, 0x0161
+    16d0:	80 31       	cpi	r24, 0x10	; 16
+    16d2:	61 f4       	brne	.+24     	; 0x16ec <Tcp_Fin_Pasive+0x162>
+    16d4:	20 91 5f 01 	lds	r18, 0x015F
+    16d8:	30 e0       	ldi	r19, 0x00	; 0
+    16da:	80 91 5b 01 	lds	r24, 0x015B
+    16de:	90 e0       	ldi	r25, 0x00	; 0
+    16e0:	01 96       	adiw	r24, 0x01	; 1
+    16e2:	28 17       	cp	r18, r24
+    16e4:	39 07       	cpc	r19, r25
+    16e6:	11 f4       	brne	.+4      	; 0x16ec <Tcp_Fin_Pasive+0x162>
+			&& EthFrame[ControlBits] == ACK && EthFrame[AckNumber3] == (EthFrame[SeqNumber3]+0x01)) {
+			//Zakoñczono po³¹czenie
+			Tcp_Status = Closed;
+    16e8:	10 92 20 01 	sts	0x0120, r1
+		}
+	}
+}
+    16ec:	df 91       	pop	r29
+    16ee:	cf 91       	pop	r28
+    16f0:	1f 91       	pop	r17
+    16f2:	0f 91       	pop	r16
+    16f4:	ff 90       	pop	r15
+    16f6:	ef 90       	pop	r14
+    16f8:	df 90       	pop	r13
+    16fa:	cf 90       	pop	r12
+    16fc:	bf 90       	pop	r11
+    16fe:	af 90       	pop	r10
+    1700:	08 95       	ret
+
+00001702 <Tcp_Open_Active>:
+		
+	}
+}
+
+//Aktywne otwarcie po³¹czenia TCP
+void Tcp_Open_Active(uint16_t port) {
+    1702:	7f 92       	push	r7
+    1704:	8f 92       	push	r8
+    1706:	9f 92       	push	r9
+    1708:	af 92       	push	r10
+    170a:	bf 92       	push	r11
+    170c:	cf 92       	push	r12
+    170e:	df 92       	push	r13
+    1710:	ef 92       	push	r14
+    1712:	ff 92       	push	r15
+    1714:	0f 93       	push	r16
+    1716:	1f 93       	push	r17
+    1718:	f8 2e       	mov	r15, r24
+    171a:	19 2f       	mov	r17, r25
+	
+	//Wysy³anie flagi Syn
+	Tcp_Status = SendSyn;
+    171c:	ee 24       	eor	r14, r14
+    171e:	68 94       	set
+    1720:	e1 f8       	bld	r14, 1
+    1722:	e0 92 20 01 	sts	0x0120, r14
+
+	MakeIpHeader(0x06,0x14);
+    1726:	86 e0       	ldi	r24, 0x06	; 6
+    1728:	64 e1       	ldi	r22, 0x14	; 20
+    172a:	70 e0       	ldi	r23, 0x00	; 0
+    172c:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+	EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    1730:	81 2e       	mov	r8, r17
+    1732:	04 e5       	ldi	r16, 0x54	; 84
+    1734:	11 e0       	ldi	r17, 0x01	; 1
+    1736:	f8 01       	movw	r30, r16
+    1738:	81 92       	st	Z+, r8
+	EthFrame[SourcePort1] = (uint8_t)(port);
+    173a:	7f 2c       	mov	r7, r15
+    173c:	f0 82       	st	Z, r15
+		
+	EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    173e:	90 91 9e 02 	lds	r25, 0x029E
+    1742:	80 91 9f 02 	lds	r24, 0x029F
+    1746:	f8 01       	movw	r30, r16
+    1748:	82 83       	std	Z+2, r24	; 0x02
+	EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    174a:	93 83       	std	Z+3, r25	; 0x03
+		
+	EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    174c:	20 91 23 01 	lds	r18, 0x0123
+    1750:	30 91 24 01 	lds	r19, 0x0124
+    1754:	40 91 25 01 	lds	r20, 0x0125
+    1758:	50 91 26 01 	lds	r21, 0x0126
+    175c:	85 2f       	mov	r24, r21
+    175e:	99 27       	eor	r25, r25
+    1760:	aa 27       	eor	r26, r26
+    1762:	bb 27       	eor	r27, r27
+    1764:	84 83       	std	Z+4, r24	; 0x04
+	EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    1766:	ca 01       	movw	r24, r20
+    1768:	aa 27       	eor	r26, r26
+    176a:	bb 27       	eor	r27, r27
+    176c:	85 83       	std	Z+5, r24	; 0x05
+	EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    176e:	bb 27       	eor	r27, r27
+    1770:	a5 2f       	mov	r26, r21
+    1772:	94 2f       	mov	r25, r20
+    1774:	83 2f       	mov	r24, r19
+    1776:	86 83       	std	Z+6, r24	; 0x06
+	EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1778:	27 83       	std	Z+7, r18	; 0x07
+		
+	EthFrame[DataOffset] = 0x50;
+    177a:	80 e5       	ldi	r24, 0x50	; 80
+    177c:	84 87       	std	Z+12, r24	; 0x0c
+	EthFrame[ControlBits] = SYN;
+    177e:	e5 86       	std	Z+13, r14	; 0x0d
+	//EthFrame[14] = 0x00;
+	EthFrame[WindowSize] = 0xff;
+    1780:	8f ef       	ldi	r24, 0xFF	; 255
+    1782:	87 87       	std	Z+15, r24	; 0x0f
+		
+	uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    1784:	80 e0       	ldi	r24, 0x00	; 0
+    1786:	90 e0       	ldi	r25, 0x00	; 0
+    1788:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+	EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    178c:	f8 01       	movw	r30, r16
+    178e:	90 8b       	std	Z+16, r25	; 0x10
+	EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1790:	81 8b       	std	Z+17, r24	; 0x11
+		
+	EthFrame[DataPointer0] = 0x00;
+    1792:	12 8a       	std	Z+18, r1	; 0x12
+	EthFrame[DataPointer1] = 0x00;
+    1794:	13 8a       	std	Z+19, r1	; 0x13
+		
+	//Wysy³anie do RTL8019as
+	PacketSize = 14+20+20;
+    1796:	86 e3       	ldi	r24, 0x36	; 54
+    1798:	90 e0       	ldi	r25, 0x00	; 0
+    179a:	90 93 99 02 	sts	0x0299, r25
+    179e:	80 93 98 02 	sts	0x0298, r24
+	RTLsend_packet();
+    17a2:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		
+	//Czekanie na segment TCP z potwierdzeniem
+	while((uint8_t)RTLreceive_packet()!=0x01) {}
+    17a6:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+    17aa:	81 30       	cpi	r24, 0x01	; 1
+    17ac:	e1 f7       	brne	.-8      	; 0x17a6 <Tcp_Open_Active+0xa4>
+		
+	if(EthFrame[DestinPort0] == (uint8_t)(dest_port>>8) && EthFrame[DestinPort1] == (uint8_t)(dest_port) 
+    17ae:	20 91 9e 02 	lds	r18, 0x029E
+    17b2:	90 91 9f 02 	lds	r25, 0x029F
+    17b6:	80 91 56 01 	lds	r24, 0x0156
+    17ba:	89 17       	cp	r24, r25
+    17bc:	09 f0       	breq	.+2      	; 0x17c0 <Tcp_Open_Active+0xbe>
+    17be:	dd c0       	rjmp	.+442    	; 0x197a <Tcp_Open_Active+0x278>
+    17c0:	80 91 57 01 	lds	r24, 0x0157
+    17c4:	82 17       	cp	r24, r18
+    17c6:	09 f0       	breq	.+2      	; 0x17ca <Tcp_Open_Active+0xc8>
+    17c8:	d8 c0       	rjmp	.+432    	; 0x197a <Tcp_Open_Active+0x278>
+    17ca:	80 91 54 01 	lds	r24, 0x0154
+    17ce:	88 16       	cp	r8, r24
+    17d0:	09 f0       	breq	.+2      	; 0x17d4 <Tcp_Open_Active+0xd2>
+    17d2:	d3 c0       	rjmp	.+422    	; 0x197a <Tcp_Open_Active+0x278>
+    17d4:	80 91 55 01 	lds	r24, 0x0155
+    17d8:	78 16       	cp	r7, r24
+    17da:	09 f0       	breq	.+2      	; 0x17de <Tcp_Open_Active+0xdc>
+    17dc:	ce c0       	rjmp	.+412    	; 0x197a <Tcp_Open_Active+0x278>
+    17de:	80 91 61 01 	lds	r24, 0x0161
+    17e2:	82 31       	cpi	r24, 0x12	; 18
+    17e4:	09 f0       	breq	.+2      	; 0x17e8 <Tcp_Open_Active+0xe6>
+    17e6:	c9 c0       	rjmp	.+402    	; 0x197a <Tcp_Open_Active+0x278>
+    17e8:	80 91 20 01 	lds	r24, 0x0120
+    17ec:	82 30       	cpi	r24, 0x02	; 2
+    17ee:	09 f0       	breq	.+2      	; 0x17f2 <Tcp_Open_Active+0xf0>
+    17f0:	c4 c0       	rjmp	.+392    	; 0x197a <Tcp_Open_Active+0x278>
+    17f2:	20 91 5f 01 	lds	r18, 0x015F
+    17f6:	30 e0       	ldi	r19, 0x00	; 0
+    17f8:	80 91 23 01 	lds	r24, 0x0123
+    17fc:	90 e0       	ldi	r25, 0x00	; 0
+    17fe:	01 96       	adiw	r24, 0x01	; 1
+    1800:	28 17       	cp	r18, r24
+    1802:	39 07       	cpc	r19, r25
+    1804:	09 f0       	breq	.+2      	; 0x1808 <Tcp_Open_Active+0x106>
+    1806:	b9 c0       	rjmp	.+370    	; 0x197a <Tcp_Open_Active+0x278>
+			
+		//Przepisz ack_number
+		ack_number  = (uint32_t)EthFrame[SeqNumber0]<<24;			//Numer potwierdzenia ACK
+		ack_number += (uint32_t)EthFrame[SeqNumber1]<<16;
+		ack_number += (uint32_t)EthFrame[SeqNumber2]<<8;	
+		ack_number += (uint32_t)EthFrame[SeqNumber3];
+    1808:	08 e5       	ldi	r16, 0x58	; 88
+    180a:	11 e0       	ldi	r17, 0x01	; 1
+    180c:	f8 01       	movw	r30, r16
+    180e:	21 91       	ld	r18, Z+
+    1810:	7f 01       	movw	r14, r30
+    1812:	30 e0       	ldi	r19, 0x00	; 0
+    1814:	40 e0       	ldi	r20, 0x00	; 0
+    1816:	50 e0       	ldi	r21, 0x00	; 0
+    1818:	52 2f       	mov	r21, r18
+    181a:	44 27       	eor	r20, r20
+    181c:	33 27       	eor	r19, r19
+    181e:	22 27       	eor	r18, r18
+    1820:	80 81       	ld	r24, Z
+    1822:	90 e0       	ldi	r25, 0x00	; 0
+    1824:	a0 e0       	ldi	r26, 0x00	; 0
+    1826:	b0 e0       	ldi	r27, 0x00	; 0
+    1828:	dc 01       	movw	r26, r24
+    182a:	99 27       	eor	r25, r25
+    182c:	88 27       	eor	r24, r24
+    182e:	28 0f       	add	r18, r24
+    1830:	39 1f       	adc	r19, r25
+    1832:	4a 1f       	adc	r20, r26
+    1834:	5b 1f       	adc	r21, r27
+    1836:	0f 2e       	mov	r0, r31
+    1838:	f3 e0       	ldi	r31, 0x03	; 3
+    183a:	af 2e       	mov	r10, r31
+    183c:	bb 24       	eor	r11, r11
+    183e:	f0 2d       	mov	r31, r0
+    1840:	a0 0e       	add	r10, r16
+    1842:	b1 1e       	adc	r11, r17
+    1844:	f5 01       	movw	r30, r10
+    1846:	80 81       	ld	r24, Z
+    1848:	28 0f       	add	r18, r24
+    184a:	31 1d       	adc	r19, r1
+    184c:	41 1d       	adc	r20, r1
+    184e:	51 1d       	adc	r21, r1
+    1850:	cc 24       	eor	r12, r12
+    1852:	dd 24       	eor	r13, r13
+    1854:	68 94       	set
+    1856:	c1 f8       	bld	r12, 1
+    1858:	c0 0e       	add	r12, r16
+    185a:	d1 1e       	adc	r13, r17
+    185c:	f6 01       	movw	r30, r12
+    185e:	80 81       	ld	r24, Z
+    1860:	90 e0       	ldi	r25, 0x00	; 0
+    1862:	a0 e0       	ldi	r26, 0x00	; 0
+    1864:	b0 e0       	ldi	r27, 0x00	; 0
+    1866:	ba 2f       	mov	r27, r26
+    1868:	a9 2f       	mov	r26, r25
+    186a:	98 2f       	mov	r25, r24
+    186c:	88 27       	eor	r24, r24
+    186e:	28 0f       	add	r18, r24
+    1870:	39 1f       	adc	r19, r25
+    1872:	4a 1f       	adc	r20, r26
+    1874:	5b 1f       	adc	r21, r27
+		
+		//Wysy³anie potwierdzenia
+		Tcp_Status = Established;
+    1876:	0f 2e       	mov	r0, r31
+    1878:	f3 e0       	ldi	r31, 0x03	; 3
+    187a:	9f 2e       	mov	r9, r31
+    187c:	f0 2d       	mov	r31, r0
+    187e:	90 92 20 01 	sts	0x0120, r9
+		seq_number+=0x01;
+    1882:	80 91 23 01 	lds	r24, 0x0123
+    1886:	90 91 24 01 	lds	r25, 0x0124
+    188a:	a0 91 25 01 	lds	r26, 0x0125
+    188e:	b0 91 26 01 	lds	r27, 0x0126
+    1892:	01 96       	adiw	r24, 0x01	; 1
+    1894:	a1 1d       	adc	r26, r1
+    1896:	b1 1d       	adc	r27, r1
+    1898:	80 93 23 01 	sts	0x0123, r24
+    189c:	90 93 24 01 	sts	0x0124, r25
+    18a0:	a0 93 25 01 	sts	0x0125, r26
+    18a4:	b0 93 26 01 	sts	0x0126, r27
+		ack_number+=0x01;
+    18a8:	2f 5f       	subi	r18, 0xFF	; 255
+    18aa:	3f 4f       	sbci	r19, 0xFF	; 255
+    18ac:	4f 4f       	sbci	r20, 0xFF	; 255
+    18ae:	5f 4f       	sbci	r21, 0xFF	; 255
+    18b0:	20 93 90 02 	sts	0x0290, r18
+    18b4:	30 93 91 02 	sts	0x0291, r19
+    18b8:	40 93 92 02 	sts	0x0292, r20
+    18bc:	50 93 93 02 	sts	0x0293, r21
+		
+		MakeIpHeader(0x06,0x14);
+    18c0:	86 e0       	ldi	r24, 0x06	; 6
+    18c2:	64 e1       	ldi	r22, 0x14	; 20
+    18c4:	70 e0       	ldi	r23, 0x00	; 0
+    18c6:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    18ca:	80 92 54 01 	sts	0x0154, r8
+		EthFrame[SourcePort1] = (uint8_t)(port);
+    18ce:	70 92 55 01 	sts	0x0155, r7
+		
+		EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    18d2:	90 91 9e 02 	lds	r25, 0x029E
+    18d6:	80 91 9f 02 	lds	r24, 0x029F
+    18da:	80 93 56 01 	sts	0x0156, r24
+		EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    18de:	90 93 57 01 	sts	0x0157, r25
+		
+		EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    18e2:	20 91 23 01 	lds	r18, 0x0123
+    18e6:	30 91 24 01 	lds	r19, 0x0124
+    18ea:	40 91 25 01 	lds	r20, 0x0125
+    18ee:	50 91 26 01 	lds	r21, 0x0126
+    18f2:	85 2f       	mov	r24, r21
+    18f4:	99 27       	eor	r25, r25
+    18f6:	aa 27       	eor	r26, r26
+    18f8:	bb 27       	eor	r27, r27
+    18fa:	f8 01       	movw	r30, r16
+    18fc:	80 83       	st	Z, r24
+		EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    18fe:	ca 01       	movw	r24, r20
+    1900:	aa 27       	eor	r26, r26
+    1902:	bb 27       	eor	r27, r27
+    1904:	f7 01       	movw	r30, r14
+    1906:	80 83       	st	Z, r24
+		EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    1908:	bb 27       	eor	r27, r27
+    190a:	a5 2f       	mov	r26, r21
+    190c:	94 2f       	mov	r25, r20
+    190e:	83 2f       	mov	r24, r19
+    1910:	f6 01       	movw	r30, r12
+    1912:	80 83       	st	Z, r24
+		EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1914:	f5 01       	movw	r30, r10
+    1916:	20 83       	st	Z, r18
+		
+		EthFrame[AckNumber0] = (uint8_t)(ack_number>>24);
+    1918:	20 91 90 02 	lds	r18, 0x0290
+    191c:	30 91 91 02 	lds	r19, 0x0291
+    1920:	40 91 92 02 	lds	r20, 0x0292
+    1924:	50 91 93 02 	lds	r21, 0x0293
+    1928:	85 2f       	mov	r24, r21
+    192a:	99 27       	eor	r25, r25
+    192c:	aa 27       	eor	r26, r26
+    192e:	bb 27       	eor	r27, r27
+    1930:	f8 01       	movw	r30, r16
+    1932:	84 83       	std	Z+4, r24	; 0x04
+		EthFrame[AckNumber1] = (uint8_t)(ack_number>>16);
+    1934:	ca 01       	movw	r24, r20
+    1936:	aa 27       	eor	r26, r26
+    1938:	bb 27       	eor	r27, r27
+    193a:	85 83       	std	Z+5, r24	; 0x05
+		EthFrame[AckNumber2] = (uint8_t)(ack_number>>8);
+    193c:	bb 27       	eor	r27, r27
+    193e:	a5 2f       	mov	r26, r21
+    1940:	94 2f       	mov	r25, r20
+    1942:	83 2f       	mov	r24, r19
+    1944:	86 83       	std	Z+6, r24	; 0x06
+		EthFrame[AckNumber3] = (uint8_t)(ack_number);
+    1946:	27 83       	std	Z+7, r18	; 0x07
+				
+		EthFrame[DataOffset] = 0x50;
+    1948:	80 e5       	ldi	r24, 0x50	; 80
+    194a:	80 87       	std	Z+8, r24	; 0x08
+		EthFrame[ControlBits] = ACK;
+    194c:	80 e1       	ldi	r24, 0x10	; 16
+    194e:	81 87       	std	Z+9, r24	; 0x09
+		//EthFrame[14] = 0x00;
+		EthFrame[WindowSize] = 0xff;
+    1950:	8f ef       	ldi	r24, 0xFF	; 255
+    1952:	83 87       	std	Z+11, r24	; 0x0b
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    1954:	80 e0       	ldi	r24, 0x00	; 0
+    1956:	90 e0       	ldi	r25, 0x00	; 0
+    1958:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    195c:	f8 01       	movw	r30, r16
+    195e:	94 87       	std	Z+12, r25	; 0x0c
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1960:	85 87       	std	Z+13, r24	; 0x0d
+		
+		EthFrame[DataPointer0] = 0x00;
+    1962:	16 86       	std	Z+14, r1	; 0x0e
+		EthFrame[DataPointer1] = 0x00;
+    1964:	17 86       	std	Z+15, r1	; 0x0f
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    1966:	86 e3       	ldi	r24, 0x36	; 54
+    1968:	90 e0       	ldi	r25, 0x00	; 0
+    196a:	90 93 99 02 	sts	0x0299, r25
+    196e:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    1972:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+		
+		//Ustanowiono po³¹czenie
+		Tcp_Status = Established;
+    1976:	90 92 20 01 	sts	0x0120, r9
+	}	
+}
+    197a:	1f 91       	pop	r17
+    197c:	0f 91       	pop	r16
+    197e:	ff 90       	pop	r15
+    1980:	ef 90       	pop	r14
+    1982:	df 90       	pop	r13
+    1984:	cf 90       	pop	r12
+    1986:	bf 90       	pop	r11
+    1988:	af 90       	pop	r10
+    198a:	9f 90       	pop	r9
+    198c:	8f 90       	pop	r8
+    198e:	7f 90       	pop	r7
+    1990:	08 95       	ret
+
+00001992 <Tcp_Open_Pasive>:
+	return ((unsigned int)sum);
+	
+}//Koniec funkcji obliczaj¹cej sumê kontroln¹
+
+//Oczekiwanie na pakiet TCP na konkretnym porcie (serwer w stanie LISTEN)
+void Tcp_Open_Pasive(uint16_t port) {
+    1992:	8f 92       	push	r8
+    1994:	9f 92       	push	r9
+    1996:	af 92       	push	r10
+    1998:	bf 92       	push	r11
+    199a:	cf 92       	push	r12
+    199c:	df 92       	push	r13
+    199e:	ef 92       	push	r14
+    19a0:	ff 92       	push	r15
+    19a2:	0f 93       	push	r16
+    19a4:	1f 93       	push	r17
+    19a6:	cf 93       	push	r28
+    19a8:	df 93       	push	r29
+	if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+    19aa:	b0 90 56 01 	lds	r11, 0x0156
+    19ae:	b9 16       	cp	r11, r25
+    19b0:	09 f0       	breq	.+2      	; 0x19b4 <Tcp_Open_Pasive+0x22>
+    19b2:	06 c1       	rjmp	.+524    	; 0x1bc0 <Tcp_Open_Pasive+0x22e>
+    19b4:	a0 90 57 01 	lds	r10, 0x0157
+    19b8:	a8 16       	cp	r10, r24
+    19ba:	09 f0       	breq	.+2      	; 0x19be <Tcp_Open_Pasive+0x2c>
+    19bc:	01 c1       	rjmp	.+514    	; 0x1bc0 <Tcp_Open_Pasive+0x22e>
+    19be:	80 91 61 01 	lds	r24, 0x0161
+    19c2:	82 30       	cpi	r24, 0x02	; 2
+    19c4:	09 f0       	breq	.+2      	; 0x19c8 <Tcp_Open_Pasive+0x36>
+    19c6:	fc c0       	rjmp	.+504    	; 0x1bc0 <Tcp_Open_Pasive+0x22e>
+		&& EthFrame[ControlBits] == SYN) {
+		//Odebrano flagê Syn
+		Tcp_Status = SynReceived;
+    19c8:	81 e0       	ldi	r24, 0x01	; 1
+    19ca:	80 93 20 01 	sts	0x0120, r24
+		
+		dest_port = (EthFrame[SourcePort0]<<8);
+		dest_port += EthFrame[SourcePort1];
+    19ce:	04 e5       	ldi	r16, 0x54	; 84
+    19d0:	11 e0       	ldi	r17, 0x01	; 1
+    19d2:	d8 01       	movw	r26, r16
+    19d4:	9d 91       	ld	r25, X+
+    19d6:	7d 01       	movw	r14, r26
+    19d8:	80 e0       	ldi	r24, 0x00	; 0
+    19da:	2c 91       	ld	r18, X
+    19dc:	82 0f       	add	r24, r18
+    19de:	91 1d       	adc	r25, r1
+    19e0:	90 93 9f 02 	sts	0x029F, r25
+    19e4:	80 93 9e 02 	sts	0x029E, r24
+
+		MakeIpHeader(0x06,0x14);
+    19e8:	86 e0       	ldi	r24, 0x06	; 6
+    19ea:	64 e1       	ldi	r22, 0x14	; 20
+    19ec:	70 e0       	ldi	r23, 0x00	; 0
+    19ee:	0e 94 aa 06 	call	0xd54	; 0xd54 <MakeIpHeader>
+		
+		EthFrame[SourcePort0] = (uint8_t)(port>>8);
+    19f2:	e8 01       	movw	r28, r16
+    19f4:	b8 82       	st	Y, r11
+		EthFrame[SourcePort1] = (uint8_t)(port);
+    19f6:	f7 01       	movw	r30, r14
+    19f8:	a0 82       	st	Z, r10
+		
+		EthFrame[DestinPort0] = (uint8_t)(dest_port>>8);
+    19fa:	90 91 9e 02 	lds	r25, 0x029E
+    19fe:	80 91 9f 02 	lds	r24, 0x029F
+    1a02:	8a 83       	std	Y+2, r24	; 0x02
+		EthFrame[DestinPort1] = (uint8_t)(dest_port);
+    1a04:	9b 83       	std	Y+3, r25	; 0x03
+		
+		EthFrame[AckNumber0] = EthFrame[SeqNumber0];
+    1a06:	cc 24       	eor	r12, r12
+    1a08:	dd 24       	eor	r13, r13
+    1a0a:	68 94       	set
+    1a0c:	c2 f8       	bld	r12, 2
+    1a0e:	c0 0e       	add	r12, r16
+    1a10:	d1 1e       	adc	r13, r17
+    1a12:	d6 01       	movw	r26, r12
+    1a14:	8c 91       	ld	r24, X
+    1a16:	88 87       	std	Y+8, r24	; 0x08
+		EthFrame[AckNumber1] = EthFrame[SeqNumber1];
+    1a18:	0f 2e       	mov	r0, r31
+    1a1a:	f5 e0       	ldi	r31, 0x05	; 5
+    1a1c:	ef 2e       	mov	r14, r31
+    1a1e:	ff 24       	eor	r15, r15
+    1a20:	f0 2d       	mov	r31, r0
+    1a22:	e0 0e       	add	r14, r16
+    1a24:	f1 1e       	adc	r15, r17
+    1a26:	e7 01       	movw	r28, r14
+    1a28:	88 81       	ld	r24, Y
+    1a2a:	f8 01       	movw	r30, r16
+    1a2c:	81 87       	std	Z+9, r24	; 0x09
+		EthFrame[AckNumber2] = EthFrame[SeqNumber2];
+    1a2e:	b8 01       	movw	r22, r16
+    1a30:	6a 5f       	subi	r22, 0xFA	; 250
+    1a32:	7f 4f       	sbci	r23, 0xFF	; 255
+    1a34:	db 01       	movw	r26, r22
+    1a36:	8c 91       	ld	r24, X
+    1a38:	82 87       	std	Z+10, r24	; 0x0a
+		EthFrame[AckNumber3] = (EthFrame[SeqNumber3] + 1);
+    1a3a:	37 96       	adiw	r30, 0x07	; 7
+    1a3c:	80 81       	ld	r24, Z
+    1a3e:	8f 5f       	subi	r24, 0xFF	; 255
+    1a40:	e8 01       	movw	r28, r16
+    1a42:	8b 87       	std	Y+11, r24	; 0x0b
+		
+		EthFrame[SeqNumber0] = (uint8_t)(seq_number>>24); //Numer porz¹dkowy SEQ
+    1a44:	20 91 23 01 	lds	r18, 0x0123
+    1a48:	30 91 24 01 	lds	r19, 0x0124
+    1a4c:	40 91 25 01 	lds	r20, 0x0125
+    1a50:	50 91 26 01 	lds	r21, 0x0126
+    1a54:	85 2f       	mov	r24, r21
+    1a56:	99 27       	eor	r25, r25
+    1a58:	aa 27       	eor	r26, r26
+    1a5a:	bb 27       	eor	r27, r27
+    1a5c:	e6 01       	movw	r28, r12
+    1a5e:	88 83       	st	Y, r24
+		EthFrame[SeqNumber1] = (uint8_t)(seq_number>>16);
+    1a60:	ca 01       	movw	r24, r20
+    1a62:	aa 27       	eor	r26, r26
+    1a64:	bb 27       	eor	r27, r27
+    1a66:	e7 01       	movw	r28, r14
+    1a68:	88 83       	st	Y, r24
+		EthFrame[SeqNumber2] = (uint8_t)(seq_number>>8);
+    1a6a:	bb 27       	eor	r27, r27
+    1a6c:	a5 2f       	mov	r26, r21
+    1a6e:	94 2f       	mov	r25, r20
+    1a70:	83 2f       	mov	r24, r19
+    1a72:	eb 01       	movw	r28, r22
+    1a74:	88 83       	st	Y, r24
+		EthFrame[SeqNumber3] = (uint8_t)(seq_number);
+    1a76:	20 83       	st	Z, r18
+		
+		EthFrame[DataOffset] = 0x50;
+    1a78:	80 e5       	ldi	r24, 0x50	; 80
+    1a7a:	f8 01       	movw	r30, r16
+    1a7c:	84 87       	std	Z+12, r24	; 0x0c
+		EthFrame[ControlBits] = (SYN|ACK);
+    1a7e:	82 e1       	ldi	r24, 0x12	; 18
+    1a80:	85 87       	std	Z+13, r24	; 0x0d
+		//EthFrame[14] = 0x00;
+		EthFrame[WindowSize] = 0xff;
+    1a82:	8f ef       	ldi	r24, 0xFF	; 255
+    1a84:	87 87       	std	Z+15, r24	; 0x0f
+		
+		uint16_t CheckSum = TcpCheckSumCalc(0x00);
+    1a86:	80 e0       	ldi	r24, 0x00	; 0
+    1a88:	90 e0       	ldi	r25, 0x00	; 0
+    1a8a:	0e 94 41 07 	call	0xe82	; 0xe82 <TcpCheckSumCalc>
+		EthFrame[TcpCheckSum0] = (uint8_t)((CheckSum)>>8);
+    1a8e:	d8 01       	movw	r26, r16
+    1a90:	50 96       	adiw	r26, 0x10	; 16
+    1a92:	9c 93       	st	X, r25
+    1a94:	50 97       	sbiw	r26, 0x10	; 16
+		EthFrame[TcpCheckSum1] = (uint8_t)(CheckSum);
+    1a96:	51 96       	adiw	r26, 0x11	; 17
+    1a98:	8c 93       	st	X, r24
+    1a9a:	51 97       	sbiw	r26, 0x11	; 17
+		
+		EthFrame[DataPointer0] = 0x00;
+    1a9c:	52 96       	adiw	r26, 0x12	; 18
+    1a9e:	1c 92       	st	X, r1
+    1aa0:	52 97       	sbiw	r26, 0x12	; 18
+		EthFrame[DataPointer1] = 0x00;
+    1aa2:	53 96       	adiw	r26, 0x13	; 19
+    1aa4:	1c 92       	st	X, r1
+		
+		//Wysy³anie do RTL8019as
+		PacketSize = 14+20+20;
+    1aa6:	86 e3       	ldi	r24, 0x36	; 54
+    1aa8:	90 e0       	ldi	r25, 0x00	; 0
+    1aaa:	90 93 99 02 	sts	0x0299, r25
+    1aae:	80 93 98 02 	sts	0x0298, r24
+		RTLsend_packet();
+    1ab2:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <RTLsend_packet>
+    1ab6:	00 e0       	ldi	r16, 0x00	; 0
+		uint8_t i=0x00;
+		
+		for(i=0x00; i<10; i++) { //Je¿eli nie bêdzie ACK w 10 nastêpnych pakietach po³¹czenie nie zostanie ustanowione
+			while((uint8_t)RTLreceive_packet()!=0x01) {}
+			
+			if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+    1ab8:	c6 e5       	ldi	r28, 0x56	; 86
+    1aba:	d1 e0       	ldi	r29, 0x01	; 1
+    1abc:	0f 2e       	mov	r0, r31
+    1abe:	f7 e5       	ldi	r31, 0x57	; 87
+    1ac0:	ef 2e       	mov	r14, r31
+    1ac2:	f1 e0       	ldi	r31, 0x01	; 1
+    1ac4:	ff 2e       	mov	r15, r31
+    1ac6:	f0 2d       	mov	r31, r0
+    1ac8:	0f 2e       	mov	r0, r31
+    1aca:	f1 e6       	ldi	r31, 0x61	; 97
+    1acc:	cf 2e       	mov	r12, r31
+    1ace:	f1 e0       	ldi	r31, 0x01	; 1
+    1ad0:	df 2e       	mov	r13, r31
+    1ad2:	f0 2d       	mov	r31, r0
+    1ad4:	0f 2e       	mov	r0, r31
+    1ad6:	ff e5       	ldi	r31, 0x5F	; 95
+    1ad8:	8f 2e       	mov	r8, r31
+    1ada:	f1 e0       	ldi	r31, 0x01	; 1
+    1adc:	9f 2e       	mov	r9, r31
+    1ade:	f0 2d       	mov	r31, r0
+		
+		//Czekanie na segment TCP z potwierdzeniem
+		uint8_t i=0x00;
+		
+		for(i=0x00; i<10; i++) { //Je¿eli nie bêdzie ACK w 10 nastêpnych pakietach po³¹czenie nie zostanie ustanowione
+			while((uint8_t)RTLreceive_packet()!=0x01) {}
+    1ae0:	0e 94 7e 02 	call	0x4fc	; 0x4fc <RTLreceive_packet>
+    1ae4:	81 30       	cpi	r24, 0x01	; 1
+    1ae6:	e1 f7       	brne	.-8      	; 0x1ae0 <Tcp_Open_Pasive+0x14e>
+			
+			if(EthFrame[DestinPort0] == (uint8_t)(port>>8) && EthFrame[DestinPort1] == (uint8_t)(port) 
+    1ae8:	88 81       	ld	r24, Y
+    1aea:	b8 16       	cp	r11, r24
+    1aec:	09 f0       	breq	.+2      	; 0x1af0 <Tcp_Open_Pasive+0x15e>
+    1aee:	64 c0       	rjmp	.+200    	; 0x1bb8 <Tcp_Open_Pasive+0x226>
+    1af0:	f7 01       	movw	r30, r14
+    1af2:	80 81       	ld	r24, Z
+    1af4:	a8 16       	cp	r10, r24
+    1af6:	09 f0       	breq	.+2      	; 0x1afa <Tcp_Open_Pasive+0x168>
+    1af8:	5f c0       	rjmp	.+190    	; 0x1bb8 <Tcp_Open_Pasive+0x226>
+    1afa:	d6 01       	movw	r26, r12
+    1afc:	8c 91       	ld	r24, X
+    1afe:	80 31       	cpi	r24, 0x10	; 16
+    1b00:	09 f0       	breq	.+2      	; 0x1b04 <Tcp_Open_Pasive+0x172>
+    1b02:	5a c0       	rjmp	.+180    	; 0x1bb8 <Tcp_Open_Pasive+0x226>
+    1b04:	80 91 20 01 	lds	r24, 0x0120
+    1b08:	81 30       	cpi	r24, 0x01	; 1
+    1b0a:	09 f0       	breq	.+2      	; 0x1b0e <Tcp_Open_Pasive+0x17c>
+    1b0c:	55 c0       	rjmp	.+170    	; 0x1bb8 <Tcp_Open_Pasive+0x226>
+    1b0e:	f4 01       	movw	r30, r8
+    1b10:	20 81       	ld	r18, Z
+    1b12:	30 e0       	ldi	r19, 0x00	; 0
+    1b14:	80 91 94 02 	lds	r24, 0x0294
+    1b18:	90 e0       	ldi	r25, 0x00	; 0
+    1b1a:	01 96       	adiw	r24, 0x01	; 1
+    1b1c:	28 17       	cp	r18, r24
+    1b1e:	39 07       	cpc	r19, r25
+    1b20:	09 f0       	breq	.+2      	; 0x1b24 <Tcp_Open_Pasive+0x192>
+    1b22:	4a c0       	rjmp	.+148    	; 0x1bb8 <Tcp_Open_Pasive+0x226>
+				
+				//Przepisz ack_number
+				ack_number  = (uint32_t)EthFrame[SeqNumber0]<<24;			//Numer potwierdzenia ACK
+				ack_number += (uint32_t)EthFrame[SeqNumber1]<<16;
+				ack_number += (uint32_t)EthFrame[SeqNumber2]<<8;	
+				ack_number += (uint32_t)EthFrame[SeqNumber3];
+    1b24:	68 e5       	ldi	r22, 0x58	; 88
+    1b26:	71 e0       	ldi	r23, 0x01	; 1
+    1b28:	fb 01       	movw	r30, r22
+    1b2a:	21 91       	ld	r18, Z+
+    1b2c:	30 e0       	ldi	r19, 0x00	; 0
+    1b2e:	40 e0       	ldi	r20, 0x00	; 0
+    1b30:	50 e0       	ldi	r21, 0x00	; 0
+    1b32:	52 2f       	mov	r21, r18
+    1b34:	44 27       	eor	r20, r20
+    1b36:	33 27       	eor	r19, r19
+    1b38:	22 27       	eor	r18, r18
+    1b3a:	80 81       	ld	r24, Z
+    1b3c:	90 e0       	ldi	r25, 0x00	; 0
+    1b3e:	a0 e0       	ldi	r26, 0x00	; 0
+    1b40:	b0 e0       	ldi	r27, 0x00	; 0
+    1b42:	dc 01       	movw	r26, r24
+    1b44:	99 27       	eor	r25, r25
+    1b46:	88 27       	eor	r24, r24
+    1b48:	28 0f       	add	r18, r24
+    1b4a:	39 1f       	adc	r19, r25
+    1b4c:	4a 1f       	adc	r20, r26
+    1b4e:	5b 1f       	adc	r21, r27
+    1b50:	db 01       	movw	r26, r22
+    1b52:	13 96       	adiw	r26, 0x03	; 3
+    1b54:	8c 91       	ld	r24, X
+    1b56:	13 97       	sbiw	r26, 0x03	; 3
+    1b58:	28 0f       	add	r18, r24
+    1b5a:	31 1d       	adc	r19, r1
+    1b5c:	41 1d       	adc	r20, r1
+    1b5e:	51 1d       	adc	r21, r1
+    1b60:	12 96       	adiw	r26, 0x02	; 2
+    1b62:	8c 91       	ld	r24, X
+    1b64:	90 e0       	ldi	r25, 0x00	; 0
+    1b66:	a0 e0       	ldi	r26, 0x00	; 0
+    1b68:	b0 e0       	ldi	r27, 0x00	; 0
+    1b6a:	ba 2f       	mov	r27, r26
+    1b6c:	a9 2f       	mov	r26, r25
+    1b6e:	98 2f       	mov	r25, r24
+    1b70:	88 27       	eor	r24, r24
+    1b72:	28 0f       	add	r18, r24
+    1b74:	39 1f       	adc	r19, r25
+    1b76:	4a 1f       	adc	r20, r26
+    1b78:	5b 1f       	adc	r21, r27
+    1b7a:	20 93 90 02 	sts	0x0290, r18
+    1b7e:	30 93 91 02 	sts	0x0291, r19
+    1b82:	40 93 92 02 	sts	0x0292, r20
+    1b86:	50 93 93 02 	sts	0x0293, r21
+			
+				//Ustanowiono po³¹czenie
+				Tcp_Status = Established;
+    1b8a:	83 e0       	ldi	r24, 0x03	; 3
+    1b8c:	80 93 20 01 	sts	0x0120, r24
+				seq_number+=0x01;
+    1b90:	80 91 23 01 	lds	r24, 0x0123
+    1b94:	90 91 24 01 	lds	r25, 0x0124
+    1b98:	a0 91 25 01 	lds	r26, 0x0125
+    1b9c:	b0 91 26 01 	lds	r27, 0x0126
+    1ba0:	01 96       	adiw	r24, 0x01	; 1
+    1ba2:	a1 1d       	adc	r26, r1
+    1ba4:	b1 1d       	adc	r27, r1
+    1ba6:	80 93 23 01 	sts	0x0123, r24
+    1baa:	90 93 24 01 	sts	0x0124, r25
+    1bae:	a0 93 25 01 	sts	0x0125, r26
+    1bb2:	b0 93 26 01 	sts	0x0126, r27
+    1bb6:	04 c0       	rjmp	.+8      	; 0x1bc0 <Tcp_Open_Pasive+0x22e>
+		RTLsend_packet();
+		
+		//Czekanie na segment TCP z potwierdzeniem
+		uint8_t i=0x00;
+		
+		for(i=0x00; i<10; i++) { //Je¿eli nie bêdzie ACK w 10 nastêpnych pakietach po³¹czenie nie zostanie ustanowione
+    1bb8:	0f 5f       	subi	r16, 0xFF	; 255
+    1bba:	0a 30       	cpi	r16, 0x0A	; 10
+    1bbc:	08 f4       	brcc	.+2      	; 0x1bc0 <Tcp_Open_Pasive+0x22e>
+    1bbe:	90 cf       	rjmp	.-224    	; 0x1ae0 <Tcp_Open_Pasive+0x14e>
+				break;
+			}
+		}
+		
+	}
+}
+    1bc0:	df 91       	pop	r29
+    1bc2:	cf 91       	pop	r28
+    1bc4:	1f 91       	pop	r17
+    1bc6:	0f 91       	pop	r16
+    1bc8:	ff 90       	pop	r15
+    1bca:	ef 90       	pop	r14
+    1bcc:	df 90       	pop	r13
+    1bce:	cf 90       	pop	r12
+    1bd0:	bf 90       	pop	r11
+    1bd2:	af 90       	pop	r10
+    1bd4:	9f 90       	pop	r9
+    1bd6:	8f 90       	pop	r8
+    1bd8:	08 95       	ret
+
+00001bda <Tcp_Check>:
+	//Wysy³anie do RTL8019as
+	PacketSize = 14+20+20+data_lenght;
+	RTLsend_packet();	
+}
+
+void Tcp_Check(uint16_t port) {
+    1bda:	0f 93       	push	r16
+    1bdc:	1f 93       	push	r17
+    1bde:	8c 01       	movw	r16, r24
+	
+	//Nas³uch na porcie
+	Tcp_Open_Pasive(port);
+    1be0:	0e 94 c9 0c 	call	0x1992	; 0x1992 <Tcp_Open_Pasive>
+	//Zamkniêcie po³¹czenia na porcie 
+	Tcp_Fin_Pasive(port);
+    1be4:	c8 01       	movw	r24, r16
+    1be6:	0e 94 c5 0a 	call	0x158a	; 0x158a <Tcp_Fin_Pasive>
+		Tcp_Send_Data(port,0x03);
+		EthFrame[14+20+20] = 0x0d;
+		EthFrame[14+20+21] = 0x0a;
+		Tcp_Send_Data(port,0x02);
+	}*/
+}
+    1bea:	1f 91       	pop	r17
+    1bec:	0f 91       	pop	r16
+    1bee:	08 95       	ret
+
+00001bf0 <Http_Check>:
+#include <util/delay.h>
+#include <avr/pgmspace.h>
+#include "page_data.h"
+#include "http_protocol.h"
+
+void Http_Check(void) {
+    1bf0:	ef 92       	push	r14
+    1bf2:	ff 92       	push	r15
+    1bf4:	0f 93       	push	r16
+    1bf6:	1f 93       	push	r17
+	//while(RTLreceive_packet()!=0x01) {}
+	if(EthFrame[HttpData+0] == 'G' && EthFrame[HttpData+1] == 'E' && EthFrame[HttpData+2] == 'T'
+    1bf8:	80 91 68 01 	lds	r24, 0x0168
+    1bfc:	87 34       	cpi	r24, 0x47	; 71
+    1bfe:	e9 f4       	brne	.+58     	; 0x1c3a <Http_Check+0x4a>
+    1c00:	80 91 69 01 	lds	r24, 0x0169
+    1c04:	85 34       	cpi	r24, 0x45	; 69
+    1c06:	c9 f4       	brne	.+50     	; 0x1c3a <Http_Check+0x4a>
+    1c08:	80 91 6a 01 	lds	r24, 0x016A
+    1c0c:	84 35       	cpi	r24, 0x54	; 84
+    1c0e:	a9 f4       	brne	.+42     	; 0x1c3a <Http_Check+0x4a>
+		/*&& Tcp_Status == Established*/) {
+		Tcp_Send_Ack(0x1F90);
+    1c10:	80 e9       	ldi	r24, 0x90	; 144
+    1c12:	9f e1       	ldi	r25, 0x1F	; 31
+    1c14:	0e 94 5e 08 	call	0x10bc	; 0x10bc <Tcp_Send_Ack>
+		
+		strncpy_P(&EthFrame[14+20+20],content,strlen_P(content));
+    1c18:	00 e7       	ldi	r16, 0x70	; 112
+    1c1a:	10 e0       	ldi	r17, 0x00	; 0
+    1c1c:	c8 01       	movw	r24, r16
+    1c1e:	0e 94 22 0e 	call	0x1c44	; 0x1c44 <strlen_P>
+    1c22:	7c 01       	movw	r14, r24
+    1c24:	88 e6       	ldi	r24, 0x68	; 104
+    1c26:	91 e0       	ldi	r25, 0x01	; 1
+    1c28:	b8 01       	movw	r22, r16
+    1c2a:	a7 01       	movw	r20, r14
+    1c2c:	0e 94 2b 0e 	call	0x1c56	; 0x1c56 <strncpy_P>
+		Tcp_Send_Data(0x1F90, strlen_P(content));
+    1c30:	80 e9       	ldi	r24, 0x90	; 144
+    1c32:	9f e1       	ldi	r25, 0x1F	; 31
+    1c34:	b7 01       	movw	r22, r14
+    1c36:	0e 94 e6 07 	call	0xfcc	; 0xfcc <Tcp_Send_Data>
+		/*strncpy_P(&EthFrame[14+20+20],index1,strlen_P(index1));
+		Tcp_Send_Data(0x1F90, strlen_P(index1));*/
+		
+		//Tcp_Fin_Active(0x1F90);
+	}
+}
+    1c3a:	1f 91       	pop	r17
+    1c3c:	0f 91       	pop	r16
+    1c3e:	ff 90       	pop	r15
+    1c40:	ef 90       	pop	r14
+    1c42:	08 95       	ret
+
+00001c44 <strlen_P>:
+    1c44:	fc 01       	movw	r30, r24
+    1c46:	05 90       	lpm	r0, Z+
+    1c48:	00 20       	and	r0, r0
+    1c4a:	e9 f7       	brne	.-6      	; 0x1c46 <strlen_P+0x2>
+    1c4c:	80 95       	com	r24
+    1c4e:	90 95       	com	r25
+    1c50:	8e 0f       	add	r24, r30
+    1c52:	9f 1f       	adc	r25, r31
+    1c54:	08 95       	ret
+
+00001c56 <strncpy_P>:
+    1c56:	fb 01       	movw	r30, r22
+    1c58:	dc 01       	movw	r26, r24
+    1c5a:	41 50       	subi	r20, 0x01	; 1
+    1c5c:	50 40       	sbci	r21, 0x00	; 0
+    1c5e:	48 f0       	brcs	.+18     	; 0x1c72 <strncpy_P+0x1c>
+    1c60:	05 90       	lpm	r0, Z+
+    1c62:	0d 92       	st	X+, r0
+    1c64:	00 20       	and	r0, r0
+    1c66:	c9 f7       	brne	.-14     	; 0x1c5a <strncpy_P+0x4>
+    1c68:	01 c0       	rjmp	.+2      	; 0x1c6c <strncpy_P+0x16>
+    1c6a:	1d 92       	st	X+, r1
+    1c6c:	41 50       	subi	r20, 0x01	; 1
+    1c6e:	50 40       	sbci	r21, 0x00	; 0
+    1c70:	e0 f7       	brcc	.-8      	; 0x1c6a <strncpy_P+0x14>
+    1c72:	08 95       	ret
+
+00001c74 <fdevopen>:
+    1c74:	0f 93       	push	r16
+    1c76:	1f 93       	push	r17
+    1c78:	cf 93       	push	r28
+    1c7a:	df 93       	push	r29
+    1c7c:	8c 01       	movw	r16, r24
+    1c7e:	eb 01       	movw	r28, r22
+    1c80:	00 97       	sbiw	r24, 0x00	; 0
+    1c82:	31 f4       	brne	.+12     	; 0x1c90 <fdevopen+0x1c>
+    1c84:	61 15       	cp	r22, r1
+    1c86:	71 05       	cpc	r23, r1
+    1c88:	19 f4       	brne	.+6      	; 0x1c90 <fdevopen+0x1c>
+    1c8a:	20 e0       	ldi	r18, 0x00	; 0
+    1c8c:	30 e0       	ldi	r19, 0x00	; 0
+    1c8e:	38 c0       	rjmp	.+112    	; 0x1d00 <fdevopen+0x8c>
+    1c90:	81 e0       	ldi	r24, 0x01	; 1
+    1c92:	90 e0       	ldi	r25, 0x00	; 0
+    1c94:	6e e0       	ldi	r22, 0x0E	; 14
+    1c96:	70 e0       	ldi	r23, 0x00	; 0
+    1c98:	0e 94 c2 0e 	call	0x1d84	; 0x1d84 <calloc>
+    1c9c:	fc 01       	movw	r30, r24
+    1c9e:	9c 01       	movw	r18, r24
+    1ca0:	00 97       	sbiw	r24, 0x00	; 0
+    1ca2:	71 f1       	breq	.+92     	; 0x1d00 <fdevopen+0x8c>
+    1ca4:	80 e8       	ldi	r24, 0x80	; 128
+    1ca6:	83 83       	std	Z+3, r24	; 0x03
+    1ca8:	20 97       	sbiw	r28, 0x00	; 0
+    1caa:	71 f0       	breq	.+28     	; 0x1cc8 <fdevopen+0x54>
+    1cac:	d3 87       	std	Z+11, r29	; 0x0b
+    1cae:	c2 87       	std	Z+10, r28	; 0x0a
+    1cb0:	81 e8       	ldi	r24, 0x81	; 129
+    1cb2:	83 83       	std	Z+3, r24	; 0x03
+    1cb4:	80 91 a2 02 	lds	r24, 0x02A2
+    1cb8:	90 91 a3 02 	lds	r25, 0x02A3
+    1cbc:	89 2b       	or	r24, r25
+    1cbe:	21 f4       	brne	.+8      	; 0x1cc8 <fdevopen+0x54>
+    1cc0:	f0 93 a3 02 	sts	0x02A3, r31
+    1cc4:	e0 93 a2 02 	sts	0x02A2, r30
+    1cc8:	01 15       	cp	r16, r1
+    1cca:	11 05       	cpc	r17, r1
+    1ccc:	c9 f0       	breq	.+50     	; 0x1d00 <fdevopen+0x8c>
+    1cce:	11 87       	std	Z+9, r17	; 0x09
+    1cd0:	00 87       	std	Z+8, r16	; 0x08
+    1cd2:	83 81       	ldd	r24, Z+3	; 0x03
+    1cd4:	82 60       	ori	r24, 0x02	; 2
+    1cd6:	83 83       	std	Z+3, r24	; 0x03
+    1cd8:	80 91 a4 02 	lds	r24, 0x02A4
+    1cdc:	90 91 a5 02 	lds	r25, 0x02A5
+    1ce0:	89 2b       	or	r24, r25
+    1ce2:	71 f4       	brne	.+28     	; 0x1d00 <fdevopen+0x8c>
+    1ce4:	f0 93 a5 02 	sts	0x02A5, r31
+    1ce8:	e0 93 a4 02 	sts	0x02A4, r30
+    1cec:	80 91 a6 02 	lds	r24, 0x02A6
+    1cf0:	90 91 a7 02 	lds	r25, 0x02A7
+    1cf4:	89 2b       	or	r24, r25
+    1cf6:	21 f4       	brne	.+8      	; 0x1d00 <fdevopen+0x8c>
+    1cf8:	f0 93 a7 02 	sts	0x02A7, r31
+    1cfc:	e0 93 a6 02 	sts	0x02A6, r30
+    1d00:	c9 01       	movw	r24, r18
+    1d02:	df 91       	pop	r29
+    1d04:	cf 91       	pop	r28
+    1d06:	1f 91       	pop	r17
+    1d08:	0f 91       	pop	r16
+    1d0a:	08 95       	ret
+
+00001d0c <putchar>:
+    1d0c:	60 91 a4 02 	lds	r22, 0x02A4
+    1d10:	70 91 a5 02 	lds	r23, 0x02A5
+    1d14:	0e 94 ea 0f 	call	0x1fd4	; 0x1fd4 <fputc>
+    1d18:	08 95       	ret
+
+00001d1a <puts>:
+    1d1a:	0f 93       	push	r16
+    1d1c:	1f 93       	push	r17
+    1d1e:	cf 93       	push	r28
+    1d20:	df 93       	push	r29
+    1d22:	8c 01       	movw	r16, r24
+    1d24:	e0 91 a4 02 	lds	r30, 0x02A4
+    1d28:	f0 91 a5 02 	lds	r31, 0x02A5
+    1d2c:	83 81       	ldd	r24, Z+3	; 0x03
+    1d2e:	81 ff       	sbrs	r24, 1
+    1d30:	21 c0       	rjmp	.+66     	; 0x1d74 <puts+0x5a>
+    1d32:	c0 e0       	ldi	r28, 0x00	; 0
+    1d34:	d0 e0       	ldi	r29, 0x00	; 0
+    1d36:	0d c0       	rjmp	.+26     	; 0x1d52 <puts+0x38>
+    1d38:	e0 91 a4 02 	lds	r30, 0x02A4
+    1d3c:	f0 91 a5 02 	lds	r31, 0x02A5
+    1d40:	20 85       	ldd	r18, Z+8	; 0x08
+    1d42:	31 85       	ldd	r19, Z+9	; 0x09
+    1d44:	bf 01       	movw	r22, r30
+    1d46:	f9 01       	movw	r30, r18
+    1d48:	09 95       	icall
+    1d4a:	89 2b       	or	r24, r25
+    1d4c:	11 f0       	breq	.+4      	; 0x1d52 <puts+0x38>
+    1d4e:	cf ef       	ldi	r28, 0xFF	; 255
+    1d50:	df ef       	ldi	r29, 0xFF	; 255
+    1d52:	f8 01       	movw	r30, r16
+    1d54:	81 91       	ld	r24, Z+
+    1d56:	8f 01       	movw	r16, r30
+    1d58:	88 23       	and	r24, r24
+    1d5a:	71 f7       	brne	.-36     	; 0x1d38 <puts+0x1e>
+    1d5c:	e0 91 a4 02 	lds	r30, 0x02A4
+    1d60:	f0 91 a5 02 	lds	r31, 0x02A5
+    1d64:	20 85       	ldd	r18, Z+8	; 0x08
+    1d66:	31 85       	ldd	r19, Z+9	; 0x09
+    1d68:	8a e0       	ldi	r24, 0x0A	; 10
+    1d6a:	bf 01       	movw	r22, r30
+    1d6c:	f9 01       	movw	r30, r18
+    1d6e:	09 95       	icall
+    1d70:	89 2b       	or	r24, r25
+    1d72:	11 f0       	breq	.+4      	; 0x1d78 <puts+0x5e>
+    1d74:	cf ef       	ldi	r28, 0xFF	; 255
+    1d76:	df ef       	ldi	r29, 0xFF	; 255
+    1d78:	ce 01       	movw	r24, r28
+    1d7a:	df 91       	pop	r29
+    1d7c:	cf 91       	pop	r28
+    1d7e:	1f 91       	pop	r17
+    1d80:	0f 91       	pop	r16
+    1d82:	08 95       	ret
+
+00001d84 <calloc>:
+    1d84:	0f 93       	push	r16
+    1d86:	1f 93       	push	r17
+    1d88:	cf 93       	push	r28
+    1d8a:	df 93       	push	r29
+    1d8c:	68 9f       	mul	r22, r24
+    1d8e:	80 01       	movw	r16, r0
+    1d90:	69 9f       	mul	r22, r25
+    1d92:	10 0d       	add	r17, r0
+    1d94:	78 9f       	mul	r23, r24
+    1d96:	10 0d       	add	r17, r0
+    1d98:	11 24       	eor	r1, r1
+    1d9a:	c8 01       	movw	r24, r16
+    1d9c:	0e 94 de 0e 	call	0x1dbc	; 0x1dbc <malloc>
+    1da0:	ec 01       	movw	r28, r24
+    1da2:	00 97       	sbiw	r24, 0x00	; 0
+    1da4:	29 f0       	breq	.+10     	; 0x1db0 <calloc+0x2c>
+    1da6:	60 e0       	ldi	r22, 0x00	; 0
+    1da8:	70 e0       	ldi	r23, 0x00	; 0
+    1daa:	a8 01       	movw	r20, r16
+    1dac:	0e 94 e3 0f 	call	0x1fc6	; 0x1fc6 <memset>
+    1db0:	ce 01       	movw	r24, r28
+    1db2:	df 91       	pop	r29
+    1db4:	cf 91       	pop	r28
+    1db6:	1f 91       	pop	r17
+    1db8:	0f 91       	pop	r16
+    1dba:	08 95       	ret
+
+00001dbc <malloc>:
+    1dbc:	cf 93       	push	r28
+    1dbe:	df 93       	push	r29
+    1dc0:	bc 01       	movw	r22, r24
+    1dc2:	82 30       	cpi	r24, 0x02	; 2
+    1dc4:	91 05       	cpc	r25, r1
+    1dc6:	10 f4       	brcc	.+4      	; 0x1dcc <malloc+0x10>
+    1dc8:	62 e0       	ldi	r22, 0x02	; 2
+    1dca:	70 e0       	ldi	r23, 0x00	; 0
+    1dcc:	a0 91 aa 02 	lds	r26, 0x02AA
+    1dd0:	b0 91 ab 02 	lds	r27, 0x02AB
+    1dd4:	ed 01       	movw	r28, r26
+    1dd6:	e0 e0       	ldi	r30, 0x00	; 0
+    1dd8:	f0 e0       	ldi	r31, 0x00	; 0
+    1dda:	40 e0       	ldi	r20, 0x00	; 0
+    1ddc:	50 e0       	ldi	r21, 0x00	; 0
+    1dde:	21 c0       	rjmp	.+66     	; 0x1e22 <malloc+0x66>
+    1de0:	88 81       	ld	r24, Y
+    1de2:	99 81       	ldd	r25, Y+1	; 0x01
+    1de4:	86 17       	cp	r24, r22
+    1de6:	97 07       	cpc	r25, r23
+    1de8:	69 f4       	brne	.+26     	; 0x1e04 <malloc+0x48>
+    1dea:	8a 81       	ldd	r24, Y+2	; 0x02
+    1dec:	9b 81       	ldd	r25, Y+3	; 0x03
+    1dee:	30 97       	sbiw	r30, 0x00	; 0
+    1df0:	19 f0       	breq	.+6      	; 0x1df8 <malloc+0x3c>
+    1df2:	93 83       	std	Z+3, r25	; 0x03
+    1df4:	82 83       	std	Z+2, r24	; 0x02
+    1df6:	04 c0       	rjmp	.+8      	; 0x1e00 <malloc+0x44>
+    1df8:	90 93 ab 02 	sts	0x02AB, r25
+    1dfc:	80 93 aa 02 	sts	0x02AA, r24
+    1e00:	fe 01       	movw	r30, r28
+    1e02:	34 c0       	rjmp	.+104    	; 0x1e6c <malloc+0xb0>
+    1e04:	68 17       	cp	r22, r24
+    1e06:	79 07       	cpc	r23, r25
+    1e08:	38 f4       	brcc	.+14     	; 0x1e18 <malloc+0x5c>
+    1e0a:	41 15       	cp	r20, r1
+    1e0c:	51 05       	cpc	r21, r1
+    1e0e:	19 f0       	breq	.+6      	; 0x1e16 <malloc+0x5a>
+    1e10:	84 17       	cp	r24, r20
+    1e12:	95 07       	cpc	r25, r21
+    1e14:	08 f4       	brcc	.+2      	; 0x1e18 <malloc+0x5c>
+    1e16:	ac 01       	movw	r20, r24
+    1e18:	fe 01       	movw	r30, r28
+    1e1a:	8a 81       	ldd	r24, Y+2	; 0x02
+    1e1c:	9b 81       	ldd	r25, Y+3	; 0x03
+    1e1e:	9c 01       	movw	r18, r24
+    1e20:	e9 01       	movw	r28, r18
+    1e22:	20 97       	sbiw	r28, 0x00	; 0
+    1e24:	e9 f6       	brne	.-70     	; 0x1de0 <malloc+0x24>
+    1e26:	41 15       	cp	r20, r1
+    1e28:	51 05       	cpc	r21, r1
+    1e2a:	a9 f1       	breq	.+106    	; 0x1e96 <malloc+0xda>
+    1e2c:	ca 01       	movw	r24, r20
+    1e2e:	86 1b       	sub	r24, r22
+    1e30:	97 0b       	sbc	r25, r23
+    1e32:	04 97       	sbiw	r24, 0x04	; 4
+    1e34:	08 f4       	brcc	.+2      	; 0x1e38 <malloc+0x7c>
+    1e36:	ba 01       	movw	r22, r20
+    1e38:	e0 e0       	ldi	r30, 0x00	; 0
+    1e3a:	f0 e0       	ldi	r31, 0x00	; 0
+    1e3c:	2a c0       	rjmp	.+84     	; 0x1e92 <malloc+0xd6>
+    1e3e:	8d 91       	ld	r24, X+
+    1e40:	9c 91       	ld	r25, X
+    1e42:	11 97       	sbiw	r26, 0x01	; 1
+    1e44:	84 17       	cp	r24, r20
+    1e46:	95 07       	cpc	r25, r21
+    1e48:	f9 f4       	brne	.+62     	; 0x1e88 <malloc+0xcc>
+    1e4a:	64 17       	cp	r22, r20
+    1e4c:	75 07       	cpc	r23, r21
+    1e4e:	81 f4       	brne	.+32     	; 0x1e70 <malloc+0xb4>
+    1e50:	12 96       	adiw	r26, 0x02	; 2
+    1e52:	8d 91       	ld	r24, X+
+    1e54:	9c 91       	ld	r25, X
+    1e56:	13 97       	sbiw	r26, 0x03	; 3
+    1e58:	30 97       	sbiw	r30, 0x00	; 0
+    1e5a:	19 f0       	breq	.+6      	; 0x1e62 <malloc+0xa6>
+    1e5c:	93 83       	std	Z+3, r25	; 0x03
+    1e5e:	82 83       	std	Z+2, r24	; 0x02
+    1e60:	04 c0       	rjmp	.+8      	; 0x1e6a <malloc+0xae>
+    1e62:	90 93 ab 02 	sts	0x02AB, r25
+    1e66:	80 93 aa 02 	sts	0x02AA, r24
+    1e6a:	fd 01       	movw	r30, r26
+    1e6c:	32 96       	adiw	r30, 0x02	; 2
+    1e6e:	4f c0       	rjmp	.+158    	; 0x1f0e <malloc+0x152>
+    1e70:	ca 01       	movw	r24, r20
+    1e72:	86 1b       	sub	r24, r22
+    1e74:	97 0b       	sbc	r25, r23
+    1e76:	fd 01       	movw	r30, r26
+    1e78:	e8 0f       	add	r30, r24
+    1e7a:	f9 1f       	adc	r31, r25
+    1e7c:	61 93       	st	Z+, r22
+    1e7e:	71 93       	st	Z+, r23
+    1e80:	02 97       	sbiw	r24, 0x02	; 2
+    1e82:	8d 93       	st	X+, r24
+    1e84:	9c 93       	st	X, r25
+    1e86:	43 c0       	rjmp	.+134    	; 0x1f0e <malloc+0x152>
+    1e88:	fd 01       	movw	r30, r26
+    1e8a:	82 81       	ldd	r24, Z+2	; 0x02
+    1e8c:	93 81       	ldd	r25, Z+3	; 0x03
+    1e8e:	9c 01       	movw	r18, r24
+    1e90:	d9 01       	movw	r26, r18
+    1e92:	10 97       	sbiw	r26, 0x00	; 0
+    1e94:	a1 f6       	brne	.-88     	; 0x1e3e <malloc+0x82>
+    1e96:	80 91 a8 02 	lds	r24, 0x02A8
+    1e9a:	90 91 a9 02 	lds	r25, 0x02A9
+    1e9e:	89 2b       	or	r24, r25
+    1ea0:	41 f4       	brne	.+16     	; 0x1eb2 <malloc+0xf6>
+    1ea2:	80 91 1c 01 	lds	r24, 0x011C
+    1ea6:	90 91 1d 01 	lds	r25, 0x011D
+    1eaa:	90 93 a9 02 	sts	0x02A9, r25
+    1eae:	80 93 a8 02 	sts	0x02A8, r24
+    1eb2:	40 91 1e 01 	lds	r20, 0x011E
+    1eb6:	50 91 1f 01 	lds	r21, 0x011F
+    1eba:	41 15       	cp	r20, r1
+    1ebc:	51 05       	cpc	r21, r1
+    1ebe:	41 f4       	brne	.+16     	; 0x1ed0 <malloc+0x114>
+    1ec0:	4d b7       	in	r20, 0x3d	; 61
+    1ec2:	5e b7       	in	r21, 0x3e	; 62
+    1ec4:	80 91 1a 01 	lds	r24, 0x011A
+    1ec8:	90 91 1b 01 	lds	r25, 0x011B
+    1ecc:	48 1b       	sub	r20, r24
+    1ece:	59 0b       	sbc	r21, r25
+    1ed0:	20 91 a8 02 	lds	r18, 0x02A8
+    1ed4:	30 91 a9 02 	lds	r19, 0x02A9
+    1ed8:	24 17       	cp	r18, r20
+    1eda:	35 07       	cpc	r19, r21
+    1edc:	b0 f4       	brcc	.+44     	; 0x1f0a <malloc+0x14e>
+    1ede:	ca 01       	movw	r24, r20
+    1ee0:	82 1b       	sub	r24, r18
+    1ee2:	93 0b       	sbc	r25, r19
+    1ee4:	86 17       	cp	r24, r22
+    1ee6:	97 07       	cpc	r25, r23
+    1ee8:	80 f0       	brcs	.+32     	; 0x1f0a <malloc+0x14e>
+    1eea:	ab 01       	movw	r20, r22
+    1eec:	4e 5f       	subi	r20, 0xFE	; 254
+    1eee:	5f 4f       	sbci	r21, 0xFF	; 255
+    1ef0:	84 17       	cp	r24, r20
+    1ef2:	95 07       	cpc	r25, r21
+    1ef4:	50 f0       	brcs	.+20     	; 0x1f0a <malloc+0x14e>
+    1ef6:	42 0f       	add	r20, r18
+    1ef8:	53 1f       	adc	r21, r19
+    1efa:	50 93 a9 02 	sts	0x02A9, r21
+    1efe:	40 93 a8 02 	sts	0x02A8, r20
+    1f02:	f9 01       	movw	r30, r18
+    1f04:	61 93       	st	Z+, r22
+    1f06:	71 93       	st	Z+, r23
+    1f08:	02 c0       	rjmp	.+4      	; 0x1f0e <malloc+0x152>
+    1f0a:	e0 e0       	ldi	r30, 0x00	; 0
+    1f0c:	f0 e0       	ldi	r31, 0x00	; 0
+    1f0e:	cf 01       	movw	r24, r30
+    1f10:	df 91       	pop	r29
+    1f12:	cf 91       	pop	r28
+    1f14:	08 95       	ret
+
+00001f16 <free>:
+    1f16:	cf 93       	push	r28
+    1f18:	df 93       	push	r29
+    1f1a:	00 97       	sbiw	r24, 0x00	; 0
+    1f1c:	09 f4       	brne	.+2      	; 0x1f20 <free+0xa>
+    1f1e:	50 c0       	rjmp	.+160    	; 0x1fc0 <free+0xaa>
+    1f20:	ec 01       	movw	r28, r24
+    1f22:	22 97       	sbiw	r28, 0x02	; 2
+    1f24:	1b 82       	std	Y+3, r1	; 0x03
+    1f26:	1a 82       	std	Y+2, r1	; 0x02
+    1f28:	a0 91 aa 02 	lds	r26, 0x02AA
+    1f2c:	b0 91 ab 02 	lds	r27, 0x02AB
+    1f30:	10 97       	sbiw	r26, 0x00	; 0
+    1f32:	09 f1       	breq	.+66     	; 0x1f76 <free+0x60>
+    1f34:	40 e0       	ldi	r20, 0x00	; 0
+    1f36:	50 e0       	ldi	r21, 0x00	; 0
+    1f38:	ac 17       	cp	r26, r28
+    1f3a:	bd 07       	cpc	r27, r29
+    1f3c:	08 f1       	brcs	.+66     	; 0x1f80 <free+0x6a>
+    1f3e:	bb 83       	std	Y+3, r27	; 0x03
+    1f40:	aa 83       	std	Y+2, r26	; 0x02
+    1f42:	fe 01       	movw	r30, r28
+    1f44:	21 91       	ld	r18, Z+
+    1f46:	31 91       	ld	r19, Z+
+    1f48:	e2 0f       	add	r30, r18
+    1f4a:	f3 1f       	adc	r31, r19
+    1f4c:	ae 17       	cp	r26, r30
+    1f4e:	bf 07       	cpc	r27, r31
+    1f50:	79 f4       	brne	.+30     	; 0x1f70 <free+0x5a>
+    1f52:	8d 91       	ld	r24, X+
+    1f54:	9c 91       	ld	r25, X
+    1f56:	11 97       	sbiw	r26, 0x01	; 1
+    1f58:	28 0f       	add	r18, r24
+    1f5a:	39 1f       	adc	r19, r25
+    1f5c:	2e 5f       	subi	r18, 0xFE	; 254
+    1f5e:	3f 4f       	sbci	r19, 0xFF	; 255
+    1f60:	39 83       	std	Y+1, r19	; 0x01
+    1f62:	28 83       	st	Y, r18
+    1f64:	12 96       	adiw	r26, 0x02	; 2
+    1f66:	8d 91       	ld	r24, X+
+    1f68:	9c 91       	ld	r25, X
+    1f6a:	13 97       	sbiw	r26, 0x03	; 3
+    1f6c:	9b 83       	std	Y+3, r25	; 0x03
+    1f6e:	8a 83       	std	Y+2, r24	; 0x02
+    1f70:	41 15       	cp	r20, r1
+    1f72:	51 05       	cpc	r21, r1
+    1f74:	71 f4       	brne	.+28     	; 0x1f92 <free+0x7c>
+    1f76:	d0 93 ab 02 	sts	0x02AB, r29
+    1f7a:	c0 93 aa 02 	sts	0x02AA, r28
+    1f7e:	20 c0       	rjmp	.+64     	; 0x1fc0 <free+0xaa>
+    1f80:	12 96       	adiw	r26, 0x02	; 2
+    1f82:	8d 91       	ld	r24, X+
+    1f84:	9c 91       	ld	r25, X
+    1f86:	13 97       	sbiw	r26, 0x03	; 3
+    1f88:	ad 01       	movw	r20, r26
+    1f8a:	00 97       	sbiw	r24, 0x00	; 0
+    1f8c:	11 f0       	breq	.+4      	; 0x1f92 <free+0x7c>
+    1f8e:	dc 01       	movw	r26, r24
+    1f90:	d3 cf       	rjmp	.-90     	; 0x1f38 <free+0x22>
+    1f92:	fa 01       	movw	r30, r20
+    1f94:	d3 83       	std	Z+3, r29	; 0x03
+    1f96:	c2 83       	std	Z+2, r28	; 0x02
+    1f98:	21 91       	ld	r18, Z+
+    1f9a:	31 91       	ld	r19, Z+
+    1f9c:	e2 0f       	add	r30, r18
+    1f9e:	f3 1f       	adc	r31, r19
+    1fa0:	ce 17       	cp	r28, r30
+    1fa2:	df 07       	cpc	r29, r31
+    1fa4:	69 f4       	brne	.+26     	; 0x1fc0 <free+0xaa>
+    1fa6:	88 81       	ld	r24, Y
+    1fa8:	99 81       	ldd	r25, Y+1	; 0x01
+    1faa:	28 0f       	add	r18, r24
+    1fac:	39 1f       	adc	r19, r25
+    1fae:	2e 5f       	subi	r18, 0xFE	; 254
+    1fb0:	3f 4f       	sbci	r19, 0xFF	; 255
+    1fb2:	fa 01       	movw	r30, r20
+    1fb4:	31 83       	std	Z+1, r19	; 0x01
+    1fb6:	20 83       	st	Z, r18
+    1fb8:	8a 81       	ldd	r24, Y+2	; 0x02
+    1fba:	9b 81       	ldd	r25, Y+3	; 0x03
+    1fbc:	93 83       	std	Z+3, r25	; 0x03
+    1fbe:	82 83       	std	Z+2, r24	; 0x02
+    1fc0:	df 91       	pop	r29
+    1fc2:	cf 91       	pop	r28
+    1fc4:	08 95       	ret
+
+00001fc6 <memset>:
+    1fc6:	dc 01       	movw	r26, r24
+    1fc8:	01 c0       	rjmp	.+2      	; 0x1fcc <memset+0x6>
+    1fca:	6d 93       	st	X+, r22
+    1fcc:	41 50       	subi	r20, 0x01	; 1
+    1fce:	50 40       	sbci	r21, 0x00	; 0
+    1fd0:	e0 f7       	brcc	.-8      	; 0x1fca <memset+0x4>
+    1fd2:	08 95       	ret
+
+00001fd4 <fputc>:
+    1fd4:	0f 93       	push	r16
+    1fd6:	1f 93       	push	r17
+    1fd8:	cf 93       	push	r28
+    1fda:	df 93       	push	r29
+    1fdc:	8c 01       	movw	r16, r24
+    1fde:	eb 01       	movw	r28, r22
+    1fe0:	8b 81       	ldd	r24, Y+3	; 0x03
+    1fe2:	81 ff       	sbrs	r24, 1
+    1fe4:	1b c0       	rjmp	.+54     	; 0x201c <fputc+0x48>
+    1fe6:	82 ff       	sbrs	r24, 2
+    1fe8:	0d c0       	rjmp	.+26     	; 0x2004 <fputc+0x30>
+    1fea:	2e 81       	ldd	r18, Y+6	; 0x06
+    1fec:	3f 81       	ldd	r19, Y+7	; 0x07
+    1fee:	8c 81       	ldd	r24, Y+4	; 0x04
+    1ff0:	9d 81       	ldd	r25, Y+5	; 0x05
+    1ff2:	28 17       	cp	r18, r24
+    1ff4:	39 07       	cpc	r19, r25
+    1ff6:	64 f4       	brge	.+24     	; 0x2010 <fputc+0x3c>
+    1ff8:	e8 81       	ld	r30, Y
+    1ffa:	f9 81       	ldd	r31, Y+1	; 0x01
+    1ffc:	01 93       	st	Z+, r16
+    1ffe:	f9 83       	std	Y+1, r31	; 0x01
+    2000:	e8 83       	st	Y, r30
+    2002:	06 c0       	rjmp	.+12     	; 0x2010 <fputc+0x3c>
+    2004:	e8 85       	ldd	r30, Y+8	; 0x08
+    2006:	f9 85       	ldd	r31, Y+9	; 0x09
+    2008:	80 2f       	mov	r24, r16
+    200a:	09 95       	icall
+    200c:	89 2b       	or	r24, r25
+    200e:	31 f4       	brne	.+12     	; 0x201c <fputc+0x48>
+    2010:	8e 81       	ldd	r24, Y+6	; 0x06
+    2012:	9f 81       	ldd	r25, Y+7	; 0x07
+    2014:	01 96       	adiw	r24, 0x01	; 1
+    2016:	9f 83       	std	Y+7, r25	; 0x07
+    2018:	8e 83       	std	Y+6, r24	; 0x06
+    201a:	02 c0       	rjmp	.+4      	; 0x2020 <fputc+0x4c>
+    201c:	0f ef       	ldi	r16, 0xFF	; 255
+    201e:	1f ef       	ldi	r17, 0xFF	; 255
+    2020:	c8 01       	movw	r24, r16
+    2022:	df 91       	pop	r29
+    2024:	cf 91       	pop	r28
+    2026:	1f 91       	pop	r17
+    2028:	0f 91       	pop	r16
+    202a:	08 95       	ret
+
+0000202c <_exit>:
+    202c:	f8 94       	cli
+
+0000202e <__stop_program>:
+    202e:	ff cf       	rjmp	.-2      	; 0x202e <__stop_program>

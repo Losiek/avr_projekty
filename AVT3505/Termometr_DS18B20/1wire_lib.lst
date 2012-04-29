@@ -1,0 +1,286 @@
+   1               		.file	"1wire_lib.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	reset_1w
+  20               	reset_1w:
+  21               	.LFB6:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8D9A      		sbi 49-0x20,5
+  27               	.LM3:
+  28 0002 9598      		cbi 50-0x20,5
+  29               	.LBB16:
+  30               	.LBB17:
+  31               	.LBB18:
+  32               	.LBB19:
+  33               	.LM4:
+  34 0004 90E0      		ldi r25,lo8(0)
+  35 0006 892F      		mov r24,r25
+  36               	.LVL0:
+  37               	/* #APP */
+  38 0008 8A95      		1: dec r24
+  39 000a 01F4      		brne 1b
+  40               	/* #NOAPP */
+  41               	.LBE19:
+  42               	.LBE18:
+  43               	.LBE17:
+  44               	.LBE16:
+  45               	.LM5:
+  46 000c 8D98      		cbi 49-0x20,5
+  47               	.LBB20:
+  48               	.LBB21:
+  49               	.LBB22:
+  50               	.LBB23:
+  51               	.LM6:
+  52 000e 8AEB      		ldi r24,lo8(-70)
+  53               	.LVL1:
+  54               	/* #APP */
+  55 0010 8A95      		1: dec r24
+  56 0012 01F4      		brne 1b
+  57               	/* #NOAPP */
+  58               	.LBE23:
+  59               	.LBE22:
+  60               	.LBE21:
+  61               	.LBE20:
+  62               	.LM7:
+  63 0014 80B3      		in r24,48-0x20
+  64               	.LVL2:
+  65               	.LBB24:
+  66               	.LBB25:
+  67               	.LBB26:
+  68               	.LBB27:
+  69               	.LM8:
+  70               	/* #APP */
+  71 0016 9A95      		1: dec r25
+  72 0018 01F4      		brne 1b
+  73               	.LVL3:
+  74               	/* #NOAPP */
+  75 001a 8295      		swap r24
+  76 001c 8695      		lsr r24
+  77 001e 8770      		andi r24,0x7
+  78 0020 8170      		andi r24,lo8(1)
+  79               	.LBE27:
+  80               	.LBE26:
+  81               	.LBE25:
+  82               	.LBE24:
+  83               	.LM9:
+  84 0022 9927      		clr r25
+  85               	/* epilogue: frame size=0 */
+  86 0024 0895      		ret
+  87               	/* epilogue end (size=1) */
+  88               	/* function reset_1w size 25 (24) */
+  89               	.LFE6:
+  91               	.global	send_1w
+  93               	send_1w:
+  94               	.LFB7:
+  95               	.LM10:
+  96               	/* prologue: frame size=0 */
+  97               	/* prologue end (size=0) */
+  98               	.LVL4:
+  99 0026 982F      		mov r25,r24
+ 100 0028 40E0      		ldi r20,lo8(0)
+ 101               	.LVL5:
+ 102 002a 30EA      		ldi r19,lo8(-96)
+ 103 002c 2DE0      		ldi r18,lo8(13)
+ 104               	.LVL6:
+ 105               	.L4:
+ 106               	.LM11:
+ 107 002e 90FD      		sbrc r25,0
+ 108 0030 00C0      		rjmp .L5
+ 109               	.LM12:
+ 110 0032 8D9A      		sbi 49-0x20,5
+ 111               	.LM13:
+ 112 0034 9598      		cbi 50-0x20,5
+ 113               	.LBB44:
+ 114               	.LBB45:
+ 115               	.LBB46:
+ 116               	.LBB47:
+ 117               	.LM14:
+ 118 0036 832F      		mov r24,r19
+ 119               	.LVL7:
+ 120               	/* #APP */
+ 121 0038 8A95      		1: dec r24
+ 122 003a 01F4      		brne 1b
+ 123               	/* #NOAPP */
+ 124               	.LBE47:
+ 125               	.LBE46:
+ 126               	.LBE45:
+ 127               	.LBE44:
+ 128               	.LM15:
+ 129 003c 8D98      		cbi 49-0x20,5
+ 130               	.LBB48:
+ 131               	.LBB49:
+ 132               	.LBB50:
+ 133               	.LBB51:
+ 134               	.LM16:
+ 135 003e 822F      		mov r24,r18
+ 136               	.LVL8:
+ 137 0040 00C0      		rjmp .L11
+ 138               	.LVL9:
+ 139               	.L5:
+ 140               	.LBE51:
+ 141               	.LBE50:
+ 142               	.LBE49:
+ 143               	.LBE48:
+ 144               	.LM17:
+ 145 0042 8D9A      		sbi 49-0x20,5
+ 146               	.LM18:
+ 147 0044 9598      		cbi 50-0x20,5
+ 148               	.LBB52:
+ 149               	.LBB53:
+ 150               	.LBB54:
+ 151               	.LBB55:
+ 152               	.LM19:
+ 153 0046 822F      		mov r24,r18
+ 154               	.LVL10:
+ 155               	/* #APP */
+ 156 0048 8A95      		1: dec r24
+ 157 004a 01F4      		brne 1b
+ 158               	/* #NOAPP */
+ 159               	.LBE55:
+ 160               	.LBE54:
+ 161               	.LBE53:
+ 162               	.LBE52:
+ 163               	.LM20:
+ 164 004c 8D98      		cbi 49-0x20,5
+ 165               	.LBB56:
+ 166               	.LBB57:
+ 167               	.LBB58:
+ 168               	.LBB59:
+ 169               	.LM21:
+ 170 004e 832F      		mov r24,r19
+ 171               	.LVL11:
+ 172               	.L11:
+ 173               	.LVL12:
+ 174               	/* #APP */
+ 175 0050 8A95      		1: dec r24
+ 176 0052 01F4      		brne 1b
+ 177               	/* #NOAPP */
+ 178               	.LBE59:
+ 179               	.LBE58:
+ 180               	.LBE57:
+ 181               	.LBE56:
+ 182               	.LM22:
+ 183 0054 4F5F      		subi r20,lo8(-(1))
+ 184 0056 4830      		cpi r20,lo8(8)
+ 185 0058 01F0      		breq .L10
+ 186               	.LM23:
+ 187 005a 9695      		lsr r25
+ 188 005c 00C0      		rjmp .L4
+ 189               	.L10:
+ 190 005e 0895      		ret
+ 191               	/* epilogue: frame size=0 */
+ 192               	/* epilogue: noreturn */
+ 193               	/* epilogue end (size=0) */
+ 194               	/* function send_1w size 35 (35) */
+ 195               	.LFE7:
+ 197               	.global	get_1w
+ 199               	get_1w:
+ 200               	.LFB8:
+ 201               	.LM24:
+ 202               	/* prologue: frame size=0 */
+ 203               	/* prologue end (size=0) */
+ 204 0060 90E0      		ldi r25,lo8(0)
+ 205               	.LVL13:
+ 206 0062 20E0      		ldi r18,lo8(0)
+ 207               	.LVL14:
+ 208 0064 5AE0      		ldi r21,lo8(10)
+ 209 0066 40E1      		ldi r20,lo8(16)
+ 210 0068 30EF      		ldi r19,lo8(-16)
+ 211               	.LVL15:
+ 212               	.L13:
+ 213               	.LM25:
+ 214 006a 9695      		lsr r25
+ 215               	.LM26:
+ 216 006c 8D9A      		sbi 49-0x20,5
+ 217               	.LM27:
+ 218 006e 9598      		cbi 50-0x20,5
+ 219               	.LBB72:
+ 220               	.LBB73:
+ 221               	.LBB74:
+ 222               	.LBB75:
+ 223               	.LM28:
+ 224 0070 852F      		mov r24,r21
+ 225               	.LVL16:
+ 226               	/* #APP */
+ 227 0072 8A95      		1: dec r24
+ 228 0074 01F4      		brne 1b
+ 229               	/* #NOAPP */
+ 230               	.LBE75:
+ 231               	.LBE74:
+ 232               	.LBE73:
+ 233               	.LBE72:
+ 234               	.LM29:
+ 235 0076 8D98      		cbi 49-0x20,5
+ 236               	.LBB76:
+ 237               	.LBB77:
+ 238               	.LBB78:
+ 239               	.LBB79:
+ 240               	.LM30:
+ 241 0078 842F      		mov r24,r20
+ 242               	.LVL17:
+ 243               	/* #APP */
+ 244 007a 8A95      		1: dec r24
+ 245 007c 01F4      		brne 1b
+ 246               	/* #NOAPP */
+ 247               	.LBE79:
+ 248               	.LBE78:
+ 249               	.LBE77:
+ 250               	.LBE76:
+ 251               	.LM31:
+ 252 007e 8599      		sbic 48-0x20,5
+ 253               	.LM32:
+ 254 0080 9058      		subi r25,lo8(-(-128))
+ 255               	.L14:
+ 256               	.LBB80:
+ 257               	.LBB81:
+ 258               	.LBB82:
+ 259               	.LBB83:
+ 260               	.LM33:
+ 261 0082 832F      		mov r24,r19
+ 262               	.LVL18:
+ 263               	/* #APP */
+ 264 0084 8A95      		1: dec r24
+ 265 0086 01F4      		brne 1b
+ 266               	/* #NOAPP */
+ 267               	.LBE83:
+ 268               	.LBE82:
+ 269               	.LBE81:
+ 270               	.LBE80:
+ 271               	.LM34:
+ 272 0088 2F5F      		subi r18,lo8(-(1))
+ 273 008a 2830      		cpi r18,lo8(8)
+ 274 008c 01F4      		brne .L13
+ 275               	.LM35:
+ 276 008e 892F      		mov r24,r25
+ 277 0090 9927      		clr r25
+ 278               	.LVL19:
+ 279               	/* epilogue: frame size=0 */
+ 280 0092 0895      		ret
+ 281               	/* epilogue end (size=1) */
+ 282               	/* function get_1w size 33 (32) */
+ 283               	.LFE8:
+ 325               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 1wire_lib.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:20     .text:00000000 reset_1w
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:93     .text:00000026 send_1w
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxX1Xpn.s:199    .text:00000060 get_1w
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

@@ -1,0 +1,158 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC1:
+  18 0000 0D00      		.string	"\r"
+  19               	.LC0:
+  20 0002 5465 726D 		.string	"Termometr DS18B20!"
+  20      6F6D 6574 
+  20      7220 4453 
+  20      3138 4232 
+  20      3021 00
+  21               		.text
+  22               	.global	main
+  24               	main:
+  25               	.LFB7:
+  26               	.LM1:
+  27 0000 EF92      		push r14
+  28 0002 FF92      		push r15
+  29 0004 0F93      		push r16
+  30 0006 1F93      		push r17
+  31 0008 DF93      		push r29
+  32 000a CF93      		push r28
+  33 000c CDB7      		in r28,__SP_L__
+  34 000e DEB7      		in r29,__SP_H__
+  35 0010 6997      		sbiw r28,25
+  36 0012 0FB6      		in __tmp_reg__,__SREG__
+  37 0014 F894      		cli
+  38 0016 DEBF      		out __SP_H__,r29
+  39 0018 0FBE      		out __SREG__,__tmp_reg__
+  40 001a CDBF      		out __SP_L__,r28
+  41               	/* prologue: function */
+  42               	/* frame size = 25 */
+  43               	.LM2:
+  44 001c 17BA      		out 55-32,__zero_reg__
+  45               	.LM3:
+  46 001e 18BA      		out 56-32,__zero_reg__
+  47               	.LM4:
+  48 0020 10BC      		out 64-32,__zero_reg__
+  49 0022 83E3      		ldi r24,lo8(51)
+  50 0024 89B9      		out 41-32,r24
+  51               	.LM5:
+  52 0026 86E8      		ldi r24,lo8(-122)
+  53 0028 80BD      		out 64-32,r24
+  54               	.LM6:
+  55 002a 88E1      		ldi r24,lo8(24)
+  56 002c 8AB9      		out 42-32,r24
+  57               	.LM7:
+  58 002e 1BB8      		out 43-32,__zero_reg__
+  59               	.LM8:
+  60 0030 80E0      		ldi r24,lo8(gs(rs_put))
+  61 0032 90E0      		ldi r25,hi8(gs(rs_put))
+  62 0034 60E0      		ldi r22,lo8(gs(rs_get))
+  63 0036 70E0      		ldi r23,hi8(gs(rs_get))
+  64 0038 0E94 0000 		call fdevopen
+  65               	.LM9:
+  66 003c DE01      		movw r26,r28
+  67 003e 1796      		adiw r26,7
+  68 0040 E0E0      		ldi r30,lo8(.LC0)
+  69 0042 F0E0      		ldi r31,hi8(.LC0)
+  70 0044 83E1      		ldi r24,lo8(19)
+  71               	.L2:
+  72 0046 0190      		ld r0,Z+
+  73 0048 0D92      		st X+,r0
+  74 004a 8150      		subi r24,lo8(-(-1))
+  75 004c 01F4      		brne .L2
+  76 004e 8E01      		movw r16,r28
+  77 0050 095F      		subi r16,lo8(-(7))
+  78 0052 1F4F      		sbci r17,hi8(-(7))
+  79               	.LBB2:
+  80               	.LM10:
+  81 0054 8AE1      		ldi r24,lo8(26)
+  82 0056 E82E      		mov r14,r24
+  83 0058 F12C      		mov r15,__zero_reg__
+  84 005a EC0E      		add r14,r28
+  85 005c FD1E      		adc r15,r29
+  86               	.L3:
+  87               	.LM11:
+  88 005e F801      		movw r30,r16
+  89 0060 8191      		ld r24,Z+
+  90 0062 8F01      		movw r16,r30
+  91 0064 0E94 0000 		call rs_put
+  92               	.LM12:
+  93 0068 0E15      		cp r16,r14
+  94 006a 1F05      		cpc r17,r15
+  95 006c 01F4      		brne .L3
+  96               	.LBE2:
+  97               	.LM13:
+  98 006e 0E94 0000 		call RESET_PULSE
+  99               	.LM14:
+ 100 0072 0E94 0000 		call SKIP_ROM
+ 101               	.LM15:
+ 102 0076 0E94 0000 		call READ_SCRATCHPAD
+ 103               	.LM16:
+ 104 007a 0E94 0000 		call RESET_PULSE
+ 105               	.LM17:
+ 106 007e 8E01      		movw r16,r28
+ 107 0080 0F5F      		subi r16,lo8(-(1))
+ 108 0082 1F4F      		sbci r17,hi8(-(1))
+ 109               	.L4:
+ 110 0084 0E94 0000 		call TEMP_READ
+ 111 0088 62E0      		ldi r22,lo8(2)
+ 112 008a 70E0      		ldi r23,hi8(2)
+ 113 008c 42E0      		ldi r20,lo8(2)
+ 114 008e 50E0      		ldi r21,hi8(2)
+ 115 0090 9801      		movw r18,r16
+ 116 0092 0E94 0000 		call dtostrf
+ 117               	.LBB3:
+ 118               	.LM18:
+ 119 0096 8981      		ldd r24,Y+1
+ 120 0098 0E94 0000 		call rs_put
+ 121 009c 8A81      		ldd r24,Y+2
+ 122 009e 0E94 0000 		call rs_put
+ 123 00a2 8B81      		ldd r24,Y+3
+ 124 00a4 0E94 0000 		call rs_put
+ 125 00a8 8C81      		ldd r24,Y+4
+ 126 00aa 0E94 0000 		call rs_put
+ 127 00ae 8D81      		ldd r24,Y+5
+ 128 00b0 0E94 0000 		call rs_put
+ 129               	.LBE3:
+ 130               	.LM19:
+ 131 00b4 80E0      		ldi r24,lo8(.LC1)
+ 132 00b6 90E0      		ldi r25,hi8(.LC1)
+ 133 00b8 0E94 0000 		call puts
+ 134 00bc 00C0      		rjmp .L4
+ 135               	.LFE7:
+ 137               		.comm bufor1w,8,1
+ 138               		.comm pbufor1w,2,1
+ 163               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/cc7kcRYn.s:24     .text:00000000 main
+                            *COM*:00000008 bufor1w
+                            *COM*:00000002 pbufor1w
+
+UNDEFINED SYMBOLS
+rs_put
+rs_get
+fdevopen
+RESET_PULSE
+SKIP_ROM
+READ_SCRATCHPAD
+TEMP_READ
+dtostrf
+puts
+__do_copy_data
+__do_clear_bss

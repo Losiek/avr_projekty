@@ -1,0 +1,1 @@
+<Project name="PCF8591"><Folder name="Headers"><File path="makra.h"></File><File path="harddef.h"></File><File path="delay.h"></File><File path="lcd.h"></File><File path="i2c.h"></File></Folder><Folder name="Source"><File path="lcd.c"></File><File path="i2c.c"></File><File path="delay.c"></File><File path="main.c"></File></Folder><File path="Makefile"></File></Project>

@@ -1,0 +1,94 @@
+   1               		.file	"projekt.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB6:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 2FEF      		ldi r18,lo8(-1)
+  27 0002 27BB      		out 55-0x20,r18
+  28               	.LM3:
+  29 0004 88E7      		ldi r24,lo8(120)
+  30 0006 81BB      		out 49-0x20,r24
+  31               	.LM4:
+  32 0008 91E0      		ldi r25,lo8(1)
+  33 000a 9FBD      		out 79-0x20,r25
+  34               	.LM5:
+  35 000c 80EC      		ldi r24,lo8(-64)
+  36 000e 8FBD      		out 79-0x20,r24
+  37               	.LM6:
+  38 0010 9EBD      		out 78-0x20,r25
+  39               	.LM7:
+  40 0012 80E4      		ldi r24,lo8(64)
+  41 0014 87BD      		out 71-0x20,r24
+  42               	.LM8:
+  43 0016 80E3      		ldi r24,lo8(48)
+  44 0018 87BD      		out 71-0x20,r24
+  45               	.LM9:
+  46 001a 97BD      		out 71-0x20,r25
+  47               	.LM10:
+  48 001c 22BB      		out 50-0x20,r18
+  49               	.LM11:
+  50 001e 8FEF      		ldi r24,lo8(255)
+  51 0020 90E0      		ldi r25,hi8(255)
+  52 0022 9BBD      		out (74)+1-0x20,r25
+  53 0024 8ABD      		out 74-0x20,r24
+  54               	.LM12:
+  55 0026 12BC      		out 66-0x20,__zero_reg__
+  56               	.LM13:
+  57 0028 99BD      		out (72)+1-0x20,r25
+  58 002a 88BD      		out 72-0x20,r24
+  59 002c E0E0      		ldi r30,lo8(0)
+  60 002e F0E0      		ldi r31,hi8(0)
+  61               	.L2:
+  62               	.LBB8:
+  63               	.LBB9:
+  64               	.LBB10:
+  65               	.LBB11:
+  66               	.LM14:
+  67 0030 CF01      		movw r24,r30
+  68               	.LVL0:
+  69               	/* #APP */
+  70 0032 0197      		1: sbiw r24,1
+  71 0034 01F4      		brne 1b
+  72               	/* #NOAPP */
+  73               	.LBE11:
+  74               	.LBE10:
+  75               	.LBE9:
+  76               	.LBE8:
+  77               	.LM15:
+  78 0036 8AB5      		in r24,74-0x20
+  79 0038 9BB5      		in r25,(74)+1-0x20
+  80               	.LVL1:
+  81 003a 0197      		sbiw r24,1
+  82 003c 9BBD      		out (74)+1-0x20,r25
+  83 003e 8ABD      		out 74-0x20,r24
+  84 0040 00C0      		rjmp .L2
+  85               	/* epilogue: frame size=0 */
+  86               	/* epilogue: noreturn */
+  87               	/* epilogue end (size=0) */
+  88               	/* function main size 35 (35) */
+  89               	.LFE6:
+ 115               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 projekt.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccxxkNJP.s:20     .text:00000000 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

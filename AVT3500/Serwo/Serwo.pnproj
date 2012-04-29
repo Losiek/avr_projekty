@@ -1,0 +1,1 @@
+<Project name="Serwo"><Folder name="Headers"><File path="harddef.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="serwo.c"></File></Folder><File path="Makefile"></File></Project>

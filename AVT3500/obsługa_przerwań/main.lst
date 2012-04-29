@@ -1,0 +1,98 @@
+   1               		.file	"main.c"
+   2               		.arch at90s2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 9FEF      		ldi r25,lo8(-1)
+  27 0002 97BB      		out 55-0x20,r25
+  28               	.LM3:
+  29 0004 88E7      		ldi r24,lo8(120)
+  30 0006 81BB      		out 49-0x20,r24
+  31               	.LM4:
+  32 0008 98BB      		out 56-0x20,r25
+  33               	.LM5:
+  34 000a 92BB      		out 50-0x20,r25
+  35               	.LM6:
+  36 000c 85E0      		ldi r24,lo8(5)
+  37 000e 83BF      		out 83-0x20,r24
+  38               	.LM7:
+  39 0010 82E0      		ldi r24,lo8(2)
+  40 0012 89BF      		out 89-0x20,r24
+  41               	.LM8:
+  42               	/* #APP */
+  43 0014 7894      		sei
+  44               	/* #NOAPP */
+  45 0016 9FEB      		ldi r25,lo8(-65)
+  46 0018 8EEF      		ldi r24,lo8(-2)
+  47               	.L2:
+  48               	.LM9:
+  49 001a 92BB      		out 50-0x20,r25
+  50               	.LM10:
+  51 001c 88BB      		out 56-0x20,r24
+  52 001e 00C0      		rjmp .L2
+  53               	/* epilogue: frame size=0 */
+  54               	/* epilogue: noreturn */
+  55               	/* epilogue end (size=0) */
+  56               	/* function main size 17 (17) */
+  57               	.LFE2:
+  59               	.global	TIMER0_OVF_vect
+  61               	TIMER0_OVF_vect:
+  62               	.LFB3:
+  63               	.LM11:
+  64               	/* prologue: frame size=0 */
+  65 0020 1F92      		push __zero_reg__
+  66 0022 0F92      		push __tmp_reg__
+  67 0024 0FB6      		in __tmp_reg__,__SREG__
+  68 0026 0F92      		push __tmp_reg__
+  69 0028 1124      		clr __zero_reg__
+  70 002a 8F93      		push r24
+  71               	/* prologue end (size=6) */
+  72               	.LM12:
+  73 002c 8091 0000 		lds r24,count
+  74 0030 8F5F      		subi r24,lo8(-(1))
+  75 0032 8093 0000 		sts count,r24
+  76               	.LM13:
+  77 0036 8BEF      		ldi r24,lo8(-5)
+  78 0038 88BB      		out 56-0x20,r24
+  79               	/* epilogue: frame size=0 */
+  80 003a 8F91      		pop r24
+  81 003c 0F90      		pop __tmp_reg__
+  82 003e 0FBE      		out __SREG__,__tmp_reg__
+  83 0040 0F90      		pop __tmp_reg__
+  84 0042 1F90      		pop __zero_reg__
+  85 0044 1895      		reti
+  86               	/* epilogue end (size=6) */
+  87               	/* function TIMER0_OVF_vect size 19 (7) */
+  88               	.LFE3:
+  90               	.global	count
+  91               	.global	count
+  92               		.section .bss
+  95               	count:
+  96 0000 00        		.skip 1,0
+ 129               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:61     .text:00000020 TIMER0_OVF_vect
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccJpOTtY.s:95     .bss:00000000 count
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

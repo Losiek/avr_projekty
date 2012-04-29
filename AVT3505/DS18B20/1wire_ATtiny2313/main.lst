@@ -1,0 +1,57 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB3:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 87BB      		out 55-32,r24
+  26               	.LM3:
+  27 0004 88BB      		out 56-32,r24
+  28               	.LM4:
+  29 0006 8C98      		cbi 49-32,4
+  30               	.LM5:
+  31 0008 9498      		cbi 50-32,4
+  32               	.LM6:
+  33 000a 88EC      		ldi r24,lo8(200)
+  34 000c 90E0      		ldi r25,hi8(200)
+  35 000e 00D0      		rcall wait_1w
+  36               	.L7:
+  37               	.LM7:
+  38 0010 00D0      		rcall reset_1w
+  39 0012 892B      		or r24,r25
+  40 0014 01F4      		brne .L2
+  41               	.LM8:
+  42 0016 C098      		cbi 56-32,0
+  43               	.L2:
+  44               	.LM9:
+  45 0018 00D0      		rcall reset_1w
+  46 001a 892B      		or r24,r25
+  47 001c 01F0      		breq .L7
+  48               	.LM10:
+  49 001e C198      		cbi 56-32,1
+  50 0020 00C0      		rjmp .L7
+  51               	.LFE3:
+  77               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccT2F8Dk.s:18     .text:00000000 main
+
+UNDEFINED SYMBOLS
+wait_1w
+reset_1w

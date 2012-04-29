@@ -1,0 +1,679 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.init3,"ax",@progbits
+  17               	.global	before_main
+  19               	before_main:
+  20               	.LFB7:
+  21               	.LSM0:
+  22               	/* prologue: naked */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 80E8      		ldi r24,lo8(-128)
+  26 0002 85BF      		out 85-32,r24
+  27               	.LSM2:
+  28 0004 80E4      		ldi r24,lo8(64)
+  29 0006 86BF      		out 86-32,r24
+  30               	/* epilogue start */
+  31               	.LSM3:
+  32               	.LFE7:
+  34               		.text
+  35               	.global	__vector_1
+  37               	__vector_1:
+  38               	.LFB9:
+  39               	.LM1:
+  40 0000 1F92      		push __zero_reg__
+  41 0002 0F92      		push r0
+  42 0004 0FB6      		in r0,__SREG__
+  43 0006 0F92      		push r0
+  44 0008 1124      		clr __zero_reg__
+  45 000a 8F93      		push r24
+  46 000c 9F93      		push r25
+  47               	/* prologue: Signal */
+  48               	/* frame size = 0 */
+  49               	.LM2:
+  50 000e 8091 0000 		lds r24,n
+  51 0012 9091 0000 		lds r25,(n)+1
+  52 0016 0196      		adiw r24,1
+  53 0018 9093 0000 		sts (n)+1,r25
+  54 001c 8093 0000 		sts n,r24
+  55               	/* epilogue start */
+  56               	.LM3:
+  57 0020 9F91      		pop r25
+  58 0022 8F91      		pop r24
+  59 0024 0F90      		pop r0
+  60 0026 0FBE      		out __SREG__,r0
+  61 0028 0F90      		pop r0
+  62 002a 1F90      		pop __zero_reg__
+  63 002c 1895      		reti
+  64               	.LFE9:
+  66               		.data
+  67               	.LC0:
+  68 0000 5769 7461 		.string	"Witaj RTL8019as"
+  68      6A20 5254 
+  68      4C38 3031 
+  68      3961 7300 
+  69               	.LC1:
+  70 0010 0A52 6561 		.string	"\nRealtek 8019AS Register dump"
+  70      6C74 656B 
+  70      2038 3031 
+  70      3941 5320 
+  70      5265 6769 
+  71               	.LC2:
+  72 002e 0A52 4547 		.string	"\nREG Page0 Page1 Page2 Page3\n"
+  72      2050 6167 
+  72      6530 2050 
+  72      6167 6531 
+  72      2050 6167 
+  73               	.LC3:
+  74 004c 2558 2020 		.string	"%X    "
+  74      2020 00
+  75               	.LC4:
+  76 0053 0A0D 00   		.string	"\n\r"
+  77               	.LC5:
+  78 0056 2570 0A0D 		.string	"%p\n\r"
+  78      00
+  79               	.LC6:
+  80 005b 2564 2000 		.string	"%d "
+  81               		.text
+  82               	.global	main
+  84               	main:
+  85               	.LFB8:
+  86               	.LM4:
+  87 002e AF92      		push r10
+  88 0030 BF92      		push r11
+  89 0032 CF92      		push r12
+  90 0034 DF92      		push r13
+  91 0036 EF92      		push r14
+  92 0038 FF92      		push r15
+  93 003a 0F93      		push r16
+  94 003c 1F93      		push r17
+  95 003e CF93      		push r28
+  96 0040 DF93      		push r29
+  97               	/* prologue: function */
+  98               	/* frame size = 0 */
+  99               	.LM5:
+ 100 0042 E0E4      		ldi r30,lo8(64)
+ 101 0044 F0E0      		ldi r31,hi8(64)
+ 102 0046 1082      		st Z,__zero_reg__
+ 103 0048 87E6      		ldi r24,lo8(103)
+ 104 004a 89B9      		out 41-32,r24
+ 105               	.LM6:
+ 106 004c 86E8      		ldi r24,lo8(-122)
+ 107 004e 8083      		st Z,r24
+ 108               	.LM7:
+ 109 0050 88E1      		ldi r24,lo8(24)
+ 110 0052 8AB9      		out 42-32,r24
+ 111               	.LM8:
+ 112 0054 1BB8      		out 43-32,__zero_reg__
+ 113               	.LM9:
+ 114 0056 E5E5      		ldi r30,lo8(85)
+ 115 0058 F0E0      		ldi r31,hi8(85)
+ 116 005a 8081      		ld r24,Z
+ 117 005c 8360      		ori r24,lo8(3)
+ 118 005e 8083      		st Z,r24
+ 119               	.LM10:
+ 120 0060 80E4      		ldi r24,lo8(64)
+ 121 0062 8BBF      		out 91-32,r24
+ 122               	.LM11:
+ 123               	/* #APP */
+ 124               	 ;  57 "main.c" 1
+ 125 0064 7894      		sei
+ 126               	 ;  0 "" 2
+ 127               	.LM12:
+ 128               	/* #NOAPP */
+ 129 0066 80E0      		ldi r24,lo8(gs(rs_put))
+ 130 0068 90E0      		ldi r25,hi8(gs(rs_put))
+ 131 006a 60E0      		ldi r22,lo8(gs(rs_get))
+ 132 006c 70E0      		ldi r23,hi8(gs(rs_get))
+ 133 006e 0E94 0000 		call fdevopen
+ 134               	.LM13:
+ 135 0072 80E0      		ldi r24,lo8(.LC0)
+ 136 0074 90E0      		ldi r25,hi8(.LC0)
+ 137 0076 0E94 0000 		call puts
+ 138               	.LM14:
+ 139 007a 8DE0      		ldi r24,lo8(13)
+ 140 007c 90E0      		ldi r25,hi8(13)
+ 141 007e 0E94 0000 		call putchar
+ 142               	.LM15:
+ 143 0082 0E94 0000 		call RTLinit
+ 144               	.LM16:
+ 145 0086 80E0      		ldi r24,lo8(4096)
+ 146 0088 90E1      		ldi r25,hi8(4096)
+ 147 008a A0E0      		ldi r26,hlo8(4096)
+ 148 008c B0E0      		ldi r27,hhi8(4096)
+ 149 008e 8093 0000 		sts seq_number,r24
+ 150 0092 9093 0000 		sts (seq_number)+1,r25
+ 151 0096 A093 0000 		sts (seq_number)+2,r26
+ 152 009a B093 0000 		sts (seq_number)+3,r27
+ 153               	.LM17:
+ 154 009e 80E0      		ldi r24,lo8(.LC1)
+ 155 00a0 90E0      		ldi r25,hi8(.LC1)
+ 156 00a2 0E94 0000 		call puts
+ 157               	.LM18:
+ 158 00a6 8DE0      		ldi r24,lo8(13)
+ 159 00a8 90E0      		ldi r25,hi8(13)
+ 160 00aa 0E94 0000 		call putchar
+ 161               	.LM19:
+ 162 00ae 80E0      		ldi r24,lo8(.LC2)
+ 163 00b0 90E0      		ldi r25,hi8(.LC2)
+ 164 00b2 0E94 0000 		call puts
+ 165               	.LM20:
+ 166 00b6 8DE0      		ldi r24,lo8(13)
+ 167 00b8 90E0      		ldi r25,hi8(13)
+ 168 00ba 0E94 0000 		call putchar
+ 169 00be C0E0      		ldi r28,lo8(0)
+ 170 00c0 D0E0      		ldi r29,hi8(0)
+ 171               	.LBB32:
+ 172               	.LBB33:
+ 173               	.LM21:
+ 174 00c2 0F2E      		mov __tmp_reg__,r31
+ 175 00c4 F0E0      		ldi r31,lo8(.LC3)
+ 176 00c6 EF2E      		mov r14,r31
+ 177 00c8 F0E0      		ldi r31,hi8(.LC3)
+ 178 00ca FF2E      		mov r15,r31
+ 179 00cc F02D      		mov r31,__tmp_reg__
+ 180               	.LBB34:
+ 181               	.LBB35:
+ 182               	.LBB36:
+ 183               	.LBB37:
+ 184               	.LM22:
+ 185 00ce 0F2E      		mov __tmp_reg__,r31
+ 186 00d0 F0E4      		ldi r31,lo8(8000)
+ 187 00d2 CF2E      		mov r12,r31
+ 188 00d4 FFE1      		ldi r31,hi8(8000)
+ 189 00d6 DF2E      		mov r13,r31
+ 190 00d8 F02D      		mov r31,__tmp_reg__
+ 191               	.LBE37:
+ 192               	.LBE36:
+ 193               	.LBE35:
+ 194               	.LBE34:
+ 195               	.LM23:
+ 196 00da 0F2E      		mov __tmp_reg__,r31
+ 197 00dc F0E0      		ldi r31,lo8(.LC4)
+ 198 00de AF2E      		mov r10,r31
+ 199 00e0 F0E0      		ldi r31,hi8(.LC4)
+ 200 00e2 BF2E      		mov r11,r31
+ 201 00e4 F02D      		mov r31,__tmp_reg__
+ 202               	.LVL0:
+ 203               	.L14:
+ 204               	.LBE33:
+ 205               	.LBE32:
+ 206               	.LM24:
+ 207 00e6 1C2F      		mov r17,r28
+ 208               	.LBB55:
+ 209               	.LBB54:
+ 210               	.LM25:
+ 211 00e8 00D0      		rcall .
+ 212 00ea 00D0      		rcall .
+ 213 00ec EDB7      		in r30,__SP_L__
+ 214 00ee FEB7      		in r31,__SP_H__
+ 215 00f0 3196      		adiw r30,1
+ 216 00f2 F182      		std Z+1,r15
+ 217 00f4 E082      		st Z,r14
+ 218 00f6 D383      		std Z+3,r29
+ 219 00f8 C283      		std Z+2,r28
+ 220 00fa 0E94 0000 		call printf
+ 221               	.LM26:
+ 222 00fe 0F90      		pop __tmp_reg__
+ 223 0100 0F90      		pop __tmp_reg__
+ 224 0102 0F90      		pop __tmp_reg__
+ 225 0104 0F90      		pop __tmp_reg__
+ 226 0106 80E0      		ldi r24,lo8(0)
+ 227 0108 60E0      		ldi r22,lo8(0)
+ 228 010a 0E94 0000 		call RTLwrite
+ 229               	.LBB41:
+ 230               	.LBB40:
+ 231               	.LBB39:
+ 232               	.LBB38:
+ 233               	.LM27:
+ 234 010e C601      		movw r24,r12
+ 235               	.LVL1:
+ 236               	/* #APP */
+ 237               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 238 0110 0197      		1: sbiw r24,1
+ 239 0112 01F4      		brne 1b
+ 240               	 ;  0 "" 2
+ 241               	/* #NOAPP */
+ 242               	.LBE38:
+ 243               	.LBE39:
+ 244               	.LBE40:
+ 245               	.LBE41:
+ 246               	.LM28:
+ 247 0114 8C2F      		mov r24,r28
+ 248               	.LVL2:
+ 249 0116 0E94 0000 		call RTLread
+ 250 011a 082F      		mov r16,r24
+ 251               	.LVL3:
+ 252               	.LM29:
+ 253 011c 8031      		cpi r24,lo8(16)
+ 254 011e 00F4      		brsh .L6
+ 255               	.LVL4:
+ 256               	.LM30:
+ 257 0120 80E3      		ldi r24,lo8(48)
+ 258 0122 90E0      		ldi r25,hi8(48)
+ 259               	.LVL5:
+ 260 0124 0E94 0000 		call putchar
+ 261               	.LM31:
+ 262 0128 00D0      		rcall .
+ 263 012a 00D0      		rcall .
+ 264 012c EDB7      		in r30,__SP_L__
+ 265 012e FEB7      		in r31,__SP_H__
+ 266 0130 3196      		adiw r30,1
+ 267 0132 F182      		std Z+1,r15
+ 268 0134 E082      		st Z,r14
+ 269 0136 0283      		std Z+2,r16
+ 270 0138 1382      		std Z+3,__zero_reg__
+ 271 013a 0E94 0000 		call printf
+ 272 013e 0F90      		pop __tmp_reg__
+ 273 0140 0F90      		pop __tmp_reg__
+ 274 0142 0F90      		pop __tmp_reg__
+ 275 0144 0F90      		pop __tmp_reg__
+ 276 0146 00C0      		rjmp .L7
+ 277               	.LVL6:
+ 278               	.L6:
+ 279               	.LM32:
+ 280 0148 00D0      		rcall .
+ 281 014a 00D0      		rcall .
+ 282 014c EDB7      		in r30,__SP_L__
+ 283 014e FEB7      		in r31,__SP_H__
+ 284 0150 3196      		adiw r30,1
+ 285 0152 F182      		std Z+1,r15
+ 286 0154 E082      		st Z,r14
+ 287 0156 8283      		std Z+2,r24
+ 288 0158 1382      		std Z+3,__zero_reg__
+ 289 015a 0E94 0000 		call printf
+ 290               	.LVL7:
+ 291 015e 0F90      		pop __tmp_reg__
+ 292 0160 0F90      		pop __tmp_reg__
+ 293 0162 0F90      		pop __tmp_reg__
+ 294 0164 0F90      		pop __tmp_reg__
+ 295               	.L7:
+ 296               	.LM33:
+ 297 0166 80E0      		ldi r24,lo8(0)
+ 298 0168 60E4      		ldi r22,lo8(64)
+ 299 016a 0E94 0000 		call RTLwrite
+ 300               	.LBB42:
+ 301               	.LBB43:
+ 302               	.LBB44:
+ 303               	.LBB45:
+ 304               	.LM34:
+ 305 016e C601      		movw r24,r12
+ 306               	.LVL8:
+ 307               	/* #APP */
+ 308               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 309 0170 0197      		1: sbiw r24,1
+ 310 0172 01F4      		brne 1b
+ 311               	 ;  0 "" 2
+ 312               	/* #NOAPP */
+ 313               	.LBE45:
+ 314               	.LBE44:
+ 315               	.LBE43:
+ 316               	.LBE42:
+ 317               	.LM35:
+ 318 0174 812F      		mov r24,r17
+ 319               	.LVL9:
+ 320 0176 0E94 0000 		call RTLread
+ 321 017a 082F      		mov r16,r24
+ 322               	.LVL10:
+ 323               	.LM36:
+ 324 017c 8031      		cpi r24,lo8(16)
+ 325 017e 00F4      		brsh .L8
+ 326               	.LVL11:
+ 327               	.LM37:
+ 328 0180 80E3      		ldi r24,lo8(48)
+ 329 0182 90E0      		ldi r25,hi8(48)
+ 330               	.LVL12:
+ 331 0184 0E94 0000 		call putchar
+ 332               	.LM38:
+ 333 0188 00D0      		rcall .
+ 334 018a 00D0      		rcall .
+ 335 018c EDB7      		in r30,__SP_L__
+ 336 018e FEB7      		in r31,__SP_H__
+ 337 0190 3196      		adiw r30,1
+ 338 0192 F182      		std Z+1,r15
+ 339 0194 E082      		st Z,r14
+ 340 0196 0283      		std Z+2,r16
+ 341 0198 1382      		std Z+3,__zero_reg__
+ 342 019a 0E94 0000 		call printf
+ 343 019e 0F90      		pop __tmp_reg__
+ 344 01a0 0F90      		pop __tmp_reg__
+ 345 01a2 0F90      		pop __tmp_reg__
+ 346 01a4 0F90      		pop __tmp_reg__
+ 347 01a6 00C0      		rjmp .L9
+ 348               	.LVL13:
+ 349               	.L8:
+ 350               	.LM39:
+ 351 01a8 00D0      		rcall .
+ 352 01aa 00D0      		rcall .
+ 353 01ac EDB7      		in r30,__SP_L__
+ 354 01ae FEB7      		in r31,__SP_H__
+ 355 01b0 3196      		adiw r30,1
+ 356 01b2 F182      		std Z+1,r15
+ 357 01b4 E082      		st Z,r14
+ 358 01b6 8283      		std Z+2,r24
+ 359 01b8 1382      		std Z+3,__zero_reg__
+ 360 01ba 0E94 0000 		call printf
+ 361               	.LVL14:
+ 362 01be 0F90      		pop __tmp_reg__
+ 363 01c0 0F90      		pop __tmp_reg__
+ 364 01c2 0F90      		pop __tmp_reg__
+ 365 01c4 0F90      		pop __tmp_reg__
+ 366               	.L9:
+ 367               	.LM40:
+ 368 01c6 80E0      		ldi r24,lo8(0)
+ 369 01c8 60E8      		ldi r22,lo8(-128)
+ 370 01ca 0E94 0000 		call RTLwrite
+ 371               	.LBB46:
+ 372               	.LBB47:
+ 373               	.LBB48:
+ 374               	.LBB49:
+ 375               	.LM41:
+ 376 01ce C601      		movw r24,r12
+ 377               	.LVL15:
+ 378               	/* #APP */
+ 379               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 380 01d0 0197      		1: sbiw r24,1
+ 381 01d2 01F4      		brne 1b
+ 382               	 ;  0 "" 2
+ 383               	/* #NOAPP */
+ 384               	.LBE49:
+ 385               	.LBE48:
+ 386               	.LBE47:
+ 387               	.LBE46:
+ 388               	.LM42:
+ 389 01d4 812F      		mov r24,r17
+ 390               	.LVL16:
+ 391 01d6 0E94 0000 		call RTLread
+ 392 01da 082F      		mov r16,r24
+ 393               	.LVL17:
+ 394               	.LM43:
+ 395 01dc 8031      		cpi r24,lo8(16)
+ 396 01de 00F4      		brsh .L10
+ 397               	.LVL18:
+ 398               	.LM44:
+ 399 01e0 80E3      		ldi r24,lo8(48)
+ 400 01e2 90E0      		ldi r25,hi8(48)
+ 401               	.LVL19:
+ 402 01e4 0E94 0000 		call putchar
+ 403               	.LM45:
+ 404 01e8 00D0      		rcall .
+ 405 01ea 00D0      		rcall .
+ 406 01ec EDB7      		in r30,__SP_L__
+ 407 01ee FEB7      		in r31,__SP_H__
+ 408 01f0 3196      		adiw r30,1
+ 409 01f2 F182      		std Z+1,r15
+ 410 01f4 E082      		st Z,r14
+ 411 01f6 0283      		std Z+2,r16
+ 412 01f8 1382      		std Z+3,__zero_reg__
+ 413 01fa 0E94 0000 		call printf
+ 414 01fe 0F90      		pop __tmp_reg__
+ 415 0200 0F90      		pop __tmp_reg__
+ 416 0202 0F90      		pop __tmp_reg__
+ 417 0204 0F90      		pop __tmp_reg__
+ 418 0206 00C0      		rjmp .L11
+ 419               	.LVL20:
+ 420               	.L10:
+ 421               	.LM46:
+ 422 0208 00D0      		rcall .
+ 423 020a 00D0      		rcall .
+ 424 020c EDB7      		in r30,__SP_L__
+ 425 020e FEB7      		in r31,__SP_H__
+ 426 0210 3196      		adiw r30,1
+ 427 0212 F182      		std Z+1,r15
+ 428 0214 E082      		st Z,r14
+ 429 0216 8283      		std Z+2,r24
+ 430 0218 1382      		std Z+3,__zero_reg__
+ 431 021a 0E94 0000 		call printf
+ 432               	.LVL21:
+ 433 021e 0F90      		pop __tmp_reg__
+ 434 0220 0F90      		pop __tmp_reg__
+ 435 0222 0F90      		pop __tmp_reg__
+ 436 0224 0F90      		pop __tmp_reg__
+ 437               	.L11:
+ 438               	.LM47:
+ 439 0226 80E0      		ldi r24,lo8(0)
+ 440 0228 60EC      		ldi r22,lo8(-64)
+ 441 022a 0E94 0000 		call RTLwrite
+ 442               	.LBB50:
+ 443               	.LBB51:
+ 444               	.LBB52:
+ 445               	.LBB53:
+ 446               	.LM48:
+ 447 022e C601      		movw r24,r12
+ 448               	.LVL22:
+ 449               	/* #APP */
+ 450               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 451 0230 0197      		1: sbiw r24,1
+ 452 0232 01F4      		brne 1b
+ 453               	 ;  0 "" 2
+ 454               	/* #NOAPP */
+ 455               	.LBE53:
+ 456               	.LBE52:
+ 457               	.LBE51:
+ 458               	.LBE50:
+ 459               	.LM49:
+ 460 0234 812F      		mov r24,r17
+ 461               	.LVL23:
+ 462 0236 0E94 0000 		call RTLread
+ 463 023a 082F      		mov r16,r24
+ 464               	.LVL24:
+ 465               	.LM50:
+ 466 023c 8031      		cpi r24,lo8(16)
+ 467 023e 00F4      		brsh .L12
+ 468               	.LVL25:
+ 469               	.LM51:
+ 470 0240 80E3      		ldi r24,lo8(48)
+ 471 0242 90E0      		ldi r25,hi8(48)
+ 472               	.LVL26:
+ 473 0244 0E94 0000 		call putchar
+ 474               	.LM52:
+ 475 0248 00D0      		rcall .
+ 476 024a 00D0      		rcall .
+ 477 024c EDB7      		in r30,__SP_L__
+ 478 024e FEB7      		in r31,__SP_H__
+ 479 0250 3196      		adiw r30,1
+ 480 0252 F182      		std Z+1,r15
+ 481 0254 E082      		st Z,r14
+ 482 0256 0283      		std Z+2,r16
+ 483 0258 1382      		std Z+3,__zero_reg__
+ 484 025a 0E94 0000 		call printf
+ 485 025e 0F90      		pop __tmp_reg__
+ 486 0260 0F90      		pop __tmp_reg__
+ 487 0262 0F90      		pop __tmp_reg__
+ 488 0264 0F90      		pop __tmp_reg__
+ 489 0266 00C0      		rjmp .L13
+ 490               	.LVL27:
+ 491               	.L12:
+ 492               	.LM53:
+ 493 0268 00D0      		rcall .
+ 494 026a 00D0      		rcall .
+ 495 026c EDB7      		in r30,__SP_L__
+ 496 026e FEB7      		in r31,__SP_H__
+ 497 0270 3196      		adiw r30,1
+ 498 0272 F182      		std Z+1,r15
+ 499 0274 E082      		st Z,r14
+ 500 0276 8283      		std Z+2,r24
+ 501 0278 1382      		std Z+3,__zero_reg__
+ 502 027a 0E94 0000 		call printf
+ 503               	.LVL28:
+ 504 027e 0F90      		pop __tmp_reg__
+ 505 0280 0F90      		pop __tmp_reg__
+ 506 0282 0F90      		pop __tmp_reg__
+ 507 0284 0F90      		pop __tmp_reg__
+ 508               	.L13:
+ 509               	.LM54:
+ 510 0286 00D0      		rcall .
+ 511 0288 EDB7      		in r30,__SP_L__
+ 512 028a FEB7      		in r31,__SP_H__
+ 513 028c B282      		std Z+2,r11
+ 514 028e A182      		std Z+1,r10
+ 515 0290 0E94 0000 		call printf
+ 516 0294 2196      		adiw r28,1
+ 517               	.LBE54:
+ 518               	.LM55:
+ 519 0296 0F90      		pop __tmp_reg__
+ 520 0298 0F90      		pop __tmp_reg__
+ 521 029a C031      		cpi r28,16
+ 522 029c D105      		cpc r29,__zero_reg__
+ 523 029e 01F0      		breq .+2
+ 524 02a0 00C0      		rjmp .L14
+ 525               	.LBE55:
+ 526               	.LM56:
+ 527 02a2 00D0      		rcall .
+ 528 02a4 00D0      		rcall .
+ 529 02a6 EDB7      		in r30,__SP_L__
+ 530 02a8 FEB7      		in r31,__SP_H__
+ 531 02aa 3196      		adiw r30,1
+ 532 02ac 00E0      		ldi r16,lo8(.LC5)
+ 533 02ae 10E0      		ldi r17,hi8(.LC5)
+ 534               	.LVL29:
+ 535 02b0 1183      		std Z+1,r17
+ 536 02b2 0083      		st Z,r16
+ 537 02b4 80E0      		ldi r24,lo8(rtl_reg)
+ 538 02b6 90E0      		ldi r25,hi8(rtl_reg)
+ 539 02b8 9383      		std Z+3,r25
+ 540 02ba 8283      		std Z+2,r24
+ 541 02bc 0E94 0000 		call printf
+ 542               	.LM57:
+ 543 02c0 EDB7      		in r30,__SP_L__
+ 544 02c2 FEB7      		in r31,__SP_H__
+ 545 02c4 3196      		adiw r30,1
+ 546 02c6 1183      		std Z+1,r17
+ 547 02c8 0083      		st Z,r16
+ 548 02ca 80E0      		ldi r24,lo8(EthFrame)
+ 549 02cc 90E0      		ldi r25,hi8(EthFrame)
+ 550 02ce 9383      		std Z+3,r25
+ 551 02d0 8283      		std Z+2,r24
+ 552 02d2 0E94 0000 		call printf
+ 553 02d6 0F90      		pop __tmp_reg__
+ 554 02d8 0F90      		pop __tmp_reg__
+ 555 02da 0F90      		pop __tmp_reg__
+ 556 02dc 0F90      		pop __tmp_reg__
+ 557               	.LM58:
+ 558 02de C0E0      		ldi r28,lo8(.LC6)
+ 559 02e0 D0E0      		ldi r29,hi8(.LC6)
+ 560               	.L15:
+ 561 02e2 8091 0000 		lds r24,n
+ 562 02e6 9091 0000 		lds r25,(n)+1
+ 563 02ea 00D0      		rcall .
+ 564 02ec 00D0      		rcall .
+ 565 02ee EDB7      		in r30,__SP_L__
+ 566 02f0 FEB7      		in r31,__SP_H__
+ 567 02f2 3196      		adiw r30,1
+ 568 02f4 D183      		std Z+1,r29
+ 569 02f6 C083      		st Z,r28
+ 570 02f8 9383      		std Z+3,r25
+ 571 02fa 8283      		std Z+2,r24
+ 572 02fc 0E94 0000 		call printf
+ 573 0300 0F90      		pop __tmp_reg__
+ 574 0302 0F90      		pop __tmp_reg__
+ 575 0304 0F90      		pop __tmp_reg__
+ 576 0306 0F90      		pop __tmp_reg__
+ 577 0308 00C0      		rjmp .L15
+ 578               	.LFE8:
+ 580               		.comm Tcp_Status,1,1
+ 581               	.global	MyMac
+ 582               		.data
+ 585               	MyMac:
+ 586 005f 00        		.byte	0
+ 587 0060 0A        		.byte	10
+ 588 0061 14        		.byte	20
+ 589 0062 1E        		.byte	30
+ 590 0063 28        		.byte	40
+ 591 0064 32        		.byte	50
+ 592               	.global	ServIp
+ 595               	ServIp:
+ 596 0065 A9        		.byte	-87
+ 597 0066 FE        		.byte	-2
+ 598 0067 04        		.byte	4
+ 599 0068 3A        		.byte	58
+ 600               	.global	n
+ 601               	.global	n
+ 602               		.section .bss
+ 605               	n:
+ 606 0000 0000      		.skip 2,0
+ 607               	.global	EthFrame
+ 608               		.section	.exram,"aw",@progbits
+ 611               	EthFrame:
+ 612 0000 0000 0000 		.skip 1514,0
+ 612      0000 0000 
+ 612      0000 0000 
+ 612      0000 0000 
+ 612      0000 0000 
+ 613               	.global	rtl_reg
+ 614               		.section	.rtl,"aw",@progbits
+ 617               	rtl_reg:
+ 618 0000 0000 0000 		.skip 32,0
+ 618      0000 0000 
+ 618      0000 0000 
+ 618      0000 0000 
+ 618      0000 0000 
+ 619               		.comm PacketSize,2,1
+ 620               		.comm dma,1,1
+ 621               		.comm nextPacketPtr,2,1
+ 622               		.comm currentPacketPtr,2,1
+ 623               		.comm currentRetreiveAddress,2,1
+ 624               		.comm ArpReplyMac,6,1
+ 625               		.comm ArpReplyIp,4,1
+ 626               		.comm ArpReply,1,1
+ 627               		.comm ArpCount,1,1
+ 628               		.comm pingTimeout,1,1
+ 629               		.comm dest_port,2,1
+ 630               		.comm seq_number,4,1
+ 631               		.comm ack_number,4,1
+ 632               		.comm tcp_packet_count,2,1
+ 633               		.comm next_send_data,1,1
+ 634               		.comm next_ack,1,1
+ 675               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:19     .init3:00000000 before_main
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:37     .text:00000000 __vector_1
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:605    .bss:00000000 n
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:84     .text:0000002e main
+                            *COM*:00000004 seq_number
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:617    .rtl:00000000 rtl_reg
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:611    .exram:00000000 EthFrame
+                            *COM*:00000001 Tcp_Status
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:585    .data:0000005f MyMac
+C:\Users\O\AppData\Local\Temp/cchCeB5a.s:595    .data:00000065 ServIp
+                            *COM*:00000002 PacketSize
+                            *COM*:00000001 dma
+                            *COM*:00000002 nextPacketPtr
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+                            *COM*:00000006 ArpReplyMac
+                            *COM*:00000004 ArpReplyIp
+                            *COM*:00000001 ArpReply
+                            *COM*:00000001 ArpCount
+                            *COM*:00000001 pingTimeout
+                            *COM*:00000002 dest_port
+                            *COM*:00000004 ack_number
+                            *COM*:00000002 tcp_packet_count
+                            *COM*:00000001 next_send_data
+                            *COM*:00000001 next_ack
+
+UNDEFINED SYMBOLS
+rs_put
+rs_get
+fdevopen
+puts
+putchar
+RTLinit
+printf
+RTLwrite
+RTLread
+__do_copy_data
+__do_clear_bss

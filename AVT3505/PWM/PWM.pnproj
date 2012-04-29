@@ -1,0 +1,1 @@
+<Project name="lol"><Folder name="Source"><File path="projekt.c"></File></Folder><Folder name="include"><File path="harddef.h"></File></Folder><File path="Makefile"></File></Project>

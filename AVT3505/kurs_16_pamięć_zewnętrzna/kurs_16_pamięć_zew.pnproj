@@ -1,0 +1,1 @@
+<Project name="kurs_16_pamiêæ_zew"><Folder name="Headers"><File path="harddef.h"></File><File path="rs.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="rs.c"></File></Folder><File path="Makefile"></File></Project>

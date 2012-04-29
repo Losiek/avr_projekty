@@ -1,0 +1,444 @@
+   1               		.file	"1wire.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	wait_1w
+  18               	wait_1w:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LVL0:
+  24               	.L2:
+  25               	.LM2:
+  26               	/* #APP */
+  27               	 ;  12 "1wire.c" 1
+  28 0000 0000      		nop
+  29               	 ;  0 "" 2
+  30               	.LM3:
+  31               	/* #NOAPP */
+  32 0002 8150      		subi r24,lo8(-(-1))
+  33               	.LVL1:
+  34 0004 01F4      		brne .L2
+  35               	/* epilogue start */
+  36               	.LM4:
+  37 0006 0895      		ret
+  38               	.LFE2:
+  40               	.global	slot1w_read
+  42               	slot1w_read:
+  43               	.LFB3:
+  44               	.LM5:
+  45               	/* prologue: function */
+  46               	/* frame size = 0 */
+  47               	.LM6:
+  48 0008 8C9A      		sbi 49-32,4
+  49               	.LBB24:
+  50               	.LBB25:
+  51               	.LM7:
+  52               	/* #APP */
+  53               	 ;  12 "1wire.c" 1
+  54 000a 0000      		nop
+  55               	 ;  0 "" 2
+  56               	/* #NOAPP */
+  57               	.LBE25:
+  58               	.LBE24:
+  59               	.LM8:
+  60 000c 8C98      		cbi 49-32,4
+  61 000e 8EE0      		ldi r24,lo8(14)
+  62               	.LVL2:
+  63               	.L6:
+  64               	.LBB26:
+  65               	.LBB27:
+  66               	.LM9:
+  67               	/* #APP */
+  68               	 ;  12 "1wire.c" 1
+  69 0010 0000      		nop
+  70               	 ;  0 "" 2
+  71               	.LM10:
+  72               	/* #NOAPP */
+  73 0012 8150      		subi r24,lo8(-(-1))
+  74 0014 01F4      		brne .L6
+  75               	.LBE27:
+  76               	.LBE26:
+  77               	.LM11:
+  78 0016 80B3      		in r24,48-32
+  79               	.LVL3:
+  80 0018 9BE3      		ldi r25,lo8(59)
+  81               	.LVL4:
+  82               	.L7:
+  83               	.LBB28:
+  84               	.LBB29:
+  85               	.LM12:
+  86               	/* #APP */
+  87               	 ;  12 "1wire.c" 1
+  88 001a 0000      		nop
+  89               	 ;  0 "" 2
+  90               	.LM13:
+  91               	/* #NOAPP */
+  92 001c 9150      		subi r25,lo8(-(-1))
+  93 001e 01F4      		brne .L7
+  94 0020 8295      		swap r24
+  95               	.LBE29:
+  96               	.LBE28:
+  97               	.LM14:
+  98 0022 8270      		andi r24,lo8(2)
+  99               	/* epilogue start */
+ 100 0024 0895      		ret
+ 101               	.LFE3:
+ 103               	.global	slot1w_write
+ 105               	slot1w_write:
+ 106               	.LFB4:
+ 107               	.LM15:
+ 108               	.LVL5:
+ 109               	/* prologue: function */
+ 110               	/* frame size = 0 */
+ 111               	.LM16:
+ 112 0026 8823      		tst r24
+ 113 0028 01F0      		breq .L12
+ 114               	.LM17:
+ 115 002a 8C9A      		sbi 49-32,4
+ 116 002c 8BE0      		ldi r24,lo8(11)
+ 117               	.LVL6:
+ 118               	.L13:
+ 119               	.LBB30:
+ 120               	.LBB31:
+ 121               	.LM18:
+ 122               	/* #APP */
+ 123               	 ;  12 "1wire.c" 1
+ 124 002e 0000      		nop
+ 125               	 ;  0 "" 2
+ 126               	.LM19:
+ 127               	/* #NOAPP */
+ 128 0030 8150      		subi r24,lo8(-(-1))
+ 129 0032 01F4      		brne .L13
+ 130               	.LBE31:
+ 131               	.LBE30:
+ 132               	.LM20:
+ 133 0034 8C98      		cbi 49-32,4
+ 134 0036 8CE3      		ldi r24,lo8(60)
+ 135               	.LVL7:
+ 136               	.L14:
+ 137               	.LBB32:
+ 138               	.LBB33:
+ 139               	.LM21:
+ 140               	/* #APP */
+ 141               	 ;  12 "1wire.c" 1
+ 142 0038 0000      		nop
+ 143               	 ;  0 "" 2
+ 144               	.LM22:
+ 145               	/* #NOAPP */
+ 146 003a 8150      		subi r24,lo8(-(-1))
+ 147 003c 01F4      		brne .L14
+ 148 003e 0895      		ret
+ 149               	.LVL8:
+ 150               	.L12:
+ 151               	.LBE33:
+ 152               	.LBE32:
+ 153               	.LM23:
+ 154 0040 8C9A      		sbi 49-32,4
+ 155 0042 86E4      		ldi r24,lo8(70)
+ 156               	.LVL9:
+ 157               	.L16:
+ 158               	.LBB34:
+ 159               	.LBB35:
+ 160               	.LM24:
+ 161               	/* #APP */
+ 162               	 ;  12 "1wire.c" 1
+ 163 0044 0000      		nop
+ 164               	 ;  0 "" 2
+ 165               	.LM25:
+ 166               	/* #NOAPP */
+ 167 0046 8150      		subi r24,lo8(-(-1))
+ 168 0048 01F4      		brne .L16
+ 169               	.LBE35:
+ 170               	.LBE34:
+ 171               	.LM26:
+ 172 004a 8C98      		cbi 49-32,4
+ 173 004c 0895      		ret
+ 174               	.LFE4:
+ 176               	.global	write_1w
+ 178               	write_1w:
+ 179               	.LFB5:
+ 180               	.LM27:
+ 181               	.LVL10:
+ 182 004e 0F93      		push r16
+ 183 0050 1F93      		push r17
+ 184               	/* prologue: function */
+ 185               	/* frame size = 0 */
+ 186 0052 082F      		mov r16,r24
+ 187               	.LM28:
+ 188 0054 10E0      		ldi r17,lo8(0)
+ 189               	.LVL11:
+ 190               	.L22:
+ 191               	.LM29:
+ 192 0056 802F      		mov r24,r16
+ 193 0058 8170      		andi r24,lo8(1)
+ 194 005a 00D0      		rcall slot1w_write
+ 195               	.LM30:
+ 196 005c 0695      		lsr r16
+ 197               	.LM31:
+ 198 005e 1F5F      		subi r17,lo8(-(1))
+ 199 0060 1830      		cpi r17,lo8(8)
+ 200 0062 01F4      		brne .L22
+ 201               	/* epilogue start */
+ 202               	.LM32:
+ 203 0064 1F91      		pop r17
+ 204               	.LVL12:
+ 205 0066 0F91      		pop r16
+ 206               	.LVL13:
+ 207 0068 0895      		ret
+ 208               	.LFE5:
+ 210               	.global	read_1w
+ 212               	read_1w:
+ 213               	.LFB6:
+ 214               	.LM33:
+ 215 006a FF92      		push r15
+ 216 006c 0F93      		push r16
+ 217 006e 1F93      		push r17
+ 218 0070 CF93      		push r28
+ 219 0072 DF93      		push r29
+ 220               	/* prologue: function */
+ 221               	/* frame size = 0 */
+ 222               	.LM34:
+ 223 0074 80E0      		ldi r24,lo8(bufor1w)
+ 224 0076 90E0      		ldi r25,hi8(bufor1w)
+ 225 0078 9093 0000 		sts (pbufor1w)+1,r25
+ 226 007c 8093 0000 		sts pbufor1w,r24
+ 227 0080 FF24      		clr r15
+ 228               	.LVL14:
+ 229 0082 00C0      		rjmp .L26
+ 230               	.LVL15:
+ 231               	.L29:
+ 232               	.LM35:
+ 233 0084 00D0      		rcall slot1w_read
+ 234 0086 8823      		tst r24
+ 235 0088 01F4      		brne .L27
+ 236 008a 812F      		mov r24,r17
+ 237 008c 00C0      		rjmp .L28
+ 238               	.L27:
+ 239 008e 802F      		mov r24,r16
+ 240               	.L28:
+ 241 0090 182B      		or r17,r24
+ 242               	.LM36:
+ 243 0092 000F      		lsl r16
+ 244 0094 2196      		adiw r28,1
+ 245 0096 C830      		cpi r28,8
+ 246 0098 D105      		cpc r29,__zero_reg__
+ 247 009a 01F4      		brne .L29
+ 248               	.LM37:
+ 249 009c E091 0000 		lds r30,pbufor1w
+ 250 00a0 F091 0000 		lds r31,(pbufor1w)+1
+ 251 00a4 1193      		st Z+,r17
+ 252 00a6 F093 0000 		sts (pbufor1w)+1,r31
+ 253 00aa E093 0000 		sts pbufor1w,r30
+ 254               	.LM38:
+ 255 00ae F394      		inc r15
+ 256 00b0 89E0      		ldi r24,lo8(9)
+ 257 00b2 F816      		cp r15,r24
+ 258 00b4 01F0      		breq .L31
+ 259               	.L26:
+ 260 00b6 01E0      		ldi r16,lo8(1)
+ 261 00b8 10E0      		ldi r17,lo8(0)
+ 262 00ba C0E0      		ldi r28,lo8(0)
+ 263 00bc D0E0      		ldi r29,hi8(0)
+ 264 00be 00C0      		rjmp .L29
+ 265               	.L31:
+ 266               	/* epilogue start */
+ 267               	.LM39:
+ 268 00c0 DF91      		pop r29
+ 269 00c2 CF91      		pop r28
+ 270 00c4 1F91      		pop r17
+ 271               	.LVL16:
+ 272 00c6 0F91      		pop r16
+ 273               	.LVL17:
+ 274 00c8 FF90      		pop r15
+ 275               	.LVL18:
+ 276 00ca 0895      		ret
+ 277               	.LFE6:
+ 279               	.global	count_CRC
+ 281               	count_CRC:
+ 282               	.LFB7:
+ 283               	.LM40:
+ 284               	.LVL19:
+ 285               	/* prologue: function */
+ 286               	/* frame size = 0 */
+ 287 00cc FB01      		movw r30,r22
+ 288               	.LM41:
+ 289 00ce 9081      		ld r25,Z
+ 290               	.LVL20:
+ 291 00d0 382F      		mov r19,r24
+ 292               	.LVL21:
+ 293 00d2 20E0      		ldi r18,lo8(0)
+ 294               	.LVL22:
+ 295               	.LM42:
+ 296 00d4 58E1      		ldi r21,lo8(24)
+ 297               	.LVL23:
+ 298               	.L36:
+ 299               	.LM43:
+ 300 00d6 8927      		eor r24,r25
+ 301               	.LVL24:
+ 302               	.LM44:
+ 303 00d8 482F      		mov r20,r24
+ 304 00da 4170      		andi r20,lo8(1)
+ 305 00dc 80FD      		sbrc r24,0
+ 306               	.LM45:
+ 307 00de 9527      		eor r25,r21
+ 308               	.L34:
+ 309               	.LM46:
+ 310 00e0 892F      		mov r24,r25
+ 311 00e2 8695      		lsr r24
+ 312 00e4 942F      		mov r25,r20
+ 313 00e6 9795      		ror r25
+ 314 00e8 9927      		clr r25
+ 315 00ea 9795      		ror r25
+ 316 00ec 980F      		add r25,r24
+ 317               	.LM47:
+ 318 00ee 2F5F      		subi r18,lo8(-(1))
+ 319 00f0 2830      		cpi r18,lo8(8)
+ 320 00f2 01F0      		breq .L35
+ 321               	.LM48:
+ 322 00f4 3695      		lsr r19
+ 323 00f6 832F      		mov r24,r19
+ 324               	.LVL25:
+ 325 00f8 00C0      		rjmp .L36
+ 326               	.LVL26:
+ 327               	.L35:
+ 328 00fa 9083      		st Z,r25
+ 329               	/* epilogue start */
+ 330               	.LM49:
+ 331 00fc 0895      		ret
+ 332               	.LFE7:
+ 334               	.global	reset_1w
+ 336               	reset_1w:
+ 337               	.LFB8:
+ 338               	.LM50:
+ 339               	/* prologue: function */
+ 340               	/* frame size = 0 */
+ 341               	.LM51:
+ 342 00fe 8C9A      		sbi 49-32,4
+ 343 0100 8FEF      		ldi r24,lo8(-1)
+ 344               	.LVL27:
+ 345               	.L39:
+ 346               	.LBB36:
+ 347               	.LBB37:
+ 348               	.LM52:
+ 349               	/* #APP */
+ 350               	 ;  12 "1wire.c" 1
+ 351 0102 0000      		nop
+ 352               	 ;  0 "" 2
+ 353               	.LM53:
+ 354               	/* #NOAPP */
+ 355 0104 8150      		subi r24,lo8(-(-1))
+ 356 0106 01F4      		brne .L39
+ 357 0108 83EB      		ldi r24,lo8(-77)
+ 358               	.LVL28:
+ 359               	.L40:
+ 360               	.LBE37:
+ 361               	.LBE36:
+ 362               	.LBB38:
+ 363               	.LBB39:
+ 364               	.LM54:
+ 365               	/* #APP */
+ 366               	 ;  12 "1wire.c" 1
+ 367 010a 0000      		nop
+ 368               	 ;  0 "" 2
+ 369               	.LM55:
+ 370               	/* #NOAPP */
+ 371 010c 8150      		subi r24,lo8(-(-1))
+ 372 010e 01F4      		brne .L40
+ 373               	.LBE39:
+ 374               	.LBE38:
+ 375               	.LM56:
+ 376 0110 8C98      		cbi 49-32,4
+ 377 0112 81E4      		ldi r24,lo8(65)
+ 378               	.LVL29:
+ 379               	.L41:
+ 380               	.LBB40:
+ 381               	.LBB41:
+ 382               	.LM57:
+ 383               	/* #APP */
+ 384               	 ;  12 "1wire.c" 1
+ 385 0114 0000      		nop
+ 386               	 ;  0 "" 2
+ 387               	.LM58:
+ 388               	/* #NOAPP */
+ 389 0116 8150      		subi r24,lo8(-(-1))
+ 390 0118 01F4      		brne .L41
+ 391               	.LBE41:
+ 392               	.LBE40:
+ 393               	.LM59:
+ 394 011a 80B3      		in r24,48-32
+ 395               	.LVL30:
+ 396 011c 8FEF      		ldi r24,lo8(-1)
+ 397               	.LVL31:
+ 398               	.L42:
+ 399               	.LBB42:
+ 400               	.LBB43:
+ 401               	.LM60:
+ 402               	/* #APP */
+ 403               	 ;  12 "1wire.c" 1
+ 404 011e 0000      		nop
+ 405               	 ;  0 "" 2
+ 406               	.LM61:
+ 407               	/* #NOAPP */
+ 408 0120 8150      		subi r24,lo8(-(-1))
+ 409 0122 01F4      		brne .L42
+ 410 0124 8CE4      		ldi r24,lo8(76)
+ 411               	.LVL32:
+ 412               	.L43:
+ 413               	.LBE43:
+ 414               	.LBE42:
+ 415               	.LBB44:
+ 416               	.LBB45:
+ 417               	.LM62:
+ 418               	/* #APP */
+ 419               	 ;  12 "1wire.c" 1
+ 420 0126 0000      		nop
+ 421               	 ;  0 "" 2
+ 422               	.LM63:
+ 423               	/* #NOAPP */
+ 424 0128 8150      		subi r24,lo8(-(-1))
+ 425 012a 01F4      		brne .L43
+ 426               	.LBE45:
+ 427               	.LBE44:
+ 428               	.LM64:
+ 429 012c 80B3      		in r24,48-32
+ 430               	.LVL33:
+ 431 012e 90E0      		ldi r25,lo8(0)
+ 432 0130 24E0      		ldi r18,4
+ 433 0132 9695      	1:	lsr r25
+ 434 0134 8795      		ror r24
+ 435 0136 2A95      		dec r18
+ 436 0138 01F4      		brne 1b
+ 437               	.LM65:
+ 438 013a 8170      		andi r24,lo8(1)
+ 439               	/* epilogue start */
+ 440 013c 0895      		ret
+ 441               	.LFE8:
+ 443               		.comm bufor1w,9,1
+ 444               		.comm pbufor1w,2,1
+ 517               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 1wire.c
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:18     .text:00000000 wait_1w
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:42     .text:00000008 slot1w_read
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:105    .text:00000026 slot1w_write
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:178    .text:0000004e write_1w
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:212    .text:0000006a read_1w
+                            *COM*:00000009 bufor1w
+                            *COM*:00000002 pbufor1w
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:281    .text:000000cc count_CRC
+C:\Users\O\AppData\Local\Temp/ccHaAcBz.s:336    .text:000000fe reset_1w
+
+UNDEFINED SYMBOLS
+__do_clear_bss

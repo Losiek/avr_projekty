@@ -1,0 +1,315 @@
+   1               		.file	"lcd.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	lcd_sendHalf
+  20               	lcd_sendHalf:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LVL0:
+  26               	.LM2:
+  27 0000 98B3      		in r25,56-0x20
+  28 0002 9F70      		andi r25,lo8(15)
+  29 0004 8295      		swap r24
+  30 0006 807F      		andi r24,0xf0
+  31               	.LVL1:
+  32 0008 982B      		or r25,r24
+  33 000a 98BB      		out 56-0x20,r25
+  34               	.LM3:
+  35 000c 949A      		sbi 50-0x20,4
+  36               	/* #APP */
+  37 000e 0000      		nop
+  38               	/* #NOAPP */
+  39 0010 9498      		cbi 50-0x20,4
+  40               	/* epilogue: frame size=0 */
+  41 0012 0895      		ret
+  42               	/* epilogue end (size=1) */
+  43               	/* function lcd_sendHalf size 11 (10) */
+  44               	.LFE3:
+  46               	.global	lcd_send
+  48               	lcd_send:
+  49               	.LFB4:
+  50               	.LM4:
+  51               	/* prologue: frame size=0 */
+  52 0014 1F93      		push r17
+  53               	/* prologue end (size=1) */
+  54               	.LVL2:
+  55 0016 182F      		mov r17,r24
+  56               	.LVL3:
+  57               	.LM5:
+  58 0018 8295      		swap r24
+  59 001a 8F70      		andi r24,0x0f
+  60 001c 0E94 0000 		call lcd_sendHalf
+  61               	.LM6:
+  62 0020 812F      		mov r24,r17
+  63 0022 0E94 0000 		call lcd_sendHalf
+  64               	.LM7:
+  65 0026 88E7      		ldi r24,lo8(120)
+  66 0028 90E0      		ldi r25,hi8(120)
+  67               	/* #APP */
+  68               		delayus8_loop30: 
+  69 002a 0000      		nop 
+  70 002c 8A95      		dec r24 
+  71 002e 01F4      		brne delayus8_loop30 
+  72               		
+  73               	/* #NOAPP */
+  74               	/* epilogue: frame size=0 */
+  75 0030 1F91      		pop r17
+  76 0032 0895      		ret
+  77               	/* epilogue end (size=2) */
+  78               	/* function lcd_send size 23 (20) */
+  79               	.LFE4:
+  81               	.global	lcd_command
+  83               	lcd_command:
+  84               	.LFB5:
+  85               	.LM8:
+  86               	/* prologue: frame size=0 */
+  87               	/* prologue end (size=0) */
+  88               	.LVL4:
+  89               	.LM9:
+  90 0034 9298      		cbi 50-0x20,2
+  91               	.LM10:
+  92 0036 0E94 0000 		call lcd_send
+  93               	.LVL5:
+  94               	/* epilogue: frame size=0 */
+  95 003a 0895      		ret
+  96               	/* epilogue end (size=1) */
+  97               	/* function lcd_command size 4 (3) */
+  98               	.LFE5:
+ 100               	.global	lcd_data
+ 102               	lcd_data:
+ 103               	.LFB6:
+ 104               	.LM11:
+ 105               	/* prologue: frame size=0 */
+ 106               	/* prologue end (size=0) */
+ 107               	.LVL6:
+ 108               	.LM12:
+ 109 003c 929A      		sbi 50-0x20,2
+ 110               	.LM13:
+ 111 003e 0E94 0000 		call lcd_send
+ 112               	.LVL7:
+ 113               	/* epilogue: frame size=0 */
+ 114 0042 0895      		ret
+ 115               	/* epilogue end (size=1) */
+ 116               	/* function lcd_data size 4 (3) */
+ 117               	.LFE6:
+ 119               	.global	lcd_str_P
+ 121               	lcd_str_P:
+ 122               	.LFB10:
+ 123               	.LM14:
+ 124               	/* prologue: frame size=0 */
+ 125 0044 CF93      		push r28
+ 126 0046 DF93      		push r29
+ 127               	/* prologue end (size=2) */
+ 128               	.LVL8:
+ 129 0048 EC01      		movw r28,r24
+ 130 004a 00C0      		rjmp .L10
+ 131               	.LVL9:
+ 132               	.L11:
+ 133               	.LM15:
+ 134 004c 0E94 0000 		call lcd_data
+ 135               	.LVL10:
+ 136               	.L10:
+ 137 0050 FE01      		movw r30,r28
+ 138               	.LVL11:
+ 139               	.LBB2:
+ 140               	.LM16:
+ 141 0052 2196      		adiw r28,1
+ 142               	/* #APP */
+ 143 0054 8491      		lpm r24, Z
+ 144               		
+ 145               	.LVL12:
+ 146               	/* #NOAPP */
+ 147               	.LBE2:
+ 148 0056 8823      		tst r24
+ 149 0058 01F4      		brne .L11
+ 150               	/* epilogue: frame size=0 */
+ 151 005a DF91      		pop r29
+ 152 005c CF91      		pop r28
+ 153 005e 0895      		ret
+ 154               	/* epilogue end (size=3) */
+ 155               	/* function lcd_str_P size 17 (12) */
+ 156               	.LFE10:
+ 158               	.global	lcd_str
+ 160               	lcd_str:
+ 161               	.LFB11:
+ 162               	.LM17:
+ 163               	/* prologue: frame size=0 */
+ 164 0060 CF93      		push r28
+ 165 0062 DF93      		push r29
+ 166               	/* prologue end (size=2) */
+ 167               	.LVL13:
+ 168 0064 EC01      		movw r28,r24
+ 169 0066 00C0      		rjmp .L15
+ 170               	.LVL14:
+ 171               	.L16:
+ 172               	.LM18:
+ 173 0068 0E94 0000 		call lcd_data
+ 174               	.LVL15:
+ 175               	.L15:
+ 176               	.LM19:
+ 177 006c 8991      		ld r24,Y+
+ 178               	.LVL16:
+ 179 006e 8823      		tst r24
+ 180 0070 01F4      		brne .L16
+ 181               	/* epilogue: frame size=0 */
+ 182 0072 DF91      		pop r29
+ 183 0074 CF91      		pop r28
+ 184 0076 0895      		ret
+ 185               	/* epilogue end (size=3) */
+ 186               	/* function lcd_str size 12 (7) */
+ 187               	.LFE11:
+ 189               	.global	lcd_dec
+ 191               	lcd_dec:
+ 192               	.LFB12:
+ 193               	.LM20:
+ 194               	/* prologue: frame size=7 */
+ 195 0078 CF93      		push r28
+ 196 007a DF93      		push r29
+ 197 007c CDB7      		in r28,__SP_L__
+ 198 007e DEB7      		in r29,__SP_H__
+ 199 0080 2797      		sbiw r28,7
+ 200 0082 0FB6      		in __tmp_reg__,__SREG__
+ 201 0084 F894      		cli
+ 202 0086 DEBF      		out __SP_H__,r29
+ 203 0088 0FBE      		out __SREG__,__tmp_reg__
+ 204 008a CDBF      		out __SP_L__,r28
+ 205               	/* prologue end (size=10) */
+ 206               	.LVL17:
+ 207               	.LM21:
+ 208 008c 4AE0      		ldi r20,lo8(10)
+ 209 008e 50E0      		ldi r21,hi8(10)
+ 210 0090 BE01      		movw r22,r28
+ 211 0092 6F5F      		subi r22,lo8(-(1))
+ 212 0094 7F4F      		sbci r23,hi8(-(1))
+ 213 0096 0E94 0000 		call itoa
+ 214               	.LVL18:
+ 215 009a 0E94 0000 		call lcd_str
+ 216               	/* epilogue: frame size=7 */
+ 217 009e 2796      		adiw r28,7
+ 218 00a0 0FB6      		in __tmp_reg__,__SREG__
+ 219 00a2 F894      		cli
+ 220 00a4 DEBF      		out __SP_H__,r29
+ 221 00a6 0FBE      		out __SREG__,__tmp_reg__
+ 222 00a8 CDBF      		out __SP_L__,r28
+ 223 00aa DF91      		pop r29
+ 224 00ac CF91      		pop r28
+ 225 00ae 0895      		ret
+ 226               	/* epilogue end (size=9) */
+ 227               	/* function lcd_dec size 28 (9) */
+ 228               	.LFE12:
+ 230               	.global	lcd_home
+ 232               	lcd_home:
+ 233               	.LFB8:
+ 234               	.LM22:
+ 235               	/* prologue: frame size=0 */
+ 236               	/* prologue end (size=0) */
+ 237               	.LM23:
+ 238 00b0 82E0      		ldi r24,lo8(2)
+ 239 00b2 0E94 0000 		call lcd_command
+ 240               	.LM24:
+ 241 00b6 80E3      		ldi r24,lo8(48)
+ 242 00b8 0E94 0000 		call delay100us8
+ 243               	/* epilogue: frame size=0 */
+ 244 00bc 0895      		ret
+ 245               	/* epilogue end (size=1) */
+ 246               	/* function lcd_home size 7 (6) */
+ 247               	.LFE8:
+ 249               	.global	lcd_cls
+ 251               	lcd_cls:
+ 252               	.LFB7:
+ 253               	.LM25:
+ 254               	/* prologue: frame size=0 */
+ 255               	/* prologue end (size=0) */
+ 256               	.LM26:
+ 257 00be 81E0      		ldi r24,lo8(1)
+ 258 00c0 0E94 0000 		call lcd_command
+ 259               	.LM27:
+ 260 00c4 80E3      		ldi r24,lo8(48)
+ 261 00c6 0E94 0000 		call delay100us8
+ 262               	/* epilogue: frame size=0 */
+ 263 00ca 0895      		ret
+ 264               	/* epilogue end (size=1) */
+ 265               	/* function lcd_cls size 7 (6) */
+ 266               	.LFE7:
+ 268               	.global	lcd_init
+ 270               	lcd_init:
+ 271               	.LFB9:
+ 272               	.LM28:
+ 273               	/* prologue: frame size=0 */
+ 274               	/* prologue end (size=0) */
+ 275               	.LM29:
+ 276 00cc 86E9      		ldi r24,lo8(-106)
+ 277 00ce 0E94 0000 		call delay100us8
+ 278               	.LM30:
+ 279 00d2 9298      		cbi 50-0x20,2
+ 280               	.LM31:
+ 281 00d4 80E3      		ldi r24,lo8(48)
+ 282 00d6 0E94 0000 		call lcd_sendHalf
+ 283               	.LM32:
+ 284 00da 89E2      		ldi r24,lo8(41)
+ 285 00dc 0E94 0000 		call delay100us8
+ 286               	.LM33:
+ 287 00e0 80E3      		ldi r24,lo8(48)
+ 288 00e2 0E94 0000 		call lcd_sendHalf
+ 289               	.LM34:
+ 290 00e6 82E0      		ldi r24,lo8(2)
+ 291 00e8 0E94 0000 		call delay100us8
+ 292               	.LM35:
+ 293 00ec 80E2      		ldi r24,lo8(32)
+ 294 00ee 0E94 0000 		call lcd_sendHalf
+ 295               	.LM36:
+ 296 00f2 82E0      		ldi r24,lo8(2)
+ 297 00f4 0E94 0000 		call delay100us8
+ 298               	.LM37:
+ 299 00f8 88E2      		ldi r24,lo8(40)
+ 300 00fa 0E94 0000 		call lcd_command
+ 301               	.LM38:
+ 302 00fe 88E0      		ldi r24,lo8(8)
+ 303 0100 0E94 0000 		call lcd_command
+ 304               	.LM39:
+ 305 0104 0E94 0000 		call lcd_cls
+ 306               	.LM40:
+ 307 0108 86E0      		ldi r24,lo8(6)
+ 308 010a 0E94 0000 		call lcd_command
+ 309               	.LM41:
+ 310 010e 8EE0      		ldi r24,lo8(14)
+ 311 0110 0E94 0000 		call lcd_command
+ 312               	/* epilogue: frame size=0 */
+ 313 0114 0895      		ret
+ 314               	/* epilogue end (size=1) */
+ 315               	/* function lcd_init size 37 (36) */
+ 316               	.LFE9:
+ 414               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lcd.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:20     .text:00000000 lcd_sendHalf
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:48     .text:00000014 lcd_send
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:68     .text:0000002a delayus8_loop30
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:83     .text:00000034 lcd_command
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:102    .text:0000003c lcd_data
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:121    .text:00000044 lcd_str_P
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:160    .text:00000060 lcd_str
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:191    .text:00000078 lcd_dec
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:232    .text:000000b0 lcd_home
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:251    .text:000000be lcd_cls
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccVaqSYy.s:270    .text:000000cc lcd_init
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+itoa
+delay100us8

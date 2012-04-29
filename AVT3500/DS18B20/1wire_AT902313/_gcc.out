@@ -1,0 +1,50 @@
+
+-------- begin --------
+avr-gcc (WinAVR 20100110) 4.3.3
+Copyright (C) 2008 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Compiling C: main.c
+avr-gcc -c -mmcu=at90s2313 -I. -gdwarf-2 -DF_CPU=4000000UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=./main.lst  -std=gnu99 -Wundef -MMD -MP -MF .dep/main.o.d main.c -o main.o
+main.c: In function 'main':
+main.c:17: warning: implicit declaration of function 'wait_1w'
+main.c:18: warning: implicit declaration of function 'reset_1w'
+
+Compiling C: 1wire.c
+avr-gcc -c -mmcu=at90s2313 -I. -gdwarf-2 -DF_CPU=4000000UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=./1wire.lst  -std=gnu99 -Wundef -MMD -MP -MF .dep/1wire.o.d 1wire.c -o 1wire.o
+1wire.c: In function 'reset_1w':
+1wire.c:117: warning: control reaches end of non-void function
+
+Linking: ds18b20.elf
+avr-gcc -mmcu=at90s2313 -I. -gdwarf-2 -DF_CPU=4000000UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=main.o  -std=gnu99 -Wundef -MMD -MP -MF .dep/ds18b20.elf.d main.o 1wire.o --output ds18b20.elf -Wl,-Map=ds18b20.map,--cref     -lm
+
+Creating load file for Flash: ds18b20.hex
+avr-objcopy -O ihex -R .eeprom ds18b20.elf ds18b20.hex
+
+Creating load file for EEPROM: ds18b20.eep
+avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+	--change-section-lma .eeprom=0 --no-change-warnings -O ihex ds18b20.elf ds18b20.eep || exit 0
+
+Creating Extended Listing: ds18b20.lss
+avr-objdump -h -S ds18b20.elf > ds18b20.lss
+
+Creating Symbol Table: ds18b20.sym
+avr-nm -n ds18b20.elf > ds18b20.sym
+
+Size after:
+AVR Memory Usage
+----------------
+Device: at90s2313
+
+Program:     406 bytes (19.8% Full)
+(.text + .data + .bootloader)
+
+Data:         11 bytes (8.6% Full)
+(.data + .bss + .noinit)
+
+
+
+-------- end --------
+

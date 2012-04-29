@@ -1,0 +1,39 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB3:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 00D0      		rcall RESET_PULSE
+  25               	.LM3:
+  26 0002 8AEA      		ldi r24,lo8(-86)
+  27 0004 00D0      		rcall send_byte
+  28               	.L2:
+  29 0006 00C0      		rjmp .L2
+  30               	.LFE3:
+  32               		.comm buf,8,1
+  57               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccN03njp.s:18     .text:00000000 main
+                            *COM*:00000008 buf
+
+UNDEFINED SYMBOLS
+RESET_PULSE
+send_byte
+__do_clear_bss

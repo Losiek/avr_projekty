@@ -1,0 +1,1 @@
+<Project name="Dual_color_LED"><Folder name="Headers"><File path="harddef.h"></File><File path="dzwiek.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="sounds.c"></File></Folder><File path="Makefile"></File></Project>

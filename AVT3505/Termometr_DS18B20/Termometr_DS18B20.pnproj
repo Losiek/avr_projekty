@@ -1,0 +1,1 @@
+<Project name="Termometr_DS18B20"><Folder name="Headers"><File path="harddef.h"></File><File path="rs.h"></File><File path="1wire_lib.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="rs.c"></File><File path="1wire_lib.c"></File></Folder><File path="Makefile"></File></Project>

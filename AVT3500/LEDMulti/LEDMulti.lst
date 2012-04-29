@@ -1,0 +1,97 @@
+   1               		.file	"LEDMulti.c"
+   2               		.arch at90s2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8FEF      		ldi r24,lo8(-1)
+  27 0002 87BB      		out 55-0x20,r24
+  28               	.LM3:
+  29 0004 88E7      		ldi r24,lo8(120)
+  30 0006 81BB      		out 49-0x20,r24
+  31               	.LM4:
+  32 0008 80EC      		ldi r24,lo8(-64)
+  33 000a 8093 0000 		sts g_DaneWyswietlacza,r24
+  34               	.LM5:
+  35 000e 86E8      		ldi r24,lo8(-122)
+  36 0010 8093 0000 		sts g_DaneWyswietlacza+2,r24
+  37               	.LM6:
+  38 0014 87EC      		ldi r24,lo8(-57)
+  39 0016 8093 0000 		sts g_DaneWyswietlacza+1,r24
+  40               	.LM7:
+  41 001a 89E8      		ldi r24,lo8(-119)
+  42 001c 8093 0000 		sts g_DaneWyswietlacza+3,r24
+  43 0020 2091 0000 		lds r18,g_AktWyswietlacz
+  44               	.L10:
+  45               	.LM8:
+  46 0024 82B3      		in r24,50-0x20
+  47 0026 8867      		ori r24,lo8(120)
+  48 0028 82BB      		out 50-0x20,r24
+  49               	.LM9:
+  50 002a A22F      		mov r26,r18
+  51 002c BB27      		clr r27
+  52 002e FB2F      		mov r31,r27
+  53 0030 EA2F      		mov r30,r26
+  54 0032 E050      		subi r30,lo8(-(g_DaneWyswietlacza))
+  55 0034 F040      		sbci r31,hi8(-(g_DaneWyswietlacza))
+  56 0036 8081      		ld r24,Z
+  57 0038 88BB      		out 56-0x20,r24
+  58               	.LM10:
+  59 003a 82B3      		in r24,50-0x20
+  60 003c A050      		subi r26,lo8(-(g_DaneCom))
+  61 003e B040      		sbci r27,hi8(-(g_DaneCom))
+  62 0040 9C91      		ld r25,X
+  63 0042 8923      		and r24,r25
+  64 0044 82BB      		out 50-0x20,r24
+  65               	.LM11:
+  66 0046 2F5F      		subi r18,lo8(-(1))
+  67               	.LM12:
+  68 0048 2430      		cpi r18,lo8(4)
+  69 004a 00F0      		brlo .L10
+  70 004c 20E0      		ldi r18,lo8(0)
+  71 004e 00C0      		rjmp .L10
+  72               	/* epilogue: frame size=0 */
+  73               	/* epilogue: noreturn */
+  74               	/* epilogue end (size=0) */
+  75               	/* function main size 40 (40) */
+  76               	.LFE2:
+  78               	.global	g_AktWyswietlacz
+  79               	.global	g_AktWyswietlacz
+  80               		.section .bss
+  83               	g_AktWyswietlacz:
+  84 0000 00        		.skip 1,0
+  85               	.global	g_DaneCom
+  86               		.data
+  89               	g_DaneCom:
+  90 0000 BF        		.byte	-65
+  91 0001 DF        		.byte	-33
+  92 0002 EF        		.byte	-17
+  93 0003 F7        		.byte	-9
+  94               		.comm g_DaneWyswietlacza,4,1
+ 119               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 LEDMulti.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:20     .text:00000000 main
+                            *COM*:00000004 g_DaneWyswietlacza
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:83     .bss:00000000 g_AktWyswietlacz
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc54arDR.s:89     .data:00000000 g_DaneCom
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

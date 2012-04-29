@@ -1,0 +1,54 @@
+   1               		.file	"delay.c"
+   2               		.arch at90s2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	delay100us8
+  20               	delay100us8:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LVL0:
+  26 0000 24E6      		ldi r18,lo8(100)
+  27 0002 30E0      		ldi r19,hi8(100)
+  28 0004 00C0      		rjmp .L2
+  29               	.L3:
+  30               	.LM2:
+  31               	/* #APP */
+  32               		delayus8_loop12: 
+  33 0006 0000      		nop 
+  34 0008 2A95      		dec r18 
+  35 000a 01F4      		brne delayus8_loop12 
+  36               		
+  37               	.LM3:
+  38               	/* #NOAPP */
+  39 000c 8150      		subi r24,lo8(-(-1))
+  40               	.L2:
+  41               	.LM4:
+  42 000e 8823      		tst r24
+  43 0010 01F4      		brne .L3
+  44               	/* epilogue: frame size=0 */
+  45 0012 0895      		ret
+  46               	/* epilogue end (size=1) */
+  47               	/* function delay100us8 size 17 (16) */
+  48               	.LFE2:
+  74               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 delay.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:20     .text:00000000 delay100us8
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6LbWsO.s:32     .text:00000006 delayus8_loop12
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

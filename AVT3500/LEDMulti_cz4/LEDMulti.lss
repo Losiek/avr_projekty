@@ -1,0 +1,426 @@
+
+LEDMulti.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000216  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000008  00800060  00800060  0000028a  2**0
+                  ALLOC
+  2 .stab         00000360  00000000  00000000  0000028c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000071  00000000  00000000  000005ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000020  00000000  00000000  0000065d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 000000b0  00000000  00000000  0000067d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000294  00000000  00000000  0000072d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000116  00000000  00000000  000009c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000024b  00000000  00000000  00000ad7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000070  00000000  00000000  00000d24  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000167  00000000  00000000  00000d94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000006e  00000000  00000000  00000efb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	14 c0       	rjmp	.+40     	; 0x2a <__ctors_end>
+   2:	2d c0       	rjmp	.+90     	; 0x5e <__bad_interrupt>
+   4:	2c c0       	rjmp	.+88     	; 0x5e <__bad_interrupt>
+   6:	2b c0       	rjmp	.+86     	; 0x5e <__bad_interrupt>
+   8:	2a c0       	rjmp	.+84     	; 0x5e <__bad_interrupt>
+   a:	29 c0       	rjmp	.+82     	; 0x5e <__bad_interrupt>
+   c:	b3 c0       	rjmp	.+358    	; 0x174 <__vector_6>
+   e:	27 c0       	rjmp	.+78     	; 0x5e <__bad_interrupt>
+  10:	26 c0       	rjmp	.+76     	; 0x5e <__bad_interrupt>
+  12:	25 c0       	rjmp	.+74     	; 0x5e <__bad_interrupt>
+  14:	24 c0       	rjmp	.+72     	; 0x5e <__bad_interrupt>
+
+00000016 <g_DaneCom>:
+  16:	bf df ef f7                                         ....
+
+0000001a <g_WzoryCyfr>:
+  1a:	c0 f9 a4 b0 99 92 82 f8 80 90 88 83 c6 a1 86 8e     ................
+
+0000002a <__ctors_end>:
+  2a:	11 24       	eor	r1, r1
+  2c:	1f be       	out	0x3f, r1	; 63
+  2e:	cf ed       	ldi	r28, 0xDF	; 223
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e6 e1       	ldi	r30, 0x16	; 22
+  3a:	f2 e0       	ldi	r31, 0x02	; 2
+  3c:	03 c0       	rjmp	.+6      	; 0x44 <.do_copy_data_start>
+
+0000003e <.do_copy_data_loop>:
+  3e:	c8 95       	lpm
+  40:	31 96       	adiw	r30, 0x01	; 1
+  42:	0d 92       	st	X+, r0
+
+00000044 <.do_copy_data_start>:
+  44:	a0 36       	cpi	r26, 0x60	; 96
+  46:	b1 07       	cpc	r27, r17
+  48:	d1 f7       	brne	.-12     	; 0x3e <.do_copy_data_loop>
+
+0000004a <__do_clear_bss>:
+  4a:	10 e0       	ldi	r17, 0x00	; 0
+  4c:	a0 e6       	ldi	r26, 0x60	; 96
+  4e:	b0 e0       	ldi	r27, 0x00	; 0
+  50:	01 c0       	rjmp	.+2      	; 0x54 <.do_clear_bss_start>
+
+00000052 <.do_clear_bss_loop>:
+  52:	1d 92       	st	X+, r1
+
+00000054 <.do_clear_bss_start>:
+  54:	a8 36       	cpi	r26, 0x68	; 104
+  56:	b1 07       	cpc	r27, r17
+  58:	e1 f7       	brne	.-8      	; 0x52 <.do_clear_bss_loop>
+  5a:	79 d0       	rcall	.+242    	; 0x14e <main>
+  5c:	db c0       	rjmp	.+438    	; 0x214 <_exit>
+
+0000005e <__bad_interrupt>:
+  5e:	d0 cf       	rjmp	.-96     	; 0x0 <__vectors>
+
+00000060 <WyswietlDEC>:
+//Zmienna przechowuj¹ca wartoœæ licznika.
+uint16_t g_Licznik = 0;
+
+//Funkcja wyœwitla w kodzie dziesiêtnym podan¹ liczbê.
+void WyswietlDEC(uint16_t var) {
+  60:	0f 93       	push	r16
+  62:	1f 93       	push	r17
+  64:	cf 93       	push	r28
+  66:	df 93       	push	r29
+  68:	28 2f       	mov	r18, r24
+  6a:	39 2f       	mov	r19, r25
+	uint8_t n;
+	if(var > 9999)
+  6c:	87 e2       	ldi	r24, 0x27	; 39
+  6e:	20 31       	cpi	r18, 0x10	; 16
+  70:	38 07       	cpc	r19, r24
+  72:	50 f0       	brcs	.+20     	; 0x88 <WyswietlDEC+0x28>
+	{
+		for(n=0; n<4; n++)
+		{
+			g_DaneWyswietlacza[n] = ~(1<<LED_G);
+  74:	8f eb       	ldi	r24, 0xBF	; 191
+  76:	80 93 64 00 	sts	0x0064, r24
+  7a:	80 93 65 00 	sts	0x0065, r24
+  7e:	80 93 66 00 	sts	0x0066, r24
+  82:	80 93 67 00 	sts	0x0067, r24
+  86:	1e c0       	rjmp	.+60     	; 0xc4 <WyswietlDEC+0x64>
+  88:	03 e0       	ldi	r16, 0x03	; 3
+  8a:	10 e0       	ldi	r17, 0x00	; 0
+  8c:	c7 e6       	ldi	r28, 0x67	; 103
+  8e:	d0 e0       	ldi	r29, 0x00	; 0
+		}
+		return;
+	}
+	
+	for(n=4; n>0; n--)
+	{
+		g_DaneWyswietlacza[n-1] = pgm_read_byte(&g_WzoryCyfr[var%10]);
+  90:	93 2f       	mov	r25, r19
+  92:	82 2f       	mov	r24, r18
+  94:	6a e0       	ldi	r22, 0x0A	; 10
+  96:	70 e0       	ldi	r23, 0x00	; 0
+  98:	a7 d0       	rcall	.+334    	; 0x1e8 <__udivmodhi4>
+  9a:	f9 2f       	mov	r31, r25
+  9c:	e8 2f       	mov	r30, r24
+  9e:	e6 5e       	subi	r30, 0xE6	; 230
+  a0:	ff 4f       	sbci	r31, 0xFF	; 255
+  a2:	c8 95       	lpm
+  a4:	e0 2d       	mov	r30, r0
+  a6:	e8 83       	st	Y, r30
+  a8:	21 97       	sbiw	r28, 0x01	; 1
+		var /= 10;
+  aa:	93 2f       	mov	r25, r19
+  ac:	82 2f       	mov	r24, r18
+  ae:	6a e0       	ldi	r22, 0x0A	; 10
+  b0:	70 e0       	ldi	r23, 0x00	; 0
+  b2:	9a d0       	rcall	.+308    	; 0x1e8 <__udivmodhi4>
+  b4:	26 2f       	mov	r18, r22
+  b6:	37 2f       	mov	r19, r23
+  b8:	01 50       	subi	r16, 0x01	; 1
+  ba:	10 40       	sbci	r17, 0x00	; 0
+  bc:	8f ef       	ldi	r24, 0xFF	; 255
+  be:	0f 3f       	cpi	r16, 0xFF	; 255
+  c0:	18 07       	cpc	r17, r24
+  c2:	31 f7       	brne	.-52     	; 0x90 <WyswietlDEC+0x30>
+  c4:	df 91       	pop	r29
+  c6:	cf 91       	pop	r28
+  c8:	1f 91       	pop	r17
+  ca:	0f 91       	pop	r16
+  cc:	08 95       	ret
+
+000000ce <ObslozPrzycisk>:
+	}	
+}	
+
+void ObslozPrzycisk(uint8_t maska, void(*proc)(void))
+{
+  ce:	1f 93       	push	r17
+  d0:	cf 93       	push	r28
+  d2:	df 93       	push	r29
+  d4:	18 2f       	mov	r17, r24
+  d6:	d7 2f       	mov	r29, r23
+  d8:	c6 2f       	mov	r28, r22
+	if(!(SWPIN & maska))
+  da:	80 b3       	in	r24, 0x10	; 16
+  dc:	81 23       	and	r24, r17
+  de:	e9 f4       	brne	.+58     	; 0x11a <__stack+0x3b>
+	{
+		//usuwanie drgañ styków.
+		g_bDelay = 6; //50ms
+  e0:	86 e0       	ldi	r24, 0x06	; 6
+  e2:	80 93 63 00 	sts	0x0063, r24
+		while(g_bDelay !=0) {}
+  e6:	80 91 63 00 	lds	r24, 0x0063
+  ea:	88 23       	and	r24, r24
+  ec:	e1 f7       	brne	.-8      	; 0xe6 <__stack+0x7>
+		if(!(SWPIN & maska))
+  ee:	80 b3       	in	r24, 0x10	; 16
+  f0:	81 23       	and	r24, r17
+  f2:	99 f4       	brne	.+38     	; 0x11a <__stack+0x3b>
+		{
+			proc();
+  f4:	ec 2f       	mov	r30, r28
+  f6:	fd 2f       	mov	r31, r29
+  f8:	09 95       	icall
+			g_bDelay = 120; //1s
+  fa:	88 e7       	ldi	r24, 0x78	; 120
+  fc:	80 93 63 00 	sts	0x0063, r24
+			do
+			{
+				if(g_bDelay==0)
+ 100:	80 91 63 00 	lds	r24, 0x0063
+ 104:	88 23       	and	r24, r24
+ 106:	31 f4       	brne	.+12     	; 0x114 <__stack+0x35>
+				{
+					g_bDelay = 6; //50ms
+ 108:	86 e0       	ldi	r24, 0x06	; 6
+ 10a:	80 93 63 00 	sts	0x0063, r24
+					proc();
+ 10e:	ec 2f       	mov	r30, r28
+ 110:	fd 2f       	mov	r31, r29
+ 112:	09 95       	icall
+				}
+			}while(!(SWPIN & maska));
+ 114:	80 b3       	in	r24, 0x10	; 16
+ 116:	81 23       	and	r24, r17
+ 118:	99 f3       	breq	.-26     	; 0x100 <__stack+0x21>
+ 11a:	df 91       	pop	r29
+ 11c:	cf 91       	pop	r28
+ 11e:	1f 91       	pop	r17
+ 120:	08 95       	ret
+
+00000122 <Plus>:
+		}
+	}
+}
+
+void Plus(void)
+{
+ 122:	80 91 60 00 	lds	r24, 0x0060
+ 126:	90 91 61 00 	lds	r25, 0x0061
+ 12a:	01 96       	adiw	r24, 0x01	; 1
+ 12c:	90 93 61 00 	sts	0x0061, r25
+ 130:	80 93 60 00 	sts	0x0060, r24
+	++g_Licznik;
+	WyswietlDEC(g_Licznik);
+ 134:	95 df       	rcall	.-214    	; 0x60 <WyswietlDEC>
+ 136:	08 95       	ret
+
+00000138 <Minus>:
+}
+
+void Minus(void)
+{
+ 138:	80 91 60 00 	lds	r24, 0x0060
+ 13c:	90 91 61 00 	lds	r25, 0x0061
+ 140:	01 97       	sbiw	r24, 0x01	; 1
+ 142:	90 93 61 00 	sts	0x0061, r25
+ 146:	80 93 60 00 	sts	0x0060, r24
+	--g_Licznik;
+	WyswietlDEC(g_Licznik);
+ 14a:	8a df       	rcall	.-236    	; 0x60 <WyswietlDEC>
+ 14c:	08 95       	ret
+
+0000014e <main>:
+}
+
+int main(void)
+{
+ 14e:	8f ef       	ldi	r24, 0xFF	; 255
+ 150:	87 bb       	out	0x17, r24	; 23
+	/////////////////////////////
+	// inicjacja
+	LEDDDR = 0xff; 
+	COMDDR = 1<<COM1 | 1<<COM2 | 1<<COM3 | 1<<COM4;
+ 152:	88 e7       	ldi	r24, 0x78	; 120
+ 154:	81 bb       	out	0x11, r24	; 17
+	//w¹czenie podci¹gania wyjœæ
+	SWPORT = 1<<SW1 | 1<<SW2;
+ 156:	83 e0       	ldi	r24, 0x03	; 3
+ 158:	82 bb       	out	0x12, r24	; 18
+	//Timer0.
+	TCCR0 = 1<<CS01 | 1<<CS00;
+ 15a:	83 bf       	out	0x33, r24	; 51
+	TIMSK = 1<<TOIE0;
+ 15c:	82 e0       	ldi	r24, 0x02	; 2
+ 15e:	89 bf       	out	0x39, r24	; 57
+	//Globalne zezwolenie przerwañ.
+	sei();
+ 160:	78 94       	sei
+	// koniec inicjacji.
+	/////////////////////////////
+	
+	/*Wpisanie próbnych wartoœci.
+	g_DaneWyswietlacza[0] = ~(1<<LED_B | 1<<LED_C | 1<<LED_A | 1<<LED_E | 1<<LED_F | 1<<LED_D);
+	g_DaneWyswietlacza[2] = ~(1<<LED_D | 1<<LED_A | 1<<LED_G | 1<<LED_E | 1<<LED_F);
+	g_DaneWyswietlacza[1] = ~(1<<LED_F | 1<<LED_E | 1<<LED_D);
+	g_DaneWyswietlacza[3] = ~(1<<LED_B | 1<<LED_C | 1<<LED_G| 1<<LED_E | 1<<LED_F);
+	*/
+	
+	for(;;)
+	{
+		ObslozPrzycisk(1<<SW1, Plus); 
+ 162:	61 e9       	ldi	r22, 0x91	; 145
+ 164:	70 e0       	ldi	r23, 0x00	; 0
+ 166:	81 e0       	ldi	r24, 0x01	; 1
+ 168:	b2 df       	rcall	.-156    	; 0xce <ObslozPrzycisk>
+		ObslozPrzycisk(1<<SW2, Minus);
+ 16a:	6c e9       	ldi	r22, 0x9C	; 156
+ 16c:	70 e0       	ldi	r23, 0x00	; 0
+ 16e:	82 e0       	ldi	r24, 0x02	; 2
+ 170:	ae df       	rcall	.-164    	; 0xce <ObslozPrzycisk>
+ 172:	f7 cf       	rjmp	.-18     	; 0x162 <main+0x14>
+
+00000174 <__vector_6>:
+	
+	}
+
+	return 0; 
+}
+//____________________________________________________________________________________________
+//Obs³uga przerwañ
+SIGNAL(SIG_OVERFLOW0)
+{
+ 174:	1f 92       	push	r1
+ 176:	0f 92       	push	r0
+ 178:	0f b6       	in	r0, 0x3f	; 63
+ 17a:	0f 92       	push	r0
+ 17c:	11 24       	eor	r1, r1
+ 17e:	8f 93       	push	r24
+ 180:	9f 93       	push	r25
+ 182:	af 93       	push	r26
+ 184:	bf 93       	push	r27
+ 186:	ef 93       	push	r30
+ 188:	ff 93       	push	r31
+		static uint8_t AktWyswietlacz = 0;
+		//Wpisanie do licznika pocz¹tkowej wartoœci.
+		TCNT0 = 128;
+ 18a:	80 e8       	ldi	r24, 0x80	; 128
+ 18c:	82 bf       	out	0x32, r24	; 50
+		//Wygaszenie wyœwietlaczy.
+		COMPORT |= 1<<COM1 | 1<<COM2 | 1<<COM3 | 1<<COM4;
+ 18e:	82 b3       	in	r24, 0x12	; 18
+ 190:	88 67       	ori	r24, 0x78	; 120
+ 192:	82 bb       	out	0x12, r24	; 18
+		//Wys³anie odpowiedniej danej.
+		LEDPORT = g_DaneWyswietlacza[AktWyswietlacz];
+ 194:	90 91 62 00 	lds	r25, 0x0062
+ 198:	e9 2f       	mov	r30, r25
+ 19a:	ff 27       	eor	r31, r31
+ 19c:	ae 2f       	mov	r26, r30
+ 19e:	bf 2f       	mov	r27, r31
+ 1a0:	ac 59       	subi	r26, 0x9C	; 156
+ 1a2:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1a4:	8c 91       	ld	r24, X
+ 1a6:	88 bb       	out	0x18, r24	; 24
+		//W³¹czenie odpowiedniego wyœwietlacza.
+		//Odwo³anie do pamiêci programu.
+		COMPORT &= pgm_read_byte(&g_DaneCom[AktWyswietlacz]);
+ 1a8:	82 b3       	in	r24, 0x12	; 18
+ 1aa:	ea 5e       	subi	r30, 0xEA	; 234
+ 1ac:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ae:	c8 95       	lpm
+ 1b0:	e0 2d       	mov	r30, r0
+ 1b2:	8e 23       	and	r24, r30
+ 1b4:	82 bb       	out	0x12, r24	; 18
+		
+		//Zwiêkszanie stanu zmiennej wskazuj¹cej wyœwietlacz
+		++AktWyswietlacz;
+ 1b6:	9f 5f       	subi	r25, 0xFF	; 255
+ 1b8:	90 93 62 00 	sts	0x0062, r25
+		if (AktWyswietlacz > 3) {
+ 1bc:	94 30       	cpi	r25, 0x04	; 4
+ 1be:	48 f0       	brcs	.+18     	; 0x1d2 <__vector_6+0x5e>
+			//Zmienna zapobiegaj¹ca niepotrzebnemu kopiowaniu
+			//zmiennej g_bDelay (typ volatile!)
+			uint8_t delay;
+			AktWyswietlacz = 0;
+ 1c0:	10 92 62 00 	sts	0x0062, r1
+			//Obs³uga opóŸnieñ
+			delay = g_bDelay;
+ 1c4:	80 91 63 00 	lds	r24, 0x0063
+			if(delay > 0)
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	19 f0       	breq	.+6      	; 0x1d2 <__vector_6+0x5e>
+			{
+				--delay;
+ 1cc:	81 50       	subi	r24, 0x01	; 1
+				g_bDelay = delay;
+ 1ce:	80 93 63 00 	sts	0x0063, r24
+ 1d2:	ff 91       	pop	r31
+ 1d4:	ef 91       	pop	r30
+ 1d6:	bf 91       	pop	r27
+ 1d8:	af 91       	pop	r26
+ 1da:	9f 91       	pop	r25
+ 1dc:	8f 91       	pop	r24
+ 1de:	0f 90       	pop	r0
+ 1e0:	0f be       	out	0x3f, r0	; 63
+ 1e2:	0f 90       	pop	r0
+ 1e4:	1f 90       	pop	r1
+ 1e6:	18 95       	reti
+
+000001e8 <__udivmodhi4>:
+ 1e8:	aa 1b       	sub	r26, r26
+ 1ea:	bb 1b       	sub	r27, r27
+ 1ec:	51 e1       	ldi	r21, 0x11	; 17
+ 1ee:	07 c0       	rjmp	.+14     	; 0x1fe <__udivmodhi4_ep>
+
+000001f0 <__udivmodhi4_loop>:
+ 1f0:	aa 1f       	adc	r26, r26
+ 1f2:	bb 1f       	adc	r27, r27
+ 1f4:	a6 17       	cp	r26, r22
+ 1f6:	b7 07       	cpc	r27, r23
+ 1f8:	10 f0       	brcs	.+4      	; 0x1fe <__udivmodhi4_ep>
+ 1fa:	a6 1b       	sub	r26, r22
+ 1fc:	b7 0b       	sbc	r27, r23
+
+000001fe <__udivmodhi4_ep>:
+ 1fe:	88 1f       	adc	r24, r24
+ 200:	99 1f       	adc	r25, r25
+ 202:	5a 95       	dec	r21
+ 204:	a9 f7       	brne	.-22     	; 0x1f0 <__udivmodhi4_loop>
+ 206:	80 95       	com	r24
+ 208:	90 95       	com	r25
+ 20a:	68 2f       	mov	r22, r24
+ 20c:	79 2f       	mov	r23, r25
+ 20e:	8a 2f       	mov	r24, r26
+ 210:	9b 2f       	mov	r25, r27
+ 212:	08 95       	ret
+
+00000214 <_exit>:
+ 214:	ff cf       	rjmp	.-2      	; 0x214 <_exit>

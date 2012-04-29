@@ -1,0 +1,569 @@
+   1               		.file	"i2c.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	i2c_start
+  18               	i2c_start:
+  19               	.LFB9:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LBB106:
+  24               	.LBB107:
+  25               	.LM2:
+  26 0000 B998      		cbi 55-32,1
+  27               	.LM3:
+  28 0002 C19A      		sbi 56-32,1
+  29               	.LBE107:
+  30               	.LBE106:
+  31               	.LBB108:
+  32               	.LBB109:
+  33               	.LBB110:
+  34               	.LBB111:
+  35               	.LM4:
+  36 0004 89E1      		ldi r24,lo8(25)
+  37 0006 90E0      		ldi r25,hi8(25)
+  38 0008 A0E0      		ldi r26,hlo8(25)
+  39 000a B0E0      		ldi r27,hhi8(25)
+  40               	/* #APP */
+  41               	 ;  36 "i2c.c" 1
+  42               		delayus8_loop20: 
+  43 000c 8A95      		dec r24 
+  44 000e 01F4      		brne delayus8_loop20 
+  45               		
+  46               	 ;  0 "" 2
+  47               	/* #NOAPP */
+  48               	.LBE111:
+  49               	.LBE110:
+  50               	.LBE109:
+  51               	.LBE108:
+  52               	.LBB112:
+  53               	.LBB113:
+  54               	.LM5:
+  55 0010 C09A      		sbi 56-32,0
+  56               	.LBE113:
+  57               	.LBE112:
+  58               	.LBB114:
+  59               	.LBB115:
+  60               	.LBB116:
+  61               	.LBB117:
+  62               	.LM6:
+  63 0012 89E1      		ldi r24,lo8(25)
+  64 0014 90E0      		ldi r25,hi8(25)
+  65 0016 A0E0      		ldi r26,hlo8(25)
+  66 0018 B0E0      		ldi r27,hhi8(25)
+  67               	/* #APP */
+  68               	 ;  36 "i2c.c" 1
+  69               		delayus8_loop37: 
+  70 001a 8A95      		dec r24 
+  71 001c 01F4      		brne delayus8_loop37 
+  72               		
+  73               	 ;  0 "" 2
+  74               	/* #NOAPP */
+  75               	.LBE117:
+  76               	.LBE116:
+  77               	.LBE115:
+  78               	.LBE114:
+  79               	.LBB118:
+  80               	.LBB119:
+  81               	.LM7:
+  82 001e C198      		cbi 56-32,1
+  83               	.LM8:
+  84 0020 B99A      		sbi 55-32,1
+  85               	.LBE119:
+  86               	.LBE118:
+  87               	.LBB120:
+  88               	.LBB121:
+  89               	.LBB122:
+  90               	.LBB123:
+  91               	.LM9:
+  92 0022 89E1      		ldi r24,lo8(25)
+  93 0024 90E0      		ldi r25,hi8(25)
+  94 0026 A0E0      		ldi r26,hlo8(25)
+  95 0028 B0E0      		ldi r27,hhi8(25)
+  96               	/* #APP */
+  97               	 ;  36 "i2c.c" 1
+  98               		delayus8_loop57: 
+  99 002a 8A95      		dec r24 
+ 100 002c 01F4      		brne delayus8_loop57 
+ 101               		
+ 102               	 ;  0 "" 2
+ 103               	/* #NOAPP */
+ 104               	.LBE123:
+ 105               	.LBE122:
+ 106               	.LBE121:
+ 107               	.LBE120:
+ 108               	.LBB124:
+ 109               	.LBB125:
+ 110               	.LM10:
+ 111 002e C098      		cbi 56-32,0
+ 112               	/* epilogue start */
+ 113               	.LBE125:
+ 114               	.LBE124:
+ 115               	.LM11:
+ 116 0030 0895      		ret
+ 117               	.LFE9:
+ 119               	.global	i2c_stop
+ 121               	i2c_stop:
+ 122               	.LFB10:
+ 123               	.LM12:
+ 124               	/* prologue: function */
+ 125               	/* frame size = 0 */
+ 126               	.LBB126:
+ 127               	.LBB127:
+ 128               	.LM13:
+ 129 0032 C198      		cbi 56-32,1
+ 130               	.LM14:
+ 131 0034 B99A      		sbi 55-32,1
+ 132               	.LBE127:
+ 133               	.LBE126:
+ 134               	.LBB128:
+ 135               	.LBB129:
+ 136               	.LBB130:
+ 137               	.LBB131:
+ 138               	.LM15:
+ 139 0036 89E1      		ldi r24,lo8(25)
+ 140 0038 90E0      		ldi r25,hi8(25)
+ 141 003a A0E0      		ldi r26,hlo8(25)
+ 142 003c B0E0      		ldi r27,hhi8(25)
+ 143               	/* #APP */
+ 144               	 ;  36 "i2c.c" 1
+ 145               		delayus8_loop92: 
+ 146 003e 8A95      		dec r24 
+ 147 0040 01F4      		brne delayus8_loop92 
+ 148               		
+ 149               	 ;  0 "" 2
+ 150               	/* #NOAPP */
+ 151               	.LBE131:
+ 152               	.LBE130:
+ 153               	.LBE129:
+ 154               	.LBE128:
+ 155               	.LBB132:
+ 156               	.LBB133:
+ 157               	.LM16:
+ 158 0042 C09A      		sbi 56-32,0
+ 159               	.LBE133:
+ 160               	.LBE132:
+ 161               	.LBB134:
+ 162               	.LBB135:
+ 163               	.LBB136:
+ 164               	.LBB137:
+ 165               	.LM17:
+ 166 0044 89E1      		ldi r24,lo8(25)
+ 167 0046 90E0      		ldi r25,hi8(25)
+ 168 0048 A0E0      		ldi r26,hlo8(25)
+ 169 004a B0E0      		ldi r27,hhi8(25)
+ 170               	/* #APP */
+ 171               	 ;  36 "i2c.c" 1
+ 172               		delayus8_loop109: 
+ 173 004c 8A95      		dec r24 
+ 174 004e 01F4      		brne delayus8_loop109 
+ 175               		
+ 176               	 ;  0 "" 2
+ 177               	/* #NOAPP */
+ 178               	.LBE137:
+ 179               	.LBE136:
+ 180               	.LBE135:
+ 181               	.LBE134:
+ 182               	.LBB138:
+ 183               	.LBB139:
+ 184               	.LM18:
+ 185 0050 B998      		cbi 55-32,1
+ 186               	.LM19:
+ 187 0052 C19A      		sbi 56-32,1
+ 188               	.LBE139:
+ 189               	.LBE138:
+ 190               	.LBB140:
+ 191               	.LBB141:
+ 192               	.LBB142:
+ 193               	.LBB143:
+ 194               	.LM20:
+ 195 0054 89E1      		ldi r24,lo8(25)
+ 196 0056 90E0      		ldi r25,hi8(25)
+ 197 0058 A0E0      		ldi r26,hlo8(25)
+ 198 005a B0E0      		ldi r27,hhi8(25)
+ 199               	/* #APP */
+ 200               	 ;  36 "i2c.c" 1
+ 201               		delayus8_loop129: 
+ 202 005c 8A95      		dec r24 
+ 203 005e 01F4      		brne delayus8_loop129 
+ 204               		
+ 205               	 ;  0 "" 2
+ 206               	/* epilogue start */
+ 207               	/* #NOAPP */
+ 208               	.LBE143:
+ 209               	.LBE142:
+ 210               	.LBE141:
+ 211               	.LBE140:
+ 212               	.LM21:
+ 213 0060 0895      		ret
+ 214               	.LFE10:
+ 216               	.global	i2c_send
+ 218               	i2c_send:
+ 219               	.LFB11:
+ 220               	.LM22:
+ 221               	.LVL0:
+ 222               	/* prologue: function */
+ 223               	/* frame size = 0 */
+ 224               	.LM23:
+ 225 0062 98E0      		ldi r25,lo8(8)
+ 226               	.LVL1:
+ 227               	.LBB144:
+ 228               	.LBB145:
+ 229               	.LBB146:
+ 230               	.LBB147:
+ 231               	.LM24:
+ 232 0064 29E1      		ldi r18,lo8(25)
+ 233 0066 30E0      		ldi r19,hi8(25)
+ 234 0068 40E0      		ldi r20,hlo8(25)
+ 235 006a 50E0      		ldi r21,hhi8(25)
+ 236               	.L9:
+ 237               	.LBE147:
+ 238               	.LBE146:
+ 239               	.LBE145:
+ 240               	.LBE144:
+ 241               	.LM25:
+ 242 006c 87FF      		sbrs r24,7
+ 243 006e 00C0      		rjmp .L6
+ 244               	.LBB151:
+ 245               	.LBB152:
+ 246               	.LM26:
+ 247 0070 B998      		cbi 55-32,1
+ 248               	.LM27:
+ 249 0072 C19A      		sbi 56-32,1
+ 250 0074 00C0      		rjmp .L7
+ 251               	.L6:
+ 252               	.LBE152:
+ 253               	.LBE151:
+ 254               	.LBB153:
+ 255               	.LBB154:
+ 256               	.LM28:
+ 257 0076 C198      		cbi 56-32,1
+ 258               	.LM29:
+ 259 0078 B99A      		sbi 55-32,1
+ 260               	.L7:
+ 261               	.LBE154:
+ 262               	.LBE153:
+ 263               	.LBB155:
+ 264               	.LBB150:
+ 265               	.LBB149:
+ 266               	.LBB148:
+ 267               	.LM30:
+ 268               	/* #APP */
+ 269               	 ;  36 "i2c.c" 1
+ 270               		delayus8_loop188: 
+ 271 007a 2A95      		dec r18 
+ 272 007c 01F4      		brne delayus8_loop188 
+ 273               		
+ 274               	 ;  0 "" 2
+ 275               	/* #NOAPP */
+ 276               	.LBE148:
+ 277               	.LBE149:
+ 278               	.LBE150:
+ 279               	.LBE155:
+ 280               	.LBB156:
+ 281               	.LBB157:
+ 282               	.LM31:
+ 283 007e C09A      		sbi 56-32,0
+ 284               	.LBE157:
+ 285               	.LBE156:
+ 286               	.LBB158:
+ 287               	.LBB159:
+ 288               	.LBB160:
+ 289               	.LBB161:
+ 290               	.LM32:
+ 291               	/* #APP */
+ 292               	 ;  36 "i2c.c" 1
+ 293               		delayus8_loop204: 
+ 294 0080 2A95      		dec r18 
+ 295 0082 01F4      		brne delayus8_loop204 
+ 296               		
+ 297               	 ;  0 "" 2
+ 298               	/* #NOAPP */
+ 299               	.LBE161:
+ 300               	.LBE160:
+ 301               	.LBE159:
+ 302               	.LBE158:
+ 303               	.LBB162:
+ 304               	.LBB163:
+ 305               	.LM33:
+ 306 0084 C098      		cbi 56-32,0
+ 307               	.LBE163:
+ 308               	.LBE162:
+ 309               	.LM34:
+ 310 0086 9150      		subi r25,lo8(-(-1))
+ 311 0088 01F0      		breq .L8
+ 312               	.LM35:
+ 313 008a 880F      		lsl r24
+ 314               	.LVL2:
+ 315 008c 00C0      		rjmp .L9
+ 316               	.L8:
+ 317               	.LBB164:
+ 318               	.LBB165:
+ 319               	.LM36:
+ 320 008e B998      		cbi 55-32,1
+ 321               	.LM37:
+ 322 0090 C19A      		sbi 56-32,1
+ 323               	.LBE165:
+ 324               	.LBE164:
+ 325               	.LBB166:
+ 326               	.LBB167:
+ 327               	.LBB168:
+ 328               	.LBB169:
+ 329               	.LM38:
+ 330 0092 89E1      		ldi r24,lo8(25)
+ 331 0094 90E0      		ldi r25,hi8(25)
+ 332 0096 A0E0      		ldi r26,hlo8(25)
+ 333 0098 B0E0      		ldi r27,hhi8(25)
+ 334               	.LVL3:
+ 335               	/* #APP */
+ 336               	 ;  36 "i2c.c" 1
+ 337               		delayus8_loop242: 
+ 338 009a 8A95      		dec r24 
+ 339 009c 01F4      		brne delayus8_loop242 
+ 340               		
+ 341               	 ;  0 "" 2
+ 342               	/* #NOAPP */
+ 343               	.LBE169:
+ 344               	.LBE168:
+ 345               	.LBE167:
+ 346               	.LBE166:
+ 347               	.LBB170:
+ 348               	.LBB171:
+ 349               	.LM39:
+ 350 009e C09A      		sbi 56-32,0
+ 351               	.LBE171:
+ 352               	.LBE170:
+ 353               	.LBB172:
+ 354               	.LBB173:
+ 355               	.LBB174:
+ 356               	.LBB175:
+ 357               	.LM40:
+ 358 00a0 89E1      		ldi r24,lo8(25)
+ 359 00a2 90E0      		ldi r25,hi8(25)
+ 360 00a4 A0E0      		ldi r26,hlo8(25)
+ 361 00a6 B0E0      		ldi r27,hhi8(25)
+ 362               	/* #APP */
+ 363               	 ;  36 "i2c.c" 1
+ 364               		delayus8_loop259: 
+ 365 00a8 8A95      		dec r24 
+ 366 00aa 01F4      		brne delayus8_loop259 
+ 367               		
+ 368               	 ;  0 "" 2
+ 369               	/* #NOAPP */
+ 370               	.LBE175:
+ 371               	.LBE174:
+ 372               	.LBE173:
+ 373               	.LBE172:
+ 374               	.LBB176:
+ 375               	.LBB177:
+ 376               	.LM41:
+ 377 00ac 86B3      		in r24,54-32
+ 378               	.LBE177:
+ 379               	.LBE176:
+ 380               	.LBB178:
+ 381               	.LBB179:
+ 382               	.LM42:
+ 383 00ae C098      		cbi 56-32,0
+ 384               	.LBE179:
+ 385               	.LBE178:
+ 386               	.LM43:
+ 387 00b0 8270      		andi r24,lo8(2)
+ 388               	/* epilogue start */
+ 389 00b2 0895      		ret
+ 390               	.LFE11:
+ 392               	.global	i2c_get
+ 394               	i2c_get:
+ 395               	.LFB12:
+ 396               	.LM44:
+ 397               	.LVL4:
+ 398               	/* prologue: function */
+ 399               	/* frame size = 0 */
+ 400               	.LBB180:
+ 401               	.LBB181:
+ 402               	.LM45:
+ 403 00b4 B998      		cbi 55-32,1
+ 404               	.LM46:
+ 405 00b6 C19A      		sbi 56-32,1
+ 406 00b8 98E0      		ldi r25,lo8(8)
+ 407               	.LVL5:
+ 408 00ba 60E0      		ldi r22,lo8(0)
+ 409               	.LVL6:
+ 410               	.LBE181:
+ 411               	.LBE180:
+ 412               	.LBB182:
+ 413               	.LBB183:
+ 414               	.LBB184:
+ 415               	.LBB185:
+ 416               	.LM47:
+ 417 00bc 29E1      		ldi r18,lo8(25)
+ 418 00be 30E0      		ldi r19,hi8(25)
+ 419 00c0 40E0      		ldi r20,hlo8(25)
+ 420 00c2 50E0      		ldi r21,hhi8(25)
+ 421               	.L13:
+ 422               	/* #APP */
+ 423               	 ;  36 "i2c.c" 1
+ 424               		delayus8_loop309: 
+ 425 00c4 2A95      		dec r18 
+ 426 00c6 01F4      		brne delayus8_loop309 
+ 427               		
+ 428               	 ;  0 "" 2
+ 429               	/* #NOAPP */
+ 430               	.LBE185:
+ 431               	.LBE184:
+ 432               	.LBE183:
+ 433               	.LBE182:
+ 434               	.LBB186:
+ 435               	.LBB187:
+ 436               	.LM48:
+ 437 00c8 C09A      		sbi 56-32,0
+ 438               	.LBE187:
+ 439               	.LBE186:
+ 440               	.LBB188:
+ 441               	.LBB189:
+ 442               	.LBB190:
+ 443               	.LBB191:
+ 444               	.LM49:
+ 445               	/* #APP */
+ 446               	 ;  36 "i2c.c" 1
+ 447               		delayus8_loop325: 
+ 448 00ca 2A95      		dec r18 
+ 449 00cc 01F4      		brne delayus8_loop325 
+ 450               		
+ 451               	 ;  0 "" 2
+ 452               	/* #NOAPP */
+ 453               	.LBE191:
+ 454               	.LBE190:
+ 455               	.LBE189:
+ 456               	.LBE188:
+ 457               	.LM50:
+ 458 00ce 660F      		lsl r22
+ 459               	.LM51:
+ 460 00d0 B199      		sbic 54-32,1
+ 461               	.LM52:
+ 462 00d2 6F5F      		subi r22,lo8(-(1))
+ 463               	.L12:
+ 464               	.LBB192:
+ 465               	.LBB193:
+ 466               	.LM53:
+ 467 00d4 C098      		cbi 56-32,0
+ 468               	.LBE193:
+ 469               	.LBE192:
+ 470               	.LM54:
+ 471 00d6 9150      		subi r25,lo8(-(-1))
+ 472 00d8 01F4      		brne .L13
+ 473               	.LM55:
+ 474 00da 8130      		cpi r24,lo8(1)
+ 475 00dc 01F4      		brne .L14
+ 476               	.LBB194:
+ 477               	.LBB195:
+ 478               	.LM56:
+ 479 00de C198      		cbi 56-32,1
+ 480               	.LM57:
+ 481 00e0 B99A      		sbi 55-32,1
+ 482 00e2 00C0      		rjmp .L15
+ 483               	.L14:
+ 484               	.LBE195:
+ 485               	.LBE194:
+ 486               	.LBB196:
+ 487               	.LBB197:
+ 488               	.LM58:
+ 489 00e4 B998      		cbi 55-32,1
+ 490               	.LM59:
+ 491 00e6 C19A      		sbi 56-32,1
+ 492               	.L15:
+ 493               	.LBE197:
+ 494               	.LBE196:
+ 495               	.LBB198:
+ 496               	.LBB199:
+ 497               	.LBB200:
+ 498               	.LBB201:
+ 499               	.LM60:
+ 500 00e8 89E1      		ldi r24,lo8(25)
+ 501 00ea 90E0      		ldi r25,hi8(25)
+ 502 00ec A0E0      		ldi r26,hlo8(25)
+ 503 00ee B0E0      		ldi r27,hhi8(25)
+ 504               	.LVL7:
+ 505               	/* #APP */
+ 506               	 ;  36 "i2c.c" 1
+ 507               		delayus8_loop385: 
+ 508 00f0 8A95      		dec r24 
+ 509 00f2 01F4      		brne delayus8_loop385 
+ 510               		
+ 511               	 ;  0 "" 2
+ 512               	/* #NOAPP */
+ 513               	.LBE201:
+ 514               	.LBE200:
+ 515               	.LBE199:
+ 516               	.LBE198:
+ 517               	.LBB202:
+ 518               	.LBB203:
+ 519               	.LM61:
+ 520 00f4 C09A      		sbi 56-32,0
+ 521               	.LBE203:
+ 522               	.LBE202:
+ 523               	.LBB204:
+ 524               	.LBB205:
+ 525               	.LBB206:
+ 526               	.LBB207:
+ 527               	.LM62:
+ 528 00f6 89E1      		ldi r24,lo8(25)
+ 529 00f8 90E0      		ldi r25,hi8(25)
+ 530 00fa A0E0      		ldi r26,hlo8(25)
+ 531 00fc B0E0      		ldi r27,hhi8(25)
+ 532               	/* #APP */
+ 533               	 ;  36 "i2c.c" 1
+ 534               		delayus8_loop402: 
+ 535 00fe 8A95      		dec r24 
+ 536 0100 01F4      		brne delayus8_loop402 
+ 537               		
+ 538               	 ;  0 "" 2
+ 539               	/* #NOAPP */
+ 540               	.LBE207:
+ 541               	.LBE206:
+ 542               	.LBE205:
+ 543               	.LBE204:
+ 544               	.LBB208:
+ 545               	.LBB209:
+ 546               	.LM63:
+ 547 0102 C098      		cbi 56-32,0
+ 548               	.LBE209:
+ 549               	.LBE208:
+ 550               	.LM64:
+ 551 0104 862F      		mov r24,r22
+ 552               	/* epilogue start */
+ 553 0106 0895      		ret
+ 554               	.LFE12:
+ 604               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 i2c.c
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:18     .text:00000000 i2c_start
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:42     .text:0000000c delayus8_loop20
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:69     .text:0000001a delayus8_loop37
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:98     .text:0000002a delayus8_loop57
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:121    .text:00000032 i2c_stop
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:145    .text:0000003e delayus8_loop92
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:172    .text:0000004c delayus8_loop109
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:201    .text:0000005c delayus8_loop129
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:218    .text:00000062 i2c_send
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:270    .text:0000007a delayus8_loop188
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:293    .text:00000080 delayus8_loop204
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:337    .text:0000009a delayus8_loop242
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:364    .text:000000a8 delayus8_loop259
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:394    .text:000000b4 i2c_get
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:424    .text:000000c4 delayus8_loop309
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:447    .text:000000ca delayus8_loop325
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:507    .text:000000f0 delayus8_loop385
+C:\Users\O\AppData\Local\Temp/ccAMpdEV.s:534    .text:000000fe delayus8_loop402
+
+NO UNDEFINED SYMBOLS

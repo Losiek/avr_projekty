@@ -1,0 +1,127 @@
+   1               		.file	"main.c"
+   2               		.arch at90s2313
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24 0000 1F93      		push r17
+  25               	/* prologue end (size=1) */
+  26               	.LM2:
+  27 0002 80E6      		ldi r24,lo8(96)
+  28 0004 82BB      		out 50-0x20,r24
+  29               	.LM3:
+  30 0006 80E2      		ldi r24,lo8(32)
+  31 0008 81BB      		out 49-0x20,r24
+  32               	.LM4:
+  33 000a 86EF      		ldi r24,lo8(-10)
+  34 000c 87BB      		out 55-0x20,r24
+  35               	.LM5:
+  36 000e 00D0      		rcall lcd_init
+  37               	.LM6:
+  38 0010 80E0      		ldi r24,lo8(__c.1572)
+  39 0012 90E0      		ldi r25,hi8(__c.1572)
+  40 0014 00D0      		rcall lcd_str_P
+  41               	.LM7:
+  42 0016 80EC      		ldi r24,lo8(-64)
+  43 0018 00D0      		rcall lcd_command
+  44               	.LM8:
+  45 001a 00D0      		rcall i2c_start
+  46               	.LM9:
+  47 001c 80E9      		ldi r24,lo8(-112)
+  48 001e 00D0      		rcall i2c_send
+  49               	.LM10:
+  50 0020 80E0      		ldi r24,lo8(0)
+  51 0022 00D0      		rcall i2c_send
+  52               	.LM11:
+  53 0024 00D0      		rcall i2c_stop
+  54               	.L2:
+  55               	.LM12:
+  56 0026 80EC      		ldi r24,lo8(-64)
+  57 0028 00D0      		rcall lcd_command
+  58               	.LM13:
+  59 002a 00D0      		rcall i2c_start
+  60               	.LM14:
+  61 002c 80E9      		ldi r24,lo8(-112)
+  62 002e 00D0      		rcall i2c_send
+  63               	.LM15:
+  64 0030 84E4      		ldi r24,lo8(68)
+  65 0032 00D0      		rcall i2c_send
+  66               	.LM16:
+  67 0034 8BE9      		ldi r24,lo8(-101)
+  68 0036 00D0      		rcall i2c_send
+  69               	.LM17:
+  70 0038 00D0      		rcall i2c_stop
+  71               	.LM18:
+  72 003a 00D0      		rcall i2c_start
+  73               	.LM19:
+  74 003c 81E9      		ldi r24,lo8(-111)
+  75 003e 00D0      		rcall i2c_send
+  76               	.LM20:
+  77 0040 81E0      		ldi r24,lo8(1)
+  78 0042 00D0      		rcall i2c_get
+  79 0044 182F      		mov r17,r24
+  80               	.LVL0:
+  81               	.LM21:
+  82 0046 81E0      		ldi r24,lo8(1)
+  83 0048 00D0      		rcall i2c_get
+  84               	.LM22:
+  85 004a 81E0      		ldi r24,lo8(1)
+  86 004c 00D0      		rcall i2c_get
+  87               	.LM23:
+  88 004e 80E0      		ldi r24,lo8(0)
+  89 0050 00D0      		rcall i2c_get
+  90               	.LM24:
+  91 0052 00D0      		rcall i2c_stop
+  92               	.LM25:
+  93 0054 812F      		mov r24,r17
+  94 0056 9927      		clr r25
+  95 0058 00D0      		rcall lcd_dec
+  96               	.LM26:
+  97 005a 80E0      		ldi r24,lo8(__c.1579)
+  98 005c 90E0      		ldi r25,hi8(__c.1579)
+  99 005e 00D0      		rcall lcd_str_P
+ 100 0060 00C0      		rjmp .L2
+ 101               	/* epilogue: frame size=0 */
+ 102               	/* epilogue: noreturn */
+ 103               	/* epilogue end (size=0) */
+ 104               	/* function main size 49 (48) */
+ 105               	.LFE3:
+ 107               		.section	.progmem.data,"a",@progbits
+ 110               	__c.1579:
+ 111 0000 2020 00   		.string	"  "
+ 114               	__c.1572:
+ 115 0003 4461 6E65 		.string	"Dane z I0:"
+ 115      207A 2049 
+ 115      303A 00
+ 140               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:114    .progmem.data:00000003 __c.1572
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc2kJ72q.s:110    .progmem.data:00000000 __c.1579
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_init
+lcd_str_P
+lcd_command
+i2c_start
+i2c_send
+i2c_stop
+i2c_get
+lcd_dec

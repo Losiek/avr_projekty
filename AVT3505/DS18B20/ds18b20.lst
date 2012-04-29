@@ -1,0 +1,254 @@
+   1               		.file	"ds18b20.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	READ_POWER_SUPPLY
+  18               	READ_POWER_SUPPLY:
+  19               	.LFB11:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 84EB      		ldi r24,lo8(-76)
+  25 0002 0E94 0000 		call send_byte
+  26               	/* epilogue start */
+  27               	.LM3:
+  28 0006 0895      		ret
+  29               	.LFE11:
+  31               	.global	RECALL
+  33               	RECALL:
+  34               	.LFB10:
+  35               	.LM4:
+  36               	/* prologue: function */
+  37               	/* frame size = 0 */
+  38               	.LM5:
+  39 0008 88EB      		ldi r24,lo8(-72)
+  40 000a 0E94 0000 		call send_byte
+  41               	/* epilogue start */
+  42               	.LM6:
+  43 000e 0895      		ret
+  44               	.LFE10:
+  46               	.global	COPY_SCRATCHPAD
+  48               	COPY_SCRATCHPAD:
+  49               	.LFB9:
+  50               	.LM7:
+  51               	/* prologue: function */
+  52               	/* frame size = 0 */
+  53               	.LM8:
+  54 0010 88E4      		ldi r24,lo8(72)
+  55 0012 0E94 0000 		call send_byte
+  56               	/* epilogue start */
+  57               	.LM9:
+  58 0016 0895      		ret
+  59               	.LFE9:
+  61               	.global	WRITE_SCRATCHPAD
+  63               	WRITE_SCRATCHPAD:
+  64               	.LFB7:
+  65               	.LM10:
+  66               	/* prologue: function */
+  67               	/* frame size = 0 */
+  68               	.LM11:
+  69 0018 80E0      		ldi r24,lo8(bufor1w+2)
+  70 001a 90E0      		ldi r25,hi8(bufor1w+2)
+  71 001c 9093 0000 		sts (pbufor1w)+1,r25
+  72 0020 8093 0000 		sts pbufor1w,r24
+  73               	.LM12:
+  74 0024 8EE4      		ldi r24,lo8(78)
+  75 0026 0E94 0000 		call send_byte
+  76               	.LM13:
+  77 002a E091 0000 		lds r30,pbufor1w
+  78 002e F091 0000 		lds r31,(pbufor1w)+1
+  79 0032 8191      		ld r24,Z+
+  80 0034 F093 0000 		sts (pbufor1w)+1,r31
+  81 0038 E093 0000 		sts pbufor1w,r30
+  82 003c 0E94 0000 		call send_byte
+  83 0040 E091 0000 		lds r30,pbufor1w
+  84 0044 F091 0000 		lds r31,(pbufor1w)+1
+  85 0048 8191      		ld r24,Z+
+  86 004a F093 0000 		sts (pbufor1w)+1,r31
+  87 004e E093 0000 		sts pbufor1w,r30
+  88 0052 0E94 0000 		call send_byte
+  89 0056 E091 0000 		lds r30,pbufor1w
+  90 005a F091 0000 		lds r31,(pbufor1w)+1
+  91 005e 8191      		ld r24,Z+
+  92 0060 F093 0000 		sts (pbufor1w)+1,r31
+  93 0064 E093 0000 		sts pbufor1w,r30
+  94 0068 0E94 0000 		call send_byte
+  95               	/* epilogue start */
+  96               	.LM14:
+  97 006c 0895      		ret
+  98               	.LFE7:
+ 100               	.global	CONVERT_T
+ 102               	CONVERT_T:
+ 103               	.LFB6:
+ 104               	.LM15:
+ 105               	/* prologue: function */
+ 106               	/* frame size = 0 */
+ 107               	.LM16:
+ 108 006e 84E4      		ldi r24,lo8(68)
+ 109 0070 0E94 0000 		call send_byte
+ 110               	/* epilogue start */
+ 111               	.LM17:
+ 112 0074 0895      		ret
+ 113               	.LFE6:
+ 115               	.global	TEMP_READ
+ 117               	TEMP_READ:
+ 118               	.LFB12:
+ 119               	.LM18:
+ 120 0076 0F93      		push r16
+ 121 0078 1F93      		push r17
+ 122               	/* prologue: function */
+ 123               	/* frame size = 0 */
+ 124               	.LM19:
+ 125 007a 0E94 0000 		call RESET_PULSE
+ 126               	.LM20:
+ 127 007e 8CEC      		ldi r24,lo8(-52)
+ 128 0080 0E94 0000 		call send_byte
+ 129               	.LM21:
+ 130 0084 84E4      		ldi r24,lo8(68)
+ 131 0086 0E94 0000 		call send_byte
+ 132 008a 8CE4      		ldi r24,lo8(7500)
+ 133 008c 9DE1      		ldi r25,hi8(7500)
+ 134               	.LVL0:
+ 135               	.LBB12:
+ 136               	.LBB13:
+ 137               	.LBB14:
+ 138               	.LBB15:
+ 139               	.LM22:
+ 140 008e 28EC      		ldi r18,lo8(200)
+ 141 0090 30E0      		ldi r19,hi8(200)
+ 142               	.L12:
+ 143 0092 F901      		movw r30,r18
+ 144               	.LVL1:
+ 145               	/* #APP */
+ 146               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 147 0094 3197      		1: sbiw r30,1
+ 148 0096 01F4      		brne 1b
+ 149               	 ;  0 "" 2
+ 150               	/* #NOAPP */
+ 151               	.LBE15:
+ 152               	.LBE14:
+ 153               	.LM23:
+ 154 0098 0197      		sbiw r24,1
+ 155               	.LM24:
+ 156 009a 01F4      		brne .L12
+ 157               	.LBE13:
+ 158               	.LBE12:
+ 159               	.LM25:
+ 160 009c 0E94 0000 		call RESET_PULSE
+ 161               	.LVL2:
+ 162               	.LM26:
+ 163 00a0 8CEC      		ldi r24,lo8(-52)
+ 164 00a2 0E94 0000 		call send_byte
+ 165               	.LM27:
+ 166 00a6 8EEB      		ldi r24,lo8(-66)
+ 167 00a8 0E94 0000 		call send_byte
+ 168               	.LM28:
+ 169 00ac 0E94 0000 		call read_byte
+ 170 00b0 082F      		mov r16,r24
+ 171               	.LVL3:
+ 172               	.LM29:
+ 173 00b2 0E94 0000 		call read_byte
+ 174 00b6 182F      		mov r17,r24
+ 175               	.LVL4:
+ 176               	.LM30:
+ 177 00b8 0E94 0000 		call RESET_PULSE
+ 178 00bc 712F      		mov r23,r17
+ 179               	.LVL5:
+ 180 00be 60E0      		ldi r22,lo8(0)
+ 181               	.LVL6:
+ 182 00c0 600F      		add r22,r16
+ 183 00c2 711D      		adc r23,__zero_reg__
+ 184               	.LVL7:
+ 185 00c4 8827      		clr r24
+ 186 00c6 77FD      		sbrc r23,7
+ 187 00c8 8095      		com r24
+ 188 00ca 982F      		mov r25,r24
+ 189               	.LVL8:
+ 190 00cc 0E94 0000 		call __floatsisf
+ 191               	.LVL9:
+ 192 00d0 20E0      		ldi r18,lo8(0x3d800000)
+ 193 00d2 30E0      		ldi r19,hi8(0x3d800000)
+ 194 00d4 40E8      		ldi r20,hlo8(0x3d800000)
+ 195 00d6 5DE3      		ldi r21,hhi8(0x3d800000)
+ 196 00d8 0E94 0000 		call __mulsf3
+ 197               	/* epilogue start */
+ 198               	.LM31:
+ 199 00dc 1F91      		pop r17
+ 200 00de 0F91      		pop r16
+ 201               	.LVL10:
+ 202 00e0 0895      		ret
+ 203               	.LFE12:
+ 205               	.global	READ_SCRATCHPAD
+ 207               	READ_SCRATCHPAD:
+ 208               	.LFB8:
+ 209               	.LM32:
+ 210 00e2 FF92      		push r15
+ 211 00e4 0F93      		push r16
+ 212 00e6 1F93      		push r17
+ 213               	/* prologue: function */
+ 214               	/* frame size = 0 */
+ 215               	.LM33:
+ 216 00e8 80E0      		ldi r24,lo8(bufor1w)
+ 217 00ea 90E0      		ldi r25,hi8(bufor1w)
+ 218 00ec 9093 0000 		sts (pbufor1w)+1,r25
+ 219 00f0 8093 0000 		sts pbufor1w,r24
+ 220               	.LM34:
+ 221 00f4 8EEB      		ldi r24,lo8(-66)
+ 222 00f6 0E94 0000 		call send_byte
+ 223 00fa 00E0      		ldi r16,lo8(0)
+ 224               	.LVL11:
+ 225               	.L16:
+ 226               	.LM35:
+ 227 00fc 1091 0000 		lds r17,pbufor1w
+ 228 0100 F090 0000 		lds r15,pbufor1w+1
+ 229 0104 0E94 0000 		call read_byte
+ 230 0108 E12F      		mov r30,r17
+ 231 010a FF2D      		mov r31,r15
+ 232 010c 8193      		st Z+,r24
+ 233 010e F093 0000 		sts (pbufor1w)+1,r31
+ 234 0112 E093 0000 		sts pbufor1w,r30
+ 235               	.LM36:
+ 236 0116 0F5F      		subi r16,lo8(-(1))
+ 237 0118 0830      		cpi r16,lo8(8)
+ 238 011a 01F4      		brne .L16
+ 239               	/* epilogue start */
+ 240               	.LM37:
+ 241 011c 1F91      		pop r17
+ 242 011e 0F91      		pop r16
+ 243               	.LVL12:
+ 244 0120 FF90      		pop r15
+ 245 0122 0895      		ret
+ 246               	.LFE8:
+ 248               		.comm bufor1w,8,1
+ 249               		.comm pbufor1w,2,1
+ 322               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 ds18b20.c
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:18     .text:00000000 READ_POWER_SUPPLY
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:33     .text:00000008 RECALL
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:48     .text:00000010 COPY_SCRATCHPAD
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:63     .text:00000018 WRITE_SCRATCHPAD
+                            *COM*:00000008 bufor1w
+                            *COM*:00000002 pbufor1w
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:102    .text:0000006e CONVERT_T
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:117    .text:00000076 TEMP_READ
+C:\Users\O\AppData\Local\Temp/ccXncYu6.s:207    .text:000000e2 READ_SCRATCHPAD
+
+UNDEFINED SYMBOLS
+send_byte
+RESET_PULSE
+read_byte
+__floatsisf
+__mulsf3
+__do_clear_bss

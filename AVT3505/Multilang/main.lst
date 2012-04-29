@@ -1,0 +1,179 @@
+   1               		.file	"main.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB8:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24 0000 0F93      		push r16
+  25 0002 1F93      		push r17
+  26               	/* prologue end (size=2) */
+  27               	.LM2:
+  28 0004 8CE3      		ldi r24,lo8(60)
+  29 0006 81BB      		out 49-0x20,r24
+  30               	.LM3:
+  31 0008 8FEC      		ldi r24,lo8(-49)
+  32 000a 82BB      		out 50-0x20,r24
+  33               	.LM4:
+  34 000c 85E0      		ldi r24,lo8(5)
+  35 000e 87B9      		out 39-0x20,r24
+  36               	.LM5:
+  37 0010 0E94 0000 		call lcd_Init
+  38               	.LM6:
+  39 0014 84E0      		ldi r24,lo8(4)
+  40 0016 0E94 0000 		call lcd_SetStatus
+  41               	.LM7:
+  42 001a 0E94 0000 		call lcd_GetFile
+  43 001e BC01      		movw r22,r24
+  44 0020 80E0      		ldi r24,lo8(__c.1629)
+  45 0022 90E0      		ldi r25,hi8(__c.1629)
+  46 0024 0E94 0000 		call fputs_P
+  47               	.LM8:
+  48 0028 0E94 0000 		call lcd_GetFile
+  49 002c 8C01      		movw r16,r24
+  50 002e 80E0      		ldi r24,lo8(0)
+  51 0030 0E94 0000 		call langsys_GetLangName
+  52 0034 B801      		movw r22,r16
+  53 0036 0E94 0000 		call fputs_P
+  54               	.LM9:
+  55 003a 80E1      		ldi r24,lo8(16)
+  56 003c 0E94 0000 		call lcd_GoToAdr
+  57               	.LM10:
+  58 0040 0E94 0000 		call lcd_GetFile
+  59 0044 BC01      		movw r22,r24
+  60 0046 80E0      		ldi r24,lo8(__c.1631)
+  61 0048 90E0      		ldi r25,hi8(__c.1631)
+  62 004a 0E94 0000 		call fputs_P
+  63               	.LM11:
+  64 004e 0E94 0000 		call lcd_GetFile
+  65 0052 8C01      		movw r16,r24
+  66 0054 81E0      		ldi r24,lo8(1)
+  67 0056 0E94 0000 		call langsys_GetLangName
+  68 005a B801      		movw r22,r16
+  69 005c 0E94 0000 		call fputs_P
+  70               	.LM12:
+  71 0060 0E94 0000 		call lcd_Update
+  72 0064 E0E6      		ldi r30,lo8(-5536)
+  73 0066 FAEE      		ldi r31,hi8(-5536)
+  74               	.LVL0:
+  75               	.L15:
+  76               	.LBB24:
+  77               	.LBB25:
+  78               	.LM13:
+  79 0068 2899      		sbic 37-0x20,0
+  80 006a 00C0      		rjmp .L3
+  81               	.LBB26:
+  82               	.LBB27:
+  83               	.LBB28:
+  84               	.LBB29:
+  85               	.LM14:
+  86 006c CF01      		movw r24,r30
+  87               	.LVL1:
+  88               	/* #APP */
+  89 006e 0197      		1: sbiw r24,1
+  90 0070 01F4      		brne 1b
+  91               	/* #NOAPP */
+  92               	.LBE29:
+  93               	.LBE28:
+  94               	.LBE27:
+  95               	.LBE26:
+  96               	.LM15:
+  97 0072 2899      		sbic 37-0x20,0
+  98 0074 00C0      		rjmp .L3
+  99 0076 81E0      		ldi r24,lo8(1)
+ 100 0078 90E0      		ldi r25,hi8(1)
+ 101               	.LVL2:
+ 102 007a 00C0      		rjmp .L6
+ 103               	.LVL3:
+ 104               	.L3:
+ 105               	.LM16:
+ 106 007c 2A99      		sbic 37-0x20,2
+ 107 007e 00C0      		rjmp .L15
+ 108               	.LBB30:
+ 109               	.LBB31:
+ 110               	.LBB32:
+ 111               	.LBB33:
+ 112               	.LM17:
+ 113 0080 CF01      		movw r24,r30
+ 114               	.LVL4:
+ 115               	/* #APP */
+ 116 0082 0197      		1: sbiw r24,1
+ 117 0084 01F4      		brne 1b
+ 118               	/* #NOAPP */
+ 119               	.LBE33:
+ 120               	.LBE32:
+ 121               	.LBE31:
+ 122               	.LBE30:
+ 123               	.LM18:
+ 124 0086 2A99      		sbic 37-0x20,2
+ 125 0088 00C0      		rjmp .L15
+ 126 008a 82E0      		ldi r24,lo8(2)
+ 127 008c 90E0      		ldi r25,hi8(2)
+ 128               	.LVL5:
+ 129               	.L6:
+ 130               	.LBE25:
+ 131               	.LBE24:
+ 132               	.LM19:
+ 133 008e 8150      		subi r24,lo8(-(-1))
+ 134 0090 0E94 0000 		call langsys_Select
+ 135               	.LM20:
+ 136 0094 0E94 0000 		call lcd_Cls
+ 137               	.LM21:
+ 138 0098 0E94 0000 		call lcd_GetFile
+ 139 009c 8C01      		movw r16,r24
+ 140 009e 81E0      		ldi r24,lo8(1)
+ 141 00a0 0E94 0000 		call langsys_GetText
+ 142 00a4 B801      		movw r22,r16
+ 143 00a6 0E94 0000 		call fputs_P
+ 144               	.LM22:
+ 145 00aa 0E94 0000 		call lcd_Update
+ 146               	.LM23:
+ 147 00ae 80E0      		ldi r24,lo8(0)
+ 148 00b0 90E0      		ldi r25,hi8(0)
+ 149               	/* epilogue: frame size=0 */
+ 150 00b2 1F91      		pop r17
+ 151 00b4 0F91      		pop r16
+ 152 00b6 0895      		ret
+ 153               	/* epilogue end (size=3) */
+ 154               	/* function main size 96 (91) */
+ 155               	.LFE8:
+ 157               		.section	.progmem.data,"a",@progbits
+ 160               	__c.1631:
+ 161 0000 5332 202D 		.string	"S2 - "
+ 161      2000 
+ 164               	__c.1629:
+ 165 0006 5331 202D 		.string	"S1 - "
+ 165      2000 
+ 190               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:164    .progmem.data:00000006 __c.1629
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc8DVnad.s:160    .progmem.data:00000000 __c.1631
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_Init
+lcd_SetStatus
+lcd_GetFile
+fputs_P
+langsys_GetLangName
+lcd_GoToAdr
+lcd_Update
+langsys_Select
+lcd_Cls
+langsys_GetText

@@ -1,0 +1,84 @@
+   1               		.file	"ex_mem.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	strcopy
+  18               	strcopy:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 DC01      		movw r26,r24
+  25 0002 FB01      		movw r30,r22
+  26               	.LVL1:
+  27               	.L2:
+  28               	.LM2:
+  29 0004 8191      		ld r24,Z+
+  30 0006 8D93      		st X+,r24
+  31 0008 8823      		tst r24
+  32 000a 01F4      		brne .L2
+  33               	/* epilogue start */
+  34               	.LM3:
+  35 000c 0895      		ret
+  36               	.LFE2:
+  38               	.global	strleng
+  40               	strleng:
+  41               	.LFB3:
+  42               	.LM4:
+  43               	.LVL2:
+  44               	/* prologue: function */
+  45               	/* frame size = 0 */
+  46 000e DC01      		movw r26,r24
+  47               	.LM5:
+  48 0010 8C91      		ld r24,X
+  49               	.LVL3:
+  50 0012 8823      		tst r24
+  51 0014 01F4      		brne .L6
+  52 0016 20E0      		ldi r18,lo8(0)
+  53 0018 30E0      		ldi r19,hi8(0)
+  54               	.LVL4:
+  55 001a 00C0      		rjmp .L7
+  56               	.LVL5:
+  57               	.L6:
+  58 001c 20E0      		ldi r18,lo8(0)
+  59 001e 30E0      		ldi r19,hi8(0)
+  60               	.LVL6:
+  61               	.L8:
+  62               	.LM6:
+  63 0020 2F5F      		subi r18,lo8(-(1))
+  64 0022 3F4F      		sbci r19,hi8(-(1))
+  65               	.LM7:
+  66 0024 FD01      		movw r30,r26
+  67 0026 E20F      		add r30,r18
+  68 0028 F31F      		adc r31,r19
+  69 002a 8081      		ld r24,Z
+  70 002c 8823      		tst r24
+  71 002e 01F4      		brne .L8
+  72               	.L7:
+  73 0030 2F5F      		subi r18,lo8(-(1))
+  74 0032 3F4F      		sbci r19,hi8(-(1))
+  75               	.LVL7:
+  76               	.LM8:
+  77 0034 822F      		mov r24,r18
+  78 0036 932F      		mov r25,r19
+  79               	/* epilogue start */
+  80 0038 0895      		ret
+  81               	.LFE3:
+ 115               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 ex_mem.c
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:18     .text:00000000 strcopy
+C:\Users\O\AppData\Local\Temp/ccr2P6y4.s:40     .text:0000000e strleng
+
+NO UNDEFINED SYMBOLS

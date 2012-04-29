@@ -1,0 +1,267 @@
+   1               		.file	"main.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24 0000 0F93      		push r16
+  25 0002 1F93      		push r17
+  26 0004 CF93      		push r28
+  27 0006 DF93      		push r29
+  28               	/* prologue end (size=4) */
+  29               	.LM2:
+  30 0008 10BC      		out 64-0x20,__zero_reg__
+  31 000a 87E6      		ldi r24,lo8(103)
+  32 000c 89B9      		out 41-0x20,r24
+  33               	.LM3:
+  34 000e 86E8      		ldi r24,lo8(-122)
+  35 0010 80BD      		out 64-0x20,r24
+  36               	.LM4:
+  37 0012 88E1      		ldi r24,lo8(24)
+  38 0014 8AB9      		out 42-0x20,r24
+  39               	.LM5:
+  40 0016 1BB8      		out 43-0x20,__zero_reg__
+  41               	.LM6:
+  42 0018 6091 0000 		lds r22,fRS
+  43 001c 7091 0000 		lds r23,(fRS)+1
+  44 0020 80E0      		ldi r24,lo8(__c.1569)
+  45 0022 90E0      		ldi r25,hi8(__c.1569)
+  46 0024 0E94 0000 		call fputs_P
+  47               	.LM7:
+  48 0028 88EC      		ldi r24,lo8(200)
+  49 002a 90E0      		ldi r25,hi8(200)
+  50 002c 9F93      		push r25
+  51 002e 8F93      		push r24
+  52 0030 80E0      		ldi r24,lo8(__c.1571)
+  53 0032 90E0      		ldi r25,hi8(__c.1571)
+  54 0034 9F93      		push r25
+  55 0036 8F93      		push r24
+  56 0038 8091 0000 		lds r24,fRS
+  57 003c 9091 0000 		lds r25,(fRS)+1
+  58 0040 9F93      		push r25
+  59 0042 8F93      		push r24
+  60 0044 0E94 0000 		call fprintf_P
+  61               	.LVL0:
+  62               	.LM8:
+  63 0048 DF93      		push r29
+  64 004a CF93      		push r28
+  65 004c 80E0      		ldi r24,lo8(__c.1573)
+  66 004e 90E0      		ldi r25,hi8(__c.1573)
+  67 0050 9F93      		push r25
+  68 0052 8F93      		push r24
+  69 0054 8091 0000 		lds r24,fRS
+  70 0058 9091 0000 		lds r25,(fRS)+1
+  71 005c 9F93      		push r25
+  72 005e 8F93      		push r24
+  73 0060 0E94 0000 		call fprintf_P
+  74               	.LM9:
+  75 0064 89E1      		ldi r24,lo8(6425)
+  76 0066 99E1      		ldi r25,hi8(6425)
+  77 0068 9F93      		push r25
+  78 006a 8F93      		push r24
+  79 006c 80E0      		ldi r24,lo8(__c.1575)
+  80 006e 90E0      		ldi r25,hi8(__c.1575)
+  81 0070 9F93      		push r25
+  82 0072 8F93      		push r24
+  83 0074 8091 0000 		lds r24,fRS
+  84 0078 9091 0000 		lds r25,(fRS)+1
+  85 007c 9F93      		push r25
+  86 007e 8F93      		push r24
+  87 0080 0E94 0000 		call fprintf_P
+  88               	.LM10:
+  89 0084 00E8      		ldi r16,lo8(32640)
+  90 0086 1FE7      		ldi r17,hi8(32640)
+  91 0088 1F93      		push r17
+  92 008a 0F93      		push r16
+  93 008c 80E0      		ldi r24,lo8(__c.1577)
+  94 008e 90E0      		ldi r25,hi8(__c.1577)
+  95 0090 9F93      		push r25
+  96 0092 8F93      		push r24
+  97 0094 8091 0000 		lds r24,fRS
+  98 0098 9091 0000 		lds r25,(fRS)+1
+  99 009c 9F93      		push r25
+ 100 009e 8F93      		push r24
+ 101 00a0 0E94 0000 		call fprintf_P
+ 102               	.LM11:
+ 103 00a4 1F93      		push r17
+ 104 00a6 0F93      		push r16
+ 105 00a8 80E0      		ldi r24,lo8(__c.1579)
+ 106 00aa 90E0      		ldi r25,hi8(__c.1579)
+ 107 00ac 9F93      		push r25
+ 108 00ae 8F93      		push r24
+ 109 00b0 8091 0000 		lds r24,fRS
+ 110 00b4 9091 0000 		lds r25,(fRS)+1
+ 111 00b8 9F93      		push r25
+ 112 00ba 8F93      		push r24
+ 113 00bc 0E94 0000 		call fprintf_P
+ 114               	.LM12:
+ 115 00c0 80E0      		ldi r24,lo8(64256)
+ 116 00c2 9BEF      		ldi r25,hi8(64256)
+ 117 00c4 A0E0      		ldi r26,hlo8(64256)
+ 118 00c6 B0E0      		ldi r27,hhi8(64256)
+ 119 00c8 BF93      		push r27
+ 120 00ca AF93      		push r26
+ 121 00cc 9F93      		push r25
+ 122 00ce 8F93      		push r24
+ 123 00d0 80E0      		ldi r24,lo8(__c.1581)
+ 124 00d2 90E0      		ldi r25,hi8(__c.1581)
+ 125 00d4 9F93      		push r25
+ 126 00d6 8F93      		push r24
+ 127 00d8 8091 0000 		lds r24,fRS
+ 128 00dc 9091 0000 		lds r25,(fRS)+1
+ 129 00e0 9F93      		push r25
+ 130 00e2 8F93      		push r24
+ 131 00e4 0E94 0000 		call fprintf_P
+ 132               	.LM13:
+ 133 00e8 8DB7      		in r24,__SP_L__
+ 134 00ea 9EB7      		in r25,__SP_H__
+ 135 00ec 8696      		adiw r24,38
+ 136 00ee 0FB6      		in __tmp_reg__,__SREG__
+ 137 00f0 F894      		cli
+ 138 00f2 9EBF      		out __SP_H__,r25
+ 139 00f4 0FBE      		out __SREG__,__tmp_reg__
+ 140 00f6 8DBF      		out __SP_L__,r24
+ 141 00f8 80E0      		ldi r24,lo8(326400)
+ 142 00fa 9BEF      		ldi r25,hi8(326400)
+ 143 00fc A4E0      		ldi r26,hlo8(326400)
+ 144 00fe B0E0      		ldi r27,hhi8(326400)
+ 145 0100 BF93      		push r27
+ 146 0102 AF93      		push r26
+ 147 0104 9F93      		push r25
+ 148 0106 8F93      		push r24
+ 149 0108 80E0      		ldi r24,lo8(__c.1583)
+ 150 010a 90E0      		ldi r25,hi8(__c.1583)
+ 151 010c 9F93      		push r25
+ 152 010e 8F93      		push r24
+ 153 0110 8091 0000 		lds r24,fRS
+ 154 0114 9091 0000 		lds r25,(fRS)+1
+ 155 0118 9F93      		push r25
+ 156 011a 8F93      		push r24
+ 157 011c 0E94 0000 		call fprintf_P
+ 158               	.LM14:
+ 159 0120 6091 0000 		lds r22,fRS
+ 160 0124 7091 0000 		lds r23,(fRS)+1
+ 161 0128 80E0      		ldi r24,lo8(__c.1585)
+ 162 012a 90E0      		ldi r25,hi8(__c.1585)
+ 163 012c 0E94 0000 		call fputs_P
+ 164 0130 8DB7      		in r24,__SP_L__
+ 165 0132 9EB7      		in r25,__SP_H__
+ 166 0134 0896      		adiw r24,8
+ 167 0136 0FB6      		in __tmp_reg__,__SREG__
+ 168 0138 F894      		cli
+ 169 013a 9EBF      		out __SP_H__,r25
+ 170 013c 0FBE      		out __SREG__,__tmp_reg__
+ 171 013e 8DBF      		out __SP_L__,r24
+ 172               	.LM15:
+ 173 0140 80E0      		ldi r24,lo8(0)
+ 174 0142 90E0      		ldi r25,hi8(0)
+ 175               	/* epilogue: frame size=0 */
+ 176 0144 DF91      		pop r29
+ 177 0146 CF91      		pop r28
+ 178 0148 1F91      		pop r17
+ 179 014a 0F91      		pop r16
+ 180 014c 0895      		ret
+ 181               	/* epilogue end (size=5) */
+ 182               	/* function main size 167 (158) */
+ 183               	.LFE3:
+ 185               	.global	fileRS
+ 186               		.data
+ 189               	fileRS:
+ 190 0000 0000      		.word	0
+ 191 0002 00        		.byte	0
+ 192 0003 03        		.byte	3
+ 193 0004 0000      		.word	0
+ 194 0006 0000      		.word	0
+ 195 0008 0000      		.word	gs(rs_put)
+ 196 000a 0000      		.word	gs(rs_get)
+ 197               	.global	fRS
+ 200               	fRS:
+ 201 000c 0000      		.word	fileRS
+ 202               		.section	.progmem.data,"a",@progbits
+ 205               	__c.1585:
+ 206 0000 4B6F 6E69 		.string	"Koniec\r\n"
+ 206      6563 0D0A 
+ 206      00
+ 209               	__c.1583:
+ 210 0009 3332 3D28 		.string	"32=(32)16x16 Wynik: %lu\r\n"
+ 210      3332 2931 
+ 210      3678 3136 
+ 210      2057 796E 
+ 210      696B 3A20 
+ 213               	__c.1581:
+ 214 0023 3332 3D31 		.string	"32=16x16 Wynik: %lu\r\n"
+ 214      3678 3136 
+ 214      2057 796E 
+ 214      696B 3A20 
+ 214      256C 750D 
+ 217               	__c.1579:
+ 218 0039 2833 3229 		.string	"(32)16x16 Wynik: %u\r\n"
+ 218      3136 7831 
+ 218      3620 5779 
+ 218      6E69 6B3A 
+ 218      2025 750D 
+ 221               	__c.1577:
+ 222 004f 2833 3229 		.string	"(32)16x(32)16 Wynik: %u\r\n"
+ 222      3136 7828 
+ 222      3332 2931 
+ 222      3620 5779 
+ 222      6E69 6B3A 
+ 225               	__c.1575:
+ 226 0069 2833 3229 		.string	"(32)(16x16) Wynik: %u\r\n"
+ 226      2831 3678 
+ 226      3136 2920 
+ 226      5779 6E69 
+ 226      6B3A 2025 
+ 229               	__c.1573:
+ 230 0081 3136 7831 		.string	"16x16 Wynik %u\r\n"
+ 230      3620 5779 
+ 230      6E69 6B20 
+ 230      2575 0D0A 
+ 230      00
+ 233               	__c.1571:
+ 234 0092 3878 3820 		.string	"8x8 Wynik %u\r\n"
+ 234      5779 6E69 
+ 234      6B20 2575 
+ 234      0D0A 00
+ 237               	__c.1569:
+ 238 00a1 4865 6C6C 		.string	"Hello world!\r\n"
+ 238      6F20 776F 
+ 238      726C 6421 
+ 238      0D0A 00
+ 263               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:200    .data:0000000c fRS
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:237    .progmem.data:000000a1 __c.1569
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:233    .progmem.data:00000092 __c.1571
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:229    .progmem.data:00000081 __c.1573
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:225    .progmem.data:00000069 __c.1575
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:221    .progmem.data:0000004f __c.1577
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:217    .progmem.data:00000039 __c.1579
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:213    .progmem.data:00000023 __c.1581
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:209    .progmem.data:00000009 __c.1583
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:205    .progmem.data:00000000 __c.1585
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccYIsHd6.s:189    .data:00000000 fileRS
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+fputs_P
+fprintf_P
+rs_put
+rs_get

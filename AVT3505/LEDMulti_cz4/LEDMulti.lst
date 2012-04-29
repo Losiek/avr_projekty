@@ -1,0 +1,370 @@
+   1               		.file	"LEDMulti.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	WyswietlDEC
+  20               	WyswietlDEC:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24 0000 0F93      		push r16
+  25 0002 1F93      		push r17
+  26 0004 CF93      		push r28
+  27 0006 DF93      		push r29
+  28               	/* prologue end (size=4) */
+  29               	.LVL0:
+  30 0008 9C01      		movw r18,r24
+  31               	.LM2:
+  32 000a 87E2      		ldi r24,hi8(10000)
+  33 000c 2031      		cpi r18,lo8(10000)
+  34 000e 3807      		cpc r19,r24
+  35               	.LVL1:
+  36 0010 00F0      		brlo .L2
+  37               	.LM3:
+  38 0012 8FE7      		ldi r24,lo8(127)
+  39 0014 8093 0000 		sts g_DaneWyswietlacza,r24
+  40 0018 8093 0000 		sts g_DaneWyswietlacza+1,r24
+  41 001c 8093 0000 		sts g_DaneWyswietlacza+2,r24
+  42 0020 8093 0000 		sts g_DaneWyswietlacza+3,r24
+  43 0024 00C0      		rjmp .L6
+  44               	.L2:
+  45               	.LM4:
+  46 0026 03E0      		ldi r16,lo8(3)
+  47 0028 10E0      		ldi r17,hi8(3)
+  48 002a C0E0      		ldi r28,lo8(g_DaneWyswietlacza+3)
+  49 002c D0E0      		ldi r29,hi8(g_DaneWyswietlacza+3)
+  50               	.L5:
+  51               	.LBB2:
+  52               	.LM5:
+  53 002e C901      		movw r24,r18
+  54 0030 6AE0      		ldi r22,lo8(10)
+  55 0032 70E0      		ldi r23,hi8(10)
+  56 0034 0E94 0000 		call __udivmodhi4
+  57 0038 FC01      		movw r30,r24
+  58 003a E050      		subi r30,lo8(-(g_WzoryCyfr))
+  59 003c F040      		sbci r31,hi8(-(g_WzoryCyfr))
+  60               	/* #APP */
+  61 003e E491      		lpm r30, Z
+  62               		
+  63               	.LVL2:
+  64               	/* #NOAPP */
+  65               	.LBE2:
+  66 0040 E883      		st Y,r30
+  67 0042 2197      		sbiw r28,1
+  68               	.LM6:
+  69 0044 C901      		movw r24,r18
+  70 0046 6AE0      		ldi r22,lo8(10)
+  71 0048 70E0      		ldi r23,hi8(10)
+  72 004a 0E94 0000 		call __udivmodhi4
+  73 004e 9B01      		movw r18,r22
+  74 0050 0150      		subi r16,lo8(-(-1))
+  75 0052 1040      		sbci r17,hi8(-(-1))
+  76               	.LM7:
+  77 0054 8FEF      		ldi r24,hi8(-1)
+  78 0056 0F3F      		cpi r16,lo8(-1)
+  79 0058 1807      		cpc r17,r24
+  80 005a 01F4      		brne .L5
+  81               	.L6:
+  82               	/* epilogue: frame size=0 */
+  83 005c DF91      		pop r29
+  84 005e CF91      		pop r28
+  85 0060 1F91      		pop r17
+  86 0062 0F91      		pop r16
+  87 0064 0895      		ret
+  88               	/* epilogue end (size=5) */
+  89               	/* function WyswietlDEC size 54 (45) */
+  90               	.LFE2:
+  92               	.global	ObslozPrzycisk
+  94               	ObslozPrzycisk:
+  95               	.LFB3:
+  96               	.LM8:
+  97               	/* prologue: frame size=0 */
+  98 0066 1F93      		push r17
+  99 0068 CF93      		push r28
+ 100 006a DF93      		push r29
+ 101               	/* prologue end (size=3) */
+ 102               	.LVL3:
+ 103 006c 182F      		mov r17,r24
+ 104 006e EB01      		movw r28,r22
+ 105               	.LM9:
+ 106 0070 85B1      		in r24,37-0x20
+ 107               	.LVL4:
+ 108 0072 8123      		and r24,r17
+ 109 0074 01F4      		brne .L17
+ 110               	.LVL5:
+ 111               	.LM10:
+ 112 0076 86E0      		ldi r24,lo8(6)
+ 113 0078 8093 0000 		sts g_bDelay,r24
+ 114               	.L11:
+ 115               	.LM11:
+ 116 007c 8091 0000 		lds r24,g_bDelay
+ 117 0080 8823      		tst r24
+ 118 0082 01F4      		brne .L11
+ 119               	.LM12:
+ 120 0084 85B1      		in r24,37-0x20
+ 121 0086 8123      		and r24,r17
+ 122 0088 01F4      		brne .L17
+ 123               	.LM13:
+ 124 008a FE01      		movw r30,r28
+ 125 008c 0995      		icall
+ 126               	.LM14:
+ 127 008e 88E7      		ldi r24,lo8(120)
+ 128 0090 8093 0000 		sts g_bDelay,r24
+ 129               	.L14:
+ 130               	.LM15:
+ 131 0094 8091 0000 		lds r24,g_bDelay
+ 132 0098 8823      		tst r24
+ 133 009a 01F4      		brne .L15
+ 134               	.LM16:
+ 135 009c 86E0      		ldi r24,lo8(6)
+ 136 009e 8093 0000 		sts g_bDelay,r24
+ 137               	.LM17:
+ 138 00a2 FE01      		movw r30,r28
+ 139 00a4 0995      		icall
+ 140               	.L15:
+ 141               	.LM18:
+ 142 00a6 85B1      		in r24,37-0x20
+ 143 00a8 8123      		and r24,r17
+ 144 00aa 01F0      		breq .L14
+ 145               	.LVL6:
+ 146               	.L17:
+ 147               	/* epilogue: frame size=0 */
+ 148 00ac DF91      		pop r29
+ 149 00ae CF91      		pop r28
+ 150 00b0 1F91      		pop r17
+ 151 00b2 0895      		ret
+ 152               	/* epilogue end (size=4) */
+ 153               	/* function ObslozPrzycisk size 42 (35) */
+ 154               	.LFE3:
+ 156               	.global	Plus
+ 158               	Plus:
+ 159               	.LFB4:
+ 160               	.LM19:
+ 161               	/* prologue: frame size=0 */
+ 162               	/* prologue end (size=0) */
+ 163               	.LM20:
+ 164 00b4 8091 0000 		lds r24,g_Licznik
+ 165 00b8 9091 0000 		lds r25,(g_Licznik)+1
+ 166 00bc 0196      		adiw r24,1
+ 167 00be 9093 0000 		sts (g_Licznik)+1,r25
+ 168 00c2 8093 0000 		sts g_Licznik,r24
+ 169               	.LM21:
+ 170 00c6 0E94 0000 		call WyswietlDEC
+ 171               	/* epilogue: frame size=0 */
+ 172 00ca 0895      		ret
+ 173               	/* epilogue end (size=1) */
+ 174               	/* function Plus size 12 (11) */
+ 175               	.LFE4:
+ 177               	.global	Minus
+ 179               	Minus:
+ 180               	.LFB5:
+ 181               	.LM22:
+ 182               	/* prologue: frame size=0 */
+ 183               	/* prologue end (size=0) */
+ 184               	.LM23:
+ 185 00cc 8091 0000 		lds r24,g_Licznik
+ 186 00d0 9091 0000 		lds r25,(g_Licznik)+1
+ 187 00d4 0197      		sbiw r24,1
+ 188 00d6 9093 0000 		sts (g_Licznik)+1,r25
+ 189 00da 8093 0000 		sts g_Licznik,r24
+ 190               	.LM24:
+ 191 00de 0E94 0000 		call WyswietlDEC
+ 192               	/* epilogue: frame size=0 */
+ 193 00e2 0895      		ret
+ 194               	/* epilogue end (size=1) */
+ 195               	/* function Minus size 12 (11) */
+ 196               	.LFE5:
+ 198               	.global	main
+ 200               	main:
+ 201               	.LFB6:
+ 202               	.LM25:
+ 203               	/* prologue: frame size=0 */
+ 204               	/* prologue end (size=0) */
+ 205               	.LM26:
+ 206 00e4 80E8      		ldi r24,lo8(-128)
+ 207 00e6 8093 6100 		sts 97,r24
+ 208               	.LM27:
+ 209 00ea 81E0      		ldi r24,lo8(1)
+ 210 00ec 8093 6100 		sts 97,r24
+ 211               	.LM28:
+ 212 00f0 8FEF      		ldi r24,lo8(-1)
+ 213 00f2 87BB      		out 55-0x20,r24
+ 214               	.LM29:
+ 215 00f4 8CE3      		ldi r24,lo8(60)
+ 216 00f6 81BB      		out 49-0x20,r24
+ 217               	.LM30:
+ 218 00f8 85E0      		ldi r24,lo8(5)
+ 219 00fa 87B9      		out 39-0x20,r24
+ 220               	.LM31:
+ 221 00fc 83E0      		ldi r24,lo8(3)
+ 222 00fe 83BF      		out 83-0x20,r24
+ 223               	.LM32:
+ 224 0100 82E0      		ldi r24,lo8(2)
+ 225 0102 89BF      		out 89-0x20,r24
+ 226               	.LM33:
+ 227               	/* #APP */
+ 228 0104 7894      		sei
+ 229               	/* #NOAPP */
+ 230               	.L26:
+ 231               	.LM34:
+ 232 0106 60E0      		ldi r22,lo8(gs(Plus))
+ 233 0108 70E0      		ldi r23,hi8(gs(Plus))
+ 234 010a 81E0      		ldi r24,lo8(1)
+ 235 010c 0E94 0000 		call ObslozPrzycisk
+ 236               	.LM35:
+ 237 0110 60E0      		ldi r22,lo8(gs(Minus))
+ 238 0112 70E0      		ldi r23,hi8(gs(Minus))
+ 239 0114 84E0      		ldi r24,lo8(4)
+ 240 0116 0E94 0000 		call ObslozPrzycisk
+ 241 011a 00C0      		rjmp .L26
+ 242               	/* epilogue: frame size=0 */
+ 243               	/* epilogue: noreturn */
+ 244               	/* epilogue end (size=0) */
+ 245               	/* function main size 29 (29) */
+ 246               	.LFE6:
+ 248               	.global	__vector_17
+ 250               	__vector_17:
+ 251               	.LFB7:
+ 252               	.LM36:
+ 253               	/* prologue: frame size=0 */
+ 254 011c 1F92      		push __zero_reg__
+ 255 011e 0F92      		push __tmp_reg__
+ 256 0120 0FB6      		in __tmp_reg__,__SREG__
+ 257 0122 0F92      		push __tmp_reg__
+ 258 0124 1124      		clr __zero_reg__
+ 259 0126 8F93      		push r24
+ 260 0128 9F93      		push r25
+ 261 012a AF93      		push r26
+ 262 012c BF93      		push r27
+ 263 012e EF93      		push r30
+ 264 0130 FF93      		push r31
+ 265               	/* prologue end (size=11) */
+ 266               	.LM37:
+ 267 0132 80E8      		ldi r24,lo8(-128)
+ 268 0134 82BF      		out 82-0x20,r24
+ 269               	.LM38:
+ 270 0136 82B3      		in r24,50-0x20
+ 271 0138 8C63      		ori r24,lo8(60)
+ 272 013a 82BB      		out 50-0x20,r24
+ 273               	.LM39:
+ 274 013c 9091 0000 		lds r25,AktWyswietlacz.1456
+ 275 0140 E92F      		mov r30,r25
+ 276 0142 FF27      		clr r31
+ 277 0144 DF01      		movw r26,r30
+ 278 0146 A050      		subi r26,lo8(-(g_DaneWyswietlacza))
+ 279 0148 B040      		sbci r27,hi8(-(g_DaneWyswietlacza))
+ 280 014a 8C91      		ld r24,X
+ 281 014c 88BB      		out 56-0x20,r24
+ 282               	.LM40:
+ 283 014e 82B3      		in r24,50-0x20
+ 284               	.LBB3:
+ 285 0150 E050      		subi r30,lo8(-(g_DaneCom))
+ 286 0152 F040      		sbci r31,hi8(-(g_DaneCom))
+ 287               	/* #APP */
+ 288 0154 E491      		lpm r30, Z
+ 289               		
+ 290               	.LVL7:
+ 291               	/* #NOAPP */
+ 292               	.LBE3:
+ 293 0156 8E23      		and r24,r30
+ 294 0158 82BB      		out 50-0x20,r24
+ 295               	.LM41:
+ 296 015a 9F5F      		subi r25,lo8(-(1))
+ 297 015c 9093 0000 		sts AktWyswietlacz.1456,r25
+ 298               	.LM42:
+ 299 0160 9430      		cpi r25,lo8(4)
+ 300 0162 00F0      		brlo .L32
+ 301               	.LBB4:
+ 302               	.LM43:
+ 303 0164 1092 0000 		sts AktWyswietlacz.1456,__zero_reg__
+ 304               	.LM44:
+ 305 0168 8091 0000 		lds r24,g_bDelay
+ 306               	.LVL8:
+ 307               	.LM45:
+ 308 016c 8823      		tst r24
+ 309 016e 01F0      		breq .L32
+ 310               	.LM46:
+ 311 0170 8150      		subi r24,lo8(-(-1))
+ 312               	.LM47:
+ 313 0172 8093 0000 		sts g_bDelay,r24
+ 314               	.L32:
+ 315               	.LBE4:
+ 316               	/* epilogue: frame size=0 */
+ 317 0176 FF91      		pop r31
+ 318 0178 EF91      		pop r30
+ 319 017a BF91      		pop r27
+ 320 017c AF91      		pop r26
+ 321 017e 9F91      		pop r25
+ 322 0180 8F91      		pop r24
+ 323 0182 0F90      		pop __tmp_reg__
+ 324 0184 0FBE      		out __SREG__,__tmp_reg__
+ 325 0186 0F90      		pop __tmp_reg__
+ 326 0188 1F90      		pop __zero_reg__
+ 327 018a 1895      		reti
+ 328               	/* epilogue end (size=11) */
+ 329               	/* function __vector_17 size 59 (37) */
+ 330               	.LFE7:
+ 332               	.global	g_DaneCom
+ 333               		.section	.progmem.data,"a",@progbits
+ 336               	g_DaneCom:
+ 337 0000 DF        		.byte	-33
+ 338 0001 EF        		.byte	-17
+ 339 0002 F7        		.byte	-9
+ 340 0003 FB        		.byte	-5
+ 341               	.global	g_WzoryCyfr
+ 344               	g_WzoryCyfr:
+ 345 0004 82        		.byte	-126
+ 346 0005 D7        		.byte	-41
+ 347 0006 23        		.byte	35
+ 348 0007 43        		.byte	67
+ 349 0008 56        		.byte	86
+ 350 0009 4A        		.byte	74
+ 351 000a 0A        		.byte	10
+ 352 000b C7        		.byte	-57
+ 353 000c 02        		.byte	2
+ 354 000d 42        		.byte	66
+ 355 000e 06        		.byte	6
+ 356 000f 1A        		.byte	26
+ 357 0010 AA        		.byte	-86
+ 358 0011 13        		.byte	19
+ 359 0012 2A        		.byte	42
+ 360 0013 2E        		.byte	46
+ 361               	.global	g_Licznik
+ 362               	.global	g_Licznik
+ 363               		.section .bss
+ 366               	g_Licznik:
+ 367 0000 0000      		.skip 2,0
+ 368               		.lcomm AktWyswietlacz.1456,1
+ 369               		.comm g_bDelay,1,1
+ 370               		.comm g_DaneWyswietlacza,4,1
+ 435               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 LEDMulti.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:20     .text:00000000 WyswietlDEC
+                            *COM*:00000004 g_DaneWyswietlacza
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:344    .progmem.data:00000004 g_WzoryCyfr
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:94     .text:00000066 ObslozPrzycisk
+                            *COM*:00000001 g_bDelay
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:158    .text:000000b4 Plus
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:366    .bss:00000000 g_Licznik
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:179    .text:000000cc Minus
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:200    .text:000000e4 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:250    .text:0000011c __vector_17
+                             .bss:00000002 AktWyswietlacz.1456
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cciDeI0L.s:336    .progmem.data:00000000 g_DaneCom
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__udivmodhi4

@@ -1,0 +1,1 @@
+<Project name="LCD_dynamic"><Folder name="Header"><File path="makra.h"></File><File path="harddef.h"></File><File path="lcd.h"></File><File path="local.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="lcd.c"></File><File path="local.c"></File></Folder><File path="Makefile"></File></Project>

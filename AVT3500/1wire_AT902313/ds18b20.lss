@@ -1,0 +1,332 @@
+
+ds18b20.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000128  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000008  00800060  00800060  0000019c  2**0
+                  ALLOC
+  2 .debug_aranges 00000040  00000000  00000000  0000019c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000007b  00000000  00000000  000001dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000004f7  00000000  00000000  00000257  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000001ef  00000000  00000000  0000074e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000300  00000000  00000000  0000093d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000080  00000000  00000000  00000c40  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000118  00000000  00000000  00000cc0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000000db  00000000  00000000  00000dd8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000048  00000000  00000000  00000eb3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0a c0       	rjmp	.+20     	; 0x16 <__ctors_end>
+   2:	17 c0       	rjmp	.+46     	; 0x32 <__bad_interrupt>
+   4:	16 c0       	rjmp	.+44     	; 0x32 <__bad_interrupt>
+   6:	15 c0       	rjmp	.+42     	; 0x32 <__bad_interrupt>
+   8:	14 c0       	rjmp	.+40     	; 0x32 <__bad_interrupt>
+   a:	13 c0       	rjmp	.+38     	; 0x32 <__bad_interrupt>
+   c:	12 c0       	rjmp	.+36     	; 0x32 <__bad_interrupt>
+   e:	11 c0       	rjmp	.+34     	; 0x32 <__bad_interrupt>
+  10:	10 c0       	rjmp	.+32     	; 0x32 <__bad_interrupt>
+  12:	0f c0       	rjmp	.+30     	; 0x32 <__bad_interrupt>
+  14:	0e c0       	rjmp	.+28     	; 0x32 <__bad_interrupt>
+
+00000016 <__ctors_end>:
+  16:	11 24       	eor	r1, r1
+  18:	1f be       	out	0x3f, r1	; 63
+  1a:	cf ed       	ldi	r28, 0xDF	; 223
+  1c:	cd bf       	out	0x3d, r28	; 61
+
+0000001e <__do_clear_bss>:
+  1e:	10 e0       	ldi	r17, 0x00	; 0
+  20:	a0 e6       	ldi	r26, 0x60	; 96
+  22:	b0 e0       	ldi	r27, 0x00	; 0
+  24:	01 c0       	rjmp	.+2      	; 0x28 <.do_clear_bss_start>
+
+00000026 <.do_clear_bss_loop>:
+  26:	1d 92       	st	X+, r1
+
+00000028 <.do_clear_bss_start>:
+  28:	a8 36       	cpi	r26, 0x68	; 104
+  2a:	b1 07       	cpc	r27, r17
+  2c:	e1 f7       	brne	.-8      	; 0x26 <.do_clear_bss_loop>
+  2e:	02 d0       	rcall	.+4      	; 0x34 <main>
+  30:	79 c0       	rjmp	.+242    	; 0x124 <_exit>
+
+00000032 <__bad_interrupt>:
+  32:	e6 cf       	rjmp	.-52     	; 0x0 <__vectors>
+
+00000034 <main>:
+	
+	//Konfiguracja portów.
+	
+	//koniec konfiguracji portów.
+	//////////////////////////////////////////////////////
+   RESET_PULSE();
+  34:	03 d0       	rcall	.+6      	; 0x3c <RESET_PULSE>
+   send_byte(0xAA);
+  36:	8a ea       	ldi	r24, 0xAA	; 170
+  38:	2f d0       	rcall	.+94     	; 0x98 <send_byte>
+  3a:	ff cf       	rjmp	.-2      	; 0x3a <main+0x6>
+
+0000003c <RESET_PULSE>:
+#include "1wire_2.h"
+
+//resetujemy magistrale - czekamy na impuls PRESENCE
+uint8_t RESET_PULSE(void) {
+	uint8_t PRESENCE;
+	CLEAR_1Wire;
+  3c:	b9 9a       	sbi	0x17, 1	; 23
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  3e:	84 ef       	ldi	r24, 0xF4	; 244
+  40:	91 e0       	ldi	r25, 0x01	; 1
+  42:	01 97       	sbiw	r24, 0x01	; 1
+  44:	f1 f7       	brne	.-4      	; 0x42 <__SREG__+0x3>
+	_delay_us(500);
+	SET_1Wire;
+  46:	b9 98       	cbi	0x17, 1	; 23
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  48:	88 e2       	ldi	r24, 0x28	; 40
+  4a:	8a 95       	dec	r24
+  4c:	f1 f7       	brne	.-4      	; 0x4a <__SREG__+0xb>
+	_delay_us(30);
+	//sprawdzamy poziom lini (czy w stanie niskim)
+	if(bit_is_clear(PORT_1Wire, WE)) {
+  4e:	86 b3       	in	r24, 0x16	; 22
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  50:	86 ed       	ldi	r24, 0xD6	; 214
+  52:	91 e0       	ldi	r25, 0x01	; 1
+  54:	01 97       	sbiw	r24, 0x01	; 1
+  56:	f1 f7       	brne	.-4      	; 0x54 <__SREG__+0x15>
+	} else {
+		PRESENCE=0;
+	}
+	//1-odebrano bit PRESENCE, 0-stan nieaktywnoœci
+	_delay_us(470);
+	if(bit_is_set(PORT_1Wire, WE)) {
+  58:	86 b3       	in	r24, 0x16	; 22
+  5a:	90 e0       	ldi	r25, 0x00	; 0
+  5c:	96 95       	lsr	r25
+  5e:	87 95       	ror	r24
+		PRESENCE=1;
+	} else {
+		PRESENCE=0;
+	}
+	return PRESENCE; //zwracamy wartoœæ do funkcji
+} //koniec RESET_PULSE
+  60:	81 70       	andi	r24, 0x01	; 1
+  62:	08 95       	ret
+
+00000064 <send>:
+
+//wysy³a pojedyñczy bit do uk³adu
+void send(uint8_t bit)
+{
+	CLEAR_1Wire; //ustawia stan niski na magistralii
+  64:	b9 9a       	sbi	0x17, 1	; 23
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  66:	96 e0       	ldi	r25, 0x06	; 6
+  68:	9a 95       	dec	r25
+  6a:	f1 f7       	brne	.-4      	; 0x68 <send+0x4>
+	_delay_us(5);
+	if(bit==1) {
+  6c:	81 30       	cpi	r24, 0x01	; 1
+  6e:	09 f4       	brne	.+2      	; 0x72 <send+0xe>
+		SET_1Wire; //zwolnienie magistralii - wyslanie jedynki
+  70:	b9 98       	cbi	0x17, 1	; 23
+  72:	8a e6       	ldi	r24, 0x6A	; 106
+  74:	8a 95       	dec	r24
+  76:	f1 f7       	brne	.-4      	; 0x74 <send+0x10>
+	}
+	_delay_us(80); //przetrzymanie - wys³anie zera
+	SET_1Wire;
+  78:	b9 98       	cbi	0x17, 1	; 23
+} //koniec send
+  7a:	08 95       	ret
+
+0000007c <read>:
+//zczytuje bit z magistaralii
+uint8_t read(void)
+{
+	uint8_t PRESENCE=0;
+	
+	CLEAR_1Wire; //ustawienie stan niski DQ
+  7c:	b9 9a       	sbi	0x17, 1	; 23
+  7e:	82 e0       	ldi	r24, 0x02	; 2
+  80:	8a 95       	dec	r24
+  82:	f1 f7       	brne	.-4      	; 0x80 <read+0x4>
+	_delay_us(2);
+	SET_1Wire;
+  84:	b9 98       	cbi	0x17, 1	; 23
+  86:	84 e1       	ldi	r24, 0x14	; 20
+  88:	8a 95       	dec	r24
+  8a:	f1 f7       	brne	.-4      	; 0x88 <read+0xc>
+	_delay_us(15);
+	//odbiór zera lub jedynki
+	if(bit_is_set(PORT_1Wire, WE)) {
+  8c:	86 b3       	in	r24, 0x16	; 22
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	96 95       	lsr	r25
+  92:	87 95       	ror	r24
+	} else {
+		PRESENCE=0;
+	}
+	
+	return(PRESENCE);
+} //koniec read
+  94:	81 70       	andi	r24, 0x01	; 1
+  96:	08 95       	ret
+
+00000098 <send_byte>:
+
+//wysy³a ca³y bajt do uk³adu
+void send_byte(uint8_t wartosc)
+{
+  98:	0f 93       	push	r16
+  9a:	1f 93       	push	r17
+  9c:	cf 93       	push	r28
+  9e:	df 93       	push	r29
+  a0:	c0 e0       	ldi	r28, 0x00	; 0
+  a2:	d0 e0       	ldi	r29, 0x00	; 0
+	uint8_t i; //zmienna licznikowa
+	uint8_t pom; //zmienna pomocnicza
+	
+	for(i=0; i<8; i++) {
+		pom = wartosc>>i;
+  a4:	08 2f       	mov	r16, r24
+  a6:	10 e0       	ldi	r17, 0x00	; 0
+  a8:	80 2f       	mov	r24, r16
+  aa:	91 2f       	mov	r25, r17
+  ac:	0c 2e       	mov	r0, r28
+  ae:	02 c0       	rjmp	.+4      	; 0xb4 <send_byte+0x1c>
+  b0:	95 95       	asr	r25
+  b2:	87 95       	ror	r24
+  b4:	0a 94       	dec	r0
+  b6:	e2 f7       	brpl	.-8      	; 0xb0 <send_byte+0x18>
+		pom &= 0x01;
+		send(pom);
+  b8:	81 70       	andi	r24, 0x01	; 1
+  ba:	d4 df       	rcall	.-88     	; 0x64 <send>
+  bc:	21 96       	adiw	r28, 0x01	; 1
+void send_byte(uint8_t wartosc)
+{
+	uint8_t i; //zmienna licznikowa
+	uint8_t pom; //zmienna pomocnicza
+	
+	for(i=0; i<8; i++) {
+  be:	c8 30       	cpi	r28, 0x08	; 8
+  c0:	d1 05       	cpc	r29, r1
+  c2:	91 f7       	brne	.-28     	; 0xa8 <send_byte+0x10>
+  c4:	85 e8       	ldi	r24, 0x85	; 133
+  c6:	8a 95       	dec	r24
+  c8:	f1 f7       	brne	.-4      	; 0xc6 <send_byte+0x2e>
+		pom = wartosc>>i;
+		pom &= 0x01;
+		send(pom);
+	}
+	_delay_us(100);
+} //koniec send_byte
+  ca:	df 91       	pop	r29
+  cc:	cf 91       	pop	r28
+  ce:	1f 91       	pop	r17
+  d0:	0f 91       	pop	r16
+  d2:	08 95       	ret
+
+000000d4 <read_byte>:
+
+//zczytuje ca³y bajt z uk³adu
+uint8_t read_byte(void)
+{
+  d4:	ef 92       	push	r14
+  d6:	ff 92       	push	r15
+  d8:	0f 93       	push	r16
+  da:	1f 93       	push	r17
+  dc:	cf 93       	push	r28
+  de:	df 93       	push	r29
+  e0:	10 e0       	ldi	r17, 0x00	; 0
+  e2:	c0 e0       	ldi	r28, 0x00	; 0
+  e4:	d0 e0       	ldi	r29, 0x00	; 0
+	uint8_t i; //zmienna licznikowa
+	uint8_t wartosc=0; //zczytywana wartosc
+	
+	for(i=0; i<8; i++) {
+		if(read()) wartosc|=0x01<<i; //zczytywanie po jednym bicie
+  e6:	41 e0       	ldi	r20, 0x01	; 1
+  e8:	e4 2e       	mov	r14, r20
+  ea:	f1 2c       	mov	r15, r1
+  ec:	04 e1       	ldi	r16, 0x14	; 20
+  ee:	c6 df       	rcall	.-116    	; 0x7c <read>
+  f0:	88 23       	and	r24, r24
+  f2:	49 f0       	breq	.+18     	; 0x106 <__stack+0x27>
+  f4:	8e 2d       	mov	r24, r14
+  f6:	9f 2d       	mov	r25, r15
+  f8:	0c 2e       	mov	r0, r28
+  fa:	02 c0       	rjmp	.+4      	; 0x100 <__stack+0x21>
+  fc:	88 0f       	add	r24, r24
+  fe:	99 1f       	adc	r25, r25
+ 100:	0a 94       	dec	r0
+ 102:	e2 f7       	brpl	.-8      	; 0xfc <__stack+0x1d>
+ 104:	18 2b       	or	r17, r24
+ 106:	80 2f       	mov	r24, r16
+ 108:	8a 95       	dec	r24
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <__stack+0x29>
+ 10c:	21 96       	adiw	r28, 0x01	; 1
+uint8_t read_byte(void)
+{
+	uint8_t i; //zmienna licznikowa
+	uint8_t wartosc=0; //zczytywana wartosc
+	
+	for(i=0; i<8; i++) {
+ 10e:	c8 30       	cpi	r28, 0x08	; 8
+ 110:	d1 05       	cpc	r29, r1
+ 112:	69 f7       	brne	.-38     	; 0xee <__stack+0xf>
+		if(read()) wartosc|=0x01<<i; //zczytywanie po jednym bicie
+		_delay_us(15);
+	}
+	
+	return(wartosc); //zwrot do funkcji
+} //koniec read_byte
+ 114:	81 2f       	mov	r24, r17
+ 116:	df 91       	pop	r29
+ 118:	cf 91       	pop	r28
+ 11a:	1f 91       	pop	r17
+ 11c:	0f 91       	pop	r16
+ 11e:	ff 90       	pop	r15
+ 120:	ef 90       	pop	r14
+ 122:	08 95       	ret
+
+00000124 <_exit>:
+ 124:	f8 94       	cli
+
+00000126 <__stop_program>:
+ 126:	ff cf       	rjmp	.-2      	; 0x126 <__stop_program>

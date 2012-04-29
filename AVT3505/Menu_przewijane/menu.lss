@@ -1,0 +1,1119 @@
+
+menu.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  00000614  000006a8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000614  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000002b  0080010e  0080010e  000006b6  2**0
+                  ALLOC
+  3 .stab         00000378  00000000  00000000  000006b8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000071  00000000  00000000  00000a30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000000a0  00000000  00000000  00000aa1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000027e  00000000  00000000  00000b41  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000e89  00000000  00000000  00000dbf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000004fd  00000000  00000000  00001c48  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000009d8  00000000  00000000  00002145  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000200  00000000  00000000  00002b20  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    000003fa  00000000  00000000  00002d20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000001e8  00000000  00000000  0000311a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 b9 00 	jmp	0x172	; 0x172 <__ctors_end>
+   4:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+   8:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+   c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  10:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  14:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  18:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  1c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  20:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  24:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  28:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  2c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  30:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  34:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  38:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  3c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  40:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  44:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  48:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  4c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  50:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  54:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  58:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  5c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  60:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  64:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  68:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+  6c:	0c 94 d6 00 	jmp	0x1ac	; 0x1ac <__bad_interrupt>
+
+00000070 <EN_strDisplay>:
+  70:	45 6e 67 6c 69 73 68 00                             English.
+
+00000078 <EN_strStart>:
+  78:	57 65 6c 63 6f 6d 65 20 69 6e 20 20 20 20 20 20     Welcome in      
+  88:	45 6e 67 6c 69 73 68 20 56 65 72 73 69 6f 6e 00     English Version.
+
+00000098 <PL_lcdspec>:
+  98:	00 00 0e 01 0f 11 0f 02 61 02 04 0e 10 10 11 0e     ........a.......
+  a8:	00 63 00 00 0e 11 1f 10 0e 02 65 0c 04 06 04 0c     .c........e.....
+  b8:	04 0e 00 6c 02 04 16 19 11 11 11 00 6e 02 04 0e     ...l........n...
+  c8:	11 11 11 0e 00 6f 02 04 0e 10 0e 01 1e 00 73 02     .....o........s.
+  d8:	04 1f 02 04 08 1f 00 7a 04 00 1f 02 04 08 1f 00     .......z........
+  e8:	7a 0e 11 11 1f 11 11 11 02 41 02 0e 15 10 10 10     z........A......
+  f8:	11 0e 43 1f 10 10 1e 10 10 1f 02 45 10 10 14 18     ..C........E....
+ 108:	10 10 1f 00 4c 02 15 11 19 15 13 11 11 4e 02 0e     ....L........N..
+ 118:	15 11 11 11 11 0e 4f 02 0f 14 10 0e 01 01 1e 53     ......O........S
+ 128:	02 1f 05 02 04 08 10 1f 5a 04 1f 01 02 04 08 10     ........Z.......
+ 138:	1f 5a                                               .Z
+
+0000013a <PL_strDisplay>:
+ 13a:	50 6f 6c 73 6b 69 00                                Polski.
+
+00000141 <PL_strStart>:
+ 141:	57 69 74 61 6a 20 77 20 77 65 72 73 6a 69 0a 20     Witaj w wersji. 
+ 151:	70 6f 6c 73 6b 69 65 6a 00                          polskiej.
+
+0000015a <langsys_lcdspec>:
+ 15a:	00 00 98 00                                         ....
+
+0000015e <langsys_strTable>:
+ 15e:	70 00 78 00 3a 01 41 01                             p.x.:.A.
+
+00000166 <__c.1711>:
+ 166:	53 32 20 2d 20 00                                   S2 - .
+
+0000016c <__c.1709>:
+ 16c:	53 31 20 2d 20 00                                   S1 - .
+
+00000172 <__ctors_end>:
+ 172:	11 24       	eor	r1, r1
+ 174:	1f be       	out	0x3f, r1	; 63
+ 176:	cf ef       	ldi	r28, 0xFF	; 255
+ 178:	d4 e0       	ldi	r29, 0x04	; 4
+ 17a:	de bf       	out	0x3e, r29	; 62
+ 17c:	cd bf       	out	0x3d, r28	; 61
+
+0000017e <__do_copy_data>:
+ 17e:	11 e0       	ldi	r17, 0x01	; 1
+ 180:	a0 e0       	ldi	r26, 0x00	; 0
+ 182:	b1 e0       	ldi	r27, 0x01	; 1
+ 184:	e4 e1       	ldi	r30, 0x14	; 20
+ 186:	f6 e0       	ldi	r31, 0x06	; 6
+ 188:	02 c0       	rjmp	.+4      	; 0x18e <.do_copy_data_start>
+
+0000018a <.do_copy_data_loop>:
+ 18a:	05 90       	lpm	r0, Z+
+ 18c:	0d 92       	st	X+, r0
+
+0000018e <.do_copy_data_start>:
+ 18e:	ae 30       	cpi	r26, 0x0E	; 14
+ 190:	b1 07       	cpc	r27, r17
+ 192:	d9 f7       	brne	.-10     	; 0x18a <.do_copy_data_loop>
+
+00000194 <__do_clear_bss>:
+ 194:	11 e0       	ldi	r17, 0x01	; 1
+ 196:	ae e0       	ldi	r26, 0x0E	; 14
+ 198:	b1 e0       	ldi	r27, 0x01	; 1
+ 19a:	01 c0       	rjmp	.+2      	; 0x19e <.do_clear_bss_start>
+
+0000019c <.do_clear_bss_loop>:
+ 19c:	1d 92       	st	X+, r1
+
+0000019e <.do_clear_bss_start>:
+ 19e:	a9 33       	cpi	r26, 0x39	; 57
+ 1a0:	b1 07       	cpc	r27, r17
+ 1a2:	e1 f7       	brne	.-8      	; 0x19c <.do_clear_bss_loop>
+ 1a4:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <main>
+ 1a8:	0c 94 09 03 	jmp	0x612	; 0x612 <_exit>
+
+000001ac <__bad_interrupt>:
+ 1ac:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000001b0 <main>:
+
+#include "system.h"
+
+int main(void)
+{
+ 1b0:	0e 94 90 02 	call	0x520	; 0x520 <system_run>
+
+000001b4 <lcd_GetBF>:
+	return dana; 
+}
+
+uint8_t lcd_GetBF(void)
+{
+ 1b4:	93 9a       	sbi	0x12, 3	; 18
+	// Wysterowanie wyprowadzeñ do odczytu statusu
+	PORT(LCD_CTRLPORT) |= 1<<LCD_RW; 
+	PORT(LCD_CTRLPORT) &= ~(1<<LCD_RS);
+ 1b6:	92 98       	cbi	0x12, 2	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 1b8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ba:	8a 95       	dec	r24
+ 1bc:	f1 f7       	brne	.-4      	; 0x1ba <lcd_GetBF+0x6>
+ 1be:	17 ba       	out	0x17, r1	; 23
+ 1c0:	94 9a       	sbi	0x12, 4	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 1c2:	82 e0       	ldi	r24, 0x02	; 2
+ 1c4:	8a 95       	dec	r24
+ 1c6:	f1 f7       	brne	.-4      	; 0x1c4 <lcd_GetBF+0x10>
+ 1c8:	86 b3       	in	r24, 0x16	; 22
+ 1ca:	94 98       	cbi	0x12, 4	; 18
+	// Odczekanie wymaganego przez sterownik czasu
+	_delay_us(0.25);
+	// Odczyt danej
+	return lcd_Get(); 
+}
+ 1cc:	99 27       	eor	r25, r25
+ 1ce:	08 95       	ret
+
+000001d0 <lcd_WaitBF>:
+
+// Sprawdza flagê zajêtoœci i czeka na jej wyzerowanie
+void lcd_WaitBF(void)
+{
+ 1d0:	0e 94 da 00 	call	0x1b4	; 0x1b4 <lcd_GetBF>
+ 1d4:	87 fd       	sbrc	r24, 7
+ 1d6:	fc cf       	rjmp	.-8      	; 0x1d0 <lcd_WaitBF>
+ 1d8:	08 95       	ret
+
+000001da <lcd_Send>:
+	// Bit zajêtoœci to bit najstarszy
+	while(0 != (0x80 & lcd_GetBF())) {}; 
+}
+
+// Wys³anie danej - funkcja wewnêtrzna
+static void lcd_Send(uint8_t dana)
+{
+ 1da:	9f ef       	ldi	r25, 0xFF	; 255
+ 1dc:	97 bb       	out	0x17, r25	; 23
+	// Ustawienie portu lcd jako wyjœcia
+	DDR(LCD_DATAPORT) = 0xFF; 
+	// Pres³anie na port danej
+	PORT(LCD_DATAPORT) = dana; 
+ 1de:	88 bb       	out	0x18, r24	; 24
+	// Przes³anie do lcd
+	lcd_epulse(); 
+ 1e0:	94 9a       	sbi	0x12, 4	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 1e2:	81 e0       	ldi	r24, 0x01	; 1
+ 1e4:	8a 95       	dec	r24
+ 1e6:	f1 f7       	brne	.-4      	; 0x1e4 <lcd_Send+0xa>
+ 1e8:	94 98       	cbi	0x12, 4	; 18
+ 1ea:	08 95       	ret
+
+000001ec <lcd_SendData>:
+}
+
+// Wys³anie danej do pamiêci DDRAM lub CGRAM
+// Zale¿nie od ustawionego adresu
+void lcd_SendData(uint8_t dana)
+{
+ 1ec:	1f 93       	push	r17
+ 1ee:	18 2f       	mov	r17, r24
+	lcd_WaitBF();
+ 1f0:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <lcd_WaitBF>
+	// Wysterowanie wyprowadzeñ dla zapisu danej
+	PORT(LCD_CTRLPORT) &= ~(1<<LCD_RW); 
+ 1f4:	93 98       	cbi	0x12, 3	; 18
+	PORT(LCD_CTRLPORT) |= 1<<LCD_RS; 
+ 1f6:	92 9a       	sbi	0x12, 2	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 1f8:	81 e0       	ldi	r24, 0x01	; 1
+ 1fa:	8a 95       	dec	r24
+ 1fc:	f1 f7       	brne	.-4      	; 0x1fa <lcd_SendData+0xe>
+	// Odczekanie oraz wys³anie
+	_delay_us(0.25); 
+	lcd_Send(dana); 
+ 1fe:	81 2f       	mov	r24, r17
+ 200:	0e 94 ed 00 	call	0x1da	; 0x1da <lcd_Send>
+ 204:	1f 91       	pop	r17
+ 206:	08 95       	ret
+
+00000208 <lcd_SendInstr>:
+}
+
+// Wys³anie instrukcji steruj¹cej
+void lcd_SendInstr(uint8_t dana)
+{
+ 208:	1f 93       	push	r17
+ 20a:	18 2f       	mov	r17, r24
+	lcd_WaitBF();
+ 20c:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <lcd_WaitBF>
+	// Wysterowanie wyprowadzeñ dla zapisu instrukcji
+	PORT(LCD_CTRLPORT) &= ~(1<<LCD_RW | 1<<LCD_RS);
+ 210:	82 b3       	in	r24, 0x12	; 18
+ 212:	83 7f       	andi	r24, 0xF3	; 243
+ 214:	82 bb       	out	0x12, r24	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 216:	81 e0       	ldi	r24, 0x01	; 1
+ 218:	8a 95       	dec	r24
+ 21a:	f1 f7       	brne	.-4      	; 0x218 <lcd_SendInstr+0x10>
+	// Odczekanie oraz wys³anie
+	_delay_us(0.25); 
+	lcd_Send(dana); 
+ 21c:	81 2f       	mov	r24, r17
+ 21e:	0e 94 ed 00 	call	0x1da	; 0x1da <lcd_Send>
+ 222:	1f 91       	pop	r17
+ 224:	08 95       	ret
+
+00000226 <lcd_put>:
+}
+
+//__________________________________________________________________________________________
+// Funkcje obs³uguj¹ce wejœcie wyjœcie strumienia
+static int lcd_put(char c, FILE* f)
+{
+ 226:	98 2f       	mov	r25, r24
+	// Zabezpieczenie przed przepe³nieniem
+	if(lcd_curpos >= ELEMS(lcd_buffer))
+ 228:	80 91 2e 01 	lds	r24, 0x012E
+ 22c:	80 32       	cpi	r24, 0x20	; 32
+ 22e:	10 f0       	brcs	.+4      	; 0x234 <lcd_put+0xe>
+		lcd_curpos = 0;
+ 230:	10 92 2e 01 	sts	0x012E, r1
+	// Zapis do bufora
+	lcd_buffer[lcd_curpos++] = c;
+ 234:	80 91 2e 01 	lds	r24, 0x012E
+ 238:	e8 2f       	mov	r30, r24
+ 23a:	ff 27       	eor	r31, r31
+ 23c:	e2 5f       	subi	r30, 0xF2	; 242
+ 23e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 240:	90 83       	st	Z, r25
+ 242:	8f 5f       	subi	r24, 0xFF	; 255
+ 244:	80 93 2e 01 	sts	0x012E, r24
+	return 0;
+}
+ 248:	80 e0       	ldi	r24, 0x00	; 0
+ 24a:	90 e0       	ldi	r25, 0x00	; 0
+ 24c:	08 95       	ret
+
+0000024e <lcd_SetStatus>:
+
+//__________________________________________________________________________________________
+// Funkcje interfejsu
+
+// inicjacja LCD (uwaga - nie w³¹czam wyœwietlacza ani kursora)
+void lcd_Init(void)
+{
+	lcd_Cls();
+	PORT(LCD_CTRLPORT) &= ~(1<<LCD_RW | 1<<LCD_RS); 
+	_delay_us(0.25); 
+	lcd_Send(LCDC_FUNC | LCDC_FUNC8b); 
+	_delay_ms(4.3); 
+	lcd_Send(LCDC_FUNC | LCDC_FUNC8b); 
+	_delay_us(200); 
+	lcd_Send(LCDC_FUNC | LCDC_FUNC8b); 
+	// Ju¿ mo¿na sprawdzaæ BF
+#if LCD_SY == 1
+	lcd_SendInstr(LCDC_FUNC | LCDC_FUNC8b | LCDC_FUNC1L); 
+#else
+	lcd_SendInstr(LCDC_FUNC | LCDC_FUNC8b | LCDC_FUNC2L); 
+#endif
+	lcd_SendInstr(LCDC_ON);
+	lcd_SendInstr(LCDC_CLS);
+	lcd_SendInstr(LCDC_MODE | LCDC_MODER); 
+	lcd_WaitBF();
+	// Koniec inicjacji. Wyj¹tkowo czekam na zakoñczenie. Normalnie BF jest sprawdzana przed wykonaniem indtrukcji 
+	// - daje to wiêksz¹ oszczêdnoœæ czasu. Podczas inicjacji nie ma to wielkiego znaczenia. 
+}
+
+// Zerowanie bufora wyœwietlacza
+void lcd_Cls(void)
+{
+	lcd_curpos = 0;
+	memset(lcd_buffer, ' ', sizeof(lcd_buffer));
+}
+
+// kontrola w³¹czenia wyœwietlacza, kursora, migaj¹cego kursora
+void lcd_SetStatus(uint8_t status)
+{
+ 24e:	80 93 37 01 	sts	0x0137, r24
+ 252:	08 95       	ret
+
+00000254 <lcd_UpdateStatus>:
+	lcd_status = status;
+}
+
+// Odswierzenie statusu
+inline void lcd_UpdateStatus(void)
+{
+ 254:	80 91 37 01 	lds	r24, 0x0137
+ 258:	88 60       	ori	r24, 0x08	; 8
+ 25a:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 25e:	08 95       	ret
+
+00000260 <lcd_GoToAdr>:
+	lcd_SendInstr(LCDC_ON | lcd_status);
+}
+
+// Funkcja wewnêtrzna podaj¹ca pocz¹tek danej linii
+static uint8_t lcd_LineStart(uint8_t line)
+{
+#if LCD_SY == 1
+	return LCD_LINE1;
+#elif LCD_SY == 2
+	if(line == 0)
+		return LCD_LINE1;
+	else
+		return LCD_LINE2;
+#elif LCD_SY == 4
+	if(line == 0)
+		return LCD_LINE1;
+	else if(linenum == 1)
+		return LCD_LINE2;
+	else if(linenum == 2)
+		return LCD_LINE3;
+	else
+		return LCD_LINE4;
+#else
+#error Unknown display type!
+#endif
+}
+
+// Ustawienie kursora
+inline void lcd_GoToAdr(uint8_t adr)
+{
+ 260:	80 93 2e 01 	sts	0x012E, r24
+ 264:	08 95       	ret
+
+00000266 <lcd_UpdateCurPos>:
+	lcd_curpos = adr;
+}
+
+// Odswierzenie pozycji kursora
+void lcd_UpdateCurPos(void)
+{
+ 266:	90 91 2e 01 	lds	r25, 0x012E
+ 26a:	89 2f       	mov	r24, r25
+ 26c:	82 95       	swap	r24
+ 26e:	8f 70       	andi	r24, 0x0F	; 15
+ 270:	19 f4       	brne	.+6      	; 0x278 <lcd_UpdateCurPos+0x12>
+ 272:	20 e0       	ldi	r18, 0x00	; 0
+ 274:	30 e0       	ldi	r19, 0x00	; 0
+ 276:	02 c0       	rjmp	.+4      	; 0x27c <lcd_UpdateCurPos+0x16>
+ 278:	20 e4       	ldi	r18, 0x40	; 64
+ 27a:	30 e0       	ldi	r19, 0x00	; 0
+	// Obliczenie adresu w wyœwietlaczu
+	uint8_t adres = 
+		lcd_LineStart(lcd_curpos / LCD_SX) + (lcd_curpos % LCD_SX);
+	// Wys³anie instrkucji ustawiaj¹cej kursor
+	lcd_SendInstr(LCDC_DDA | adres);
+ 27c:	9f 70       	andi	r25, 0x0F	; 15
+ 27e:	92 0f       	add	r25, r18
+ 280:	89 2f       	mov	r24, r25
+ 282:	80 68       	ori	r24, 0x80	; 128
+ 284:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 288:	08 95       	ret
+
+0000028a <lcd_GetFile>:
+}
+
+// Wewnêtrzna pomocnicza funkcja sprawdzaj¹ca czy dany znak jest znakiem specjalnym
+static uint8_t lcd_IsSpec(char c)
+{
+	// Przydzia³ znaków specjalnych na obszar którego LCD nie wykorzystuje
+	return (c >= 0x80) && (c <= 0x9f);
+}
+
+// Zamiana znaku specjalnego na odpowiedni numer w tablicy symboli
+static inline uint8_t lcd_Spec2Index(char c)
+{
+	return c-0x80;
+}
+
+// Funkcja sprawdzajaca czy w tablicy jest podany znak
+// Zwraca: indeks w tablicy gdzie znajduje sie dany znak
+//  lub kod znaku alternatywnego (zawsze >= 0x20)
+static uint8_t lcd_GetSpec(uint8_t s_index)
+{
+	//Zabezpieczenie
+	if(langsys_GetSpec() == NULL)
+		return 0x20;
+	uint8_t a; 
+	for(a=0; a<ELEMS(lcd_spec); a++)
+	{
+		// 0xff oznacza, ¿e nie ma ju¿ dalej wpisów
+		if(lcd_spec[a] == 0xff)
+			break; 
+		// Jeœli znaleziono...
+		else if(lcd_spec[a] == s_index)
+			return a; 
+	}
+	// Nic nie znaleziono
+	return pgm_read_byte(&(langsys_GetSpec()[s_index].cAlt));
+}
+
+// Makro pomocnicze
+#define LCD_SPECNF(spec) (spec > 7)
+
+// Funkcja przydzielaj¹ca znaki specjalne
+// Zwraca iloœæ ró¿nych znaków jak¹ znaleziono. Jeœli > 8 czêœci znaków nie uda³o siê przydzieliæ
+uint8_t lcd_PrepareSpec(void)
+{
+	// Analizujê ca³y ³añcuch danych i zapisujê kolejno znalezione znaki
+	char* pbuffer = lcd_buffer;
+	uint8_t n;
+	uint8_t cnt=0;
+	char znak;
+	// Na pocz¹tku "zerowanie" tablicy znaków specjalnych
+	memset(lcd_spec, 0xff, sizeof(lcd_spec));
+	// dodawanie wpisów
+	for(n=0; n<ELEMS(lcd_buffer); n++)
+	{
+		znak = *pbuffer++;
+		// Jeœli znaleziony znak jest specjalny
+		if(lcd_IsSpec(znak))
+		{
+			// Przeszukanie tablicy
+			znak = lcd_Spec2Index(znak);
+			// Jeœli nie znaleziono - dodawanie
+			if(LCD_SPECNF(lcd_GetSpec(znak)))
+			{
+				// dodaj do tablicy tylko jeœli 
+				// nie wyst¹pi³o przepe³nienie
+				if(cnt < ELEMS(lcd_spec))
+					lcd_spec[cnt] = znak;
+				// Licznik zwiêkszany zawsze
+				// dla statystyki
+				++cnt;
+			}
+		}
+	}
+	return cnt;
+}
+
+// Funkcja zapisuj¹ca definicje znaków do pamiêci CGRAM wyœwietlacza
+void lcd_UpdateCGRAM(void)
+{
+	//Zabezpieczenie
+	if(langsys_GetSpec() == NULL)
+		return;
+	// Ustawiam adres w module na pocz¹tek definicji znaków: 
+	lcd_SendInstr(LCDC_CGA); 
+	// Przesy³anie bloków - tylko do czasu a¿ mam 0xff w tablicy - koniec danych
+	uint8_t a; 
+	for(a=0; a<ELEMS(lcd_spec); a++)
+	{
+		// 0xff oznacza koniec danych
+		if(lcd_spec[a] == 0xff) break;
+		// WskaŸnik na pocz¹tek danych wygl¹du znaku
+		uint8_t* pdata = langsys_GetSpec()[lcd_spec[a]].matrix;
+		// Wysy³am kolejny indeks
+		uint8_t bait;
+		for(bait=0; bait<8; bait++)
+		{
+			lcd_SendData(pgm_read_byte(pdata++)); 
+		}
+	}
+}
+
+// Funckcja odœwierzaj¹ca dane w pamiêci DDRAM wyœwietlacza
+// Aby wyœwietlanie przebieg³o prawid³owo pamiêæ CGRAM musi byæ ju¿ ustawiona
+void lcd_UpdateText(void)
+{
+	uint8_t x, y;
+	
+	char *pbuffer = lcd_buffer;
+	// Przetwarzanie ka¿dej linii oddzielnie
+	for(y=0; y<LCD_SY; y++)
+	{
+		lcd_SendInstr(LCDC_DDA | lcd_LineStart(y));
+		// Wys³anie wszystkich znaków z danej linii
+		for(x=0; x<LCD_SX; x++)
+		{
+			uint8_t znak = *pbuffer++;
+			if(lcd_IsSpec(znak))
+				znak = lcd_GetSpec(lcd_Spec2Index(znak));
+			// Znak gotowy do wys³ania
+			lcd_SendData(znak);
+		}
+	}
+}
+
+// Odœwierzenie wszystkich danych wyœwietlacza
+void lcd_Update(void)
+{
+	lcd_PrepareSpec();
+	lcd_UpdateCGRAM();
+	// Wy³¹czenie kursora na czas odœwierzania
+	lcd_SendInstr(LCDC_ON | (lcd_status & LCD_STATUS_DISP));
+	lcd_UpdateText();
+	lcd_UpdateCurPos();
+	// Ponowne w³¹czenie kursora (jeœli by³ w³¹czony)
+	lcd_UpdateStatus();
+}
+
+//__________________________________________________________________________________________
+// Funkcja podaj¹ca uchwyt do strumienia
+inline FILE* lcd_GetFile(void)
+{
+ 28a:	80 e0       	ldi	r24, 0x00	; 0
+ 28c:	91 e0       	ldi	r25, 0x01	; 1
+ 28e:	08 95       	ret
+
+00000290 <lcd_UpdateCGRAM>:
+ 290:	ff 92       	push	r15
+ 292:	0f 93       	push	r16
+ 294:	1f 93       	push	r17
+ 296:	cf 93       	push	r28
+ 298:	df 93       	push	r29
+ 29a:	0e 94 78 02 	call	0x4f0	; 0x4f0 <langsys_GetSpec>
+ 29e:	89 2b       	or	r24, r25
+ 2a0:	21 f1       	breq	.+72     	; 0x2ea <lcd_UpdateCGRAM+0x5a>
+ 2a2:	80 e4       	ldi	r24, 0x40	; 64
+ 2a4:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 2a8:	0f e2       	ldi	r16, 0x2F	; 47
+ 2aa:	11 e0       	ldi	r17, 0x01	; 1
+ 2ac:	f8 01       	movw	r30, r16
+ 2ae:	80 81       	ld	r24, Z
+ 2b0:	8f 3f       	cpi	r24, 0xFF	; 255
+ 2b2:	d9 f0       	breq	.+54     	; 0x2ea <lcd_UpdateCGRAM+0x5a>
+ 2b4:	0e 94 78 02 	call	0x4f0	; 0x4f0 <langsys_GetSpec>
+ 2b8:	f8 01       	movw	r30, r16
+ 2ba:	30 81       	ld	r19, Z
+ 2bc:	29 e0       	ldi	r18, 0x09	; 9
+ 2be:	32 9f       	mul	r19, r18
+ 2c0:	e0 01       	movw	r28, r0
+ 2c2:	11 24       	eor	r1, r1
+ 2c4:	c8 0f       	add	r28, r24
+ 2c6:	d9 1f       	adc	r29, r25
+ 2c8:	ff 24       	eor	r15, r15
+ 2ca:	fe 01       	movw	r30, r28
+ 2cc:	21 96       	adiw	r28, 0x01	; 1
+ 2ce:	e4 91       	lpm	r30, Z
+ 2d0:	8e 2f       	mov	r24, r30
+ 2d2:	0e 94 f6 00 	call	0x1ec	; 0x1ec <lcd_SendData>
+ 2d6:	f3 94       	inc	r15
+ 2d8:	f8 e0       	ldi	r31, 0x08	; 8
+ 2da:	ff 16       	cp	r15, r31
+ 2dc:	b1 f7       	brne	.-20     	; 0x2ca <lcd_UpdateCGRAM+0x3a>
+ 2de:	0f 5f       	subi	r16, 0xFF	; 255
+ 2e0:	1f 4f       	sbci	r17, 0xFF	; 255
+ 2e2:	81 e0       	ldi	r24, 0x01	; 1
+ 2e4:	07 33       	cpi	r16, 0x37	; 55
+ 2e6:	18 07       	cpc	r17, r24
+ 2e8:	09 f7       	brne	.-62     	; 0x2ac <lcd_UpdateCGRAM+0x1c>
+ 2ea:	df 91       	pop	r29
+ 2ec:	cf 91       	pop	r28
+ 2ee:	1f 91       	pop	r17
+ 2f0:	0f 91       	pop	r16
+ 2f2:	ff 90       	pop	r15
+ 2f4:	08 95       	ret
+
+000002f6 <lcd_GetSpec>:
+ 2f6:	1f 93       	push	r17
+ 2f8:	18 2f       	mov	r17, r24
+ 2fa:	0e 94 78 02 	call	0x4f0	; 0x4f0 <langsys_GetSpec>
+ 2fe:	89 2b       	or	r24, r25
+ 300:	19 f4       	brne	.+6      	; 0x308 <lcd_GetSpec+0x12>
+ 302:	80 e2       	ldi	r24, 0x20	; 32
+ 304:	90 e0       	ldi	r25, 0x00	; 0
+ 306:	1a c0       	rjmp	.+52     	; 0x33c <lcd_GetSpec+0x46>
+ 308:	80 e0       	ldi	r24, 0x00	; 0
+ 30a:	90 e0       	ldi	r25, 0x00	; 0
+ 30c:	ef e2       	ldi	r30, 0x2F	; 47
+ 30e:	f1 e0       	ldi	r31, 0x01	; 1
+ 310:	20 81       	ld	r18, Z
+ 312:	2f 3f       	cpi	r18, 0xFF	; 255
+ 314:	39 f0       	breq	.+14     	; 0x324 <lcd_GetSpec+0x2e>
+ 316:	21 17       	cp	r18, r17
+ 318:	89 f0       	breq	.+34     	; 0x33c <lcd_GetSpec+0x46>
+ 31a:	01 96       	adiw	r24, 0x01	; 1
+ 31c:	31 96       	adiw	r30, 0x01	; 1
+ 31e:	88 30       	cpi	r24, 0x08	; 8
+ 320:	91 05       	cpc	r25, r1
+ 322:	b1 f7       	brne	.-20     	; 0x310 <lcd_GetSpec+0x1a>
+ 324:	0e 94 78 02 	call	0x4f0	; 0x4f0 <langsys_GetSpec>
+ 328:	e9 e0       	ldi	r30, 0x09	; 9
+ 32a:	1e 9f       	mul	r17, r30
+ 32c:	f0 01       	movw	r30, r0
+ 32e:	11 24       	eor	r1, r1
+ 330:	e8 0f       	add	r30, r24
+ 332:	f9 1f       	adc	r31, r25
+ 334:	38 96       	adiw	r30, 0x08	; 8
+ 336:	e4 91       	lpm	r30, Z
+ 338:	8e 2f       	mov	r24, r30
+ 33a:	99 27       	eor	r25, r25
+ 33c:	1f 91       	pop	r17
+ 33e:	08 95       	ret
+
+00000340 <lcd_UpdateText>:
+ 340:	df 92       	push	r13
+ 342:	ef 92       	push	r14
+ 344:	ff 92       	push	r15
+ 346:	0f 93       	push	r16
+ 348:	1f 93       	push	r17
+ 34a:	cf 93       	push	r28
+ 34c:	df 93       	push	r29
+ 34e:	8e e0       	ldi	r24, 0x0E	; 14
+ 350:	e8 2e       	mov	r14, r24
+ 352:	81 e0       	ldi	r24, 0x01	; 1
+ 354:	f8 2e       	mov	r15, r24
+ 356:	00 e0       	ldi	r16, 0x00	; 0
+ 358:	10 e0       	ldi	r17, 0x00	; 0
+ 35a:	00 23       	and	r16, r16
+ 35c:	19 f0       	breq	.+6      	; 0x364 <lcd_UpdateText+0x24>
+ 35e:	80 e4       	ldi	r24, 0x40	; 64
+ 360:	90 e0       	ldi	r25, 0x00	; 0
+ 362:	02 c0       	rjmp	.+4      	; 0x368 <lcd_UpdateText+0x28>
+ 364:	80 e0       	ldi	r24, 0x00	; 0
+ 366:	90 e0       	ldi	r25, 0x00	; 0
+ 368:	80 68       	ori	r24, 0x80	; 128
+ 36a:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 36e:	e7 01       	movw	r28, r14
+ 370:	dd 24       	eor	r13, r13
+ 372:	89 91       	ld	r24, Y+
+ 374:	98 2f       	mov	r25, r24
+ 376:	90 58       	subi	r25, 0x80	; 128
+ 378:	90 32       	cpi	r25, 0x20	; 32
+ 37a:	18 f4       	brcc	.+6      	; 0x382 <lcd_UpdateText+0x42>
+ 37c:	89 2f       	mov	r24, r25
+ 37e:	0e 94 7b 01 	call	0x2f6	; 0x2f6 <lcd_GetSpec>
+ 382:	0e 94 f6 00 	call	0x1ec	; 0x1ec <lcd_SendData>
+ 386:	d3 94       	inc	r13
+ 388:	80 e1       	ldi	r24, 0x10	; 16
+ 38a:	d8 16       	cp	r13, r24
+ 38c:	91 f7       	brne	.-28     	; 0x372 <lcd_UpdateText+0x32>
+ 38e:	80 e1       	ldi	r24, 0x10	; 16
+ 390:	90 e0       	ldi	r25, 0x00	; 0
+ 392:	e8 0e       	add	r14, r24
+ 394:	f9 1e       	adc	r15, r25
+ 396:	0f 5f       	subi	r16, 0xFF	; 255
+ 398:	1f 4f       	sbci	r17, 0xFF	; 255
+ 39a:	02 30       	cpi	r16, 0x02	; 2
+ 39c:	11 05       	cpc	r17, r1
+ 39e:	e9 f6       	brne	.-70     	; 0x35a <lcd_UpdateText+0x1a>
+ 3a0:	df 91       	pop	r29
+ 3a2:	cf 91       	pop	r28
+ 3a4:	1f 91       	pop	r17
+ 3a6:	0f 91       	pop	r16
+ 3a8:	ff 90       	pop	r15
+ 3aa:	ef 90       	pop	r14
+ 3ac:	df 90       	pop	r13
+ 3ae:	08 95       	ret
+
+000003b0 <lcd_PrepareSpec>:
+ 3b0:	ef 92       	push	r14
+ 3b2:	ff 92       	push	r15
+ 3b4:	0f 93       	push	r16
+ 3b6:	1f 93       	push	r17
+ 3b8:	cf 93       	push	r28
+ 3ba:	df 93       	push	r29
+ 3bc:	cd b7       	in	r28, 0x3d	; 61
+ 3be:	de b7       	in	r29, 0x3e	; 62
+ 3c0:	21 97       	sbiw	r28, 0x01	; 1
+ 3c2:	0f b6       	in	r0, 0x3f	; 63
+ 3c4:	f8 94       	cli
+ 3c6:	de bf       	out	0x3e, r29	; 62
+ 3c8:	0f be       	out	0x3f, r0	; 63
+ 3ca:	cd bf       	out	0x3d, r28	; 61
+ 3cc:	48 e0       	ldi	r20, 0x08	; 8
+ 3ce:	50 e0       	ldi	r21, 0x00	; 0
+ 3d0:	6f ef       	ldi	r22, 0xFF	; 255
+ 3d2:	70 e0       	ldi	r23, 0x00	; 0
+ 3d4:	8f e2       	ldi	r24, 0x2F	; 47
+ 3d6:	91 e0       	ldi	r25, 0x01	; 1
+ 3d8:	0e 94 d7 02 	call	0x5ae	; 0x5ae <memset>
+ 3dc:	0e e0       	ldi	r16, 0x0E	; 14
+ 3de:	11 e0       	ldi	r17, 0x01	; 1
+ 3e0:	90 e0       	ldi	r25, 0x00	; 0
+ 3e2:	f8 01       	movw	r30, r16
+ 3e4:	81 91       	ld	r24, Z+
+ 3e6:	8f 01       	movw	r16, r30
+ 3e8:	80 58       	subi	r24, 0x80	; 128
+ 3ea:	80 32       	cpi	r24, 0x20	; 32
+ 3ec:	88 f4       	brcc	.+34     	; 0x410 <lcd_PrepareSpec+0x60>
+ 3ee:	e8 2e       	mov	r14, r24
+ 3f0:	ff 24       	eor	r15, r15
+ 3f2:	8e 2d       	mov	r24, r14
+ 3f4:	99 83       	std	Y+1, r25	; 0x01
+ 3f6:	0e 94 7b 01 	call	0x2f6	; 0x2f6 <lcd_GetSpec>
+ 3fa:	99 81       	ldd	r25, Y+1	; 0x01
+ 3fc:	88 30       	cpi	r24, 0x08	; 8
+ 3fe:	40 f0       	brcs	.+16     	; 0x410 <lcd_PrepareSpec+0x60>
+ 400:	98 30       	cpi	r25, 0x08	; 8
+ 402:	28 f4       	brcc	.+10     	; 0x40e <lcd_PrepareSpec+0x5e>
+ 404:	e9 2f       	mov	r30, r25
+ 406:	ff 27       	eor	r31, r31
+ 408:	e1 5d       	subi	r30, 0xD1	; 209
+ 40a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 40c:	e0 82       	st	Z, r14
+ 40e:	9f 5f       	subi	r25, 0xFF	; 255
+ 410:	f1 e0       	ldi	r31, 0x01	; 1
+ 412:	0e 32       	cpi	r16, 0x2E	; 46
+ 414:	1f 07       	cpc	r17, r31
+ 416:	29 f7       	brne	.-54     	; 0x3e2 <lcd_PrepareSpec+0x32>
+ 418:	89 2f       	mov	r24, r25
+ 41a:	99 27       	eor	r25, r25
+ 41c:	21 96       	adiw	r28, 0x01	; 1
+ 41e:	0f b6       	in	r0, 0x3f	; 63
+ 420:	f8 94       	cli
+ 422:	de bf       	out	0x3e, r29	; 62
+ 424:	0f be       	out	0x3f, r0	; 63
+ 426:	cd bf       	out	0x3d, r28	; 61
+ 428:	df 91       	pop	r29
+ 42a:	cf 91       	pop	r28
+ 42c:	1f 91       	pop	r17
+ 42e:	0f 91       	pop	r16
+ 430:	ff 90       	pop	r15
+ 432:	ef 90       	pop	r14
+ 434:	08 95       	ret
+
+00000436 <lcd_Update>:
+ 436:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <lcd_PrepareSpec>
+ 43a:	0e 94 48 01 	call	0x290	; 0x290 <lcd_UpdateCGRAM>
+ 43e:	80 91 37 01 	lds	r24, 0x0137
+ 442:	84 70       	andi	r24, 0x04	; 4
+ 444:	88 60       	ori	r24, 0x08	; 8
+ 446:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 44a:	0e 94 a0 01 	call	0x340	; 0x340 <lcd_UpdateText>
+ 44e:	0e 94 33 01 	call	0x266	; 0x266 <lcd_UpdateCurPos>
+ 452:	0e 94 2a 01 	call	0x254	; 0x254 <lcd_UpdateStatus>
+ 456:	08 95       	ret
+
+00000458 <lcd_Cls>:
+ 458:	10 92 2e 01 	sts	0x012E, r1
+ 45c:	40 e2       	ldi	r20, 0x20	; 32
+ 45e:	50 e0       	ldi	r21, 0x00	; 0
+ 460:	60 e2       	ldi	r22, 0x20	; 32
+ 462:	70 e0       	ldi	r23, 0x00	; 0
+ 464:	8e e0       	ldi	r24, 0x0E	; 14
+ 466:	91 e0       	ldi	r25, 0x01	; 1
+ 468:	0e 94 d7 02 	call	0x5ae	; 0x5ae <memset>
+ 46c:	08 95       	ret
+
+0000046e <lcd_Init>:
+ 46e:	0e 94 2c 02 	call	0x458	; 0x458 <lcd_Cls>
+ 472:	82 b3       	in	r24, 0x12	; 18
+ 474:	83 7f       	andi	r24, 0xF3	; 243
+ 476:	82 bb       	out	0x12, r24	; 18
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 478:	81 e0       	ldi	r24, 0x01	; 1
+ 47a:	8a 95       	dec	r24
+ 47c:	f1 f7       	brne	.-4      	; 0x47a <lcd_Init+0xc>
+ 47e:	80 e3       	ldi	r24, 0x30	; 48
+ 480:	0e 94 ed 00 	call	0x1da	; 0x1da <lcd_Send>
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 484:	88 e9       	ldi	r24, 0x98	; 152
+ 486:	91 e2       	ldi	r25, 0x21	; 33
+ 488:	01 97       	sbiw	r24, 0x01	; 1
+ 48a:	f1 f7       	brne	.-4      	; 0x488 <lcd_Init+0x1a>
+ 48c:	80 e3       	ldi	r24, 0x30	; 48
+ 48e:	0e 94 ed 00 	call	0x1da	; 0x1da <lcd_Send>
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 492:	80 e0       	ldi	r24, 0x00	; 0
+ 494:	8a 95       	dec	r24
+ 496:	f1 f7       	brne	.-4      	; 0x494 <lcd_Init+0x26>
+ 498:	80 e3       	ldi	r24, 0x30	; 48
+ 49a:	0e 94 ed 00 	call	0x1da	; 0x1da <lcd_Send>
+ 49e:	88 e3       	ldi	r24, 0x38	; 56
+ 4a0:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 4a4:	88 e0       	ldi	r24, 0x08	; 8
+ 4a6:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 4aa:	81 e0       	ldi	r24, 0x01	; 1
+ 4ac:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 4b0:	86 e0       	ldi	r24, 0x06	; 6
+ 4b2:	0e 94 04 01 	call	0x208	; 0x208 <lcd_SendInstr>
+ 4b6:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <lcd_WaitBF>
+ 4ba:	08 95       	ret
+
+000004bc <langsys_GetNumOfLangs>:
+};
+
+//Iloœæ "zainstalowanych" jêzyków
+inline uint8_t langsys_GetNumOfLangs(void)
+{
+ 4bc:	82 e0       	ldi	r24, 0x02	; 2
+ 4be:	90 e0       	ldi	r25, 0x00	; 0
+ 4c0:	08 95       	ret
+
+000004c2 <langsys_Select>:
+	return ELEMS(langsys_strTable);
+}
+
+//Wybór jêzyka
+inline void langsys_Select(uint8_t index)
+{
+ 4c2:	80 93 38 01 	sts	0x0138, r24
+ 4c6:	08 95       	ret
+
+000004c8 <langsys_GetSelected>:
+	langsys_sel =index;
+}
+
+//Pobieranie informacji o wybranym jêzyku
+inline uint8_t langsys_GetSelected(void)
+{
+ 4c8:	80 91 38 01 	lds	r24, 0x0138
+	return langsys_sel;
+}
+ 4cc:	99 27       	eor	r25, r25
+ 4ce:	08 95       	ret
+
+000004d0 <langsys_GetLangName>:
+
+//Pobieranie nazwy jêzyka o podanym indeksie
+prog_char* langsys_GetLangName(uint8_t index)
+{
+ 4d0:	83 30       	cpi	r24, 0x03	; 3
+ 4d2:	18 f0       	brcs	.+6      	; 0x4da <langsys_GetLangName+0xa>
+	if(index > ELEMS(langsys_strTable))
+ 4d4:	80 e0       	ldi	r24, 0x00	; 0
+ 4d6:	90 e0       	ldi	r25, 0x00	; 0
+ 4d8:	08 95       	ret
+		return NULL;
+	return (prog_char*)pgm_read_word_near(&langsys_strTable
+ 4da:	e8 2f       	mov	r30, r24
+ 4dc:	ff 27       	eor	r31, r31
+ 4de:	ee 0f       	add	r30, r30
+ 4e0:	ff 1f       	adc	r31, r31
+ 4e2:	ee 0f       	add	r30, r30
+ 4e4:	ff 1f       	adc	r31, r31
+ 4e6:	e2 5a       	subi	r30, 0xA2	; 162
+ 4e8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4ea:	85 91       	lpm	r24, Z+
+ 4ec:	94 91       	lpm	r25, Z
+		[index][IDS_LANGNAME]);
+}
+ 4ee:	08 95       	ret
+
+000004f0 <langsys_GetSpec>:
+
+//Pobieranie wskaŸnika nainformacjê o znakach specjalnych
+LCD_LOCAL_PGM* langsys_GetSpec(void)
+{
+ 4f0:	e0 91 38 01 	lds	r30, 0x0138
+ 4f4:	ff 27       	eor	r31, r31
+ 4f6:	ee 0f       	add	r30, r30
+ 4f8:	ff 1f       	adc	r31, r31
+ 4fa:	e6 5a       	subi	r30, 0xA6	; 166
+ 4fc:	fe 4f       	sbci	r31, 0xFE	; 254
+	return (LCD_LOCAL_PGM*)pgm_read_word_near(&langsys_lcdspec[langsys_sel]);
+}
+ 4fe:	85 91       	lpm	r24, Z+
+ 500:	94 91       	lpm	r25, Z
+ 502:	08 95       	ret
+
+00000504 <langsys_GetText>:
+
+//Pobieranie wybranego napisu
+prog_char* langsys_GetText(uint8_t index)
+{
+ 504:	e0 91 38 01 	lds	r30, 0x0138
+ 508:	ff 27       	eor	r31, r31
+ 50a:	ee 0f       	add	r30, r30
+ 50c:	ff 1f       	adc	r31, r31
+ 50e:	e8 0f       	add	r30, r24
+ 510:	f1 1d       	adc	r31, r1
+ 512:	ee 0f       	add	r30, r30
+ 514:	ff 1f       	adc	r31, r31
+ 516:	e2 5a       	subi	r30, 0xA2	; 162
+ 518:	fe 4f       	sbci	r31, 0xFE	; 254
+	return (prog_char*)pgm_read_word_near(&langsys_strTable[langsys_sel][index]);
+}
+ 51a:	85 91       	lpm	r24, Z+
+ 51c:	94 91       	lpm	r25, Z
+ 51e:	08 95       	ret
+
+00000520 <system_run>:
+#include "system.h"
+#include "app.h"
+
+void system_run(void)
+{	
+ 520:	8c e3       	ldi	r24, 0x3C	; 60
+ 522:	81 bb       	out	0x11, r24	; 17
+	// Inicjacja wyprowadzeñ
+	DDR(LCD_CTRLPORT) = (1<<LCD_E | 1<<LCD_RW | 1<<LCD_RS | 1<<LCD_LED); 
+	PORT(LCD_CTRLPORT) = ~(1<<LCD_E | 1<<LCD_LED); 
+ 524:	8f ec       	ldi	r24, 0xCF	; 207
+ 526:	82 bb       	out	0x12, r24	; 18
+	PORT(SW_PORT) = 1<<SW1 | 1<<SW2;
+ 528:	85 e0       	ldi	r24, 0x05	; 5
+ 52a:	87 b9       	out	0x07, r24	; 7
+	// Inicjacja wyœwietlacza
+	lcd_Init();
+ 52c:	0e 94 37 02 	call	0x46e	; 0x46e <lcd_Init>
+	lcd_SetStatus(LCD_STATUS_DISP);
+ 530:	84 e0       	ldi	r24, 0x04	; 4
+ 532:	0e 94 27 01 	call	0x24e	; 0x24e <lcd_SetStatus>
+	// Inicjacja timera systemowego
+	TCCR2 = 1<<WGM21 /*CTC*/ | 1<<CS22 | 1<<CS21 | 1<<CS20 /*clk:1024*/;
+ 536:	8f e0       	ldi	r24, 0x0F	; 15
+ 538:	87 bd       	out	0x27, r24	; 39
+	OCR2 = 78; // oko³o 10ms
+ 53a:	8e e4       	ldi	r24, 0x4E	; 78
+ 53c:	82 bd       	out	0x22, r24	; 34
+	
+	// Przerwania
+	TIMSK = 1<<OCIE2 /*porównania z timera 2*/;
+ 53e:	80 e1       	ldi	r24, 0x10	; 16
+ 540:	89 bf       	out	0x39, r24	; 57
+	sei();
+ 542:	78 94       	sei
+
+	// Wyœwietlenie zapytania o jêzyk
+	fputs_P(PSTR("S1 - "), lcd_GetFile());
+ 544:	0e 94 45 01 	call	0x28a	; 0x28a <lcd_GetFile>
+ 548:	bc 01       	movw	r22, r24
+ 54a:	8c e6       	ldi	r24, 0x6C	; 108
+ 54c:	91 e0       	ldi	r25, 0x01	; 1
+ 54e:	0e 94 de 02 	call	0x5bc	; 0x5bc <fputs_P>
+	fputs_P(langsys_GetLangName(0), lcd_GetFile());
+ 552:	0e 94 45 01 	call	0x28a	; 0x28a <lcd_GetFile>
+ 556:	8c 01       	movw	r16, r24
+ 558:	80 e0       	ldi	r24, 0x00	; 0
+ 55a:	0e 94 68 02 	call	0x4d0	; 0x4d0 <langsys_GetLangName>
+ 55e:	b8 01       	movw	r22, r16
+ 560:	0e 94 de 02 	call	0x5bc	; 0x5bc <fputs_P>
+	lcd_GoTo(0, 1);
+ 564:	80 e1       	ldi	r24, 0x10	; 16
+ 566:	0e 94 30 01 	call	0x260	; 0x260 <lcd_GoToAdr>
+	fputs_P(PSTR("S2 - "), lcd_GetFile());
+ 56a:	0e 94 45 01 	call	0x28a	; 0x28a <lcd_GetFile>
+ 56e:	bc 01       	movw	r22, r24
+ 570:	86 e6       	ldi	r24, 0x66	; 102
+ 572:	91 e0       	ldi	r25, 0x01	; 1
+ 574:	0e 94 de 02 	call	0x5bc	; 0x5bc <fputs_P>
+	fputs_P(langsys_GetLangName(1), lcd_GetFile());
+ 578:	0e 94 45 01 	call	0x28a	; 0x28a <lcd_GetFile>
+ 57c:	8c 01       	movw	r16, r24
+ 57e:	81 e0       	ldi	r24, 0x01	; 1
+ 580:	0e 94 68 02 	call	0x4d0	; 0x4d0 <langsys_GetLangName>
+ 584:	b8 01       	movw	r22, r16
+ 586:	0e 94 de 02 	call	0x5bc	; 0x5bc <fputs_P>
+	lcd_Update();
+ 58a:	0e 94 1b 02 	call	0x436	; 0x436 <lcd_Update>
+	
+	// Oczekiwanie na przycisk 
+	
+	
+	// Wywo³anie aplikacji
+	app_run();
+ 58e:	0e 94 c9 02 	call	0x592	; 0x592 <app_run>
+
+00000592 <app_run>:
+
+//_________________________________________________________________________________________
+// Funkcja g³ówna
+void app_run(void)
+{
+ 592:	0e 94 2c 02 	call	0x458	; 0x458 <lcd_Cls>
+	// Wyœwietlenie przywitania w wybranym jêzyku
+	lcd_Cls();
+	fputs_P(langsys_GetText(IDS_Start), lcd_GetFile());
+ 596:	0e 94 45 01 	call	0x28a	; 0x28a <lcd_GetFile>
+ 59a:	8c 01       	movw	r16, r24
+ 59c:	81 e0       	ldi	r24, 0x01	; 1
+ 59e:	0e 94 82 02 	call	0x504	; 0x504 <langsys_GetText>
+ 5a2:	b8 01       	movw	r22, r16
+ 5a4:	0e 94 de 02 	call	0x5bc	; 0x5bc <fputs_P>
+	lcd_Update();
+ 5a8:	0e 94 1b 02 	call	0x436	; 0x436 <lcd_Update>
+ 5ac:	ff cf       	rjmp	.-2      	; 0x5ac <app_run+0x1a>
+
+000005ae <memset>:
+ 5ae:	dc 01       	movw	r26, r24
+ 5b0:	01 c0       	rjmp	.+2      	; 0x5b4 <memset+0x6>
+ 5b2:	6d 93       	st	X+, r22
+ 5b4:	41 50       	subi	r20, 0x01	; 1
+ 5b6:	50 40       	sbci	r21, 0x00	; 0
+ 5b8:	e0 f7       	brcc	.-8      	; 0x5b2 <memset+0x4>
+ 5ba:	08 95       	ret
+
+000005bc <fputs_P>:
+ 5bc:	ef 92       	push	r14
+ 5be:	ff 92       	push	r15
+ 5c0:	0f 93       	push	r16
+ 5c2:	1f 93       	push	r17
+ 5c4:	cf 93       	push	r28
+ 5c6:	df 93       	push	r29
+ 5c8:	ec 01       	movw	r28, r24
+ 5ca:	8b 01       	movw	r16, r22
+ 5cc:	fb 01       	movw	r30, r22
+ 5ce:	83 81       	ldd	r24, Z+3	; 0x03
+ 5d0:	81 fd       	sbrc	r24, 1
+ 5d2:	04 c0       	rjmp	.+8      	; 0x5dc <fputs_P+0x20>
+ 5d4:	9f ef       	ldi	r25, 0xFF	; 255
+ 5d6:	e9 2e       	mov	r14, r25
+ 5d8:	f9 2e       	mov	r15, r25
+ 5da:	13 c0       	rjmp	.+38     	; 0x602 <fputs_P+0x46>
+ 5dc:	ee 24       	eor	r14, r14
+ 5de:	ff 24       	eor	r15, r15
+ 5e0:	0c c0       	rjmp	.+24     	; 0x5fa <fputs_P+0x3e>
+ 5e2:	f8 01       	movw	r30, r16
+ 5e4:	20 85       	ldd	r18, Z+8	; 0x08
+ 5e6:	31 85       	ldd	r19, Z+9	; 0x09
+ 5e8:	b8 01       	movw	r22, r16
+ 5ea:	f9 01       	movw	r30, r18
+ 5ec:	09 95       	icall
+ 5ee:	89 2b       	or	r24, r25
+ 5f0:	19 f0       	breq	.+6      	; 0x5f8 <fputs_P+0x3c>
+ 5f2:	8f ef       	ldi	r24, 0xFF	; 255
+ 5f4:	e8 2e       	mov	r14, r24
+ 5f6:	f8 2e       	mov	r15, r24
+ 5f8:	21 96       	adiw	r28, 0x01	; 1
+ 5fa:	fe 01       	movw	r30, r28
+ 5fc:	84 91       	lpm	r24, Z
+ 5fe:	88 23       	and	r24, r24
+ 600:	81 f7       	brne	.-32     	; 0x5e2 <fputs_P+0x26>
+ 602:	c7 01       	movw	r24, r14
+ 604:	df 91       	pop	r29
+ 606:	cf 91       	pop	r28
+ 608:	1f 91       	pop	r17
+ 60a:	0f 91       	pop	r16
+ 60c:	ff 90       	pop	r15
+ 60e:	ef 90       	pop	r14
+ 610:	08 95       	ret
+
+00000612 <_exit>:
+ 612:	ff cf       	rjmp	.-2      	; 0x612 <_exit>

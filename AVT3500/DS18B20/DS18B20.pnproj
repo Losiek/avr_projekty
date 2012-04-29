@@ -1,0 +1,1 @@
+<Project name="DS18B20"><Folder name="Headers"><File path="harddef.h"></File><File path="rs.h"></File><File path="1wire_2.h"></File><File path="ds18b20.h"></File></Folder><Folder name="Source"><File path="main.c"></File><File path="rs.c"></File><File path="1wire_2.c"></File><File path="ds18b20.c"></File></Folder><File path="Makefile"></File></Project>

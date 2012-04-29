@@ -1,0 +1,114 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4B6F 6E74 		.string	"Kontrola I2C\r\n"
+  18      726F 6C61 
+  18      2049 3243 
+  18      0D0A 00
+  19               	.LC1:
+  20 000f 2564 0A0D 		.string	"%d\n\r"
+  20      00
+  21               		.text
+  22               	.global	main
+  24               	main:
+  25               	.LFB7:
+  26               	.LM1:
+  27 0000 CF93      		push r28
+  28 0002 DF93      		push r29
+  29               	/* prologue: function */
+  30               	/* frame size = 0 */
+  31               	.LM2:
+  32 0004 10BC      		out 64-32,__zero_reg__
+  33 0006 87E6      		ldi r24,lo8(103)
+  34 0008 89B9      		out 41-32,r24
+  35               	.LM3:
+  36 000a 86E8      		ldi r24,lo8(-122)
+  37 000c 80BD      		out 64-32,r24
+  38               	.LM4:
+  39 000e 88E1      		ldi r24,lo8(24)
+  40 0010 8AB9      		out 42-32,r24
+  41               	.LM5:
+  42 0012 1BB8      		out 43-32,__zero_reg__
+  43               	.LM6:
+  44 0014 80E0      		ldi r24,lo8(gs(rs_put))
+  45 0016 90E0      		ldi r25,hi8(gs(rs_put))
+  46 0018 60E0      		ldi r22,lo8(gs(rs_get))
+  47 001a 70E0      		ldi r23,hi8(gs(rs_get))
+  48 001c 0E94 0000 		call fdevopen
+  49               	.LM7:
+  50 0020 80E0      		ldi r24,lo8(.LC0)
+  51 0022 90E0      		ldi r25,hi8(.LC0)
+  52 0024 0E94 0000 		call puts
+  53               	.LM8:
+  54 0028 0E94 0000 		call i2c_start
+  55               	.LM9:
+  56 002c 80E9      		ldi r24,lo8(-112)
+  57 002e 0E94 0000 		call i2c_send
+  58               	.LM10:
+  59 0032 80E0      		ldi r24,lo8(0)
+  60 0034 0E94 0000 		call i2c_send
+  61               	.LM11:
+  62 0038 0E94 0000 		call i2c_stop
+  63               	.LM12:
+  64 003c C0E0      		ldi r28,lo8(.LC1)
+  65 003e D0E0      		ldi r29,hi8(.LC1)
+  66               	.L2:
+  67               	.LM13:
+  68 0040 0E94 0000 		call i2c_start
+  69               	.LM14:
+  70 0044 81E9      		ldi r24,lo8(-111)
+  71 0046 0E94 0000 		call i2c_send
+  72               	.LM15:
+  73 004a 80E0      		ldi r24,lo8(0)
+  74 004c 0E94 0000 		call i2c_get
+  75 0050 00D0      		rcall .
+  76 0052 00D0      		rcall .
+  77 0054 EDB7      		in r30,__SP_L__
+  78 0056 FEB7      		in r31,__SP_H__
+  79 0058 3196      		adiw r30,1
+  80 005a ADB7      		in r26,__SP_L__
+  81 005c BEB7      		in r27,__SP_H__
+  82 005e 1296      		adiw r26,1+1
+  83 0060 DC93      		st X,r29
+  84 0062 CE93      		st -X,r28
+  85 0064 1197      		sbiw r26,1
+  86 0066 8283      		std Z+2,r24
+  87 0068 1382      		std Z+3,__zero_reg__
+  88 006a 0E94 0000 		call printf
+  89               	.LM16:
+  90 006e 0F90      		pop __tmp_reg__
+  91 0070 0F90      		pop __tmp_reg__
+  92 0072 0F90      		pop __tmp_reg__
+  93 0074 0F90      		pop __tmp_reg__
+  94 0076 0E94 0000 		call i2c_stop
+  95 007a 00C0      		rjmp .L2
+  96               	.LFE7:
+ 122               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccb4uVA2.s:24     .text:00000000 main
+
+UNDEFINED SYMBOLS
+rs_put
+rs_get
+fdevopen
+puts
+i2c_start
+i2c_send
+i2c_stop
+i2c_get
+printf
+__do_copy_data

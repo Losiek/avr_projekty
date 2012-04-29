@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "ethernet", "ethernet\ethernet.avrgccproj", "{C4678456-9BEA-479A-9F8C-9EE5C038517C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4678456-9BEA-479A-9F8C-9EE5C038517C}.Debug|AVR.ActiveCfg = Debug|AVR
+		{C4678456-9BEA-479A-9F8C-9EE5C038517C}.Debug|AVR.Build.0 = Debug|AVR
+		{C4678456-9BEA-479A-9F8C-9EE5C038517C}.Release|AVR.ActiveCfg = Release|AVR
+		{C4678456-9BEA-479A-9F8C-9EE5C038517C}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

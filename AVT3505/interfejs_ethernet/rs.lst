@@ -1,0 +1,67 @@
+   1               		.file	"rs.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	rs_put
+  18               	rs_put:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 982F      		mov r25,r24
+  25               	.LM2:
+  26 0002 EBE2      		ldi r30,lo8(43)
+  27 0004 F0E0      		ldi r31,hi8(43)
+  28               	.LVL1:
+  29               	.L2:
+  30 0006 8081      		ld r24,Z
+  31 0008 85FF      		sbrs r24,5
+  32 000a 00C0      		rjmp .L2
+  33               	.LM3:
+  34 000c 9CB9      		out 44-32,r25
+  35               	.LM4:
+  36 000e 80E0      		ldi r24,lo8(0)
+  37 0010 90E0      		ldi r25,hi8(0)
+  38               	/* epilogue start */
+  39 0012 0895      		ret
+  40               	.LFE2:
+  42               	.global	rs_get
+  44               	rs_get:
+  45               	.LFB3:
+  46               	.LM5:
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	.LM6:
+  50 0014 EBE2      		ldi r30,lo8(43)
+  51 0016 F0E0      		ldi r31,hi8(43)
+  52               	.L6:
+  53 0018 8081      		ld r24,Z
+  54 001a 8823      		tst r24
+  55 001c 04F4      		brge .L6
+  56               	.LM7:
+  57 001e 8CB1      		in r24,44-32
+  58               	.LVL2:
+  59               	.LM8:
+  60 0020 90E0      		ldi r25,lo8(0)
+  61               	.LVL3:
+  62               	/* epilogue start */
+  63 0022 0895      		ret
+  64               	.LFE3:
+  98               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rs.c
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:18     .text:00000000 rs_put
+C:\Users\O\AppData\Local\Temp/ccBFczRg.s:44     .text:00000014 rs_get
+
+NO UNDEFINED SYMBOLS

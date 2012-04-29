@@ -1,0 +1,7 @@
+#ifndef HTTP_PROTOCOL_H_INCLUDED
+#define HTTP_PROTOCOL_H_INCLUDED
+
+#define EthData 14
+#define HttpDat 14+20+20 
+
+#endif //HTTP_PROTOCOL_H_INCLUDED

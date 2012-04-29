@@ -1,0 +1,52 @@
+   1               		.file	"app.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	app_run
+  20               	app_run:
+  21               	.LFB3:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 0E94 0000 		call lcd_Cls
+  27               	.LM3:
+  28 0004 0E94 0000 		call lcd_GetFile
+  29 0008 8C01      		movw r16,r24
+  30 000a 81E0      		ldi r24,lo8(1)
+  31 000c 0E94 0000 		call langsys_GetText
+  32 0010 B801      		movw r22,r16
+  33 0012 0E94 0000 		call fputs_P
+  34               	.LM4:
+  35 0016 0E94 0000 		call lcd_Update
+  36               	.L2:
+  37 001a 00C0      		rjmp .L2
+  38               	/* epilogue: frame size=0 */
+  39               	/* epilogue: noreturn */
+  40               	/* epilogue end (size=0) */
+  41               	/* function app_run size 14 (14) */
+  42               	.LFE3:
+  68               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 app.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cceksKoW.s:20     .text:00000000 app_run
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+lcd_Cls
+lcd_GetFile
+langsys_GetText
+fputs_P
+lcd_Update

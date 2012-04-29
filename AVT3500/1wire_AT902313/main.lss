@@ -1,0 +1,514 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000017c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000000b  00800060  00800060  000001f0  2**0
+                  ALLOC
+  2 .debug_aranges 00000040  00000000  00000000  000001f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000000a7  00000000  00000000  00000230  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000003c3  00000000  00000000  000002d7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000001ae  00000000  00000000  0000069a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000307  00000000  00000000  00000848  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000000a0  00000000  00000000  00000b50  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000111  00000000  00000000  00000bf0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000019d  00000000  00000000  00000d01  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0a c0       	rjmp	.+20     	; 0x16 <__ctors_end>
+   2:	17 c0       	rjmp	.+46     	; 0x32 <__bad_interrupt>
+   4:	16 c0       	rjmp	.+44     	; 0x32 <__bad_interrupt>
+   6:	15 c0       	rjmp	.+42     	; 0x32 <__bad_interrupt>
+   8:	14 c0       	rjmp	.+40     	; 0x32 <__bad_interrupt>
+   a:	13 c0       	rjmp	.+38     	; 0x32 <__bad_interrupt>
+   c:	12 c0       	rjmp	.+36     	; 0x32 <__bad_interrupt>
+   e:	11 c0       	rjmp	.+34     	; 0x32 <__bad_interrupt>
+  10:	10 c0       	rjmp	.+32     	; 0x32 <__bad_interrupt>
+  12:	0f c0       	rjmp	.+30     	; 0x32 <__bad_interrupt>
+  14:	0e c0       	rjmp	.+28     	; 0x32 <__bad_interrupt>
+
+00000016 <__ctors_end>:
+  16:	11 24       	eor	r1, r1
+  18:	1f be       	out	0x3f, r1	; 63
+  1a:	cf ed       	ldi	r28, 0xDF	; 223
+  1c:	cd bf       	out	0x3d, r28	; 61
+
+0000001e <__do_clear_bss>:
+  1e:	10 e0       	ldi	r17, 0x00	; 0
+  20:	a0 e6       	ldi	r26, 0x60	; 96
+  22:	b0 e0       	ldi	r27, 0x00	; 0
+  24:	01 c0       	rjmp	.+2      	; 0x28 <.do_clear_bss_start>
+
+00000026 <.do_clear_bss_loop>:
+  26:	1d 92       	st	X+, r1
+
+00000028 <.do_clear_bss_start>:
+  28:	ab 36       	cpi	r26, 0x6B	; 107
+  2a:	b1 07       	cpc	r27, r17
+  2c:	e1 f7       	brne	.-8      	; 0x26 <.do_clear_bss_loop>
+  2e:	02 d0       	rcall	.+4      	; 0x34 <main>
+  30:	a3 c0       	rjmp	.+326    	; 0x178 <_exit>
+
+00000032 <__bad_interrupt>:
+  32:	e6 cf       	rjmp	.-52     	; 0x0 <__vectors>
+
+00000034 <main>:
+
+
+int main(void) {
+	
+	//Konfiguracja portów.
+	LEDDDR = 0xff;
+  34:	8f ef       	ldi	r24, 0xFF	; 255
+  36:	87 bb       	out	0x17, r24	; 23
+	PORTD &= ~(1<<wire);
+  38:	94 98       	cbi	0x12, 4	; 18
+	//////////////////////////////////////////////////////
+	
+	for(;;) {
+		
+		//Na sta³e dla magistrali 1-Wire.
+		PORTD &= ~(1<<wire);
+  3a:	94 98       	cbi	0x12, 4	; 18
+		
+		PORTB |= 1<<0;
+  3c:	c0 9a       	sbi	0x18, 0	; 24
+  3e:	fd cf       	rjmp	.-6      	; 0x3a <main+0x6>
+
+00000040 <wait_1w>:
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  40:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  42:	81 50       	subi	r24, 0x01	; 1
+  44:	e9 f7       	brne	.-6      	; 0x40 <wait_1w>
+}
+  46:	08 95       	ret
+
+00000048 <slot1w_read>:
+uint8_t slot1w_read(void) {
+	
+	//Zmienna 
+	uint8_t bit1w;
+	
+	wire_out0 								//inicjuj slot czytania
+  48:	8c 9a       	sbi	0x11, 4	; 17
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  4a:	00 00       	nop
+	//Zmienna 
+	uint8_t bit1w;
+	
+	wire_out0 								//inicjuj slot czytania
+	wait_1w(1);								//Odczekaj
+	wire_out1 								//zwolnij liniê
+  4c:	8c 98       	cbi	0x11, 4	; 17
+  4e:	8e e0       	ldi	r24, 0x0E	; 14
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  50:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  52:	81 50       	subi	r24, 0x01	; 1
+  54:	e9 f7       	brne	.-6      	; 0x50 <slot1w_read+0x8>
+	
+	wire_out0 								//inicjuj slot czytania
+	wait_1w(1);								//Odczekaj
+	wire_out1 								//zwolnij liniê
+	wait_1w(14);							//ok. 14us
+	bit1w = ((PIND&0x20)>>wire);
+  56:	80 b3       	in	r24, 0x10	; 16
+  58:	9b e3       	ldi	r25, 0x3B	; 59
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  5a:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  5c:	91 50       	subi	r25, 0x01	; 1
+  5e:	e9 f7       	brne	.-6      	; 0x5a <slot1w_read+0x12>
+  60:	82 95       	swap	r24
+	wire_out1 								//zwolnij liniê
+	wait_1w(14);							//ok. 14us
+	bit1w = ((PIND&0x20)>>wire);
+	wait_1w(59);							//ok. 60us
+	return bit1w;
+}
+  62:	82 70       	andi	r24, 0x02	; 2
+  64:	08 95       	ret
+
+00000066 <slot1w_write>:
+
+//Slot zapisu 1-Wire.
+void slot1w_write(uint8_t znak) {
+	
+	if(znak) {								//slot "1"
+  66:	88 23       	and	r24, r24
+  68:	59 f0       	breq	.+22     	; 0x80 <slot1w_write+0x1a>
+		wire_out0							//inicjuj slot
+  6a:	8c 9a       	sbi	0x11, 4	; 17
+  6c:	8b e0       	ldi	r24, 0x0B	; 11
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  6e:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  70:	81 50       	subi	r24, 0x01	; 1
+  72:	e9 f7       	brne	.-6      	; 0x6e <slot1w_write+0x8>
+void slot1w_write(uint8_t znak) {
+	
+	if(znak) {								//slot "1"
+		wire_out0							//inicjuj slot
+		wait_1w(11);						//ok. 11us
+		wire_out1
+  74:	8c 98       	cbi	0x11, 4	; 17
+  76:	8c e3       	ldi	r24, 0x3C	; 60
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  78:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  7a:	81 50       	subi	r24, 0x01	; 1
+  7c:	e9 f7       	brne	.-6      	; 0x78 <slot1w_write+0x12>
+  7e:	08 95       	ret
+		wire_out1
+		
+		wait_1w(60);
+	} else {
+		
+		wire_out0
+  80:	8c 9a       	sbi	0x11, 4	; 17
+  82:	86 e4       	ldi	r24, 0x46	; 70
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+  84:	00 00       	nop
+	}
+	while(--delay1w!=0);
+  86:	81 50       	subi	r24, 0x01	; 1
+  88:	e9 f7       	brne	.-6      	; 0x84 <slot1w_write+0x1e>
+		wait_1w(60);
+	} else {
+		
+		wire_out0
+		wait_1w(70);						//ok. 70us
+		wire_out1
+  8a:	8c 98       	cbi	0x11, 4	; 17
+  8c:	08 95       	ret
+
+0000008e <write_1w>:
+	}
+}
+
+//Zapis bajtu do urz¹dzenia 1-Wire.
+void write_1w(uint8_t rozkaz) {
+  8e:	0f 93       	push	r16
+  90:	1f 93       	push	r17
+  92:	10 e0       	ldi	r17, 0x00	; 0
+	
+	uint8_t i;								//Zmienna pomocnicza
+	
+	for(i=0;i<8;i++) {
+		slot1w_write(rozkaz&0x01);			//Wyœlij bit 
+  94:	08 2f       	mov	r16, r24
+  96:	01 70       	andi	r16, 0x01	; 1
+  98:	80 2f       	mov	r24, r16
+  9a:	e5 df       	rcall	.-54     	; 0x66 <slot1w_write>
+//Zapis bajtu do urz¹dzenia 1-Wire.
+void write_1w(uint8_t rozkaz) {
+	
+	uint8_t i;								//Zmienna pomocnicza
+	
+	for(i=0;i<8;i++) {
+  9c:	1f 5f       	subi	r17, 0xFF	; 255
+  9e:	18 30       	cpi	r17, 0x08	; 8
+  a0:	d9 f7       	brne	.-10     	; 0x98 <write_1w+0xa>
+		slot1w_write(rozkaz&0x01);			//Wyœlij bit 
+		rozkaz>>1;
+	}
+}
+  a2:	1f 91       	pop	r17
+  a4:	0f 91       	pop	r16
+  a6:	08 95       	ret
+
+000000a8 <read_1w>:
+
+//Odczyt bajtu z urz¹dzenia 1-Wire.
+void read_1w(void) {
+  a8:	ff 92       	push	r15
+  aa:	0f 93       	push	r16
+  ac:	1f 93       	push	r17
+  ae:	cf 93       	push	r28
+  b0:	df 93       	push	r29
+	
+	uint8_t i,j,dana;
+	
+	pbufor1w=&bufor1w[0];					//Dane bêd¹ umieszczane w buforze "bufor1w".
+  b2:	80 e6       	ldi	r24, 0x60	; 96
+  b4:	90 e0       	ldi	r25, 0x00	; 0
+  b6:	90 93 6a 00 	sts	0x006A, r25
+  ba:	80 93 69 00 	sts	0x0069, r24
+  be:	ff 24       	eor	r15, r15
+  c0:	19 c0       	rjmp	.+50     	; 0xf4 <__stack+0x15>
+	for(i=0;i<9;i++) {						//czytaj "family code" (1bajt)
+											//i "registartion number" (7 bajtów)
+		dana=0;								//wstêpne zerowanie danej
+		
+		for(j=0x01;j!=0;j<<=1) {			//zmienna steruj¹ca pêtli wskazuje jednoczeœnie aktualnie zapisywany bit
+			dana|=slot1w_read()?j:dana;		//czytaj kolejne bity
+  c2:	c2 df       	rcall	.-124    	; 0x48 <slot1w_read>
+  c4:	88 23       	and	r24, r24
+  c6:	11 f4       	brne	.+4      	; 0xcc <read_1w+0x24>
+  c8:	81 2f       	mov	r24, r17
+  ca:	01 c0       	rjmp	.+2      	; 0xce <read_1w+0x26>
+  cc:	80 2f       	mov	r24, r16
+  ce:	18 2b       	or	r17, r24
+	pbufor1w=&bufor1w[0];					//Dane bêd¹ umieszczane w buforze "bufor1w".
+	for(i=0;i<9;i++) {						//czytaj "family code" (1bajt)
+											//i "registartion number" (7 bajtów)
+		dana=0;								//wstêpne zerowanie danej
+		
+		for(j=0x01;j!=0;j<<=1) {			//zmienna steruj¹ca pêtli wskazuje jednoczeœnie aktualnie zapisywany bit
+  d0:	00 0f       	add	r16, r16
+  d2:	21 96       	adiw	r28, 0x01	; 1
+  d4:	c8 30       	cpi	r28, 0x08	; 8
+  d6:	d1 05       	cpc	r29, r1
+  d8:	a1 f7       	brne	.-24     	; 0xc2 <read_1w+0x1a>
+			dana|=slot1w_read()?j:dana;		//czytaj kolejne bity
+		}
+		*pbufor1w++=dana;					//po skompletowaniu zapisz do bufotra
+  da:	e0 91 69 00 	lds	r30, 0x0069
+  de:	f0 91 6a 00 	lds	r31, 0x006A
+  e2:	11 93       	st	Z+, r17
+  e4:	f0 93 6a 00 	sts	0x006A, r31
+  e8:	e0 93 69 00 	sts	0x0069, r30
+void read_1w(void) {
+	
+	uint8_t i,j,dana;
+	
+	pbufor1w=&bufor1w[0];					//Dane bêd¹ umieszczane w buforze "bufor1w".
+	for(i=0;i<9;i++) {						//czytaj "family code" (1bajt)
+  ec:	f3 94       	inc	r15
+  ee:	89 e0       	ldi	r24, 0x09	; 9
+  f0:	f8 16       	cp	r15, r24
+  f2:	29 f0       	breq	.+10     	; 0xfe <__stack+0x1f>
+  f4:	01 e0       	ldi	r16, 0x01	; 1
+  f6:	10 e0       	ldi	r17, 0x00	; 0
+  f8:	c0 e0       	ldi	r28, 0x00	; 0
+  fa:	d0 e0       	ldi	r29, 0x00	; 0
+  fc:	e2 cf       	rjmp	.-60     	; 0xc2 <read_1w+0x1a>
+		for(j=0x01;j!=0;j<<=1) {			//zmienna steruj¹ca pêtli wskazuje jednoczeœnie aktualnie zapisywany bit
+			dana|=slot1w_read()?j:dana;		//czytaj kolejne bity
+		}
+		*pbufor1w++=dana;					//po skompletowaniu zapisz do bufotra
+	}
+}
+  fe:	df 91       	pop	r29
+ 100:	cf 91       	pop	r28
+ 102:	1f 91       	pop	r17
+ 104:	0f 91       	pop	r16
+ 106:	ff 90       	pop	r15
+ 108:	08 95       	ret
+
+0000010a <count_CRC>:
+
+//Funkcja wyliczenia CRC.
+void count_CRC(uint8_t bajt, uint8_t *CRC) {
+ 10a:	e6 2f       	mov	r30, r22
+ 10c:	f7 2f       	mov	r31, r23
+ 10e:	90 81       	ld	r25, Z
+ 110:	38 2f       	mov	r19, r24
+ 112:	20 e0       	ldi	r18, 0x00	; 0
+		bajt^=*CRC;							//wskaŸnik *CRC wyznacza aktualnie wyliczony CRC
+		
+		zp2=bajt&0x01;						//wydzielenie bitu do obliczeñ
+		bajt=*CRC;
+		if(zp2) {
+			bajt^=0x18;
+ 114:	58 e1       	ldi	r21, 0x18	; 24
+	zp1=bajt;
+	for(i=0;i<8;i++) {
+		
+		bajt^=*CRC;							//wskaŸnik *CRC wyznacza aktualnie wyliczony CRC
+		
+		zp2=bajt&0x01;						//wydzielenie bitu do obliczeñ
+ 116:	89 27       	eor	r24, r25
+		bajt=*CRC;
+		if(zp2) {
+ 118:	48 2f       	mov	r20, r24
+ 11a:	41 70       	andi	r20, 0x01	; 1
+ 11c:	80 fd       	sbrc	r24, 0
+			bajt^=0x18;
+ 11e:	95 27       	eor	r25, r21
+			}
+		bajt=((uint8_t)(bajt)>>1)+0x80*zp2;
+ 120:	89 2f       	mov	r24, r25
+ 122:	86 95       	lsr	r24
+ 124:	94 2f       	mov	r25, r20
+ 126:	97 95       	ror	r25
+ 128:	99 27       	eor	r25, r25
+ 12a:	97 95       	ror	r25
+ 12c:	98 0f       	add	r25, r24
+void count_CRC(uint8_t bajt, uint8_t *CRC) {
+											//wielomian generuj¹cy jest równy x^8 + x^5 + x^4 + 1
+	uint8_t zp1, zp2,i; 					//Zmienne pomocniecze
+	
+	zp1=bajt;
+	for(i=0;i<8;i++) {
+ 12e:	2f 5f       	subi	r18, 0xFF	; 255
+ 130:	28 30       	cpi	r18, 0x08	; 8
+ 132:	19 f0       	breq	.+6      	; 0x13a <count_CRC+0x30>
+			bajt^=0x18;
+			}
+		bajt=((uint8_t)(bajt)>>1)+0x80*zp2;
+		
+		*CRC=bajt;
+		zp1=(bajt=zp1>>1);
+ 134:	36 95       	lsr	r19
+ 136:	83 2f       	mov	r24, r19
+ 138:	ee cf       	rjmp	.-36     	; 0x116 <count_CRC+0xc>
+ 13a:	90 83       	st	Z, r25
+	}
+}
+ 13c:	08 95       	ret
+
+0000013e <reset_1w>:
+
+//Sekwencja inicjuj¹ca 1-Wire.
+uint8_t reset_1w(void) {
+	wire_out0								//sekwencja inicjuj¹ca 1-Wire
+ 13e:	8c 9a       	sbi	0x11, 4	; 17
+ 140:	8f ef       	ldi	r24, 0xFF	; 255
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+ 142:	00 00       	nop
+	}
+	while(--delay1w!=0);
+ 144:	81 50       	subi	r24, 0x01	; 1
+ 146:	e9 f7       	brne	.-6      	; 0x142 <reset_1w+0x4>
+ 148:	83 eb       	ldi	r24, 0xB3	; 179
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+ 14a:	00 00       	nop
+	}
+	while(--delay1w!=0);
+ 14c:	81 50       	subi	r24, 0x01	; 1
+ 14e:	e9 f7       	brne	.-6      	; 0x14a <reset_1w+0xc>
+//Sekwencja inicjuj¹ca 1-Wire.
+uint8_t reset_1w(void) {
+	wire_out0								//sekwencja inicjuj¹ca 1-Wire
+	wait_1w(0xFF);
+	wait_1w(0xB3);							//impuls inicjuj¹cy "0" ok. 480us
+	wire_out1								//zwolnij liniê
+ 150:	8c 98       	cbi	0x11, 4	; 17
+ 152:	81 e4       	ldi	r24, 0x41	; 65
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+ 154:	00 00       	nop
+	}
+	while(--delay1w!=0);
+ 156:	81 50       	subi	r24, 0x01	; 1
+ 158:	e9 f7       	brne	.-6      	; 0x154 <reset_1w+0x16>
+	wire_out0								//sekwencja inicjuj¹ca 1-Wire
+	wait_1w(0xFF);
+	wait_1w(0xB3);							//impuls inicjuj¹cy "0" ok. 480us
+	wire_out1								//zwolnij liniê
+	wait_1w(65);							//po odczekaniu ok. 65us czekaj na impuls obecnosci
+	if(((PIND&0x20)>>wire)==0) {
+ 15a:	85 9b       	sbis	0x10, 5	; 16
+ 15c:	0b c0       	rjmp	.+22     	; 0x174 <reset_1w+0x36>
+ 15e:	8f ef       	ldi	r24, 0xFF	; 255
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+ 160:	00 00       	nop
+	}
+	while(--delay1w!=0);
+ 162:	81 50       	subi	r24, 0x01	; 1
+ 164:	e9 f7       	brne	.-6      	; 0x160 <reset_1w+0x22>
+ 166:	8c e4       	ldi	r24, 0x4C	; 76
+
+//Pêtla opóznienia dla 1-Wire
+//opóŸnienie jest równe t=(5+5*delay1w)*T, T-cykl zegarowy MCU, delay1w - parametr.
+void wait_1w(uint8_t delay1w) {
+	do {
+		asm("nop"); //wstawka asemblerowa - rozkaz NOP
+ 168:	00 00       	nop
+	}
+	while(--delay1w!=0);
+ 16a:	81 50       	subi	r24, 0x01	; 1
+ 16c:	e9 f7       	brne	.-6      	; 0x168 <reset_1w+0x2a>
+	}
+	
+	wait_1w(0xFF);
+	wait_1w(0x4C);							//czekaj ok. 416us do zakonczenia slotu inicjuj¹cego
+	
+	if(((PIND&0x20)>>wire)==0) {
+ 16e:	85 9b       	sbis	0x10, 5	; 16
+ 170:	02 c0       	rjmp	.+4      	; 0x176 <reset_1w+0x38>
+ 172:	08 95       	ret
+		return 0;							//jeœli pozostaje w stanie niskim, to oznacza zwarcie
+	}
+}
+ 174:	81 e0       	ldi	r24, 0x01	; 1
+ 176:	08 95       	ret
+
+00000178 <_exit>:
+ 178:	f8 94       	cli
+
+0000017a <__stop_program>:
+ 17a:	ff cf       	rjmp	.-2      	; 0x17a <__stop_program>

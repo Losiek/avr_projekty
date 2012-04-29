@@ -1,0 +1,134 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 5465 726D 		.string	"Termometr DS18B20!"
+  18      6F6D 6574 
+  18      7220 4453 
+  18      3138 4232 
+  18      3021 00
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB7:
+  24               	.LM1:
+  25 0000 EF92      		push r14
+  26 0002 FF92      		push r15
+  27 0004 0F93      		push r16
+  28 0006 1F93      		push r17
+  29 0008 DF93      		push r29
+  30 000a CF93      		push r28
+  31 000c CDB7      		in r28,__SP_L__
+  32 000e DEB7      		in r29,__SP_H__
+  33 0010 6397      		sbiw r28,19
+  34 0012 0FB6      		in __tmp_reg__,__SREG__
+  35 0014 F894      		cli
+  36 0016 DEBF      		out __SP_H__,r29
+  37 0018 0FBE      		out __SREG__,__tmp_reg__
+  38 001a CDBF      		out __SP_L__,r28
+  39               	/* prologue: function */
+  40               	/* frame size = 19 */
+  41               	.LM2:
+  42 001c 17BA      		out 55-32,__zero_reg__
+  43               	.LM3:
+  44 001e 18BA      		out 56-32,__zero_reg__
+  45               	.LM4:
+  46 0020 12B8      		out 34-32,__zero_reg__
+  47 0022 89E1      		ldi r24,lo8(25)
+  48 0024 89B9      		out 41-32,r24
+  49               	.LM5:
+  50 0026 88E1      		ldi r24,lo8(24)
+  51 0028 8AB9      		out 42-32,r24
+  52               	.LM6:
+  53 002a 86E0      		ldi r24,lo8(6)
+  54 002c 83B9      		out 35-32,r24
+  55               	.LM7:
+  56 002e DE01      		movw r26,r28
+  57 0030 1196      		adiw r26,1
+  58 0032 E0E0      		ldi r30,lo8(.LC0)
+  59 0034 F0E0      		ldi r31,hi8(.LC0)
+  60 0036 83E1      		ldi r24,lo8(19)
+  61               	.L2:
+  62 0038 0190      		ld r0,Z+
+  63 003a 0D92      		st X+,r0
+  64 003c 8150      		subi r24,lo8(-(-1))
+  65 003e 01F4      		brne .L2
+  66 0040 8E01      		movw r16,r28
+  67 0042 0F5F      		subi r16,lo8(-(1))
+  68 0044 1F4F      		sbci r17,hi8(-(1))
+  69               	.LBB2:
+  70               	.LM8:
+  71 0046 84E1      		ldi r24,lo8(20)
+  72 0048 E82E      		mov r14,r24
+  73 004a F12C      		mov r15,__zero_reg__
+  74 004c EC0E      		add r14,r28
+  75 004e FD1E      		adc r15,r29
+  76               	.L3:
+  77               	.LM9:
+  78 0050 F801      		movw r30,r16
+  79 0052 8191      		ld r24,Z+
+  80 0054 8F01      		movw r16,r30
+  81 0056 00D0      		rcall rs_put
+  82               	.LM10:
+  83 0058 0E15      		cp r16,r14
+  84 005a 1F05      		cpc r17,r15
+  85 005c 01F4      		brne .L3
+  86               	.LBE2:
+  87               	.LM11:
+  88 005e 00D0      		rcall RESET_PULSE
+  89               	.LM12:
+  90 0060 00D0      		rcall SKIP_ROM
+  91               	.LM13:
+  92 0062 00D0      		rcall READ_SCRATCHPAD
+  93               	.LM14:
+  94 0064 00D0      		rcall RESET_PULSE
+  95 0066 00E0      		ldi r16,lo8(bufor1w)
+  96 0068 10E0      		ldi r17,hi8(bufor1w)
+  97               	.L4:
+  98               	.LBB3:
+  99               	.LM15:
+ 100 006a F801      		movw r30,r16
+ 101 006c 8191      		ld r24,Z+
+ 102 006e 8F01      		movw r16,r30
+ 103 0070 00D0      		rcall rs_put
+ 104               	.LM16:
+ 105 0072 F0E0      		ldi r31,hi8(bufor1w+8)
+ 106 0074 0030      		cpi r16,lo8(bufor1w+8)
+ 107 0076 1F07      		cpc r17,r31
+ 108 0078 01F4      		brne .L4
+ 109               	.L10:
+ 110               	.LBE3:
+ 111               	.LM17:
+ 112 007a 00D0      		rcall TEMP_READ
+ 113 007c 00D0      		rcall rs_put
+ 114 007e 00C0      		rjmp .L10
+ 115               	.LFE7:
+ 117               		.comm bufor1w,8,1
+ 118               		.comm pbufor1w,2,1
+ 143               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccviopYq.s:22     .text:00000000 main
+                            *COM*:00000008 bufor1w
+                            *COM*:00000002 pbufor1w
+
+UNDEFINED SYMBOLS
+rs_put
+RESET_PULSE
+SKIP_ROM
+READ_SCRATCHPAD
+TEMP_READ
+__do_copy_data
+__do_clear_bss

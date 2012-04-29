@@ -1,0 +1,395 @@
+
+LCD.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000018a  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000360  00000000  00000000  000001e0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000071  00000000  00000000  00000540  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000020  00000000  00000000  000005b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000092  00000000  00000000  000005d1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000344  00000000  00000000  00000663  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000143  00000000  00000000  000009a7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002ae  00000000  00000000  00000aea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000b0  00000000  00000000  00000d98  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000125  00000000  00000000  00000e48  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000eb  00000000  00000000  00000f6d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	16 c0       	rjmp	.+44     	; 0x2e <__ctors_end>
+   2:	2f c0       	rjmp	.+94     	; 0x62 <__bad_interrupt>
+   4:	2e c0       	rjmp	.+92     	; 0x62 <__bad_interrupt>
+   6:	2d c0       	rjmp	.+90     	; 0x62 <__bad_interrupt>
+   8:	2c c0       	rjmp	.+88     	; 0x62 <__bad_interrupt>
+   a:	2b c0       	rjmp	.+86     	; 0x62 <__bad_interrupt>
+   c:	2a c0       	rjmp	.+84     	; 0x62 <__bad_interrupt>
+   e:	29 c0       	rjmp	.+82     	; 0x62 <__bad_interrupt>
+  10:	28 c0       	rjmp	.+80     	; 0x62 <__bad_interrupt>
+  12:	27 c0       	rjmp	.+78     	; 0x62 <__bad_interrupt>
+  14:	26 c0       	rjmp	.+76     	; 0x62 <__bad_interrupt>
+
+00000016 <__c.1452>:
+  16:	4c 61 6e 63 75 63 68 20 7a 20 46 4c 41 53 48 61     Lancuch z FLASHa
+	...
+
+00000027 <__c.1450>:
+  27:	57 69 74 61 6a 21 00                                Witaj!.
+
+0000002e <__ctors_end>:
+  2e:	11 24       	eor	r1, r1
+  30:	1f be       	out	0x3f, r1	; 63
+  32:	cf ed       	ldi	r28, 0xDF	; 223
+  34:	cd bf       	out	0x3d, r28	; 61
+
+00000036 <__do_copy_data>:
+  36:	10 e0       	ldi	r17, 0x00	; 0
+  38:	a0 e6       	ldi	r26, 0x60	; 96
+  3a:	b0 e0       	ldi	r27, 0x00	; 0
+  3c:	ea e8       	ldi	r30, 0x8A	; 138
+  3e:	f1 e0       	ldi	r31, 0x01	; 1
+  40:	03 c0       	rjmp	.+6      	; 0x48 <.do_copy_data_start>
+
+00000042 <.do_copy_data_loop>:
+  42:	c8 95       	lpm
+  44:	31 96       	adiw	r30, 0x01	; 1
+  46:	0d 92       	st	X+, r0
+
+00000048 <.do_copy_data_start>:
+  48:	a0 36       	cpi	r26, 0x60	; 96
+  4a:	b1 07       	cpc	r27, r17
+  4c:	d1 f7       	brne	.-12     	; 0x42 <.do_copy_data_loop>
+
+0000004e <__do_clear_bss>:
+  4e:	10 e0       	ldi	r17, 0x00	; 0
+  50:	a0 e6       	ldi	r26, 0x60	; 96
+  52:	b0 e0       	ldi	r27, 0x00	; 0
+  54:	01 c0       	rjmp	.+2      	; 0x58 <.do_clear_bss_start>
+
+00000056 <.do_clear_bss_loop>:
+  56:	1d 92       	st	X+, r1
+
+00000058 <.do_clear_bss_start>:
+  58:	a0 36       	cpi	r26, 0x60	; 96
+  5a:	b1 07       	cpc	r27, r17
+  5c:	e1 f7       	brne	.-8      	; 0x56 <.do_clear_bss_loop>
+  5e:	7a d0       	rcall	.+244    	; 0x154 <main>
+  60:	93 c0       	rjmp	.+294    	; 0x188 <_exit>
+
+00000062 <__bad_interrupt>:
+  62:	ce cf       	rjmp	.-100    	; 0x0 <__vectors>
+
+00000064 <delay100us8>:
+	: :[ticks]"r"(t) );}
+	// DEC - 1 cykl, BRNE 2 cykle, + 1xnop. Zegar 4MHz
+
+void delay100us8(uint8_t t)
+{
+  64:	24 e6       	ldi	r18, 0x64	; 100
+  66:	30 e0       	ldi	r19, 0x00	; 0
+  68:	04 c0       	rjmp	.+8      	; 0x72 <delayus8_loop12+0x8>
+
+0000006a <delayus8_loop12>:
+	while(t>0)
+	{
+		delayus8(100); 
+  6a:	00 00       	nop
+  6c:	2a 95       	dec	r18
+  6e:	e9 f7       	brne	.-6      	; 0x6a <delayus8_loop12>
+		--t; 
+  70:	81 50       	subi	r24, 0x01	; 1
+  72:	88 23       	and	r24, r24
+  74:	d1 f7       	brne	.-12     	; 0x6a <delayus8_loop12>
+  76:	08 95       	ret
+
+00000078 <LCDsendHalf>:
+	}
+}
+//Koniec opóŸnieñ
+//_________________________________________
+
+#define LCD_EPULSE() \
+	{PORT(LCD_EPORT) |= 1<<LCD_E; \
+	delay250ns(); \
+	PORT(LCD_EPORT) &= ~(1<<LCD_E);}
+
+void LCDsendHalf(uint8_t data)
+{
+  78:	98 b3       	in	r25, 0x18	; 24
+  7a:	9f 70       	andi	r25, 0x0F	; 15
+  7c:	82 95       	swap	r24
+  7e:	80 7f       	andi	r24, 0xF0	; 240
+  80:	98 2b       	or	r25, r24
+  82:	98 bb       	out	0x18, r25	; 24
+	data = (data & 0x0F) << LCD_D4; 
+	//data |= 0xF0;
+	//data &= 0x0F;
+	//data <<= LCD_D4; 
+	PORT(LCD_DPORT) = 
+		(PORT(LCD_DPORT) & ~(0x0F<<LCD_D4)) | data;
+	//PORT(LCD_DPORT) &= ~(0x0F<<LCD_D4); 
+	//PORT(LCD_DPORT) |= data; 
+	LCD_EPULSE();
+  84:	c1 9a       	sbi	0x18, 1	; 24
+  86:	00 00       	nop
+  88:	c1 98       	cbi	0x18, 1	; 24
+  8a:	08 95       	ret
+
+0000008c <LCDsend>:
+}
+
+void LCDsend(uint8_t data)
+{
+  8c:	1f 93       	push	r17
+  8e:	18 2f       	mov	r17, r24
+	// Starsza czêœæ
+	LCDsendHalf(data>>4);
+  90:	82 95       	swap	r24
+  92:	8f 70       	andi	r24, 0x0F	; 15
+  94:	f1 df       	rcall	.-30     	; 0x78 <LCDsendHalf>
+	// M³odsza czêœæ
+	LCDsendHalf(data);
+  96:	81 2f       	mov	r24, r17
+  98:	ef df       	rcall	.-34     	; 0x78 <LCDsendHalf>
+	delayus8(120);
+  9a:	88 e7       	ldi	r24, 0x78	; 120
+  9c:	90 e0       	ldi	r25, 0x00	; 0
+
+0000009e <delayus8_loop52>:
+  9e:	00 00       	nop
+  a0:	8a 95       	dec	r24
+  a2:	e9 f7       	brne	.-6      	; 0x9e <delayus8_loop52>
+  a4:	1f 91       	pop	r17
+  a6:	08 95       	ret
+
+000000a8 <LCDcommand>:
+}
+
+// Funkcje interfejsu
+void LCDcommand(uint8_t command)
+{
+  a8:	c2 98       	cbi	0x18, 2	; 24
+	PORT(LCD_RSPORT) &= ~(1<<LCD_RS);
+	LCDsend(command);
+  aa:	f0 df       	rcall	.-32     	; 0x8c <LCDsend>
+  ac:	08 95       	ret
+
+000000ae <LCDdata>:
+}
+
+void LCDdata(uint8_t data)
+{
+  ae:	c2 9a       	sbi	0x18, 2	; 24
+	PORT(LCD_RSPORT) |= 1<<LCD_RS;
+	LCDsend(data);
+  b0:	ed df       	rcall	.-38     	; 0x8c <LCDsend>
+  b2:	08 95       	ret
+
+000000b4 <LCDcls>:
+}
+
+void LCDcls(void)
+{
+  b4:	81 e0       	ldi	r24, 0x01	; 1
+  b6:	f8 df       	rcall	.-16     	; 0xa8 <LCDcommand>
+  b8:	20 e3       	ldi	r18, 0x30	; 48
+  ba:	84 e6       	ldi	r24, 0x64	; 100
+  bc:	90 e0       	ldi	r25, 0x00	; 0
+
+000000be <delayus8_loop89>:
+  be:	00 00       	nop
+  c0:	8a 95       	dec	r24
+  c2:	e9 f7       	brne	.-6      	; 0xbe <delayus8_loop89>
+  c4:	21 50       	subi	r18, 0x01	; 1
+  c6:	d9 f7       	brne	.-10     	; 0xbe <delayus8_loop89>
+  c8:	08 95       	ret
+
+000000ca <LCDinit>:
+	LCDcommand(LCDC_CLS);
+	delay100us8(48);
+}
+
+void LCDhome(void)
+{
+	LCDcommand(LCDC_HOME);
+	delay100us8(48);
+}
+
+void LCDinit(void)
+{
+  ca:	26 e9       	ldi	r18, 0x96	; 150
+  cc:	84 e6       	ldi	r24, 0x64	; 100
+  ce:	90 e0       	ldi	r25, 0x00	; 0
+
+000000d0 <delayus8_loop111>:
+  d0:	00 00       	nop
+  d2:	8a 95       	dec	r24
+  d4:	e9 f7       	brne	.-6      	; 0xd0 <delayus8_loop111>
+  d6:	21 50       	subi	r18, 0x01	; 1
+  d8:	d9 f7       	brne	.-10     	; 0xd0 <delayus8_loop111>
+	delay100us8(150);
+	PORT(LCD_RSPORT) &= ~(1<<LCD_RS);
+  da:	c2 98       	cbi	0x18, 2	; 24
+	LCDsendHalf(LCDC_FUNC|LCDC_FUNC8b); 
+  dc:	80 e3       	ldi	r24, 0x30	; 48
+  de:	cc df       	rcall	.-104    	; 0x78 <LCDsendHalf>
+  e0:	29 e2       	ldi	r18, 0x29	; 41
+  e2:	84 e6       	ldi	r24, 0x64	; 100
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+
+000000e6 <delayus8_loop136>:
+  e6:	00 00       	nop
+  e8:	8a 95       	dec	r24
+  ea:	e9 f7       	brne	.-6      	; 0xe6 <delayus8_loop136>
+  ec:	21 50       	subi	r18, 0x01	; 1
+  ee:	d9 f7       	brne	.-10     	; 0xe6 <delayus8_loop136>
+	delay100us8(41);
+	LCDsendHalf(LCDC_FUNC|LCDC_FUNC8b);
+  f0:	80 e3       	ldi	r24, 0x30	; 48
+  f2:	c2 df       	rcall	.-124    	; 0x78 <LCDsendHalf>
+  f4:	84 e6       	ldi	r24, 0x64	; 100
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+
+000000f8 <delayus8_loop154>:
+  f8:	00 00       	nop
+  fa:	8a 95       	dec	r24
+  fc:	e9 f7       	brne	.-6      	; 0xf8 <delayus8_loop154>
+  fe:	84 e6       	ldi	r24, 0x64	; 100
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+
+00000102 <delayus8_loop156>:
+ 102:	00 00       	nop
+ 104:	8a 95       	dec	r24
+ 106:	e9 f7       	brne	.-6      	; 0x102 <delayus8_loop156>
+	delay100us8(2);
+	LCDsendHalf(LCDC_FUNC|LCDC_FUNC4b);
+ 108:	80 e2       	ldi	r24, 0x20	; 32
+ 10a:	b6 df       	rcall	.-148    	; 0x78 <LCDsendHalf>
+ 10c:	84 e6       	ldi	r24, 0x64	; 100
+ 10e:	90 e0       	ldi	r25, 0x00	; 0
+
+00000110 <delayus8_loop166>:
+ 110:	00 00       	nop
+ 112:	8a 95       	dec	r24
+ 114:	e9 f7       	brne	.-6      	; 0x110 <delayus8_loop166>
+ 116:	84 e6       	ldi	r24, 0x64	; 100
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+
+0000011a <delayus8_loop168>:
+ 11a:	00 00       	nop
+ 11c:	8a 95       	dec	r24
+ 11e:	e9 f7       	brne	.-6      	; 0x11a <delayus8_loop168>
+	delay100us8(2);
+	// Teraz jest ju¿ 4b. Koniec korzystania z sendHalf
+	LCDcommand(LCDC_FUNC|LCDC_FUNC4b|LCDC_FUNC2L|LCDC_FUNC5x7);
+ 120:	88 e2       	ldi	r24, 0x28	; 40
+ 122:	c2 df       	rcall	.-124    	; 0xa8 <LCDcommand>
+	LCDcommand(LCDC_ON);
+ 124:	88 e0       	ldi	r24, 0x08	; 8
+ 126:	c0 df       	rcall	.-128    	; 0xa8 <LCDcommand>
+	LCDcls();
+ 128:	c5 df       	rcall	.-118    	; 0xb4 <LCDcls>
+	LCDcommand(LCDC_MODE|LCDC_MODER);
+ 12a:	86 e0       	ldi	r24, 0x06	; 6
+ 12c:	bd df       	rcall	.-134    	; 0xa8 <LCDcommand>
+	LCDcommand(LCDC_ON|LCDC_ONDISPLAY|LCDC_ONCURSOR);
+ 12e:	8e e0       	ldi	r24, 0x0E	; 14
+ 130:	bb df       	rcall	.-138    	; 0xa8 <LCDcommand>
+ 132:	08 95       	ret
+
+00000134 <LCDstr_P>:
+}
+
+// Koniec obs³ugi wyœwietlacza
+//--------------------------------------------------
+void LCDstr_P(prog_char* str)
+{
+ 134:	cf 93       	push	r28
+ 136:	df 93       	push	r29
+ 138:	d9 2f       	mov	r29, r25
+ 13a:	c8 2f       	mov	r28, r24
+ 13c:	01 c0       	rjmp	.+2      	; 0x140 <LCDstr_P+0xc>
+	char znak;
+	while(0 != (znak = pgm_read_byte(str++)))
+	LCDdata(znak);
+ 13e:	b7 df       	rcall	.-146    	; 0xae <LCDdata>
+ 140:	fd 2f       	mov	r31, r29
+ 142:	ec 2f       	mov	r30, r28
+ 144:	21 96       	adiw	r28, 0x01	; 1
+ 146:	c8 95       	lpm
+ 148:	80 2d       	mov	r24, r0
+ 14a:	88 23       	and	r24, r24
+ 14c:	c1 f7       	brne	.-16     	; 0x13e <LCDstr_P+0xa>
+ 14e:	df 91       	pop	r29
+ 150:	cf 91       	pop	r28
+ 152:	08 95       	ret
+
+00000154 <main>:
+}
+
+// START
+int main(void)
+{
+ 154:	86 ef       	ldi	r24, 0xF6	; 246
+ 156:	87 bb       	out	0x17, r24	; 23
+	//----------------------------------------------
+	// Inicjacja - uwaga: uproszczona, mo¿e wymagaæ 
+	// zmian przy zmianie przyporz¹dkowania portów
+	DDR(LCD_DPORT) = 1<<LCD_E | 1<<LCD_RS | 
+		0x0F<<LCD_D4;
+	
+	LCDinit();
+ 158:	b8 df       	rcall	.-144    	; 0xca <LCDinit>
+	// Koniec inicjacji
+	//---------------------------------------------- 
+	LCDcls(); 
+ 15a:	ac df       	rcall	.-168    	; 0xb4 <LCDcls>
+	
+	LCDstr_P((prog_char*)PSTR("Witaj!"));
+ 15c:	87 e2       	ldi	r24, 0x27	; 39
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	e9 df       	rcall	.-46     	; 0x134 <LCDstr_P>
+	LCDcommand(LCDC_DDA|64);
+ 162:	80 ec       	ldi	r24, 0xC0	; 192
+ 164:	a1 df       	rcall	.-190    	; 0xa8 <LCDcommand>
+	LCDstr_P((prog_char*)PSTR("Lancuch z FLASHa"));
+ 166:	86 e1       	ldi	r24, 0x16	; 22
+ 168:	90 e0       	ldi	r25, 0x00	; 0
+ 16a:	e4 df       	rcall	.-56     	; 0x134 <LCDstr_P>
+	
+	
+	
+	return 0;
+}
+ 16c:	80 e0       	ldi	r24, 0x00	; 0
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	08 95       	ret
+
+00000172 <LCDhome>:
+ 172:	82 e0       	ldi	r24, 0x02	; 2
+ 174:	99 df       	rcall	.-206    	; 0xa8 <LCDcommand>
+ 176:	20 e3       	ldi	r18, 0x30	; 48
+ 178:	84 e6       	ldi	r24, 0x64	; 100
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+
+0000017c <delayus8_loop256>:
+ 17c:	00 00       	nop
+ 17e:	8a 95       	dec	r24
+ 180:	e9 f7       	brne	.-6      	; 0x17c <delayus8_loop256>
+ 182:	21 50       	subi	r18, 0x01	; 1
+ 184:	d9 f7       	brne	.-10     	; 0x17c <delayus8_loop256>
+ 186:	08 95       	ret
+
+00000188 <_exit>:
+ 188:	ff cf       	rjmp	.-2      	; 0x188 <_exit>

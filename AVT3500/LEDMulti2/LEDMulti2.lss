@@ -1,0 +1,277 @@
+
+LEDMulti2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000015e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000007  00800060  00800060  000001d2  2**0
+                  ALLOC
+  2 .stab         00000360  00000000  00000000  000001d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000071  00000000  00000000  00000534  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000020  00000000  00000000  000005a5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 00000092  00000000  00000000  000005c5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000029e  00000000  00000000  00000657  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000115  00000000  00000000  000008f5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000001a8  00000000  00000000  00000a0a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000040  00000000  00000000  00000bb4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000141  00000000  00000000  00000bf4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000069  00000000  00000000  00000d35  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	14 c0       	rjmp	.+40     	; 0x2a <__ctors_end>
+   2:	2d c0       	rjmp	.+90     	; 0x5e <__bad_interrupt>
+   4:	2c c0       	rjmp	.+88     	; 0x5e <__bad_interrupt>
+   6:	2b c0       	rjmp	.+86     	; 0x5e <__bad_interrupt>
+   8:	2a c0       	rjmp	.+84     	; 0x5e <__bad_interrupt>
+   a:	29 c0       	rjmp	.+82     	; 0x5e <__bad_interrupt>
+   c:	76 c0       	rjmp	.+236    	; 0xfa <__vector_6>
+   e:	27 c0       	rjmp	.+78     	; 0x5e <__bad_interrupt>
+  10:	26 c0       	rjmp	.+76     	; 0x5e <__bad_interrupt>
+  12:	25 c0       	rjmp	.+74     	; 0x5e <__bad_interrupt>
+  14:	24 c0       	rjmp	.+72     	; 0x5e <__bad_interrupt>
+
+00000016 <g_DaneCom>:
+  16:	bf df ef f7                                         ....
+
+0000001a <g_WzoryCyfr>:
+  1a:	c0 f9 a4 b0 99 92 82 f8 80 90 88 83 c6 a1 86 8e     ................
+
+0000002a <__ctors_end>:
+  2a:	11 24       	eor	r1, r1
+  2c:	1f be       	out	0x3f, r1	; 63
+  2e:	cf ed       	ldi	r28, 0xDF	; 223
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	ee e5       	ldi	r30, 0x5E	; 94
+  3a:	f1 e0       	ldi	r31, 0x01	; 1
+  3c:	03 c0       	rjmp	.+6      	; 0x44 <.do_copy_data_start>
+
+0000003e <.do_copy_data_loop>:
+  3e:	c8 95       	lpm
+  40:	31 96       	adiw	r30, 0x01	; 1
+  42:	0d 92       	st	X+, r0
+
+00000044 <.do_copy_data_start>:
+  44:	a0 36       	cpi	r26, 0x60	; 96
+  46:	b1 07       	cpc	r27, r17
+  48:	d1 f7       	brne	.-12     	; 0x3e <.do_copy_data_loop>
+
+0000004a <__do_clear_bss>:
+  4a:	10 e0       	ldi	r17, 0x00	; 0
+  4c:	a0 e6       	ldi	r26, 0x60	; 96
+  4e:	b0 e0       	ldi	r27, 0x00	; 0
+  50:	01 c0       	rjmp	.+2      	; 0x54 <.do_clear_bss_start>
+
+00000052 <.do_clear_bss_loop>:
+  52:	1d 92       	st	X+, r1
+
+00000054 <.do_clear_bss_start>:
+  54:	a7 36       	cpi	r26, 0x67	; 103
+  56:	b1 07       	cpc	r27, r17
+  58:	e1 f7       	brne	.-8      	; 0x52 <.do_clear_bss_loop>
+  5a:	34 d0       	rcall	.+104    	; 0xc4 <main>
+  5c:	7f c0       	rjmp	.+254    	; 0x15c <_exit>
+
+0000005e <__bad_interrupt>:
+  5e:	d0 cf       	rjmp	.-96     	; 0x0 <__vectors>
+
+00000060 <WyswietlHex>:
+//Zmienna przechowuj¹ca wartoœæ licznika.
+uint16_t g_Licznik = 0;
+
+//Funkcja wyœwitla w kodzie szesnastkowym podan¹ liczbê.
+void WyswietlHex(uint16_t var) {
+  60:	f9 2f       	mov	r31, r25
+  62:	e8 2f       	mov	r30, r24
+  64:	ef 2f       	mov	r30, r31
+  66:	ff 27       	eor	r31, r31
+  68:	e2 95       	swap	r30
+  6a:	ef 70       	andi	r30, 0x0F	; 15
+  6c:	2a e1       	ldi	r18, 0x1A	; 26
+  6e:	30 e0       	ldi	r19, 0x00	; 0
+  70:	e2 0f       	add	r30, r18
+  72:	f3 1f       	adc	r31, r19
+  74:	c8 95       	lpm
+  76:	e0 2d       	mov	r30, r0
+  78:	e0 93 63 00 	sts	0x0063, r30
+	g_DaneWyswietlacza[0] = pgm_read_byte(&g_WzoryCyfr[var>>(3*4)]);
+	g_DaneWyswietlacza[1] = pgm_read_byte(&g_WzoryCyfr[(var>>(2*4))&0xf]);
+  7c:	e9 2f       	mov	r30, r25
+  7e:	ff 27       	eor	r31, r31
+  80:	ef 70       	andi	r30, 0x0F	; 15
+  82:	f0 70       	andi	r31, 0x00	; 0
+  84:	e2 0f       	add	r30, r18
+  86:	f3 1f       	adc	r31, r19
+  88:	c8 95       	lpm
+  8a:	e0 2d       	mov	r30, r0
+  8c:	e0 93 64 00 	sts	0x0064, r30
+	g_DaneWyswietlacza[2] = pgm_read_byte(&g_WzoryCyfr[(var>>(1*4))&0xf]);
+  90:	f9 2f       	mov	r31, r25
+  92:	e8 2f       	mov	r30, r24
+  94:	44 e0       	ldi	r20, 0x04	; 4
+  96:	f6 95       	lsr	r31
+  98:	e7 95       	ror	r30
+  9a:	4a 95       	dec	r20
+  9c:	e1 f7       	brne	.-8      	; 0x96 <WyswietlHex+0x36>
+  9e:	ef 70       	andi	r30, 0x0F	; 15
+  a0:	f0 70       	andi	r31, 0x00	; 0
+  a2:	e2 0f       	add	r30, r18
+  a4:	f3 1f       	adc	r31, r19
+  a6:	c8 95       	lpm
+  a8:	e0 2d       	mov	r30, r0
+  aa:	e0 93 65 00 	sts	0x0065, r30
+	g_DaneWyswietlacza[3] = pgm_read_byte(&g_WzoryCyfr[var&0xf]);
+  ae:	8f 70       	andi	r24, 0x0F	; 15
+  b0:	90 70       	andi	r25, 0x00	; 0
+  b2:	28 0f       	add	r18, r24
+  b4:	39 1f       	adc	r19, r25
+  b6:	f3 2f       	mov	r31, r19
+  b8:	e2 2f       	mov	r30, r18
+  ba:	c8 95       	lpm
+  bc:	80 2d       	mov	r24, r0
+  be:	80 93 66 00 	sts	0x0066, r24
+  c2:	08 95       	ret
+
+000000c4 <main>:
+}	
+
+
+int main(void)
+{
+  c4:	8f ef       	ldi	r24, 0xFF	; 255
+  c6:	87 bb       	out	0x17, r24	; 23
+	/////////////////////////////
+	// inicjacja
+	LEDDDR = 0xff; 
+	COMDDR = 1<<COM1 | 1<<COM2 | 1<<COM3 | 1<<COM4;
+  c8:	88 e7       	ldi	r24, 0x78	; 120
+  ca:	81 bb       	out	0x11, r24	; 17
+	//Timer0.
+	TCCR0 = 1<<CS01; //| 1<<CS00;
+  cc:	82 e0       	ldi	r24, 0x02	; 2
+  ce:	83 bf       	out	0x33, r24	; 51
+	TIMSK = 1<<TOIE0;
+  d0:	89 bf       	out	0x39, r24	; 57
+	//Globalne zezwolenie przerwañ.
+	sei();
+  d2:	78 94       	sei
+	// koniec inicjacji.
+	/////////////////////////////
+	
+	/*Wpisanie próbnych wartoœci.
+	g_DaneWyswietlacza[0] = ~(1<<LED_B | 1<<LED_C | 1<<LED_A | 1<<LED_E | 1<<LED_F | 1<<LED_D);
+	g_DaneWyswietlacza[2] = ~(1<<LED_D | 1<<LED_A | 1<<LED_G | 1<<LED_E | 1<<LED_F);
+	g_DaneWyswietlacza[1] = ~(1<<LED_F | 1<<LED_E | 1<<LED_D);
+	g_DaneWyswietlacza[3] = ~(1<<LED_B | 1<<LED_C | 1<<LED_G| 1<<LED_E | 1<<LED_F);
+	*/
+	
+	for(;;)
+	{
+		WyswietlHex(g_Licznik);
+  d4:	80 91 61 00 	lds	r24, 0x0061
+  d8:	90 91 62 00 	lds	r25, 0x0062
+  dc:	c1 df       	rcall	.-126    	; 0x60 <WyswietlHex>
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  de:	8f ef       	ldi	r24, 0xFF	; 255
+  e0:	9f ef       	ldi	r25, 0xFF	; 255
+  e2:	01 97       	sbiw	r24, 0x01	; 1
+  e4:	f1 f7       	brne	.-4      	; 0xe2 <__stack+0x3>
+		_delay_loop_2(0xffff);
+		g_Licznik++;
+  e6:	80 91 61 00 	lds	r24, 0x0061
+  ea:	90 91 62 00 	lds	r25, 0x0062
+  ee:	01 96       	adiw	r24, 0x01	; 1
+  f0:	90 93 62 00 	sts	0x0062, r25
+  f4:	80 93 61 00 	sts	0x0061, r24
+  f8:	ed cf       	rjmp	.-38     	; 0xd4 <main+0x10>
+
+000000fa <__vector_6>:
+	}
+
+	return 0; 
+}
+//____________________________________________________________________________________________
+//Obs³uga przerwañ
+SIGNAL(SIG_OVERFLOW0)
+{
+  fa:	1f 92       	push	r1
+  fc:	0f 92       	push	r0
+  fe:	0f b6       	in	r0, 0x3f	; 63
+ 100:	0f 92       	push	r0
+ 102:	11 24       	eor	r1, r1
+ 104:	8f 93       	push	r24
+ 106:	9f 93       	push	r25
+ 108:	af 93       	push	r26
+ 10a:	bf 93       	push	r27
+ 10c:	ef 93       	push	r30
+ 10e:	ff 93       	push	r31
+	//Wygaszenie wyœwietlaczy.
+		COMPORT |= 1<<COM1 | 1<<COM2 | 1<<COM3 | 1<<COM4;
+ 110:	82 b3       	in	r24, 0x12	; 18
+ 112:	88 67       	ori	r24, 0x78	; 120
+ 114:	82 bb       	out	0x12, r24	; 18
+		//Wys³anie odpowiedniej danej.
+		LEDPORT = g_DaneWyswietlacza[g_AktWyswietlacz];
+ 116:	90 91 60 00 	lds	r25, 0x0060
+ 11a:	e9 2f       	mov	r30, r25
+ 11c:	ff 27       	eor	r31, r31
+ 11e:	ae 2f       	mov	r26, r30
+ 120:	bf 2f       	mov	r27, r31
+ 122:	ad 59       	subi	r26, 0x9D	; 157
+ 124:	bf 4f       	sbci	r27, 0xFF	; 255
+ 126:	8c 91       	ld	r24, X
+ 128:	88 bb       	out	0x18, r24	; 24
+		//W³¹czenie odpowiedniego wyœwietlacza.
+		//Odwo³anie do pamiêci programu.
+		COMPORT &= pgm_read_byte(&g_DaneCom[g_AktWyswietlacz]);
+ 12a:	82 b3       	in	r24, 0x12	; 18
+ 12c:	ea 5e       	subi	r30, 0xEA	; 234
+ 12e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 130:	c8 95       	lpm
+ 132:	e0 2d       	mov	r30, r0
+ 134:	8e 23       	and	r24, r30
+ 136:	82 bb       	out	0x12, r24	; 18
+		
+		//Zwiêkszanie stanu zmiennej wskazuj¹cej wyœwietlacz
+		++g_AktWyswietlacz;
+ 138:	9f 5f       	subi	r25, 0xFF	; 255
+ 13a:	90 93 60 00 	sts	0x0060, r25
+		if (g_AktWyswietlacz > 3) {
+ 13e:	94 30       	cpi	r25, 0x04	; 4
+ 140:	10 f0       	brcs	.+4      	; 0x146 <__vector_6+0x4c>
+			g_AktWyswietlacz =0;
+ 142:	10 92 60 00 	sts	0x0060, r1
+ 146:	ff 91       	pop	r31
+ 148:	ef 91       	pop	r30
+ 14a:	bf 91       	pop	r27
+ 14c:	af 91       	pop	r26
+ 14e:	9f 91       	pop	r25
+ 150:	8f 91       	pop	r24
+ 152:	0f 90       	pop	r0
+ 154:	0f be       	out	0x3f, r0	; 63
+ 156:	0f 90       	pop	r0
+ 158:	1f 90       	pop	r1
+ 15a:	18 95       	reti
+
+0000015c <_exit>:
+ 15c:	ff cf       	rjmp	.-2      	; 0x15c <_exit>

@@ -1,0 +1,128 @@
+   1               		.file	"http_protocol.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Http_Check
+  18               	Http_Check:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 EF92      		push r14
+  22 0002 FF92      		push r15
+  23 0004 0F93      		push r16
+  24 0006 1F93      		push r17
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LM2:
+  28 0008 8091 0000 		lds r24,EthFrame+54
+  29 000c 8734      		cpi r24,lo8(71)
+  30 000e 01F4      		brne .L3
+  31 0010 8091 0000 		lds r24,EthFrame+55
+  32 0014 8534      		cpi r24,lo8(69)
+  33 0016 01F4      		brne .L3
+  34 0018 8091 0000 		lds r24,EthFrame+56
+  35 001c 8435      		cpi r24,lo8(84)
+  36 001e 01F4      		brne .L3
+  37               	.LM3:
+  38 0020 80E9      		ldi r24,lo8(8080)
+  39 0022 9FE1      		ldi r25,hi8(8080)
+  40 0024 0E94 0000 		call Tcp_Send_Ack
+  41               	.LM4:
+  42 0028 00E0      		ldi r16,lo8(content)
+  43 002a 10E0      		ldi r17,hi8(content)
+  44 002c C801      		movw r24,r16
+  45 002e 0E94 0000 		call strlen_P
+  46 0032 7C01      		movw r14,r24
+  47 0034 80E0      		ldi r24,lo8(EthFrame+54)
+  48 0036 90E0      		ldi r25,hi8(EthFrame+54)
+  49 0038 B801      		movw r22,r16
+  50 003a A701      		movw r20,r14
+  51 003c 0E94 0000 		call strncpy_P
+  52               	.LM5:
+  53 0040 80E9      		ldi r24,lo8(8080)
+  54 0042 9FE1      		ldi r25,hi8(8080)
+  55 0044 B701      		movw r22,r14
+  56 0046 0E94 0000 		call Tcp_Send_Data
+  57               	.L3:
+  58               	/* epilogue start */
+  59               	.LM6:
+  60 004a 1F91      		pop r17
+  61 004c 0F91      		pop r16
+  62 004e FF90      		pop r15
+  63 0050 EF90      		pop r14
+  64 0052 0895      		ret
+  65               	.LFE6:
+  67               		.comm Tcp_Status,1,1
+  68               	.global	content
+  69               		.section	.progmem.data,"a",@progbits
+  72               	content:
+  73 0000 4854 5450 		.string	"HTTP/1.0 200 OK\r\n Content-type: text/html\r\t\n"
+  73      2F31 2E30 
+  73      2032 3030 
+  73      204F 4B0D 
+  73      0A20 436F 
+  74               	.global	index1
+  77               	index1:
+  78 002d 3C48 544D 		.ascii	"<HTML>\r\n<HEAD>\r\n<TITLE>Mikroserwer LAN</TITLE>\r\n<meta "
+  78      4C3E 0D0A 
+  78      3C48 4541 
+  78      443E 0D0A 
+  78      3C54 4954 
+  79 0063 6874 7470 		.ascii	"http-equiv=\"content-type\" content=\"Text"
+  79      2D65 7175 
+  79      6976 3D22 
+  79      636F 6E74 
+  79      656E 742D 
+  80 008a 2F48 746D 		.string	"/Html; charset=windows-1250\">\r\n</HEAD>\r\n<BODY>\r\n</BODY>\r\n</HTML>"
+  80      6C3B 2063 
+  80      6861 7273 
+  80      6574 3D77 
+  80      696E 646F 
+  81               		.comm nextPacketPtr,2,1
+  82               		.comm currentPacketPtr,2,1
+  83               		.comm currentRetreiveAddress,2,1
+  84               		.comm dest_port,2,1
+  85               		.comm seq_number,4,1
+  86               		.comm ack_number,4,1
+  87               		.comm tcp_packet_count,2,1
+  88               		.comm next_send_data,1,1
+  89               		.comm next_ack,1,1
+  90               		.comm ArpReply,1,1
+  91               		.comm ArpCount,1,1
+  92               		.comm pingTimeout,1,1
+ 117               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 http_protocol.c
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:18     .text:00000000 Http_Check
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:72     .progmem.data:00000000 content
+                            *COM*:00000001 Tcp_Status
+C:\Users\O\AppData\Local\Temp/cc5byWHb.s:77     .progmem.data:0000002d index1
+                            *COM*:00000002 nextPacketPtr
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+                            *COM*:00000002 dest_port
+                            *COM*:00000004 seq_number
+                            *COM*:00000004 ack_number
+                            *COM*:00000002 tcp_packet_count
+                            *COM*:00000001 next_send_data
+                            *COM*:00000001 next_ack
+                            *COM*:00000001 ArpReply
+                            *COM*:00000001 ArpCount
+                            *COM*:00000001 pingTimeout
+
+UNDEFINED SYMBOLS
+EthFrame
+Tcp_Send_Ack
+strlen_P
+strncpy_P
+Tcp_Send_Data
+__do_clear_bss

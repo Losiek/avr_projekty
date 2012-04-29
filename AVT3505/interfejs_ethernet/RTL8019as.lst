@@ -1,0 +1,1132 @@
+   1               		.file	"RTL8019as.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	RTLsetup_ports
+  18               	RTLsetup_ports:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 8ABB      		out 58-32,r24
+  26               	.LM3:
+  27 0004 8BBB      		out 59-32,r24
+  28               	.LM4:
+  29 0006 A1E3      		ldi r26,lo8(49)
+  30 0008 B0E0      		ldi r27,hi8(49)
+  31 000a 8C91      		ld r24,X
+  32 000c 8068      		ori r24,lo8(-128)
+  33 000e 8C93      		st X,r24
+  34               	.LM5:
+  35 0010 8C91      		ld r24,X
+  36 0012 8064      		ori r24,lo8(64)
+  37 0014 8C93      		st X,r24
+  38               	.LM6:
+  39 0016 8C91      		ld r24,X
+  40 0018 8061      		ori r24,lo8(16)
+  41 001a 8C93      		st X,r24
+  42               	.LM7:
+  43 001c E2E3      		ldi r30,lo8(50)
+  44 001e F0E0      		ldi r31,hi8(50)
+  45 0020 8081      		ld r24,Z
+  46 0022 8068      		ori r24,lo8(-128)
+  47 0024 8083      		st Z,r24
+  48               	.LM8:
+  49 0026 8081      		ld r24,Z
+  50 0028 8064      		ori r24,lo8(64)
+  51 002a 8083      		st Z,r24
+  52               	.LM9:
+  53 002c 8081      		ld r24,Z
+  54 002e 8061      		ori r24,lo8(16)
+  55 0030 8083      		st Z,r24
+  56               	.LM10:
+  57 0032 8C91      		ld r24,X
+  58 0034 8062      		ori r24,lo8(32)
+  59 0036 8C93      		st X,r24
+  60               	/* epilogue start */
+  61               	.LM11:
+  62 0038 0895      		ret
+  63               	.LFE6:
+  65               	.global	RTLhw_reset
+  67               	RTLhw_reset:
+  68               	.LFB7:
+  69               	.LM12:
+  70               	/* prologue: function */
+  71               	/* frame size = 0 */
+  72               	.LM13:
+  73 003a E2E3      		ldi r30,lo8(50)
+  74 003c F0E0      		ldi r31,hi8(50)
+  75 003e 8081      		ld r24,Z
+  76 0040 8062      		ori r24,lo8(32)
+  77 0042 8083      		st Z,r24
+  78               	.LBB36:
+  79               	.LBB37:
+  80               	.LBB38:
+  81               	.LBB39:
+  82               	.LM14:
+  83 0044 20E4      		ldi r18,lo8(-25536)
+  84 0046 3CE9      		ldi r19,hi8(-25536)
+  85 0048 C901      		movw r24,r18
+  86               	.LVL0:
+  87               	/* #APP */
+  88               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  89 004a 0197      		1: sbiw r24,1
+  90 004c 01F4      		brne 1b
+  91               	 ;  0 "" 2
+  92               	/* #NOAPP */
+  93               	.LBE39:
+  94               	.LBE38:
+  95               	.LBE37:
+  96               	.LBE36:
+  97               	.LM15:
+  98 004e 8081      		ld r24,Z
+  99               	.LVL1:
+ 100 0050 8F7D      		andi r24,lo8(-33)
+ 101 0052 8083      		st Z,r24
+ 102               	.LBB40:
+ 103               	.LBB41:
+ 104               	.LBB42:
+ 105               	.LBB43:
+ 106               	.LM16:
+ 107 0054 C901      		movw r24,r18
+ 108               	.LVL2:
+ 109               	/* #APP */
+ 110               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 111 0056 0197      		1: sbiw r24,1
+ 112 0058 01F4      		brne 1b
+ 113               	 ;  0 "" 2
+ 114               	/* epilogue start */
+ 115               	/* #NOAPP */
+ 116               	.LBE43:
+ 117               	.LBE42:
+ 118               	.LBE41:
+ 119               	.LBE40:
+ 120               	.LM17:
+ 121 005a 0895      		ret
+ 122               	.LFE7:
+ 124               	.global	RTLwrite
+ 126               	RTLwrite:
+ 127               	.LFB8:
+ 128               	.LM18:
+ 129               	.LVL3:
+ 130               	/* prologue: function */
+ 131               	/* frame size = 0 */
+ 132               	.LM19:
+ 133 005c 4AE3      		ldi r20,lo8(58)
+ 134 005e 50E0      		ldi r21,hi8(58)
+ 135 0060 9FEF      		ldi r25,lo8(-1)
+ 136 0062 FA01      		movw r30,r20
+ 137 0064 9083      		st Z,r25
+ 138               	.LM20:
+ 139 0066 ABE3      		ldi r26,lo8(59)
+ 140 0068 B0E0      		ldi r27,hi8(59)
+ 141 006a 8C93      		st X,r24
+ 142               	.LM21:
+ 143 006c 27E2      		ldi r18,lo8(39)
+ 144 006e 30E0      		ldi r19,hi8(39)
+ 145 0070 8DEF      		ldi r24,lo8(-3)
+ 146               	.LVL4:
+ 147 0072 F901      		movw r30,r18
+ 148 0074 8083      		st Z,r24
+ 149               	.LM22:
+ 150 0076 6C93      		st X,r22
+ 151               	.LM23:
+ 152 0078 E2E3      		ldi r30,lo8(50)
+ 153 007a F0E0      		ldi r31,hi8(50)
+ 154 007c 8081      		ld r24,Z
+ 155 007e 8F7B      		andi r24,lo8(-65)
+ 156 0080 8083      		st Z,r24
+ 157               	.LM24:
+ 158 0082 8081      		ld r24,Z
+ 159 0084 8064      		ori r24,lo8(64)
+ 160 0086 8083      		st Z,r24
+ 161               	.LM25:
+ 162 0088 80E1      		ldi r24,lo8(16)
+ 163 008a 8083      		st Z,r24
+ 164               	.LM26:
+ 165 008c 82E0      		ldi r24,lo8(2)
+ 166 008e F901      		movw r30,r18
+ 167 0090 8083      		st Z,r24
+ 168               	.LM27:
+ 169 0092 FA01      		movw r30,r20
+ 170 0094 1082      		st Z,__zero_reg__
+ 171               	.LM28:
+ 172 0096 9C93      		st X,r25
+ 173               	/* epilogue start */
+ 174               	.LM29:
+ 175 0098 0895      		ret
+ 176               	.LFE8:
+ 178               	.global	RTLread
+ 180               	RTLread:
+ 181               	.LFB9:
+ 182               	.LM30:
+ 183               	.LVL5:
+ 184               	/* prologue: function */
+ 185               	/* frame size = 0 */
+ 186               	.LM31:
+ 187 009a EAE3      		ldi r30,lo8(58)
+ 188 009c F0E0      		ldi r31,hi8(58)
+ 189 009e 9FEF      		ldi r25,lo8(-1)
+ 190 00a0 9083      		st Z,r25
+ 191               	.LM32:
+ 192 00a2 9FEE      		ldi r25,lo8(-17)
+ 193 00a4 92BB      		out 50-32,r25
+ 194               	.LM33:
+ 195 00a6 8BBB      		out 59-32,r24
+ 196               	.LM34:
+ 197 00a8 8DEF      		ldi r24,lo8(-3)
+ 198               	.LVL6:
+ 199 00aa 87B9      		out 39-32,r24
+ 200               	.LM35:
+ 201 00ac 1082      		st Z,__zero_reg__
+ 202               	.LM36:
+ 203               	/* #APP */
+ 204               	 ;  64 "RTL8019as.c" 1
+ 205 00ae 0000      		nop
+ 206               		
+ 207               	 ;  0 "" 2
+ 208               	.LM37:
+ 209               	 ;  65 "RTL8019as.c" 1
+ 210 00b0 0000      		nop
+ 211               		
+ 212               	 ;  0 "" 2
+ 213               	.LM38:
+ 214               	/* #NOAPP */
+ 215 00b2 E2E3      		ldi r30,lo8(50)
+ 216 00b4 F0E0      		ldi r31,hi8(50)
+ 217 00b6 8081      		ld r24,Z
+ 218 00b8 8F77      		andi r24,lo8(127)
+ 219 00ba 8083      		st Z,r24
+ 220               	.LM39:
+ 221               	/* #APP */
+ 222               	 ;  68 "RTL8019as.c" 1
+ 223 00bc 0000      		nop
+ 224               		
+ 225               	 ;  0 "" 2
+ 226               	.LM40:
+ 227               	 ;  69 "RTL8019as.c" 1
+ 228 00be 0000      		nop
+ 229               		
+ 230               	 ;  0 "" 2
+ 231               	.LM41:
+ 232               	/* #NOAPP */
+ 233 00c0 89B3      		in r24,57-32
+ 234               	.LVL7:
+ 235               	.LM42:
+ 236 00c2 92E0      		ldi r25,lo8(2)
+ 237 00c4 97B9      		out 39-32,r25
+ 238               	.LM43:
+ 239 00c6 E2E3      		ldi r30,lo8(50)
+ 240 00c8 F0E0      		ldi r31,hi8(50)
+ 241 00ca 9081      		ld r25,Z
+ 242 00cc 9068      		ori r25,lo8(-128)
+ 243 00ce 9083      		st Z,r25
+ 244               	.LM44:
+ 245 00d0 90E1      		ldi r25,lo8(16)
+ 246 00d2 9083      		st Z,r25
+ 247               	.LVL8:
+ 248               	/* epilogue start */
+ 249               	.LM45:
+ 250 00d4 0895      		ret
+ 251               	.LFE9:
+ 253               	.global	RTLinit
+ 255               	RTLinit:
+ 256               	.LFB10:
+ 257               	.LM46:
+ 258 00d6 CF92      		push r12
+ 259 00d8 DF92      		push r13
+ 260 00da EF92      		push r14
+ 261 00dc FF92      		push r15
+ 262 00de 0F93      		push r16
+ 263 00e0 1F93      		push r17
+ 264               	/* prologue: function */
+ 265               	/* frame size = 0 */
+ 266               	.LM47:
+ 267 00e2 0E94 0000 		call RTLsetup_ports
+ 268               	.LM48:
+ 269 00e6 0E94 0000 		call RTLhw_reset
+ 270               	.LM49:
+ 271 00ea 88E1      		ldi r24,lo8(24)
+ 272 00ec 60E0      		ldi r22,lo8(0)
+ 273 00ee 0E94 0000 		call RTLwrite
+ 274 00f2 2CE2      		ldi r18,lo8(300)
+ 275 00f4 31E0      		ldi r19,hi8(300)
+ 276               	.LVL9:
+ 277               	.LBB44:
+ 278               	.LBB45:
+ 279               	.LBB46:
+ 280               	.LBB47:
+ 281               	.LM50:
+ 282 00f6 40E9      		ldi r20,lo8(400)
+ 283 00f8 51E0      		ldi r21,hi8(400)
+ 284               	.L10:
+ 285 00fa CA01      		movw r24,r20
+ 286               	.LVL10:
+ 287               	/* #APP */
+ 288               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 289 00fc 0197      		1: sbiw r24,1
+ 290 00fe 01F4      		brne 1b
+ 291               	 ;  0 "" 2
+ 292               	/* #NOAPP */
+ 293               	.LBE47:
+ 294               	.LBE46:
+ 295               	.LM51:
+ 296 0100 2150      		subi r18,lo8(-(-1))
+ 297 0102 3040      		sbci r19,hi8(-(-1))
+ 298               	.LM52:
+ 299 0104 01F4      		brne .L10
+ 300               	.LBE45:
+ 301               	.LBE44:
+ 302               	.LM53:
+ 303 0106 80E0      		ldi r24,lo8(0)
+ 304               	.LVL11:
+ 305 0108 61E4      		ldi r22,lo8(65)
+ 306 010a 0E94 0000 		call RTLwrite
+ 307               	.LVL12:
+ 308               	.LBB48:
+ 309               	.LBB49:
+ 310               	.LBB50:
+ 311               	.LBB51:
+ 312               	.LM54:
+ 313 010e 0F2E      		mov __tmp_reg__,r31
+ 314 0110 F0E4      		ldi r31,lo8(8000)
+ 315 0112 CF2E      		mov r12,r31
+ 316 0114 FFE1      		ldi r31,hi8(8000)
+ 317 0116 DF2E      		mov r13,r31
+ 318 0118 F02D      		mov r31,__tmp_reg__
+ 319 011a C601      		movw r24,r12
+ 320               	.LVL13:
+ 321               	/* #APP */
+ 322               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 323 011c 0197      		1: sbiw r24,1
+ 324 011e 01F4      		brne 1b
+ 325               	 ;  0 "" 2
+ 326               	/* #NOAPP */
+ 327               	.LBE51:
+ 328               	.LBE50:
+ 329               	.LBE49:
+ 330               	.LBE48:
+ 331               	.LM55:
+ 332 0120 87E0      		ldi r24,lo8(7)
+ 333               	.LVL14:
+ 334 0122 66E4      		ldi r22,lo8(70)
+ 335 0124 0E94 0000 		call RTLwrite
+ 336               	.LM56:
+ 337 0128 0F2E      		mov __tmp_reg__,r31
+ 338 012a F0E0      		ldi r31,lo8(MyMac)
+ 339 012c EF2E      		mov r14,r31
+ 340 012e F0E0      		ldi r31,hi8(MyMac)
+ 341 0130 FF2E      		mov r15,r31
+ 342 0132 F02D      		mov r31,__tmp_reg__
+ 343 0134 81E0      		ldi r24,lo8(1)
+ 344 0136 F701      		movw r30,r14
+ 345 0138 6191      		ld r22,Z+
+ 346 013a 8F01      		movw r16,r30
+ 347 013c 0E94 0000 		call RTLwrite
+ 348               	.LM57:
+ 349 0140 82E0      		ldi r24,lo8(2)
+ 350 0142 F801      		movw r30,r16
+ 351 0144 6081      		ld r22,Z
+ 352 0146 0E94 0000 		call RTLwrite
+ 353               	.LM58:
+ 354 014a 83E0      		ldi r24,lo8(3)
+ 355 014c F701      		movw r30,r14
+ 356 014e 6281      		ldd r22,Z+2
+ 357 0150 0E94 0000 		call RTLwrite
+ 358               	.LM59:
+ 359 0154 84E0      		ldi r24,lo8(4)
+ 360 0156 F701      		movw r30,r14
+ 361 0158 6381      		ldd r22,Z+3
+ 362 015a 0E94 0000 		call RTLwrite
+ 363               	.LM60:
+ 364 015e 85E0      		ldi r24,lo8(5)
+ 365 0160 F701      		movw r30,r14
+ 366 0162 6481      		ldd r22,Z+4
+ 367 0164 0E94 0000 		call RTLwrite
+ 368               	.LM61:
+ 369 0168 86E0      		ldi r24,lo8(6)
+ 370 016a F701      		movw r30,r14
+ 371 016c 6581      		ldd r22,Z+5
+ 372 016e 0E94 0000 		call RTLwrite
+ 373               	.LM62:
+ 374 0172 80E0      		ldi r24,lo8(0)
+ 375 0174 61E2      		ldi r22,lo8(33)
+ 376 0176 0E94 0000 		call RTLwrite
+ 377               	.LBB52:
+ 378               	.LBB53:
+ 379               	.LBB54:
+ 380               	.LBB55:
+ 381               	.LM63:
+ 382 017a C601      		movw r24,r12
+ 383               	.LVL15:
+ 384               	/* #APP */
+ 385               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 386 017c 0197      		1: sbiw r24,1
+ 387 017e 01F4      		brne 1b
+ 388               	 ;  0 "" 2
+ 389               	/* #NOAPP */
+ 390               	.LBE55:
+ 391               	.LBE54:
+ 392               	.LBE53:
+ 393               	.LBE52:
+ 394               	.LM64:
+ 395 0180 8EE0      		ldi r24,lo8(14)
+ 396               	.LVL16:
+ 397 0182 68E5      		ldi r22,lo8(88)
+ 398 0184 0E94 0000 		call RTLwrite
+ 399               	.LM65:
+ 400 0188 8CE0      		ldi r24,lo8(12)
+ 401 018a 64E0      		ldi r22,lo8(4)
+ 402 018c 0E94 0000 		call RTLwrite
+ 403               	.LM66:
+ 404 0190 8DE0      		ldi r24,lo8(13)
+ 405 0192 62E0      		ldi r22,lo8(2)
+ 406 0194 0E94 0000 		call RTLwrite
+ 407               	.LM67:
+ 408 0198 8AE0      		ldi r24,lo8(10)
+ 409 019a 60E0      		ldi r22,lo8(0)
+ 410 019c 0E94 0000 		call RTLwrite
+ 411               	.LM68:
+ 412 01a0 8BE0      		ldi r24,lo8(11)
+ 413 01a2 60E0      		ldi r22,lo8(0)
+ 414 01a4 0E94 0000 		call RTLwrite
+ 415               	.LM69:
+ 416 01a8 84E0      		ldi r24,lo8(4)
+ 417 01aa 60E4      		ldi r22,lo8(64)
+ 418 01ac 0E94 0000 		call RTLwrite
+ 419               	.LM70:
+ 420 01b0 81E0      		ldi r24,lo8(1)
+ 421 01b2 66E4      		ldi r22,lo8(70)
+ 422 01b4 0E94 0000 		call RTLwrite
+ 423               	.LM71:
+ 424 01b8 83E0      		ldi r24,lo8(3)
+ 425 01ba 66E4      		ldi r22,lo8(70)
+ 426 01bc 0E94 0000 		call RTLwrite
+ 427               	.LM72:
+ 428 01c0 82E0      		ldi r24,lo8(2)
+ 429 01c2 60E6      		ldi r22,lo8(96)
+ 430 01c4 0E94 0000 		call RTLwrite
+ 431               	.LM73:
+ 432 01c8 87E0      		ldi r24,lo8(7)
+ 433 01ca 6FEF      		ldi r22,lo8(-1)
+ 434 01cc 0E94 0000 		call RTLwrite
+ 435               	.LM74:
+ 436 01d0 8FE0      		ldi r24,lo8(15)
+ 437 01d2 61E1      		ldi r22,lo8(17)
+ 438 01d4 0E94 0000 		call RTLwrite
+ 439               	.LM75:
+ 440 01d8 8DE0      		ldi r24,lo8(13)
+ 441 01da 60E0      		ldi r22,lo8(0)
+ 442 01dc 0E94 0000 		call RTLwrite
+ 443               	.LM76:
+ 444 01e0 80E0      		ldi r24,lo8(0)
+ 445 01e2 62E2      		ldi r22,lo8(34)
+ 446 01e4 0E94 0000 		call RTLwrite
+ 447               	/* epilogue start */
+ 448               	.LM77:
+ 449 01e8 1F91      		pop r17
+ 450 01ea 0F91      		pop r16
+ 451 01ec FF90      		pop r15
+ 452 01ee EF90      		pop r14
+ 453 01f0 DF90      		pop r13
+ 454 01f2 CF90      		pop r12
+ 455 01f4 0895      		ret
+ 456               	.LFE10:
+ 458               	.global	RTLsend_packet
+ 460               	RTLsend_packet:
+ 461               	.LFB11:
+ 462               	.LM78:
+ 463 01f6 1F93      		push r17
+ 464 01f8 CF93      		push r28
+ 465 01fa DF93      		push r29
+ 466               	/* prologue: function */
+ 467               	/* frame size = 0 */
+ 468               	.LM79:
+ 469 01fc 80E0      		ldi r24,lo8(0)
+ 470 01fe 62E2      		ldi r22,lo8(34)
+ 471 0200 0E94 0000 		call RTLwrite
+ 472               	.L14:
+ 473               	.LM80:
+ 474 0204 80E0      		ldi r24,lo8(0)
+ 475 0206 0E94 0000 		call RTLread
+ 476 020a 82FD      		sbrc r24,2
+ 477 020c 00C0      		rjmp .L14
+ 478               	.LM81:
+ 479 020e 84E0      		ldi r24,lo8(4)
+ 480 0210 60E4      		ldi r22,lo8(64)
+ 481 0212 0E94 0000 		call RTLwrite
+ 482               	.LM82:
+ 483 0216 88E0      		ldi r24,lo8(8)
+ 484 0218 60E0      		ldi r22,lo8(0)
+ 485 021a 0E94 0000 		call RTLwrite
+ 486               	.LM83:
+ 487 021e 89E0      		ldi r24,lo8(9)
+ 488 0220 60E4      		ldi r22,lo8(64)
+ 489 0222 0E94 0000 		call RTLwrite
+ 490               	.LM84:
+ 491 0226 87E0      		ldi r24,lo8(7)
+ 492 0228 62E0      		ldi r22,lo8(2)
+ 493 022a 0E94 0000 		call RTLwrite
+ 494               	.LM85:
+ 495 022e 8AE0      		ldi r24,lo8(10)
+ 496 0230 6AEE      		ldi r22,lo8(-22)
+ 497 0232 0E94 0000 		call RTLwrite
+ 498               	.LM86:
+ 499 0236 8BE0      		ldi r24,lo8(11)
+ 500 0238 65E0      		ldi r22,lo8(5)
+ 501 023a 0E94 0000 		call RTLwrite
+ 502               	.LM87:
+ 503 023e 80E0      		ldi r24,lo8(0)
+ 504 0240 62E1      		ldi r22,lo8(18)
+ 505 0242 0E94 0000 		call RTLwrite
+ 506               	.LM88:
+ 507 0246 8091 0000 		lds r24,PacketSize
+ 508 024a 9091 0000 		lds r25,(PacketSize)+1
+ 509 024e 892B      		or r24,r25
+ 510 0250 01F0      		breq .L19
+ 511 0252 10E0      		ldi r17,lo8(0)
+ 512               	.LVL17:
+ 513               	.LM89:
+ 514 0254 C0E0      		ldi r28,lo8(EthFrame)
+ 515 0256 D0E0      		ldi r29,hi8(EthFrame)
+ 516               	.L16:
+ 517 0258 FE01      		movw r30,r28
+ 518 025a E10F      		add r30,r17
+ 519 025c F11D      		adc r31,__zero_reg__
+ 520 025e 80E1      		ldi r24,lo8(16)
+ 521 0260 6081      		ld r22,Z
+ 522 0262 0E94 0000 		call RTLwrite
+ 523               	.LM90:
+ 524 0266 1F5F      		subi r17,lo8(-(1))
+ 525 0268 212F      		mov r18,r17
+ 526 026a 30E0      		ldi r19,lo8(0)
+ 527               	.LVL18:
+ 528 026c 8091 0000 		lds r24,PacketSize
+ 529 0270 9091 0000 		lds r25,(PacketSize)+1
+ 530 0274 2817      		cp r18,r24
+ 531 0276 3907      		cpc r19,r25
+ 532 0278 00F0      		brlo .L16
+ 533               	.LVL19:
+ 534               	.LM91:
+ 535 027a BC01      		movw r22,r24
+ 536 027c 8C33      		cpi r24,60
+ 537 027e 9105      		cpc r25,__zero_reg__
+ 538 0280 00F4      		brsh .L17
+ 539               	.L19:
+ 540               	.LM92:
+ 541 0282 80E1      		ldi r24,lo8(16)
+ 542 0284 60E0      		ldi r22,lo8(0)
+ 543 0286 0E94 0000 		call RTLwrite
+ 544               	.LVL20:
+ 545               	.LM93:
+ 546 028a 8091 0000 		lds r24,PacketSize
+ 547 028e 9091 0000 		lds r25,(PacketSize)+1
+ 548 0292 BC01      		movw r22,r24
+ 549 0294 6F5F      		subi r22,lo8(-(1))
+ 550 0296 7F4F      		sbci r23,hi8(-(1))
+ 551 0298 7093 0000 		sts (PacketSize)+1,r23
+ 552 029c 6093 0000 		sts PacketSize,r22
+ 553               	.LM94:
+ 554 02a0 6C33      		cpi r22,60
+ 555 02a2 7105      		cpc r23,__zero_reg__
+ 556 02a4 00F0      		brlo .L19
+ 557               	.LVL21:
+ 558               	.L17:
+ 559               	.LM95:
+ 560 02a6 85E0      		ldi r24,lo8(5)
+ 561 02a8 0E94 0000 		call RTLwrite
+ 562               	.LVL22:
+ 563               	.LM96:
+ 564 02ac 6091 0000 		lds r22,PacketSize+1
+ 565 02b0 86E0      		ldi r24,lo8(6)
+ 566 02b2 0E94 0000 		call RTLwrite
+ 567               	.LM97:
+ 568 02b6 80E0      		ldi r24,lo8(0)
+ 569 02b8 64E2      		ldi r22,lo8(36)
+ 570 02ba 0E94 0000 		call RTLwrite
+ 571               	.LM98:
+ 572 02be 87E0      		ldi r24,lo8(7)
+ 573 02c0 60E4      		ldi r22,lo8(64)
+ 574 02c2 0E94 0000 		call RTLwrite
+ 575               	/* epilogue start */
+ 576               	.LM99:
+ 577 02c6 DF91      		pop r29
+ 578 02c8 CF91      		pop r28
+ 579 02ca 1F91      		pop r17
+ 580               	.LVL23:
+ 581 02cc 0895      		ret
+ 582               	.LFE11:
+ 584               	.global	RTLreceive_empty_check
+ 586               	RTLreceive_empty_check:
+ 587               	.LFB12:
+ 588               	.LM100:
+ 589 02ce 1F93      		push r17
+ 590               	/* prologue: function */
+ 591               	/* frame size = 0 */
+ 592               	.LM101:
+ 593 02d0 80E0      		ldi r24,lo8(0)
+ 594 02d2 68E6      		ldi r22,lo8(104)
+ 595 02d4 0E94 0000 		call RTLwrite
+ 596               	.LM102:
+ 597 02d8 87E0      		ldi r24,lo8(7)
+ 598 02da 0E94 0000 		call RTLread
+ 599 02de 182F      		mov r17,r24
+ 600               	.LVL24:
+ 601               	.LM103:
+ 602 02e0 80E0      		ldi r24,lo8(0)
+ 603 02e2 62E2      		ldi r22,lo8(34)
+ 604 02e4 0E94 0000 		call RTLwrite
+ 605               	.LM104:
+ 606 02e8 83E0      		ldi r24,lo8(3)
+ 607 02ea 0E94 0000 		call RTLread
+ 608 02ee 90E0      		ldi r25,lo8(0)
+ 609 02f0 1817      		cp r17,r24
+ 610 02f2 01F4      		brne .L24
+ 611 02f4 91E0      		ldi r25,lo8(1)
+ 612               	.L24:
+ 613               	.LM105:
+ 614 02f6 892F      		mov r24,r25
+ 615               	/* epilogue start */
+ 616 02f8 1F91      		pop r17
+ 617               	.LVL25:
+ 618 02fa 0895      		ret
+ 619               	.LFE12:
+ 621               	.global	RTLend_retreive
+ 623               	RTLend_retreive:
+ 624               	.LFB13:
+ 625               	.LM106:
+ 626 02fc 1F93      		push r17
+ 627               	/* prologue: function */
+ 628               	/* frame size = 0 */
+ 629               	.LM107:
+ 630 02fe 80E0      		ldi r24,lo8(0)
+ 631 0300 62E2      		ldi r22,lo8(34)
+ 632 0302 0E94 0000 		call RTLwrite
+ 633 0306 10E0      		ldi r17,lo8(0)
+ 634               	.LVL26:
+ 635               	.L28:
+ 636               	.LM108:
+ 637 0308 87E0      		ldi r24,lo8(7)
+ 638 030a 0E94 0000 		call RTLread
+ 639 030e 86FD      		sbrc r24,6
+ 640 0310 00C0      		rjmp .L27
+ 641               	.LM109:
+ 642 0312 1F5F      		subi r17,lo8(-(1))
+ 643 0314 1531      		cpi r17,lo8(21)
+ 644 0316 01F4      		brne .L28
+ 645               	.L27:
+ 646               	.LM110:
+ 647 0318 87E0      		ldi r24,lo8(7)
+ 648 031a 60E4      		ldi r22,lo8(64)
+ 649 031c 0E94 0000 		call RTLwrite
+ 650               	.LM111:
+ 651 0320 83E0      		ldi r24,lo8(3)
+ 652 0322 6091 0000 		lds r22,nextPacketPtr
+ 653 0326 0E94 0000 		call RTLwrite
+ 654               	/* epilogue start */
+ 655               	.LM112:
+ 656 032a 1F91      		pop r17
+ 657               	.LVL27:
+ 658 032c 0895      		ret
+ 659               	.LFE13:
+ 661               	.global	RTLreceive_packet
+ 663               	RTLreceive_packet:
+ 664               	.LFB14:
+ 665               	.LM113:
+ 666 032e EF92      		push r14
+ 667 0330 FF92      		push r15
+ 668 0332 0F93      		push r16
+ 669 0334 1F93      		push r17
+ 670 0336 CF93      		push r28
+ 671 0338 DF93      		push r29
+ 672               	/* prologue: function */
+ 673               	/* frame size = 0 */
+ 674               	.LM114:
+ 675 033a 0E94 0000 		call RTLreceive_empty_check
+ 676 033e 8823      		tst r24
+ 677 0340 01F0      		breq .L32
+ 678 0342 82E0      		ldi r24,lo8(2)
+ 679 0344 00C0      		rjmp .L33
+ 680               	.L32:
+ 681               	.LM115:
+ 682 0346 80E0      		ldi r24,lo8(0)
+ 683 0348 62E2      		ldi r22,lo8(34)
+ 684 034a 0E94 0000 		call RTLwrite
+ 685               	.LM116:
+ 686 034e 83E0      		ldi r24,lo8(3)
+ 687 0350 0E94 0000 		call RTLread
+ 688 0354 8093 0000 		sts currentPacketPtr,r24
+ 689 0358 1092 0000 		sts currentPacketPtr+1,__zero_reg__
+ 690               	.LM117:
+ 691 035c 382F      		mov r19,r24
+ 692 035e 20E0      		ldi r18,lo8(0)
+ 693 0360 2C5F      		subi r18,lo8(-(4))
+ 694 0362 3F4F      		sbci r19,hi8(-(4))
+ 695 0364 3093 0000 		sts (currentRetreiveAddress)+1,r19
+ 696 0368 2093 0000 		sts currentRetreiveAddress,r18
+ 697               	.LM118:
+ 698 036c 87E0      		ldi r24,lo8(7)
+ 699 036e 61E0      		ldi r22,lo8(1)
+ 700 0370 0E94 0000 		call RTLwrite
+ 701               	.LM119:
+ 702 0374 8091 0000 		lds r24,currentPacketPtr
+ 703 0378 9091 0000 		lds r25,(currentPacketPtr)+1
+ 704 037c 8654      		subi r24,lo8(-(-70))
+ 705 037e 9040      		sbci r25,hi8(-(-70))
+ 706 0380 4A97      		sbiw r24,26
+ 707 0382 00F0      		brlo .L34
+ 708               	.LM120:
+ 709 0384 83E0      		ldi r24,lo8(3)
+ 710 0386 66E4      		ldi r22,lo8(70)
+ 711 0388 0E94 0000 		call RTLwrite
+ 712               	.LM121:
+ 713 038c 80E0      		ldi r24,lo8(0)
+ 714 038e 62E6      		ldi r22,lo8(98)
+ 715 0390 0E94 0000 		call RTLwrite
+ 716               	.LM122:
+ 717 0394 87E0      		ldi r24,lo8(7)
+ 718 0396 66E4      		ldi r22,lo8(70)
+ 719 0398 0E94 0000 		call RTLwrite
+ 720               	.LM123:
+ 721 039c 80E0      		ldi r24,lo8(0)
+ 722 039e 62E2      		ldi r22,lo8(34)
+ 723 03a0 0E94 0000 		call RTLwrite
+ 724 03a4 83E0      		ldi r24,lo8(3)
+ 725 03a6 00C0      		rjmp .L33
+ 726               	.L34:
+ 727               	.LM124:
+ 728 03a8 8AE0      		ldi r24,lo8(10)
+ 729 03aa 62E1      		ldi r22,lo8(18)
+ 730 03ac 0E94 0000 		call RTLwrite
+ 731               	.LM125:
+ 732 03b0 8BE0      		ldi r24,lo8(11)
+ 733 03b2 60E0      		ldi r22,lo8(0)
+ 734 03b4 0E94 0000 		call RTLwrite
+ 735               	.LM126:
+ 736 03b8 88E0      		ldi r24,lo8(8)
+ 737 03ba 60E0      		ldi r22,lo8(0)
+ 738 03bc 0E94 0000 		call RTLwrite
+ 739               	.LM127:
+ 740 03c0 89E0      		ldi r24,lo8(9)
+ 741 03c2 6091 0000 		lds r22,currentPacketPtr
+ 742 03c6 0E94 0000 		call RTLwrite
+ 743               	.LM128:
+ 744 03ca 80E0      		ldi r24,lo8(0)
+ 745 03cc 6AE0      		ldi r22,lo8(10)
+ 746 03ce 0E94 0000 		call RTLwrite
+ 747               	.LM129:
+ 748 03d2 80E1      		ldi r24,lo8(16)
+ 749 03d4 0E94 0000 		call RTLread
+ 750               	.LM130:
+ 751 03d8 80E1      		ldi r24,lo8(16)
+ 752 03da 0E94 0000 		call RTLread
+ 753 03de 90E0      		ldi r25,lo8(0)
+ 754 03e0 9093 0000 		sts (nextPacketPtr)+1,r25
+ 755 03e4 8093 0000 		sts nextPacketPtr,r24
+ 756               	.LM131:
+ 757 03e8 8654      		subi r24,lo8(-(-70))
+ 758 03ea 9040      		sbci r25,hi8(-(-70))
+ 759 03ec 4A97      		sbiw r24,26
+ 760 03ee 00F0      		brlo .L35
+ 761 03f0 84E0      		ldi r24,lo8(4)
+ 762 03f2 00C0      		rjmp .L33
+ 763               	.L35:
+ 764               	.LM132:
+ 765 03f4 80E1      		ldi r24,lo8(16)
+ 766 03f6 0E94 0000 		call RTLread
+ 767 03fa 8093 0000 		sts PacketSize,r24
+ 768 03fe 1092 0000 		sts PacketSize+1,__zero_reg__
+ 769               	.LM133:
+ 770 0402 80E1      		ldi r24,lo8(16)
+ 771 0404 0E94 0000 		call RTLread
+ 772 0408 90E0      		ldi r25,lo8(0)
+ 773 040a 2091 0000 		lds r18,PacketSize
+ 774 040e 3091 0000 		lds r19,(PacketSize)+1
+ 775 0412 822B      		or r24,r18
+ 776 0414 932B      		or r25,r19
+ 777               	.LVL28:
+ 778 0416 9093 0000 		sts (PacketSize)+1,r25
+ 779 041a 8093 0000 		sts PacketSize,r24
+ 780               	.LM134:
+ 781 041e 8530      		cpi r24,5
+ 782 0420 9105      		cpc r25,__zero_reg__
+ 783 0422 00F0      		brlo .L36
+ 784               	.LM135:
+ 785 0424 0497      		sbiw r24,4
+ 786               	.LVL29:
+ 787 0426 9093 0000 		sts (PacketSize)+1,r25
+ 788 042a 8093 0000 		sts PacketSize,r24
+ 789               	.LM136:
+ 790 042e 8B5E      		subi r24,lo8(1515)
+ 791 0430 9540      		sbci r25,hi8(1515)
+ 792 0432 00F4      		brsh .L37
+ 793 0434 00C0      		rjmp .L48
+ 794               	.L36:
+ 795               	.LM137:
+ 796 0436 0E94 0000 		call RTLend_retreive
+ 797               	.LVL30:
+ 798 043a 85E0      		ldi r24,lo8(5)
+ 799 043c 00C0      		rjmp .L33
+ 800               	.LVL31:
+ 801               	.L37:
+ 802               	.LM138:
+ 803 043e 0E94 0000 		call RTLend_retreive
+ 804               	.LVL32:
+ 805 0442 86E0      		ldi r24,lo8(6)
+ 806 0444 00C0      		rjmp .L33
+ 807               	.LVL33:
+ 808               	.L48:
+ 809               	.LM139:
+ 810 0446 80E1      		ldi r24,lo8(16)
+ 811               	.LVL34:
+ 812 0448 0E94 0000 		call RTLread
+ 813 044c 0F2E      		mov __tmp_reg__,r31
+ 814 044e F0E0      		ldi r31,lo8(EthFrame)
+ 815 0450 EF2E      		mov r14,r31
+ 816 0452 F0E0      		ldi r31,hi8(EthFrame)
+ 817 0454 FF2E      		mov r15,r31
+ 818 0456 F02D      		mov r31,__tmp_reg__
+ 819 0458 F701      		movw r30,r14
+ 820 045a 8193      		st Z+,r24
+ 821 045c 8F01      		movw r16,r30
+ 822               	.LM140:
+ 823 045e 80E1      		ldi r24,lo8(16)
+ 824 0460 0E94 0000 		call RTLread
+ 825 0464 F801      		movw r30,r16
+ 826 0466 8083      		st Z,r24
+ 827               	.LM141:
+ 828 0468 80E1      		ldi r24,lo8(16)
+ 829 046a 0E94 0000 		call RTLread
+ 830 046e F701      		movw r30,r14
+ 831 0470 8283      		std Z+2,r24
+ 832               	.LM142:
+ 833 0472 80E1      		ldi r24,lo8(16)
+ 834 0474 0E94 0000 		call RTLread
+ 835 0478 F701      		movw r30,r14
+ 836 047a 8383      		std Z+3,r24
+ 837               	.LM143:
+ 838 047c 80E1      		ldi r24,lo8(16)
+ 839 047e 0E94 0000 		call RTLread
+ 840 0482 F701      		movw r30,r14
+ 841 0484 8483      		std Z+4,r24
+ 842               	.LM144:
+ 843 0486 80E1      		ldi r24,lo8(16)
+ 844 0488 0E94 0000 		call RTLread
+ 845 048c F701      		movw r30,r14
+ 846 048e 8583      		std Z+5,r24
+ 847               	.LM145:
+ 848 0490 80E1      		ldi r24,lo8(16)
+ 849 0492 0E94 0000 		call RTLread
+ 850 0496 F701      		movw r30,r14
+ 851 0498 8683      		std Z+6,r24
+ 852               	.LM146:
+ 853 049a 80E1      		ldi r24,lo8(16)
+ 854 049c 0E94 0000 		call RTLread
+ 855 04a0 F701      		movw r30,r14
+ 856 04a2 8783      		std Z+7,r24
+ 857               	.LM147:
+ 858 04a4 80E1      		ldi r24,lo8(16)
+ 859 04a6 0E94 0000 		call RTLread
+ 860 04aa F701      		movw r30,r14
+ 861 04ac 8087      		std Z+8,r24
+ 862               	.LM148:
+ 863 04ae 80E1      		ldi r24,lo8(16)
+ 864 04b0 0E94 0000 		call RTLread
+ 865 04b4 F701      		movw r30,r14
+ 866 04b6 8187      		std Z+9,r24
+ 867               	.LM149:
+ 868 04b8 80E1      		ldi r24,lo8(16)
+ 869 04ba 0E94 0000 		call RTLread
+ 870 04be F701      		movw r30,r14
+ 871 04c0 8287      		std Z+10,r24
+ 872               	.LM150:
+ 873 04c2 80E1      		ldi r24,lo8(16)
+ 874 04c4 0E94 0000 		call RTLread
+ 875 04c8 F701      		movw r30,r14
+ 876 04ca 8387      		std Z+11,r24
+ 877               	.LM151:
+ 878 04cc 80E1      		ldi r24,lo8(16)
+ 879 04ce 0E94 0000 		call RTLread
+ 880 04d2 F701      		movw r30,r14
+ 881 04d4 8487      		std Z+12,r24
+ 882               	.LM152:
+ 883 04d6 80E1      		ldi r24,lo8(16)
+ 884 04d8 0E94 0000 		call RTLread
+ 885 04dc F701      		movw r30,r14
+ 886 04de 8587      		std Z+13,r24
+ 887               	.LM153:
+ 888 04e0 8091 0000 		lds r24,currentRetreiveAddress
+ 889 04e4 9091 0000 		lds r25,(currentRetreiveAddress)+1
+ 890 04e8 0E96      		adiw r24,14
+ 891 04ea 9093 0000 		sts (currentRetreiveAddress)+1,r25
+ 892 04ee 8093 0000 		sts currentRetreiveAddress,r24
+ 893               	.LM154:
+ 894 04f2 80E0      		ldi r24,lo8(0)
+ 895 04f4 62E2      		ldi r22,lo8(34)
+ 896 04f6 0E94 0000 		call RTLwrite
+ 897 04fa 00E0      		ldi r16,lo8(0)
+ 898               	.LVL35:
+ 899               	.L40:
+ 900               	.LM155:
+ 901 04fc 87E0      		ldi r24,lo8(7)
+ 902 04fe 0E94 0000 		call RTLread
+ 903 0502 86FD      		sbrc r24,6
+ 904 0504 00C0      		rjmp .L39
+ 905               	.LM156:
+ 906 0506 0F5F      		subi r16,lo8(-(1))
+ 907 0508 0531      		cpi r16,lo8(21)
+ 908 050a 01F4      		brne .L40
+ 909               	.L39:
+ 910               	.LM157:
+ 911 050c 87E0      		ldi r24,lo8(7)
+ 912 050e 60E4      		ldi r22,lo8(64)
+ 913 0510 0E94 0000 		call RTLwrite
+ 914               	.LM158:
+ 915 0514 8AE0      		ldi r24,lo8(10)
+ 916 0516 6091 0000 		lds r22,PacketSize
+ 917 051a 0E94 0000 		call RTLwrite
+ 918               	.LM159:
+ 919 051e 6091 0000 		lds r22,PacketSize+1
+ 920 0522 8BE0      		ldi r24,lo8(11)
+ 921 0524 0E94 0000 		call RTLwrite
+ 922               	.LM160:
+ 923 0528 88E0      		ldi r24,lo8(8)
+ 924 052a 6091 0000 		lds r22,currentRetreiveAddress
+ 925 052e 0E94 0000 		call RTLwrite
+ 926               	.LM161:
+ 927 0532 6091 0000 		lds r22,currentRetreiveAddress+1
+ 928 0536 89E0      		ldi r24,lo8(9)
+ 929 0538 0E94 0000 		call RTLwrite
+ 930               	.LM162:
+ 931 053c 80E0      		ldi r24,lo8(0)
+ 932 053e 6AE0      		ldi r22,lo8(10)
+ 933 0540 0E94 0000 		call RTLwrite
+ 934               	.LM163:
+ 935 0544 2091 0000 		lds r18,PacketSize
+ 936 0548 3091 0000 		lds r19,(PacketSize)+1
+ 937 054c 2115      		cp r18,__zero_reg__
+ 938 054e 3105      		cpc r19,__zero_reg__
+ 939 0550 01F0      		breq .L41
+ 940 0552 00E0      		ldi r16,lo8(0)
+ 941               	.LVL36:
+ 942               	.LM164:
+ 943 0554 C0E0      		ldi r28,lo8(EthFrame)
+ 944 0556 D0E0      		ldi r29,hi8(EthFrame)
+ 945               	.L42:
+ 946 0558 80E1      		ldi r24,lo8(16)
+ 947 055a 0E94 0000 		call RTLread
+ 948 055e FE01      		movw r30,r28
+ 949 0560 E00F      		add r30,r16
+ 950 0562 F11D      		adc r31,__zero_reg__
+ 951 0564 8687      		std Z+14,r24
+ 952               	.LM165:
+ 953 0566 0F5F      		subi r16,lo8(-(1))
+ 954 0568 2091 0000 		lds r18,PacketSize
+ 955 056c 3091 0000 		lds r19,(PacketSize)+1
+ 956 0570 802F      		mov r24,r16
+ 957 0572 90E0      		ldi r25,lo8(0)
+ 958               	.LVL37:
+ 959 0574 8217      		cp r24,r18
+ 960 0576 9307      		cpc r25,r19
+ 961 0578 00F0      		brlo .L42
+ 962               	.L41:
+ 963               	.LM166:
+ 964 057a 8091 0000 		lds r24,currentRetreiveAddress
+ 965 057e 9091 0000 		lds r25,(currentRetreiveAddress)+1
+ 966 0582 820F      		add r24,r18
+ 967 0584 931F      		adc r25,r19
+ 968 0586 9093 0000 		sts (currentRetreiveAddress)+1,r25
+ 969 058a 8093 0000 		sts currentRetreiveAddress,r24
+ 970               	.LM167:
+ 971 058e F0E6      		ldi r31,hi8(24576)
+ 972 0590 8030      		cpi r24,lo8(24576)
+ 973 0592 9F07      		cpc r25,r31
+ 974 0594 00F0      		brlo .L43
+ 975               	.LM168:
+ 976 0596 8050      		subi r24,lo8(-(-6656))
+ 977 0598 9A41      		sbci r25,hi8(-(-6656))
+ 978 059a 9093 0000 		sts (currentRetreiveAddress)+1,r25
+ 979 059e 8093 0000 		sts currentRetreiveAddress,r24
+ 980               	.L43:
+ 981               	.LM169:
+ 982 05a2 0E94 0000 		call RTLend_retreive
+ 983               	.LVL38:
+ 984 05a6 81E0      		ldi r24,lo8(1)
+ 985               	.L33:
+ 986               	/* epilogue start */
+ 987               	.LM170:
+ 988 05a8 DF91      		pop r29
+ 989 05aa CF91      		pop r28
+ 990 05ac 1F91      		pop r17
+ 991 05ae 0F91      		pop r16
+ 992               	.LVL39:
+ 993 05b0 FF90      		pop r15
+ 994 05b2 EF90      		pop r14
+ 995 05b4 0895      		ret
+ 996               	.LFE14:
+ 998               	.global	PacketCheck
+ 1000               	PacketCheck:
+ 1001               	.LFB15:
+ 1002               	.LM171:
+ 1003               	/* prologue: function */
+ 1004               	/* frame size = 0 */
+ 1005               	.LM172:
+ 1006 05b6 8091 0000 		lds r24,EthFrame+12
+ 1007 05ba 8830      		cpi r24,lo8(8)
+ 1008 05bc 01F4      		brne .L50
+ 1009 05be 8091 0000 		lds r24,EthFrame+13
+ 1010 05c2 8630      		cpi r24,lo8(6)
+ 1011 05c4 01F4      		brne .L51
+ 1012 05c6 81E0      		ldi r24,lo8(1)
+ 1013 05c8 0895      		ret
+ 1014               	.L51:
+ 1015               	.LM173:
+ 1016 05ca 8823      		tst r24
+ 1017 05cc 01F4      		brne .L50
+ 1018 05ce 82E0      		ldi r24,lo8(2)
+ 1019 05d0 0895      		ret
+ 1020               	.L50:
+ 1021 05d2 80E0      		ldi r24,lo8(0)
+ 1022               	.LM174:
+ 1023 05d4 0895      		ret
+ 1024               	.LFE15:
+ 1026               	.global	MakeEthHeader
+ 1028               	MakeEthHeader:
+ 1029               	.LFB16:
+ 1030               	.LM175:
+ 1031               	.LVL40:
+ 1032 05d6 AF92      		push r10
+ 1033               	.LVL41:
+ 1034 05d8 CF92      		push r12
+ 1035               	.LVL42:
+ 1036 05da EF92      		push r14
+ 1037               	.LVL43:
+ 1038 05dc 0F93      		push r16
+ 1039               	.LVL44:
+ 1040               	/* prologue: function */
+ 1041               	/* frame size = 0 */
+ 1042               	.LM176:
+ 1043 05de A0E0      		ldi r26,lo8(EthFrame)
+ 1044 05e0 B0E0      		ldi r27,hi8(EthFrame)
+ 1045 05e2 FD01      		movw r30,r26
+ 1046 05e4 8193      		st Z+,r24
+ 1047               	.LM177:
+ 1048 05e6 6083      		st Z,r22
+ 1049               	.LM178:
+ 1050 05e8 1296      		adiw r26,2
+ 1051 05ea 4C93      		st X,r20
+ 1052 05ec 1297      		sbiw r26,2
+ 1053               	.LM179:
+ 1054 05ee 1396      		adiw r26,3
+ 1055 05f0 2C93      		st X,r18
+ 1056 05f2 1397      		sbiw r26,3
+ 1057               	.LM180:
+ 1058 05f4 1496      		adiw r26,4
+ 1059 05f6 0C93      		st X,r16
+ 1060 05f8 1497      		sbiw r26,4
+ 1061               	.LVL45:
+ 1062               	.LM181:
+ 1063 05fa 1596      		adiw r26,5
+ 1064 05fc EC92      		st X,r14
+ 1065 05fe 1597      		sbiw r26,5
+ 1066               	.LVL46:
+ 1067               	.LM182:
+ 1068 0600 80E0      		ldi r24,lo8(MyMac)
+ 1069 0602 90E0      		ldi r25,hi8(MyMac)
+ 1070               	.LVL47:
+ 1071 0604 FC01      		movw r30,r24
+ 1072 0606 2191      		ld r18,Z+
+ 1073               	.LVL48:
+ 1074 0608 1696      		adiw r26,6
+ 1075 060a 2C93      		st X,r18
+ 1076 060c 1697      		sbiw r26,6
+ 1077               	.LM183:
+ 1078 060e 2081      		ld r18,Z
+ 1079 0610 1796      		adiw r26,7
+ 1080 0612 2C93      		st X,r18
+ 1081 0614 1797      		sbiw r26,7
+ 1082               	.LM184:
+ 1083 0616 FC01      		movw r30,r24
+ 1084 0618 2281      		ldd r18,Z+2
+ 1085 061a 1896      		adiw r26,8
+ 1086 061c 2C93      		st X,r18
+ 1087 061e 1897      		sbiw r26,8
+ 1088               	.LM185:
+ 1089 0620 2381      		ldd r18,Z+3
+ 1090 0622 1996      		adiw r26,9
+ 1091 0624 2C93      		st X,r18
+ 1092 0626 1997      		sbiw r26,9
+ 1093               	.LM186:
+ 1094 0628 2481      		ldd r18,Z+4
+ 1095 062a 1A96      		adiw r26,10
+ 1096 062c 2C93      		st X,r18
+ 1097 062e 1A97      		sbiw r26,10
+ 1098               	.LM187:
+ 1099 0630 8581      		ldd r24,Z+5
+ 1100 0632 1B96      		adiw r26,11
+ 1101 0634 8C93      		st X,r24
+ 1102 0636 1B97      		sbiw r26,11
+ 1103               	.LM188:
+ 1104 0638 1C96      		adiw r26,12
+ 1105 063a CC92      		st X,r12
+ 1106 063c 1C97      		sbiw r26,12
+ 1107               	.LVL49:
+ 1108               	.LM189:
+ 1109 063e 1D96      		adiw r26,13
+ 1110 0640 AC92      		st X,r10
+ 1111               	.LVL50:
+ 1112               	.LM190:
+ 1113 0642 8EE0      		ldi r24,lo8(14)
+ 1114 0644 90E0      		ldi r25,hi8(14)
+ 1115 0646 9093 0000 		sts (PacketSize)+1,r25
+ 1116 064a 8093 0000 		sts PacketSize,r24
+ 1117               	/* epilogue start */
+ 1118               	.LM191:
+ 1119 064e 0F91      		pop r16
+ 1120               	.LVL51:
+ 1121 0650 EF90      		pop r14
+ 1122               	.LVL52:
+ 1123 0652 CF90      		pop r12
+ 1124               	.LVL53:
+ 1125 0654 AF90      		pop r10
+ 1126               	.LVL54:
+ 1127 0656 0895      		ret
+ 1128               	.LFE16:
+ 1130               		.comm nextPacketPtr,2,1
+ 1131               		.comm currentPacketPtr,2,1
+ 1132               		.comm currentRetreiveAddress,2,1
+ 1237               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 RTL8019as.c
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:18     .text:00000000 RTLsetup_ports
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:67     .text:0000003a RTLhw_reset
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:126    .text:0000005c RTLwrite
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:180    .text:0000009a RTLread
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:255    .text:000000d6 RTLinit
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:460    .text:000001f6 RTLsend_packet
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:586    .text:000002ce RTLreceive_empty_check
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:623    .text:000002fc RTLend_retreive
+                            *COM*:00000002 nextPacketPtr
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:663    .text:0000032e RTLreceive_packet
+                            *COM*:00000002 currentPacketPtr
+                            *COM*:00000002 currentRetreiveAddress
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:1000   .text:000005b6 PacketCheck
+C:\Users\O\AppData\Local\Temp/cc5QYSIX.s:1028   .text:000005d6 MakeEthHeader
+
+UNDEFINED SYMBOLS
+MyMac
+PacketSize
+EthFrame
+__do_clear_bss

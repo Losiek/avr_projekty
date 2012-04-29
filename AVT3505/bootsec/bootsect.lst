@@ -1,0 +1,80 @@
+   1               		.file	"bootsect.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	main
+  20               	main:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8CE3      		ldi r24,lo8(60)
+  27 0002 82BB      		out 50-0x20,r24
+  28               	.LM3:
+  29 0004 8FEF      		ldi r24,lo8(-1)
+  30 0006 87BB      		out 55-0x20,r24
+  31               	.LM4:
+  32 0008 8CE2      		ldi r24,lo8(44)
+  33 000a 81BB      		out 49-0x20,r24
+  34               	.LM5:
+  35 000c 8FEE      		ldi r24,lo8(-17)
+  36 000e 88BB      		out 56-0x20,r24
+  37               	.LM6:
+  38 0010 9598      		cbi 50-0x20,5
+  39               	.LM7:
+  40 0012 80E0      		ldi r24,lo8(0)
+  41 0014 90E0      		ldi r25,hi8(0)
+  42               	/* epilogue: frame size=0 */
+  43 0016 0895      		ret
+  44               	/* epilogue end (size=1) */
+  45               	/* function main size 12 (11) */
+  46               	.LFE2:
+  48               		.section	.bootloader,"ax",@progbits
+  49               	.global	boot
+  51               	boot:
+  52               	.LFB3:
+  53               	.LSM0:
+  54               	/* prologue: frame size=0 */
+  55               	/* prologue end (size=0) */
+  56               	.LSM1:
+  57 0000 8CE3      		ldi r24,lo8(60)
+  58 0002 82BB      		out 50-0x20,r24
+  59               	.LSM2:
+  60 0004 8FEF      		ldi r24,lo8(-1)
+  61 0006 87BB      		out 55-0x20,r24
+  62               	.LSM3:
+  63 0008 8CE2      		ldi r24,lo8(44)
+  64 000a 81BB      		out 49-0x20,r24
+  65               	.LSM4:
+  66 000c 8DEF      		ldi r24,lo8(-3)
+  67 000e 88BB      		out 56-0x20,r24
+  68               	.LSM5:
+  69 0010 9598      		cbi 50-0x20,5
+  70               	.L4:
+  71 0012 00C0      		rjmp .L4
+  72               	/* epilogue: frame size=0 */
+  73               	/* epilogue: noreturn */
+  74               	/* epilogue end (size=0) */
+  75               	/* function boot size 10 (10) */
+  76               	.LFE3:
+ 110               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 bootsect.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:20     .text:00000000 main
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccL9ZFjh.s:51     .bootloader:00000000 boot
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

@@ -1,0 +1,67 @@
+   1               		.file	"rs.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	rs_put
+  20               	rs_put:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LVL0:
+  26               	.L3:
+  27               	.LM2:
+  28 0000 5D9B      		sbis 43-0x20,5
+  29 0002 00C0      		rjmp .L3
+  30               	.LM3:
+  31 0004 8CB9      		out 44-0x20,r24
+  32               	.LM4:
+  33 0006 80E0      		ldi r24,lo8(0)
+  34 0008 90E0      		ldi r25,hi8(0)
+  35               	.LVL1:
+  36               	/* epilogue: frame size=0 */
+  37 000a 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function rs_put size 6 (5) */
+  40               	.LFE2:
+  42               	.global	rs_get
+  44               	rs_get:
+  45               	.LFB3:
+  46               	.LM5:
+  47               	/* prologue: frame size=0 */
+  48               	/* prologue end (size=0) */
+  49               	.L10:
+  50               	.LM6:
+  51 000c 5F9B      		sbis 43-0x20,7
+  52 000e 00C0      		rjmp .L10
+  53               	.LM7:
+  54 0010 8CB1      		in r24,44-0x20
+  55               	.LVL2:
+  56               	.LM8:
+  57 0012 9927      		clr r25
+  58               	.LVL3:
+  59               	/* epilogue: frame size=0 */
+  60 0014 0895      		ret
+  61               	/* epilogue end (size=1) */
+  62               	/* function rs_get size 5 (4) */
+  63               	.LFE3:
+  97               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rs.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:20     .text:00000000 rs_put
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/cc6QJmpv.s:44     .text:0000000c rs_get
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

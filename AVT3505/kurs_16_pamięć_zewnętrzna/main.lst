@@ -1,0 +1,148 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.init3,"ax",@progbits
+  17               	.global	before_main
+  19               	before_main:
+  20               	.LFB3:
+  21               	.LSM0:
+  22               	/* prologue: naked */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 90E8      		ldi r25,lo8(-128)
+  26 0002 95BF      		out 85-32,r25
+  27               	.LSM2:
+  28 0004 88E4      		ldi r24,lo8(72)
+  29 0006 80BF      		out 80-32,r24
+  30               	.LSM3:
+  31 0008 94BB      		out 52-32,r25
+  32               	.LSM4:
+  33 000a AF98      		cbi 53-32,7
+  34               	/* epilogue start */
+  35               	.LSM5:
+  36               	.LFE3:
+  38               		.data
+  39               	.LC0:
+  40 0000 2578 00   		.string	"%x"
+  41               	.LC1:
+  42 0003 0D00      		.string	"\r"
+  43               		.text
+  44               	.global	main
+  46               	main:
+  47               	.LFB4:
+  48               	.LM1:
+  49 0000 0F93      		push r16
+  50 0002 1F93      		push r17
+  51 0004 CF93      		push r28
+  52 0006 DF93      		push r29
+  53               	/* prologue: function */
+  54               	/* frame size = 0 */
+  55               	.LM2:
+  56 0008 10BC      		out 64-32,__zero_reg__
+  57 000a 87E6      		ldi r24,lo8(103)
+  58 000c 89B9      		out 41-32,r24
+  59               	.LM3:
+  60 000e 86E8      		ldi r24,lo8(-122)
+  61 0010 80BD      		out 64-32,r24
+  62               	.LM4:
+  63 0012 88E1      		ldi r24,lo8(24)
+  64 0014 8AB9      		out 42-32,r24
+  65               	.LM5:
+  66 0016 1BB8      		out 43-32,__zero_reg__
+  67               	.LM6:
+  68 0018 80E0      		ldi r24,lo8(gs(rs_put))
+  69 001a 90E0      		ldi r25,hi8(gs(rs_put))
+  70 001c 60E0      		ldi r22,lo8(gs(rs_get))
+  71 001e 70E0      		ldi r23,hi8(gs(rs_get))
+  72 0020 0E94 0000 		call fdevopen
+  73 0024 C0E0      		ldi r28,lo8(ex)
+  74 0026 D0E0      		ldi r29,hi8(ex)
+  75 0028 FE01      		movw r30,r28
+  76               	.LBB2:
+  77               	.LM7:
+  78 002a 8FEF      		ldi r24,lo8(-1)
+  79               	.L4:
+  80 002c 8193      		st Z+,r24
+  81               	.LM8:
+  82 002e 90E0      		ldi r25,hi8(ex+1518)
+  83 0030 E030      		cpi r30,lo8(ex+1518)
+  84 0032 F907      		cpc r31,r25
+  85 0034 01F4      		brne .L4
+  86               	.LBE2:
+  87               	.LBB3:
+  88               	.LM9:
+  89 0036 00E0      		ldi r16,lo8(.LC0)
+  90 0038 10E0      		ldi r17,hi8(.LC0)
+  91               	.L7:
+  92 003a 00D0      		rcall .
+  93 003c 00D0      		rcall .
+  94 003e EDB7      		in r30,__SP_L__
+  95 0040 FEB7      		in r31,__SP_H__
+  96 0042 3196      		adiw r30,1
+  97 0044 ADB7      		in r26,__SP_L__
+  98 0046 BEB7      		in r27,__SP_H__
+  99 0048 1296      		adiw r26,1+1
+ 100 004a 1C93      		st X,r17
+ 101 004c 0E93      		st -X,r16
+ 102 004e 1197      		sbiw r26,1
+ 103 0050 8991      		ld r24,Y+
+ 104 0052 8283      		std Z+2,r24
+ 105 0054 1382      		std Z+3,__zero_reg__
+ 106 0056 0E94 0000 		call printf
+ 107               	.LM10:
+ 108 005a 0F90      		pop __tmp_reg__
+ 109 005c 0F90      		pop __tmp_reg__
+ 110 005e 0F90      		pop __tmp_reg__
+ 111 0060 0F90      		pop __tmp_reg__
+ 112 0062 80E0      		ldi r24,lo8(.LC1)
+ 113 0064 90E0      		ldi r25,hi8(.LC1)
+ 114 0066 0E94 0000 		call puts
+ 115               	.LM11:
+ 116 006a B0E0      		ldi r27,hi8(ex+1518)
+ 117 006c C030      		cpi r28,lo8(ex+1518)
+ 118 006e DB07      		cpc r29,r27
+ 119 0070 01F4      		brne .L7
+ 120               	.LBE3:
+ 121               	.LM12:
+ 122 0072 80E0      		ldi r24,lo8(0)
+ 123 0074 90E0      		ldi r25,hi8(0)
+ 124               	/* epilogue start */
+ 125 0076 DF91      		pop r29
+ 126 0078 CF91      		pop r28
+ 127 007a 1F91      		pop r17
+ 128 007c 0F91      		pop r16
+ 129 007e 0895      		ret
+ 130               	.LFE4:
+ 132               	.global	ex
+ 133               		.section	.exram,"aw",@progbits
+ 136               	ex:
+ 137 0000 0000 0000 		.skip 1518,0
+ 137      0000 0000 
+ 137      0000 0000 
+ 137      0000 0000 
+ 137      0000 0000 
+ 170               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:2      *ABS*:0000003f __SREG__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:3      *ABS*:0000003e __SP_H__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:4      *ABS*:0000003d __SP_L__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:5      *ABS*:00000034 __CCP__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:19     .init3:00000000 before_main
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:46     .text:00000000 main
+C:\Users\O\AppData\Local\Temp/ccCJWB7D.s:136    .exram:00000000 ex
+
+UNDEFINED SYMBOLS
+rs_put
+rs_get
+fdevopen
+printf
+puts
+__do_copy_data

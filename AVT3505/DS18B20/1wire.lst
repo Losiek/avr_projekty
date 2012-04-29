@@ -1,0 +1,239 @@
+   1               		.file	"1wire.c"
+   2               		.arch atmega162
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	wire_get
+  20               	wire_get:
+  21               	.LFB4:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 83B3      		in r24,51-0x20
+  27 0002 9927      		clr r25
+  28               	.LM3:
+  29 0004 8074      		andi r24,lo8(64)
+  30 0006 9070      		andi r25,hi8(64)
+  31               	/* epilogue: frame size=0 */
+  32 0008 0895      		ret
+  33               	/* epilogue end (size=1) */
+  34               	/* function wire_get size 5 (4) */
+  35               	.LFE4:
+  38               	wire_Send:
+  39               	.LFB6:
+  40               	.LM4:
+  41               	/* prologue: frame size=0 */
+  42               	/* prologue end (size=0) */
+  43               	.LVL0:
+  44               	.LM5:
+  45 000a 8823      		tst r24
+  46 000c 01F4      		brne .L4
+  47               	.LBB10:
+  48               	.LBB11:
+  49               	.LM6:
+  50 000e A69A      		sbi 52-0x20,6
+  51               	.LM7:
+  52 0010 AE98      		cbi 53-0x20,6
+  53               	.LBE11:
+  54               	.LBE10:
+  55               	.LM8:
+  56 0012 8CE3      		ldi r24,lo8(60)
+  57 0014 90E0      		ldi r25,hi8(60)
+  58               	.LVL1:
+  59               	/* #APP */
+  60               		delayus8_loop28: 
+  61 0016 0000      		nop 
+  62 0018 8A95      		dec r24 
+  63 001a 01F4      		brne delayus8_loop28 
+  64               		
+  65               	/* #NOAPP */
+  66               	.LBB12:
+  67               	.LBB13:
+  68               	.LM9:
+  69 001c A698      		cbi 52-0x20,6
+  70               	.LBE13:
+  71               	.LBE12:
+  72               	.LM10:
+  73 001e 81E0      		ldi r24,lo8(1)
+  74 0020 90E0      		ldi r25,hi8(1)
+  75               	/* #APP */
+  76               		delayus8_loop37: 
+  77 0022 0000      		nop 
+  78 0024 8A95      		dec r24 
+  79 0026 01F4      		brne delayus8_loop37 
+  80               		
+  81               	/* #NOAPP */
+  82 0028 0895      		ret
+  83               	.LVL2:
+  84               	.L4:
+  85               	.LM11:
+  86 002a 8130      		cpi r24,lo8(1)
+  87 002c 01F4      		brne .L8
+  88               	.LBB14:
+  89               	.LBB15:
+  90               	.LM12:
+  91 002e A69A      		sbi 52-0x20,6
+  92               	.LM13:
+  93 0030 AE98      		cbi 53-0x20,6
+  94               	.LBE15:
+  95               	.LBE14:
+  96               	.LM14:
+  97 0032 81E0      		ldi r24,lo8(1)
+  98 0034 90E0      		ldi r25,hi8(1)
+  99               	.LVL3:
+ 100               	/* #APP */
+ 101               		delayus8_loop59: 
+ 102 0036 0000      		nop 
+ 103 0038 8A95      		dec r24 
+ 104 003a 01F4      		brne delayus8_loop59 
+ 105               		
+ 106               	/* #NOAPP */
+ 107               	.LBB16:
+ 108               	.LBB17:
+ 109               	.LM15:
+ 110 003c A698      		cbi 52-0x20,6
+ 111               	.LBE17:
+ 112               	.LBE16:
+ 113               	.LM16:
+ 114 003e 8DE2      		ldi r24,lo8(45)
+ 115 0040 90E0      		ldi r25,hi8(45)
+ 116               	/* #APP */
+ 117               		delayus8_loop68: 
+ 118 0042 0000      		nop 
+ 119 0044 8A95      		dec r24 
+ 120 0046 01F4      		brne delayus8_loop68 
+ 121               		
+ 122               	.LVL4:
+ 123               	/* #NOAPP */
+ 124               	.L8:
+ 125 0048 0895      		ret
+ 126               	/* epilogue: frame size=0 */
+ 127               	/* epilogue: noreturn */
+ 128               	/* epilogue end (size=0) */
+ 129               	/* function wire_Send size 60 (60) */
+ 130               	.LFE6:
+ 132               	.global	wire_SendBajt
+ 134               	wire_SendBajt:
+ 135               	.LFB8:
+ 136               	.LM17:
+ 137               	/* prologue: frame size=0 */
+ 138 004a 1F93      		push r17
+ 139 004c CF93      		push r28
+ 140 004e DF93      		push r29
+ 141               	/* prologue end (size=3) */
+ 142               	.LVL5:
+ 143 0050 182F      		mov r17,r24
+ 144 0052 C8E0      		ldi r28,lo8(8)
+ 145 0054 D0E0      		ldi r29,hi8(8)
+ 146               	.LVL6:
+ 147               	.LVL7:
+ 148               	.L10:
+ 149               	.LBB18:
+ 150               	.LM18:
+ 151 0056 17FF      		sbrs r17,7
+ 152 0058 00C0      		rjmp .L11
+ 153               	.LM19:
+ 154 005a 81E0      		ldi r24,lo8(1)
+ 155 005c 00C0      		rjmp .L17
+ 156               	.LVL8:
+ 157               	.L11:
+ 158               	.LM20:
+ 159 005e 80E0      		ldi r24,lo8(0)
+ 160               	.L17:
+ 161 0060 0E94 0000 		call wire_Send
+ 162               	.LM21:
+ 163 0064 2197      		sbiw r28,1
+ 164 0066 01F0      		breq .L16
+ 165               	.LM22:
+ 166 0068 110F      		lsl r17
+ 167 006a 00C0      		rjmp .L10
+ 168               	.L16:
+ 169               	.LBE18:
+ 170               	/* epilogue: frame size=0 */
+ 171 006c DF91      		pop r29
+ 172 006e CF91      		pop r28
+ 173 0070 1F91      		pop r17
+ 174 0072 0895      		ret
+ 175               	/* epilogue end (size=4) */
+ 176               	/* function wire_SendBajt size 22 (15) */
+ 177               	.LFE8:
+ 179               	.global	wire_Reset
+ 181               	wire_Reset:
+ 182               	.LFB5:
+ 183               	.LM23:
+ 184               	/* prologue: frame size=0 */
+ 185               	/* prologue end (size=0) */
+ 186               	.LBB23:
+ 187               	.LBB24:
+ 188               	.LM24:
+ 189 0074 A69A      		sbi 52-0x20,6
+ 190               	.LM25:
+ 191 0076 AE98      		cbi 53-0x20,6
+ 192               	.LBE24:
+ 193               	.LBE23:
+ 194               	.LM26:
+ 195 0078 84E0      		ldi r24,lo8(4)
+ 196 007a 0E94 0000 		call delay100us8
+ 197               	.LM27:
+ 198 007e 80E5      		ldi r24,lo8(80)
+ 199 0080 90E0      		ldi r25,hi8(80)
+ 200               	/* #APP */
+ 201               		delayus8_loop132: 
+ 202 0082 0000      		nop 
+ 203 0084 8A95      		dec r24 
+ 204 0086 01F4      		brne delayus8_loop132 
+ 205               		
+ 206               	/* #NOAPP */
+ 207               	.LBB25:
+ 208               	.LBB26:
+ 209               	.LM28:
+ 210 0088 A698      		cbi 52-0x20,6
+ 211               	.LBE26:
+ 212               	.LBE25:
+ 213               	.LM29:
+ 214 008a 84E0      		ldi r24,lo8(4)
+ 215 008c 0E94 0000 		call delay100us8
+ 216               	.LM30:
+ 217 0090 80E5      		ldi r24,lo8(80)
+ 218 0092 90E0      		ldi r25,hi8(80)
+ 219               	/* #APP */
+ 220               		delayus8_loop144: 
+ 221 0094 0000      		nop 
+ 222 0096 8A95      		dec r24 
+ 223 0098 01F4      		brne delayus8_loop144 
+ 224               		
+ 225               	/* #NOAPP */
+ 226               	/* epilogue: frame size=0 */
+ 227 009a 0895      		ret
+ 228               	/* epilogue end (size=1) */
+ 229               	/* function wire_Reset size 34 (33) */
+ 230               	.LFE5:
+ 280               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 1wire.c
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:3      *ABS*:0000003f __SREG__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:4      *ABS*:0000003e __SP_H__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:5      *ABS*:0000003d __SP_L__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:6      *ABS*:00000000 __tmp_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:7      *ABS*:00000001 __zero_reg__
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:20     .text:00000000 wire_get
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:38     .text:0000000a wire_Send
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:60     .text:00000016 delayus8_loop28
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:76     .text:00000022 delayus8_loop37
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:101    .text:00000036 delayus8_loop59
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:117    .text:00000042 delayus8_loop68
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:134    .text:0000004a wire_SendBajt
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:181    .text:00000074 wire_Reset
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:201    .text:00000082 delayus8_loop132
+D:\DOCUME~1\ADMINI~1\USTAWI~1\Temp/ccoqgm3a.s:220    .text:00000094 delayus8_loop144
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+delay100us8
