@@ -1,3 +1,5 @@
+//Prosty program na attiny2313
+
 #include <avr/io.h>
 #include <avr/delay.h>
 
