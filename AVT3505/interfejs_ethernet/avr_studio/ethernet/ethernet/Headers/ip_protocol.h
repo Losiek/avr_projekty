@@ -6,7 +6,7 @@
 
 #define EthData 			14
 
-#define IpV\IHL				EthData+0 	//Razem wersja i IHL(domyœlnie 5) 0x45
+#define IpV\IHL				EthData+0 	//Razem wersja i IHL(domyÅ“lnie 5) 0x45
 
 #define IpTypeofService		EthData+1
 
@@ -16,7 +16,7 @@
 #define IpIdenti0			EthData+4
 #define IpIdenti1			EthData+5
 
-#define IpFlaTotalOff0		EthData+6	//Razem flagi i przesuniêcie fragmentu
+#define IpFlaTotalOff0		EthData+6	//Razem flagi i przesuniÃªcie fragmentu
 #define IpFlaTotalOff1		EthData+7	
 
 #define IpTimeToLive		EthData+8
@@ -26,15 +26,15 @@
 #define	IpChecksum0			EthData+10
 #define	IpChecksum1			EthData+11
 
-#defien IpSourceIp1			EthData+12
-#defien IpSourceIp2			EthData+13
-#defien IpSourceIp3			EthData+14
-#defien IpSourceIp4			EthData+15
+#define IpSourceIp1			EthData+12
+#define IpSourceIp2			EthData+13
+#define IpSourceIp3			EthData+14
+#define IpSourceIp4			EthData+15
 
-#defien IpDestIp1			EthData+16
-#defien IpDestIp2			EthData+17
-#defien IpDestIp3			EthData+18
-#defien IpDestIp4			EthData+19
+#define IpDestIp1			EthData+16
+#define IpDestIp2			EthData+17
+#define IpDestIp3			EthData+18
+#define IpDestIp4			EthData+19
 
 
 #endif // IP_PROTOCOL_H_INCLUDED
